@@ -1,22 +1,24 @@
 #include<iostream>
-#include<utility>
+#include<vector>
+#include<algorithm>
 using namespace std;
 
 int main() {
-	int n;
-	cin >> n;
-	pair <int, int> a[50];
-	for (int i = 0; i < n; i++) {
-		cin >> a[i].first >> a[i].second;
+	vector <int> he;
+	for (int i = 0; i < 9; i++) {
+		int x;
+		cin >> x;
+		he.push_back(x);
 	}
-	int rank = 1;
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			if (a[i].first < a[j].first && a[i].second < a[j].second) {
-				rank++;
+	sort(he.begin(), he.end());
+	while (next_permutation(he.begin(), he.end())) {
+		int sum = 0;
+		for (int i = 0; i < 7; i++) {
+			sum += he[i];
+			if (sum == 100) {
+				for (int j = 0; j < 7; j++) cout << he[j] << endl;
+				return 0;
 			}
 		}
-		cout << rank << ' ';
-		rank = 1;
 	}
 }
