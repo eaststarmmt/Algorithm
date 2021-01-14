@@ -1,4 +1,2 @@
 ﻿  codingTest.cpp
-c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(22): warning C4804: '<': 연산에 'bool' 형식을 사용하는 것은 안전하지 않습니다.
-c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(23): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
-  Project1.vcxproj -> C:\Users\82103\Desktop\git\CodingTest\x64\Debug\Project1.exe
+  Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
