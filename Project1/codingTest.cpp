@@ -10,8 +10,14 @@ void hanoi(int n, int from, int by, int to) {
 	}
 }
 
+int hanoiCount(int n) {
+	if (n == 1) return 1;
+	else return hanoiCount(n - 1) * 2 + 1;
+}
+
 int main() {
 	int n;
 	cin >> n;
+	cout << hanoiCount(n) << "\n";
 	hanoi(n, 1, 2, 3);
 }
