@@ -7,12 +7,23 @@ bool visited[101];
 vector<int> graph[101];
 
 void bfs(int start) {
+	int cnt = 0;
 	queue<int> que;
 	que.push(start);
 	visited[start] = true;
 	while (!que.empty()) {
-		
+		cnt++;
+		int x = que.front();
+		que.pop();
+		for (int i = 0; i < graph[x].size(); i++) {
+			int y = graph[x][i];
+			if (!visited[y]) {
+				visited[y] = true;
+				que.push(y);
+			}
+		}
 	}
+	cout << cnt << "\n";
 }
 
 int main() {
