@@ -17,7 +17,7 @@ void bfs() {
 		for (int i = 0; i < 4; i++) {
 			int nx = x + dx[i];
 			int ny = y + dy[i];
-			if (nx < 0 || ny < 0 || nx >= m || ny >= n || graph[nx][ny] == -1) continue;
+			if (nx < 0 || ny < 0 || nx >= n || ny >= m || graph[nx][ny] == -1) continue;
 			if (graph[nx][ny] == 0) {
 				graph[nx][ny] = graph[x][y] + 1;
 				que.push({ nx, ny });
@@ -32,10 +32,12 @@ int main() {
 		for (int j = 0; j < m; j++) {
 			scanf("%d", &graph[i][j]);
 			if (graph[i][j] == 1) que.push({ i, j });
+				
 		}
 	}
 	
 	bfs();
+	
 	int result = graph[0][0];
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
