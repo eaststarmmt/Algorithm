@@ -25,7 +25,7 @@ int main() {
 	int most_num = -4001;
 	vector<int> most_vec;
 
-	for (int i = 1; i <= 8000; i++) {
+	for (int i = 0; i <= 8000; i++) {
 		if (most < num[i]) {
 			most_vec.clear();
 			most_vec.push_back(i - 4000);
