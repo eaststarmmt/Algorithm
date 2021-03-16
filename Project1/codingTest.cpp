@@ -2,18 +2,8 @@
 #include<stdio.h>
 #include<algorithm>
 using namespace std;
-
-int count;
-
-int binarySearch(vector<int> *arr, int target, int start, int end) {
-	while (start <= end) {
-		int mid = (start + end) / 2;
-		
-	}
-}
-
+int n, m;
 int main() {
-	int n;
 	scanf("%d", &n);
 	vector<int> card;
 	for (int i = 0; i < n; i++) {
@@ -21,7 +11,6 @@ int main() {
 		scanf("%d", &x);
 		card.push_back(x);
 	}
-	int m;
 	scanf("%d", &m);
 	vector<int> search;
 	for (int i = 0; i < m; i++) {
@@ -31,6 +20,6 @@ int main() {
 	}
 	sort(card.begin(), card.end());
 	for (int i = 0; i < m; i++) {
-		
+		printf("%d ", upper_bound(card.begin(), card.end(), search[i]) - lower_bound(card.begin(), card.end(), search[i]));
 	}
 }
