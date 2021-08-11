@@ -7,6 +7,9 @@ int dy[] = { 0, 1, -1, 0 };
 int map[MAX][MAX];
 int dp[MAX][MAX];
 
+int dfs(int i, int j) {
+
+}
 
 int main() {
 	
@@ -29,7 +32,7 @@ int main() {
 				if (nx < 0 | ny < 0 | nx >= M | ny >= N)
 					continue;
 				if (map[i][j] > map[nx][ny]) {
-					dp[nx][ny] += dp[i][j];
+					dp[nx][ny] += dfs(i, j);
 				}
 				// Áö¿ö¾ß µÊ
 				printf("\n");
