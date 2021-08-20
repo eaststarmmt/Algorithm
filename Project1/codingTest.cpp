@@ -1,26 +1,25 @@
 #include<stdio.h>
+#include<algorithm>
 using namespace std;
 
 bool node[5000002];
 
 int main() {
-
+	// vector<int>[10000] 0부모 1오른쪽 2왼쪽
 	int N;
 	scanf("%d", &N);
-	node[1] = true;
+	int lastLeaf = 0;
 	for (int i = 0; i < N; i++) {
 		int a, b, c;
 		scanf("%d %d %d", &a, &b, &c);
-		if(b != -1)
-			node[b] = true;
-		if (c != -1)
-			node[c] = true;
+		node[a] = true;
+		lastLeaf = max(lastLeaf, a);
 	}
 	int cnt = -1;
 	int now = 1;
 	while (true) {
 		cnt++;
-		if (now == N) {
+		if (now == lastLeaf) {
 			printf("%d", cnt);
 			return 0;
 		}
@@ -35,7 +34,6 @@ int main() {
 			else {		// 자식 둘다 없음
 				node[now] = false;	// 무한루프 막기 위해
 				now = now / 2;
-				
 				
 			}
 		}
