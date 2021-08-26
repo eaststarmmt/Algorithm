@@ -4,23 +4,29 @@ using namespace std;
 int main() {
 	int k;
 	scanf("%d", &k);
-	int result1 = 1, result2 = 1;
-	int len[6];
+	int map[6] = { 0 };
+	int max1 = -1, max2 = -1;
 	for (int i = 0; i < 6; i++) {
-		int x, y;
-		scanf("%d %d", &x, &y);
-		len[i] = y;
+		int x;
+		scanf("%d %d", &x, &map[i]);
+		if (i % 2 == 0) max1 = map[i] > max1 ? map[i] : max1;	// 짝수일때 가장 긴 길이
+		else max2 = map[i] > max2 ? map[i] : max2;				// 홀수일때 가장 긴 길이
+	}
+
+	int w, h;
+
+	for (int i = 0; i < 6; i++) {
+
+		if (i % 2 == 0) {								// 짝수일때 max1이었으므로 비교는 max2랑 해야됨
+			if (max2 == map[(i + 5) % 6] + map[(i + 1) % 6])
+				w = map[i];
+		}
+		else {
+			if (max1 == map[(i + 5) % 6] + map[(i + 1) % 6])
+				h = map[i];
+		}
 
 	}
 
-	int sPoint = 0;
-	while (true) {
-		if (len[sPoint] > len[sPoint + 2] && len[sPoint + 1] < len[sPoint + 5]) break;
-		sPoint++;
-	}
-
-	result1 = len[sPoint % 6] * len[(sPoint + 5) % 6];
-	result2 = len[(sPoint + 2) % 6] * len[(sPoint + 3) % 6];
-
-	printf("%d\n", (result1 + result2) * k);
+	printf("%d\n", k * (max1 * max2 - w * h));
 }
