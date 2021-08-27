@@ -24,7 +24,7 @@ int main() {
 		}
 		int cnt = 0;
 		bool flag = false;
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++) {		// 가로줄 확인
 			if (flag) break;
 			cnt = 0;
 			for (int j = 0; j < N; j++) {
@@ -36,11 +36,9 @@ int main() {
 				}
 			}
 			
-		}
+		}		
 
-		
-
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++) {		// 세로줄 확인
 			if (flag) break;
 			cnt = 0;
 			for (int j = 0; j < N; j++) {
@@ -53,7 +51,7 @@ int main() {
 			}
 		}
 
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++) {		// 대각 오른쪽 아래방향 확인
 			if (flag) break;
 			for (int j = 0; j < N; j++) {
 				cnt = 0;
@@ -69,7 +67,7 @@ int main() {
 			}
 		}
 
-		for (int i = N - 1; i >= 0; i--) {
+		for (int i = N - 1; i >= 0; i--) {		// 대각 왼쪽 위 방향 확인
 			if (flag) break;
 			for (int j = 0; j < N; j++) {
 				cnt = 0;
