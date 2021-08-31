@@ -1,2 +1,33 @@
 ﻿  codingTest.cpp
-  Project1.vcxproj -> C:\Users\82103\Desktop\git\CodingTest\x64\Debug\Project1.exe
+d:\git\codingtest\project1\codingtest.cpp(31): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+d:\git\codingtest\project1\codingtest.cpp(38): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(2903): warning C4244: '=': 'const _Ty'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=double
+          ]
+          and
+          [
+              _Ty=int
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(2917): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::_Fill_unchecked1<_FwdIt,_Ty>(_FwdIt,_FwdIt,const _Ty &,std::false_type)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _FwdIt=int *,
+              _Ty=double
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(2925): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::_Fill_unchecked<_Ty*,double>(_FwdIt,_FwdIt,const double &)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Ty=int,
+              _FwdIt=int *
+          ]
+  d:\git\codingtest\project1\codingtest.cpp(44): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::fill<int*,double>(_FwdIt,_FwdIt,const _Ty &)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _FwdIt=int *,
+              _Ty=double
+          ]
+  Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
