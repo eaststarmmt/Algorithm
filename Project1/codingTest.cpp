@@ -20,8 +20,8 @@ bool flag = true;
 //}
 
 int main() {
-	int k;
-	scanf("%d", &k);
+	long long k;
+	scanf("%lld", &k);
 	int index;
 	int flag = 0;
 	for (int i = 0;; i++) {
