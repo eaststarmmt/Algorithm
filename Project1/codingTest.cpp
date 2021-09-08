@@ -21,8 +21,7 @@ int binarySearch(vector<int> input, int start, int end, int target) {
 			start = mid + 1;		// start 값을 늘려서 mid 값을 키움
 			maxDis = mid > maxDis ? mid : maxDis;	// target 만큼 설치 가능하단 뜻이기 때문에 최대최소거리 갱신
 		}
-		else end = mid - 1;			// end 값을 줄여서 mid 값을 줄임
-		
+		else end = mid - 1;			// end 값을 줄여서 mid 값을 줄임		
 	}
 	return maxDis;
 }
@@ -38,5 +37,6 @@ int main() {
 		input.push_back(x);
 	}
 	sort(input.begin(), input.end());
-	printf("%d", binarySearch(input, 1, input[input.size() - 1], C));	// 시작점은 input과 상관없이 무조건 1로 해야 끝점과의 정확한 중간값이 나옴
+	printf("%d", binarySearch(input, 0, input[input.size() - 1], C));	// 시작점은 input과 상관없이 무조건 0으로 해야 끝점과의 정확한 중간값이 나옴
+
 }
