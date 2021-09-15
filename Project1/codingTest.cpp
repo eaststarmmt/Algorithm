@@ -13,49 +13,27 @@ int preCnt;
 
 void bfs() {
 	queue<pair<int, int>> Q;
+
 	Q.push({ 0, 0 });
 	visited[0][0] = true;
 	
 	int time = 0;
-	while (true) {
-		while (!Q.empty()) {
-			int r = Q.front().first;
-			int c = Q.front().second;
+	while (cnt > 0) {
+		int r = Q.front().first;
+		int c = Q.front().second;
+		Q.pop();
 
-			Q.pop();
+		for (int i = 0; i < 4; i++) {
+			int nr = r + dr[i];
+			int nc = c + dc[i];
 
-			if (map[r][c] == 1) {
-				for (int i = 0; i < 4; i++) {
-					int nr = r + dr[i];
-					int nc = c + dc[i];
-					if (nr >= 0 && nr < H && nc >= 0 && nc < W && map[nr][nc] == 0) {
-						cnt--;
-						map[r][c] = 0;
-						break;
-					}
-				}
-			}
-
-			for (int i = 0; i < 4; i++) {
-				int nr = r + dr[i];
-				int nc = c + dc[i];
-
-				if (nr >= 0 && nr < H && nc >= 0 && nc < W && !visited[nr][nc]) {
-					Q.push({ nr, nc });
-					visited[nr][nc] = true;
+			if (nr >= 0 && nc >= 0 && nr < H && nc < W) {
+				if (map[nr][nc] == 0) {
+					
 				}
 			}
 		}
-		if (cnt == 0) {
-			printf("%d\n", preCnt);
-			printf("%d\n", time);
-			return;
-		}
-		preCnt = cnt;
-		time++;
-		for (int i = 0; i < H; i++) {
-			fill(visited[i], visited[i] + W + 1, false);
-		}
+		
 	}
 }
 
