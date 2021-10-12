@@ -28,11 +28,16 @@ int main() {
 
 	vector<int> result;
 	int limit = stk.size();
-	for (int i = 0; i < limit; i++) {
+	/*for (int i = 0; i < limit; i++) {
 		result.push_back(stk.top());
 		stk.pop();
+	}*/
+	while (true) {
+		result.push_back(stk.top());
+		stk.pop();
+		if (stk.empty()) break;
 	}
-	for (int i = limit - 1; i >= 0; i--) {
+	for (int i = result.size() - 1; i >= 0; i--) {
 		cout << result[i];
 	}
 
