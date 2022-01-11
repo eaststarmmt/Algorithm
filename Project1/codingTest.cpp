@@ -35,7 +35,7 @@ int main() {
 				printf("%d %d %d\n", ans[0], ans[1], ans[2]);
 				return 0;
 			}
-		}	
+		}
 	}
 	printf("%d %d %d\n", ans[0], ans[1], ans[2]);
 }
