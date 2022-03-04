@@ -42,6 +42,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(16): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(55): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(56): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
@@ -230,6 +231,11 @@ d:\git\codingtest\project1\codingtest.cpp(81): warning C4996: 'scanf': This func
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
 d:\git\codingtest\project1\codingtest.cpp(84): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 >>>>>>> 1880ff270f502f7652c124802f94fb14e99c3bb6
+=======
+d:\git\codingtest\project1\codingtest.cpp(26): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+d:\git\codingtest\project1\codingtest.cpp(30): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+>>>>>>> 81e2a7d478c06451d7de2e188fe19c8e526d2320
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
 c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(2903): warning C4244: '=': 'const _Ty'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
           with
@@ -253,16 +259,21 @@ c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.1
               _FwdIt=int *
           ]
 <<<<<<< HEAD
+<<<<<<< HEAD
   d:\git\codingtest\project1\codingtest.cpp(44): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::fill<int*,double>(_FwdIt,_FwdIt,const _Ty &)'에 대한 참조를 확인하십시오.
 =======
   d:\git\codingtest\project1\codingtest.cpp(89): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::fill<int*,double>(_FwdIt,_FwdIt,const _Ty &)'에 대한 참조를 확인하십시오.
 >>>>>>> 1880ff270f502f7652c124802f94fb14e99c3bb6
+=======
+  d:\git\codingtest\project1\codingtest.cpp(33): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::fill<int*,double>(_FwdIt,_FwdIt,const _Ty &)'에 대한 참조를 확인하십시오.
+>>>>>>> 81e2a7d478c06451d7de2e188fe19c8e526d2320
           with
           [
               _FwdIt=int *,
               _Ty=double
           ]
   Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> e2acaf30132141ce3855e483b0191812de99ad3a
 =======
@@ -375,3 +386,5 @@ d:\git\codingtest\project1\codingtest.cpp(13): warning C4996: 'scanf': This func
 =======
 ﻿  Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
 >>>>>>> 402eb2cb2ee3c11c8a0f1cece76189653bd70f94
+=======
+>>>>>>> 81e2a7d478c06451d7de2e188fe19c8e526d2320
