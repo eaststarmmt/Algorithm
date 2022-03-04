@@ -9,6 +9,7 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.17763.0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Debug|x64|D:\git\CodingTest\|
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -184,3 +185,6 @@ Debug|x64|D:\git\CodingTest\|
 =======
 Debug|x64|D:\git\CodingTest\|
 >>>>>>> 097fcac0a64e3c0d4021f70a73a372a1036f0a77
+=======
+Debug|x64|D:\git\CodingTest\|
+>>>>>>> 453cb04c321fdf59e92e5508aedd1b437ca9cf30
