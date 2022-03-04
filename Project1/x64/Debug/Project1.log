@@ -77,6 +77,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(16): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(55): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(56): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
@@ -240,10 +241,95 @@ c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(45): warning C4477
   c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(45): note: 서식 문자열에서 '%Id'을(를) 사용하는 것이 좋습니다.
   c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(45): note: 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(46): warning C4244: '인수': '__int64'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+=======
+d:\git\codingtest\project1\codingtest.cpp(35): warning C4244: '인수': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\codingtest\project1\codingtest.cpp(26): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+d:\git\codingtest\project1\codingtest.cpp(30): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+  Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
+=======
+c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(26): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(30): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1108): warning C4244: '인수': '__int64'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
           with
           [
               _Ty=int
           ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1107): note: 컴파일 중인 함수 템플릿 인스턴스화 'bool std::_Debug_lt_pred<_Pr&,__int64&,__int64&>(std::greater<int>&,_Ty1,_Ty2) noexcept(<expr>)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Pr=std::greater<int>,
+              _Ty1=__int64 &,
+              _Ty2=__int64 &
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(4000): note: 컴파일 중인 함수 템플릿 인스턴스화 'std::pair<_RanIt,_RanIt> std::_Partition_by_median_guess_unchecked<_RanIt,_Pr>(_RanIt,_RanIt,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _RanIt=__int64 *,
+              _Pr=std::greater<int>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(4034): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::_Sort_unchecked<__int64*,_Fn>(_RanIt,_RanIt,__int64,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Fn=std::greater<int>,
+              _RanIt=__int64 *,
+              _Pr=std::greater<int>
+          ]
+  c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(33): note: 컴파일 중인 함수 템플릿 인스턴스화 'void std::sort<std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::greater<int>>(const _RanIt,const _RanIt,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Ty=__int64,
+              _RanIt=std::_Vector_iterator<std::_Vector_val<std::_Simple_types<__int64>>>,
+              _Pr=std::greater<int>
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(3907): warning C4244: '인수': '__int64'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(3914): warning C4244: '인수': '__int64'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(3929): warning C4244: '인수': '__int64'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(3949): warning C4244: '인수': '__int64'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1110): warning C4244: '인수': '__int64'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+          with
+          [
+              _Ty=int
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(3906): note: 컴파일 중인 함수 템플릿 인스턴스화 'bool std::_Debug_lt_pred<_Pr&,__int64&,__int64&>(std::greater<int>&,_Ty1,_Ty2) noexcept(false)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _Pr=std::greater<int>,
+              _Ty1=__int64 &,
+              _Ty2=__int64 &
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\algorithm(4000): note: 컴파일 중인 함수 템플릿 인스턴스화 'std::pair<_RanIt,_RanIt> std::_Partition_by_median_guess_unchecked<_RanIt,_Pr>(_RanIt,_RanIt,_Pr)'에 대한 참조를 확인하십시오.
+          with
+          [
+              _RanIt=__int64 *,
+              _Pr=std::greater<int>
+          ]
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\xutility(1113): warning C4244: '인수': '__int64'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+>>>>>>> 47d589bbc5111fe2a0d30c207dab6020daaf9079
+          with
+          [
+              _Ty=int
+          ]
+<<<<<<< HEAD
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(50): warning C4477: 'printf' : 서식 문자열 '%lld'에 '__int64' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
   c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(50): note: 서식 문자열에서 '%d'을(를) 사용하는 것이 좋습니다.
   c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(50): note: 서식 문자열에서 '%I32d'을(를) 사용하는 것이 좋습니다.
@@ -655,3 +741,7 @@ d:\git\codingtest\project1\codingtest.cpp(68): warning C4996: 'scanf': This func
   Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
 >>>>>>> 6b412a5d5582b5505f2ff0bc56c9bcc1d7c12fd9
 >>>>>>> 014a861217a8972135f1743ae135512c14f13be9
+=======
+  Project1.vcxproj -> C:\Users\82103\Desktop\git\CodingTest\x64\Debug\Project1.exe
+>>>>>>> 4160c68f1305e84872a34f0a19487a8d79783c6d
+>>>>>>> 47d589bbc5111fe2a0d30c207dab6020daaf9079
