@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  codingTest.cpp
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -780,3 +781,6 @@ d:\git\codingtest\project1\codingtest.cpp(8): warning C4996: 'scanf': This funct
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
   Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
 >>>>>>> 7fb12fcea109bd57cb64ae6b9fe6340ae7c3b161
+=======
+﻿  Project1.vcxproj -> C:\Users\82103\Desktop\git\CodingTest\x64\Debug\Project1.exe
+>>>>>>> 582f77007ffead706eb99eeaa1736870727f621a
