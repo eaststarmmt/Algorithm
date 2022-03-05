@@ -142,6 +142,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(16): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(55): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(56): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
@@ -423,10 +424,14 @@ c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(10): warning C4996
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
 >>>>>>> 0bacb31dc3879d3e3744950a87983282a04ecf58
 =======
+=======
+c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(9): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+>>>>>>> f8f16a456f959752148c09da78f8bda9380cd20b
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(44): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(47): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+<<<<<<< HEAD
 >>>>>>> 7a9ff6bb7ee3a9a78926bdfa355d49396146fc9d
 =======
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(95): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -519,6 +524,8 @@ c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(55): warning C4996
 =======
   LINK : C:\Users\82103\Desktop\git\CodingTest\x64\Debug\Project1.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
 >>>>>>> 6d35c9c77b95c5ab05c0052628ffc9a72d72a2b2
+=======
+>>>>>>> f8f16a456f959752148c09da78f8bda9380cd20b
   Project1.vcxproj -> C:\Users\82103\Desktop\git\CodingTest\x64\Debug\Project1.exe
 =======
 d:\git\codingtest\project1\codingtest.cpp(25): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
