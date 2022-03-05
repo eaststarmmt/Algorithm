@@ -185,6 +185,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(16): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(55): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
 c:\users\82103\desktop\git\codingtest\project1\codingtest.cpp(56): warning C4554: '<<': 연산자 우선 순위에 오류가 있는지 확인하세요. 괄호를 사용하여 우선 순위를 명확하게 지정하세요.
@@ -1297,10 +1298,13 @@ d:\git\codingtest\project1\codingtest.cpp(15): warning C4996: 'scanf': This func
 =======
 d:\git\codingtest\project1\codingtest.cpp(27): warning C4477: 'printf' : 서식 문자열 '%lld'에 '__int64' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'long'입니다.
   d:\git\codingtest\project1\codingtest.cpp(27): note: 서식 문자열에서 '%ld'을(를) 사용하는 것이 좋습니다.
+=======
+>>>>>>> c71c2fdca4f603d3bbc63c03d0ec02a6559bf052
 d:\git\codingtest\project1\codingtest.cpp(9): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
 d:\git\codingtest\project1\codingtest.cpp(12): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+<<<<<<< HEAD
 d:\git\codingtest\project1\codingtest.cpp(18): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
   Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
@@ -1510,3 +1514,8 @@ d:\git\codingtest\project1\codingtest.cpp(19): warning C4996: 'scanf': This func
 =======
 ﻿  Project1.vcxproj -> C:\Users\82103\Desktop\git\CodingTest\x64\Debug\Project1.exe
 >>>>>>> 0f002875e5f3989c266c054456d16d6b4409bd4d
+=======
+d:\git\codingtest\project1\codingtest.cpp(16): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+  Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
+>>>>>>> c71c2fdca4f603d3bbc63c03d0ec02a6559bf052
