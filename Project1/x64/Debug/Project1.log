@@ -15,6 +15,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  codingTest.cpp
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1251,3 +1252,12 @@ d:\git\codingtest\project1\codingtest.cpp(59): warning C4996: 'scanf': This func
   c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
   Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
 >>>>>>> 6a40af7eeb66eae3465c1e4899a52b8553a1db55
+=======
+﻿  codingTest.cpp
+d:\git\codingtest\project1\codingtest.cpp(22): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\git\codingtest\project1\codingtest.cpp(33): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+d:\git\codingtest\project1\codingtest.cpp(36): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+  Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
+>>>>>>> 07f1306b466d62bd82ff6b500b0eef6eb9371769
