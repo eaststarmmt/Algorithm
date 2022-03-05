@@ -20,6 +20,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  codingTest.cpp
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1482,3 +1483,6 @@ d:\git\codingtest\project1\codingtest.cpp(19): warning C4996: 'scanf': This func
 =======
   Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
 >>>>>>> cd3fe3b2ff17bce868f18741c55646bf4b2135aa
+=======
+﻿  Project1.vcxproj -> C:\Users\82103\Desktop\git\CodingTest\x64\Debug\Project1.exe
+>>>>>>> 0f002875e5f3989c266c054456d16d6b4409bd4d
