@@ -19,6 +19,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  codingTest.cpp
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1440,3 +1441,11 @@ d:\git\codingtest\project1\codingtest.cpp(67): warning C4996: 'scanf': This func
 =======
   Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
 >>>>>>> 33100ef2bfd4e5dd065a2a871bf55f60a3e50a9d
+=======
+﻿  codingTest.cpp
+d:\git\codingtest\project1\codingtest.cpp(47): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+d:\git\codingtest\project1\codingtest.cpp(49): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\stdio.h(1274): note: 'scanf' 선언을 참조하십시오.
+  Project1.vcxproj -> D:\git\CodingTest\x64\Debug\Project1.exe
+>>>>>>> ac34c37c2f3e2ecb189c092c4924101273fff23d
