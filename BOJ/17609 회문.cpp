@@ -26,11 +26,7 @@ int main() {
 					lcut++;
 					
 				}
-				/*else if (input[i] == input[j - 1]) {
-					input.erase(j, 1);
-					j--;
-					cut++;
-				}*/
+
 				else lcut = 2;
 			}
 			if (lcut == 2) break;
