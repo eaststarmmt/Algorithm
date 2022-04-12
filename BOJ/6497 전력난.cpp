@@ -21,7 +21,7 @@ void unionParent(int a, int b) {
 }
 
 int main() {
-	int m, n;	// M ÁıÀÇ ¼ö, N ±æÀÇ ¼ö
+	int m, n;	// M ì§‘ì˜ ìˆ˜, N ê¸¸ì˜ ìˆ˜
 	int sum;
 	int save;
 	while (1) {
@@ -29,7 +29,7 @@ int main() {
 		
 		scanf("%d %d", &m, &n);
 
-		if (m == 0 && n == 0) break;		// Å»Ãâ Á¶°Ç
+		if (m == 0 && n == 0) break;		// íƒˆì¶œ ì¡°ê±´
 
 		sum = 0;
 
@@ -37,7 +37,7 @@ int main() {
 			int x, y, z;
 			scanf("%d %d %d", &x, &y, &z);
 			edge.push_back({ z, {x, y} });
-			sum += z;							// ÀÔ·Â ¹ŞÀ¸¸é¼­ ¹Ì¸® ÇÕÀ» ±¸ÇÔ
+			sum += z;							// ì…ë ¥ ë°›ìœ¼ë©´ì„œ ë¯¸ë¦¬ í•©ì„ êµ¬í•¨
 		}
 		sort(edge.begin(), edge.end());
 
@@ -53,11 +53,11 @@ int main() {
 			int cost = edge[i].first;
 			if (findParent(a) != findParent(b)) {
 				unionParent(a, b);
-				save += cost;			// MST °è»ê
+				save += cost;			// MST ê³„ì‚°
 			}
 		}
 
-		printf("%d\n", sum - save);	// ÃÑ ÇÕ¿¡¼­ MST¸¦ »©ÁÜ
+		printf("%d\n", sum - save);	// ì´ í•©ì—ì„œ MSTë¥¼ ë¹¼ì¤Œ
 		edge.clear();
 	}
 

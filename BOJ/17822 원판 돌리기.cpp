@@ -10,7 +10,7 @@ int sum, res, cnt;
 bool same[50][50];
 
 void remove(bool flag) {
-	if (flag) {				// Áö¿ï°Ô ÀÖ´Â °æ¿ì
+	if (flag) {				// ì§€ìš¸ê²Œ ìžˆëŠ” ê²½ìš°
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				if (same[i][j]) {
@@ -21,7 +21,7 @@ void remove(bool flag) {
 			}
 		}
 	}
-	else {	// Áö¿ï°Ô ¾ø´Â °æ¿ì
+	else {	// ì§€ìš¸ê²Œ ì—†ëŠ” ê²½ìš°
 		double avg = (double)sum / cnt;
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
@@ -40,12 +40,12 @@ void remove(bool flag) {
 	}
 }
 
-void adjacent() {	// ÀÎÁ¢ ¹è¿­ ºñ±³
+void adjacent() {	// ì¸ì ‘ ë°°ì—´ ë¹„êµ
 	memset(same, false, sizeof(same));
 	bool flag = false;
-	for (int i = 0; i < N; i++) {	// ¿·¿¡ ºñ±³
+	for (int i = 0; i < N; i++) {	// ì˜†ì— ë¹„êµ
 		for (int j = 1; j < M; j++) {
-			if (circle[i][j] == 0 && circle[i][j - 1] == 0) continue;		// µÑ´Ù 0ÀÎ °æ¿ì¿¡ °°´Ù°í ÆÇ´ÜµÇ´Â°Å ´ëºñÇØ¼­ 0À» °Ç³Ê ¶Ü
+			if (circle[i][j] == 0 && circle[i][j - 1] == 0) continue;		// ë‘˜ë‹¤ 0ì¸ ê²½ìš°ì— ê°™ë‹¤ê³  íŒë‹¨ë˜ëŠ”ê±° ëŒ€ë¹„í•´ì„œ 0ì„ ê±´ë„ˆ ëœ€
 			if ((circle[i][j] == circle[i][j - 1])) {
 				same[i][j] = true;
 				same[i][j - 1] = true;
@@ -74,11 +74,11 @@ void adjacent() {	// ÀÎÁ¢ ¹è¿­ ºñ±³
 
 }
 
-void turn(int x, int d, int k) {	// xÀÇ ¹è¼ö d ¹æÇâ kÄ­
-	for (int rot = 0; rot < k; rot++) {		// ÀÌµ¿ Ä­ ¸¸Å­ ¹Ýº¹
-		for (int i = x - 1; i < N; i += x) {	// xÀÇ ¹è¼öÀÎ ¿øÆÇµé È¸Àü
+void turn(int x, int d, int k) {	// xì˜ ë°°ìˆ˜ d ë°©í–¥ kì¹¸
+	for (int rot = 0; rot < k; rot++) {		// ì´ë™ ì¹¸ ë§Œí¼ ë°˜ë³µ
+		for (int i = x - 1; i < N; i += x) {	// xì˜ ë°°ìˆ˜ì¸ ì›íŒë“¤ íšŒì „
 			int temp = circle[i][0];
-			if (d == 0) {	// ½Ã°è¹æÇâ
+			if (d == 0) {	// ì‹œê³„ë°©í–¥
 				for (int j = M - 1; j >= 1; j--) {
 					circle[i][(j + 1) % M] = circle[i][j];
 				}

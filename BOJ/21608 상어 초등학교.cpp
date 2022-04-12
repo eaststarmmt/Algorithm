@@ -12,7 +12,7 @@ struct Pos {
 	int r, c, empty_cnt, like_cnt;
 };
 
-bool cmp(Pos a, Pos b) {	// ¹®Á¦ Á¶°Ç¿¡ ¸Â°Ô cmp ±¸Çö
+bool cmp(Pos a, Pos b) {	// ë¬¸ì œ ì¡°ê±´ì— ë§ê²Œ cmp êµ¬í˜„
 	if (a.like_cnt == b.like_cnt) {
 		if (a.empty_cnt == b.empty_cnt) {
 			if (a.r == b.r) {
@@ -45,49 +45,49 @@ int main() {
 		}
 		student_list.push_back({ student, like[0], like[1], like[2], like[3] });
 	}	// end of input
-	// ÀÚ¸®¹èÄ¡
+	// ìë¦¬ë°°ì¹˜
 	for (int i = 0; i < student_list.size(); i++) {
 		int student = student_list[i].student;
 		pos_list.clear();
-		for (int r = 1; r <= N; r++) {	// ÀÚ¸®º°·Î °Ë»ç
+		for (int r = 1; r <= N; r++) {	// ìë¦¬ë³„ë¡œ ê²€ì‚¬
 			for (int c = 1; c <= N; c++) {
-				if (map[r][c] != 0) continue;	// ºó ÀÚ¸® ¾Æ´Ï¸é ¹«½Ã
+				if (map[r][c] != 0) continue;	// ë¹ˆ ìë¦¬ ì•„ë‹ˆë©´ ë¬´ì‹œ
 				int empty_cnt = 0;
 				int like_cnt = 0;
 				for (int n = 0; n < 4; n++) {
 					int nr = r + dr[n];
 					int nc = c + dc[n];
 					if (nr > 0 && nr <= N && nc > 0 && nc <= N) {
-						if (map[nr][nc] == 0) {	// ºóÄ­ÀÌ¸é ºóÄ­ Ä«¿îÆÃ
+						if (map[nr][nc] == 0) {	// ë¹ˆì¹¸ì´ë©´ ë¹ˆì¹¸ ì¹´ìš´íŒ…
 							empty_cnt++;
-							continue;	// ºóÄ­ÀÌ´Ï±î ÁÁ¾ÆÇÏ´Â ÇĞ»ı È®ÀÎÇÒ ÇÊ¿ä ¾øÀ½
+							continue;	// ë¹ˆì¹¸ì´ë‹ˆê¹Œ ì¢‹ì•„í•˜ëŠ” í•™ìƒ í™•ì¸í•  í•„ìš” ì—†ìŒ
 						}
 						for (int k = 0; k < 4; k++) {
-							if (map[nr][nc] == student_list[i].like[k]) {	// ÁÁ¾ÆÇÏ´Â ÇĞ»ıÀÌ¸é Ä«¿îÆÃ
+							if (map[nr][nc] == student_list[i].like[k]) {	// ì¢‹ì•„í•˜ëŠ” í•™ìƒì´ë©´ ì¹´ìš´íŒ…
 								like_cnt++;
 								break;
 							}
 						}
 					}
 				}
-				pos_list.push_back({ r, c, empty_cnt, like_cnt });	// ÀÚ¸® Á¤º¸ ÀúÀå
+				pos_list.push_back({ r, c, empty_cnt, like_cnt });	// ìë¦¬ ì •ë³´ ì €ì¥
 			}
 		}
 		sort(pos_list.begin(), pos_list.end(), cmp);
-		map[pos_list[0].r][pos_list[0].c] = student;	// Á¶°Ç¿¡ °¡Àå ¸Â´Â ÀÚ¸®¿¡ ÇĞ»ı ¹èÄ¡
+		map[pos_list[0].r][pos_list[0].c] = student;	// ì¡°ê±´ì— ê°€ì¥ ë§ëŠ” ìë¦¬ì— í•™ìƒ ë°°ì¹˜
 	}
 	int res = 0;
-	// ¸¸Á·µµ Á¶»ç
+	// ë§Œì¡±ë„ ì¡°ì‚¬
 	for (int r = 1; r <= N; r++) {
 		for (int c = 1; c <= N; c++) {
 			int student = map[r][c];
 			int cnt = 0;
-			for (int n = 0; n < 4; n++) {	// »ç¹æ¿¡ ÁÁ¾ÆÇÏ´Â¾Ö ¸î¸í ÀÖ´ÂÁö Ä«¿îÆÃ
+			for (int n = 0; n < 4; n++) {	// ì‚¬ë°©ì— ì¢‹ì•„í•˜ëŠ”ì•  ëª‡ëª… ìˆëŠ”ì§€ ì¹´ìš´íŒ…
 				int nr = r + dr[n];
 				int nc = c + dc[n];
 				if (nr < 1 || nr > N || nc < 1 || nc > N) continue;
 				for (int l = 0; l < 4; l++) {
-					if (like_list[student][l] == map[nr][nc]) {	// ÁÁ¾ÆÇÏ´Â ÇĞ»ı ÀÖÀ¸¸é Ä«¿îÆÃ
+					if (like_list[student][l] == map[nr][nc]) {	// ì¢‹ì•„í•˜ëŠ” í•™ìƒ ìˆìœ¼ë©´ ì¹´ìš´íŒ…
 						cnt++;
 						break;
 					}

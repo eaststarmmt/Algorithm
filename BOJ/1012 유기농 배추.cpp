@@ -8,7 +8,7 @@ int dr[] = { -1, 1, 0, 0 };
 int dc[] = { 0, 0, -1, 1 };
 int M, N, K;
 void dfs(int r, int c) {
-	if (r < 0 || c < 0 || r >= M || c >= N) return;		// Áöµµ¸¦ ¹ş¾î³­ °æ¿ì ³ª°¡±â
+	if (r < 0 || c < 0 || r >= M || c >= N) return;		// ì§€ë„ë¥¼ ë²—ì–´ë‚œ ê²½ìš° ë‚˜ê°€ê¸°
 	visited[r][c] = true;
 	for (int i = 0; i < 4; i++) {
 		int nr = r + dr[i];
@@ -28,7 +28,7 @@ int main() {
 
 		scanf("%d %d %d", &M, &N, &K);
 
-		for (int i = 0; i < K; i++) {		// ¹èÃß À§Ä¡ ¹Ş±â
+		for (int i = 0; i < K; i++) {		// ë°°ì¶” ìœ„ì¹˜ ë°›ê¸°
 			
 			int x, y;
 			scanf("%d %d", &x, &y);
@@ -39,14 +39,14 @@ int main() {
 
 		for (int i = 0; i < M; i++) {
 			for (int j = 0; j < N; j++) {
-				if (!visited[i][j] && map[i][j] == 1) {		// ½Ã°£À» ¾Æ³¢±â À§ÇØ Àç±Í µé¾î°¡±âÀü¿¡ Á¶°Ç¿¡ ¸Â´ÂÁö È®ÀÎ
+				if (!visited[i][j] && map[i][j] == 1) {		// ì‹œê°„ì„ ì•„ë¼ê¸° ìœ„í•´ ì¬ê·€ ë“¤ì–´ê°€ê¸°ì „ì— ì¡°ê±´ì— ë§ëŠ”ì§€ í™•ì¸
 					dfs(i, j);
-					cnt++;				// Á¶°Ç¿¡ ¸Â¾ÒÀ¸¸é Ä«¿îÆÃ
+					cnt++;				// ì¡°ê±´ì— ë§ì•˜ìœ¼ë©´ ì¹´ìš´íŒ…
 				}
 			}
 		}
 		printf("%d\n", cnt);
-		if (test < T - 1) {					// ¸¶Áö¸·¿¡´Â ÃÊ±âÈ­¸¦ ÇÒ ÇÊ¿ä ¾øÀ½
+		if (test < T - 1) {					// ë§ˆì§€ë§‰ì—ëŠ” ì´ˆê¸°í™”ë¥¼ í•  í•„ìš” ì—†ìŒ
 			memset(visited, false, sizeof(visited));
 			memset(map, 0, sizeof(map));
 

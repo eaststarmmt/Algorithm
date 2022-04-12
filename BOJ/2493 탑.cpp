@@ -13,25 +13,25 @@ int main() {
 		scanf("%d", &x);
 		tower.push_back(x);
 	}
-	stack<pair<int, int>> result;	// °ª, ÀÎµ¦½º ÇüÅÂ
-	result.push({ tower[0], 1 });	// Ã¹¹øÂ° °ªÀº ¹«Á¶°Ç Çª½¬
-	printf("%d ", 0);				// Ã³À½¿¡´Â ¹«Á¶°Ç 0 Ãâ·Â
+	stack<pair<int, int>> result;	// ê°’, ì¸ë±ìŠ¤ í˜•íƒœ
+	result.push({ tower[0], 1 });	// ì²«ë²ˆì§¸ ê°’ì€ ë¬´ì¡°ê±´ í‘¸ì‰¬
+	printf("%d ", 0);				// ì²˜ìŒì—ëŠ” ë¬´ì¡°ê±´ 0 ì¶œë ¥
 	for (int i = 1; i < n; i++) {
-		bool fail = false;			// ¸ğµç ½ºÅÃ¿¡ ÀÖ´Â °ªº¸´Ù Å« °æ¿ì Ã¼Å©ÇÏ±â À§ÇÑ ÇÃ·¡±×
-		while (!result.empty()) {	// ½ºÅÃÀÌ ºô¶§±îÁö °è¼Ó ºñ±³
-			if (tower[i] > result.top().first) {	// topÀÇ °ª º¸´Ù ´õ Å« °æ¿ì
-				result.pop();						// ´ÙÀ½ °ª ºñ±³¸¦ À§ÇØ ½ºÅÃ¿¡¼­ »©³¿
+		bool fail = false;			// ëª¨ë“  ìŠ¤íƒì— ìˆëŠ” ê°’ë³´ë‹¤ í° ê²½ìš° ì²´í¬í•˜ê¸° ìœ„í•œ í”Œë˜ê·¸
+		while (!result.empty()) {	// ìŠ¤íƒì´ ë¹Œë•Œê¹Œì§€ ê³„ì† ë¹„êµ
+			if (tower[i] > result.top().first) {	// topì˜ ê°’ ë³´ë‹¤ ë” í° ê²½ìš°
+				result.pop();						// ë‹¤ìŒ ê°’ ë¹„êµë¥¼ ìœ„í•´ ìŠ¤íƒì—ì„œ ë¹¼ëƒ„
 				fail = true;
 			}
 			else {
-				printf("%d ", result.top().second);		// topÀÌ ´õ Å©¸é top¿¡ ÀÖ´Â Å¸¿ö ÀÎµ¦½º Ãâ·Â
-				result.push({ tower[i], i + 1 });		// ÇöÀç tower°ª ½ºÅÃ¿¡ ¿Ã¸®±â
+				printf("%d ", result.top().second);		// topì´ ë” í¬ë©´ topì— ìˆëŠ” íƒ€ì›Œ ì¸ë±ìŠ¤ ì¶œë ¥
+				result.push({ tower[i], i + 1 });		// í˜„ì¬ towerê°’ ìŠ¤íƒì— ì˜¬ë¦¬ê¸°
 				fail = false;
 				break;
 			}
 		}
-		if (fail) {										// ½ºÅÃ¾È¿¡ ¸ğµç °ªº¸´Ù ´õ Å« °æ¿ì
-			printf("%d ", 0);							// 0 Ãâ·ÂÇÏ°í ½ºÅÃ¿¡ ³Ö±â
+		if (fail) {										// ìŠ¤íƒì•ˆì— ëª¨ë“  ê°’ë³´ë‹¤ ë” í° ê²½ìš°
+			printf("%d ", 0);							// 0 ì¶œë ¥í•˜ê³  ìŠ¤íƒì— ë„£ê¸°
 			result.push({ tower[i], i + 1 });
 		}
 	}

@@ -20,25 +20,25 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		string s;
 		cin >> s;
-		if(s.size() >= 3)	// Å©±â 3º¸´Ù ÀÛÀ¸¸é ±×³É ³ÖÀ¸¸é µÊ
-			sort(s.begin() + 1, s.end() - 1);	// Ã³À½ ´Ü¾î¶û ³¡ ´Ü¾î¸¦ Á¤·ÄÇØ¼­ ÇÏ³ª·Î ÀÎ½ÄÇÏ°Ô ÇÔ
-		dictionary[s]++;	// ÇØ´ç ´Ü¾î Ä«¿îÆÃ. Áß°£¸¸ ¹Ù²ï¾ÖµéÀÌ »çÀü¿¡ ÀÖÀ» ¼öµµ ÀÖ±â ¶§¹®¿¡
+		if(s.size() >= 3)	// í¬ê¸° 3ë³´ë‹¤ ì‘ìœ¼ë©´ ê·¸ëƒ¥ ë„£ìœ¼ë©´ ë¨
+			sort(s.begin() + 1, s.end() - 1);	// ì²˜ìŒ ë‹¨ì–´ë‘ ë ë‹¨ì–´ë¥¼ ì •ë ¬í•´ì„œ í•˜ë‚˜ë¡œ ì¸ì‹í•˜ê²Œ í•¨
+		dictionary[s]++;	// í•´ë‹¹ ë‹¨ì–´ ì¹´ìš´íŒ…. ì¤‘ê°„ë§Œ ë°”ë€ì• ë“¤ì´ ì‚¬ì „ì— ìˆì„ ìˆ˜ë„ ìˆê¸° ë•Œë¬¸ì—
 	}	// end of dictionary
 
 	cin >> M;
-	cin.ignore();	// ³²¾ÆÀÖ´Â \n ³¯·ÁÁà¾ß µÊ
+	cin.ignore();	// ë‚¨ì•„ìˆëŠ” \n ë‚ ë ¤ì¤˜ì•¼ ë¨
 	
 	for (int i = 0; i < M; i++) {
 		string input;
 		ll res = 1;
-		getline(cin, input);	// ÇÑ ÁÙ ´ÜÀ§ ÀÔ·Â
-		stringstream stream(input);	// ¹ŞÀº ¹®ÀÚ¿­ stream¿¡ ³Ö±â
-		vector<string> wordCheck;	// °ø¹é ±âÁØ ºĞ¸®µÈ ´Ü¾î ³ÖÀ» º¤ÅÍ
-		while(getline(stream, input, ' ')) {	// °ø¹é±âÁØÀ¸·Î ÀÚ¸¦ ¼ö ÀÖÀ½
-			if(input.size() >= 3)		// Å©±â 3º¸´Ù ÀÛÀ¸¸é ±×³É ³ÖÀ¸¸é µÊ
+		getline(cin, input);	// í•œ ì¤„ ë‹¨ìœ„ ì…ë ¥
+		stringstream stream(input);	// ë°›ì€ ë¬¸ìì—´ streamì— ë„£ê¸°
+		vector<string> wordCheck;	// ê³µë°± ê¸°ì¤€ ë¶„ë¦¬ëœ ë‹¨ì–´ ë„£ì„ ë²¡í„°
+		while(getline(stream, input, ' ')) {	// ê³µë°±ê¸°ì¤€ìœ¼ë¡œ ìë¥¼ ìˆ˜ ìˆìŒ
+			if(input.size() >= 3)		// í¬ê¸° 3ë³´ë‹¤ ì‘ìœ¼ë©´ ê·¸ëƒ¥ ë„£ìœ¼ë©´ ë¨
 				sort(input.begin() + 1, input.end() - 1);
 			
-			wordCheck.push_back(input);	// Ã¼Å©ÇÒ ´Ü¾î ³Ö¾î³õ±â
+			wordCheck.push_back(input);	// ì²´í¬í•  ë‹¨ì–´ ë„£ì–´ë†“ê¸°
 		}	// end of one line sentence
 		bool flag = false;
 		for (int word = 0; word < wordCheck.size(); word++) {
@@ -47,9 +47,9 @@ int main() {
 				flag = true;
 			}
 		}
-		if (flag)	// »çÀü¿¡ ´Ü¾î°¡ ÇÑ¹øÀÌ¶óµµ ³ª¿ÔÀ» ¶§
+		if (flag)	// ì‚¬ì „ì— ë‹¨ì–´ê°€ í•œë²ˆì´ë¼ë„ ë‚˜ì™”ì„ ë•Œ
 			cout << res << endl;
-		else		// »çÀü¿¡ ´Ü¾î°¡ ¾ø¾úÀ» ¶§
+		else		// ì‚¬ì „ì— ë‹¨ì–´ê°€ ì—†ì—ˆì„ ë•Œ
 			cout << 0 << endl;
 	}	// end of whole sentence
 	

@@ -9,8 +9,8 @@ void recursive(int x, int y, int size) {
 		star[x][y] = '*';
 		return;
 	}
-	size /= 2;				// size¸¦ 2·Î ³ª´²¼­ 1ÀÌ µÉ¶§¸¸ Ãâ·Â. 
-	recursive(x, y, size);	// ¸ğ¾çÀÌ 1À» ¼¼¹æÇâ¾¿ ¼¼¹ø¾¿ Áõ°¡ÇÏ´Â ±ÔÄ¢ÀÓ
+	size /= 2;				// sizeë¥¼ 2ë¡œ ë‚˜ëˆ ì„œ 1ì´ ë ë•Œë§Œ ì¶œë ¥. 
+	recursive(x, y, size);	// ëª¨ì–‘ì´ 1ì„ ì„¸ë°©í–¥ì”© ì„¸ë²ˆì”© ì¦ê°€í•˜ëŠ” ê·œì¹™ì„
 	recursive(x + size, y, size);
 	recursive(x, y + size, size);
 }
@@ -18,19 +18,19 @@ void recursive(int x, int y, int size) {
 int main() {
 	int n;
 	scanf("%d", &n);
-	int size = pow(2, n);		// size¸¦ 2^n À¸·Î ¹ŞÀ½
+	int size = pow(2, n);		// sizeë¥¼ 2^n ìœ¼ë¡œ ë°›ìŒ
 	recursive(0, 0, size);	
 	
 	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < size; j++) {
-			if (j == size - i)	// ¿¹Á¦ º¸¸é °è¼Ó size¿¡¼­ ÇÏ³ª¾¿ ÁÙ¾îµë. °ø¹é ¾øÀÌ Ãâ·ÂÇÏ±â À§ÇÔ
+			if (j == size - i)	// ì˜ˆì œ ë³´ë©´ ê³„ì† sizeì—ì„œ í•˜ë‚˜ì”© ì¤„ì–´ë“¬. ê³µë°± ì—†ì´ ì¶œë ¥í•˜ê¸° ìœ„í•¨
 				break;
-			if (star[i][j] == '*')	// ¹è¿­¿¡¼­ *À» ¸¸³ª¸é Ãâ·Â ¾Æ´Ï¸é °ø¹é
+			if (star[i][j] == '*')	// ë°°ì—´ì—ì„œ *ì„ ë§Œë‚˜ë©´ ì¶œë ¥ ì•„ë‹ˆë©´ ê³µë°±
 				printf("%c", star[i][j]);
 			else 
 				printf(" ");
 		}
-		if(i != size - 1)		// ¸¶Áö¸·¿¡ ÁÙ¹Ù²ŞÀ» ¾ø¾Ö±â À§ÇÔ
+		if(i != size - 1)		// ë§ˆì§€ë§‰ì— ì¤„ë°”ê¿ˆì„ ì—†ì• ê¸° ìœ„í•¨
 			printf("\n");
 	}
 	

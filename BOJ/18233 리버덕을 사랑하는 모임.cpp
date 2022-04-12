@@ -4,25 +4,25 @@
 using namespace std;
 
 int N, P, E;
-bool selected[20];	// Á¶ÇÕ¿¡¼­ ¼±ÅÃµÈ ¾Ö ´©±¸ÀÎÁö È®ÀÎ¿ë
-vector<pair<int, int>> member;	// ÀüÃ¼ ¸â¹ö ÃÖ¼Ò°ª ÃÖ´ë°ª ¹Ş´Â º¤ÅÍ
+bool selected[20];	// ì¡°í•©ì—ì„œ ì„ íƒëœ ì•  ëˆ„êµ¬ì¸ì§€ í™•ì¸ìš©
+vector<pair<int, int>> member;	// ì „ì²´ ë©¤ë²„ ìµœì†Œê°’ ìµœëŒ€ê°’ ë°›ëŠ” ë²¡í„°
 int minTotal, maxTotal;
 
 void check(vector<int> recipient) {
-	int distribute[20] = { 0 };		// ÀÎÇü ¾î¶»°Ô ºĞ¹èµÇ´ÂÁö Ãâ·Â¿ë
-	int surplus = E - minTotal;		// ¼±ÅÃµÈ ÀÎ°£µéÀÇ ¼ö¿ë ÃÖ¼Ò°ªÀ» ÀüÃ¼ ÀÎÇü¿¡¼­ »©ÁÜ
+	int distribute[20] = { 0 };		// ì¸í˜• ì–´ë–»ê²Œ ë¶„ë°°ë˜ëŠ”ì§€ ì¶œë ¥ìš©
+	int surplus = E - minTotal;		// ì„ íƒëœ ì¸ê°„ë“¤ì˜ ìˆ˜ìš© ìµœì†Œê°’ì„ ì „ì²´ ì¸í˜•ì—ì„œ ë¹¼ì¤Œ
 	for (int i = 0; i < recipient.size(); i++) {
-		int x = member[recipient[i]].first;		// °¡µ¶¼ºÀ» À§ÇÑ x, y
-		int y = member[recipient[i]].second;	// x¿¡´Â ÇöÀç »ç¶÷ÀÇ ÃÖ¼Ò°ª, y¿¡´Â ÃÖ´ë°ª
-		distribute[recipient[i]] = x;		// ºĞ¹è´Â ÀÏ´Ü ÃÖ¼Ò°ªÀ» ³Ö¾î³õ°í ½ÃÀÛÇÔ
+		int x = member[recipient[i]].first;		// ê°€ë…ì„±ì„ ìœ„í•œ x, y
+		int y = member[recipient[i]].second;	// xì—ëŠ” í˜„ì¬ ì‚¬ëŒì˜ ìµœì†Œê°’, yì—ëŠ” ìµœëŒ€ê°’
+		distribute[recipient[i]] = x;		// ë¶„ë°°ëŠ” ì¼ë‹¨ ìµœì†Œê°’ì„ ë„£ì–´ë†“ê³  ì‹œì‘í•¨
 
-		if (surplus == 0) continue;		// ³²Àº ÀÎÇüÀÌ 0ÀÌ¸é ÀÌÇÏ ¹«½Ã. break¸¦ ¾ÈÇÏ´Â ÀÌÀ¯´Â µŞ »ç¶÷µéÀÇ ÃÖ¼Ò°ªÀÌ ¾ÆÁ÷ ÀúÀåµÇÁö ¾Ê¾Ò±â ¶§¹®
+		if (surplus == 0) continue;		// ë‚¨ì€ ì¸í˜•ì´ 0ì´ë©´ ì´í•˜ ë¬´ì‹œ. breakë¥¼ ì•ˆí•˜ëŠ” ì´ìœ ëŠ” ë’· ì‚¬ëŒë“¤ì˜ ìµœì†Œê°’ì´ ì•„ì§ ì €ì¥ë˜ì§€ ì•Šì•˜ê¸° ë•Œë¬¸
 
-		if (surplus > y - x) {			// ÃÖ´ë°ª - ÃÖ¼Ò°ª°ú À×¿© ÀÎÇü ºñ±³ÇØ¼­ À×¿©°¡ ´õ ¸¹À¸¸é ±× »ç¶÷ÀÇ ¼ö¿ë·® ¸¸Å­ ¸ô»§
+		if (surplus > y - x) {			// ìµœëŒ€ê°’ - ìµœì†Œê°’ê³¼ ì‰ì—¬ ì¸í˜• ë¹„êµí•´ì„œ ì‰ì—¬ê°€ ë” ë§ìœ¼ë©´ ê·¸ ì‚¬ëŒì˜ ìˆ˜ìš©ëŸ‰ ë§Œí¼ ëª°ë¹µ
 			distribute[recipient[i]] += y - x;
 			surplus -= y - x;
 		}
-		else {					// À×¿©°¡ ´õ ÀûÀ¸¸é ÀüºÎ ´Ù Áà¹ö¸². ÀÌ·¸°Ô ³²Àº°Ô 0ÀÌ µÇ´Â°æ¿ì°¡ ÀÖ¾î¼­ 19¹øÂ° ÁÙ·Î ½Ã°£À» ÁÙÀÓ
+		else {					// ì‰ì—¬ê°€ ë” ì ìœ¼ë©´ ì „ë¶€ ë‹¤ ì¤˜ë²„ë¦¼. ì´ë ‡ê²Œ ë‚¨ì€ê²Œ 0ì´ ë˜ëŠ”ê²½ìš°ê°€ ìˆì–´ì„œ 19ë²ˆì§¸ ì¤„ë¡œ ì‹œê°„ì„ ì¤„ì„
 			distribute[recipient[i]] += surplus;	
 			surplus = 0;
 		}
@@ -31,27 +31,27 @@ void check(vector<int> recipient) {
 		printf("%d ", distribute[i]);
 	}
 	printf("\n");
-	exit(0);					// ´õ ÀÌ»ó ÁøÇàÇÒ ÇÊ¿ä ¾øÀ¸¹Ç·Î ¹Ù·Î Á¾·á
+	exit(0);					// ë” ì´ìƒ ì§„í–‰í•  í•„ìš” ì—†ìœ¼ë¯€ë¡œ ë°”ë¡œ ì¢…ë£Œ
 }
 
 void comb(int start, int cnt) {
-	if (cnt == P) {					// P°³ ¸¸Å­ ¼±ÅÃµÈ °æ¿ì. ±âÀúÁ¶°Ç
-		vector<int> recipient;		// ¹ŞÀ»»ç¶÷ ÀÎµ¦½º ³Ö¾î º¸³¾ º¤ÅÍ
-		minTotal = 0, maxTotal = 0;	// ÃÖ¼Ò°ª ÃÑ ÇÕ°ú ÃÖ´ë°ª ÃÑ ÇÕ ÀúÀåÇÒ º¯¼ö
+	if (cnt == P) {					// Pê°œ ë§Œí¼ ì„ íƒëœ ê²½ìš°. ê¸°ì €ì¡°ê±´
+		vector<int> recipient;		// ë°›ì„ì‚¬ëŒ ì¸ë±ìŠ¤ ë„£ì–´ ë³´ë‚¼ ë²¡í„°
+		minTotal = 0, maxTotal = 0;	// ìµœì†Œê°’ ì´ í•©ê³¼ ìµœëŒ€ê°’ ì´ í•© ì €ì¥í•  ë³€ìˆ˜
 		for (int i = 0; i < N; i++) {
 			if (selected[i]) {
-				minTotal += member[i].first;	// ÃÖ¼Ò°ª µû·Î ´õÇØÁÜ
-				maxTotal += member[i].second;	// ÃÖ´ë°ª µû·Î ´õÇØÁÜ
-				recipient.push_back(i);			// ÀÎµ¦½º ÀúÀå
+				minTotal += member[i].first;	// ìµœì†Œê°’ ë”°ë¡œ ë”í•´ì¤Œ
+				maxTotal += member[i].second;	// ìµœëŒ€ê°’ ë”°ë¡œ ë”í•´ì¤Œ
+				recipient.push_back(i);			// ì¸ë±ìŠ¤ ì €ì¥
 			}
 		}
-		if (minTotal <= E && maxTotal >= E) {	// ÃÖ¼Ò°ª ÃÑ ÇÕ°ú ÃÖ´ë°ª ÃÑ ÇÕ »çÀÌ¿¡ E°¡ µé¾îÀÖÀ¸¸é ¼±ÅÃµÈ »ç¶÷¿¡¼­ E¸¦ ¸¸µé¼ö ÀÖÀ½
-			check(recipient);					// ¼±ÅÃµÈ »ç¶÷ ÀÎµ¦½º¸¦ ´ãÀº º¤ÅÍ¸¦ º¸³¿
+		if (minTotal <= E && maxTotal >= E) {	// ìµœì†Œê°’ ì´ í•©ê³¼ ìµœëŒ€ê°’ ì´ í•© ì‚¬ì´ì— Eê°€ ë“¤ì–´ìˆìœ¼ë©´ ì„ íƒëœ ì‚¬ëŒì—ì„œ Eë¥¼ ë§Œë“¤ìˆ˜ ìˆìŒ
+			check(recipient);					// ì„ íƒëœ ì‚¬ëŒ ì¸ë±ìŠ¤ë¥¼ ë‹´ì€ ë²¡í„°ë¥¼ ë³´ëƒ„
 		}
 		return;
 	}
 
-	for (int i = start; i < N; i++) {		// ±×³É Á¶ÇÕ
+	for (int i = start; i < N; i++) {		// ê·¸ëƒ¥ ì¡°í•©
 		selected[i] = true;
 		comb(i + 1, cnt + 1);
 		selected[i] = false;
@@ -69,5 +69,5 @@ int main() {
 	}
 
 	comb(0, 0);
-	printf("%d\n", -1);		// ¿©±â±îÁö ¿ÔÀ¸¸é °æ¿ìÀÇ ¼ö ¾ø¾ú´Ù´Â ¶æÀÌ¹Ç·Î -1 Ãâ·Â
+	printf("%d\n", -1);		// ì—¬ê¸°ê¹Œì§€ ì™”ìœ¼ë©´ ê²½ìš°ì˜ ìˆ˜ ì—†ì—ˆë‹¤ëŠ” ëœ»ì´ë¯€ë¡œ -1 ì¶œë ¥
 }

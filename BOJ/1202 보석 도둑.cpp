@@ -23,21 +23,21 @@ int main() {
 		bag.push_back(c);
 	}
 
-	sort(jam.begin(), jam.end());	// º¸¼® ¹«°Ô·Î ¿À¸§Â÷¼ø Á¤·Ä
-	sort(bag.begin(), bag.end());	// °¡¹æ ¹«°Ô ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä
+	sort(jam.begin(), jam.end());	// ë³´ì„ ë¬´ê²Œë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+	sort(bag.begin(), bag.end());	// ê°€ë°© ë¬´ê²Œ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 	long long sum = 0;
 	
 	priority_queue<int> value;
-	int idx = 0;	// ¿ì¼±¼øÀ§ Å¥¿¡ ³ÖÀº ÀÎµ¦½º ¾Ë±â À§ÇØ
-	// °¡¹æÀÌ ¿À¸§Â÷¼øÀÌ¹Ç·Î ÀÌÀü¿¡ ³Ö¾ú´ø º¸¼®µéÀº ´Ù½Ã ÇØº¸Áö ¾Ê¾Æµµ µé¾î°¨
-	// ´ÙÀ½ ÀÎµ¦½ººÎÅÍ ÇØ¼­ ÀÌ¹Ì ³ÖÀº º¸¼®ÀÌ ¾ø´Â »óÅÂ·Î ¿ì¼±¼øÀ§ Å¥°¡ ±¸¼ºµÉ ¼ö ÀÖÀ½
-	// ÀÛÀº °¡¹æ¿¡ ³ÖÀ» ¼ö ÀÖ´Â °¡Àå ºñ½Ñ º¸¼®À» ÇÏ³ªÇÏ³ª Ã¤¿ö°¡´Â ¹æ¹ý
+	int idx = 0;	// ìš°ì„ ìˆœìœ„ íì— ë„£ì€ ì¸ë±ìŠ¤ ì•Œê¸° ìœ„í•´
+	// ê°€ë°©ì´ ì˜¤ë¦„ì°¨ìˆœì´ë¯€ë¡œ ì´ì „ì— ë„£ì—ˆë˜ ë³´ì„ë“¤ì€ ë‹¤ì‹œ í•´ë³´ì§€ ì•Šì•„ë„ ë“¤ì–´ê°
+	// ë‹¤ìŒ ì¸ë±ìŠ¤ë¶€í„° í•´ì„œ ì´ë¯¸ ë„£ì€ ë³´ì„ì´ ì—†ëŠ” ìƒíƒœë¡œ ìš°ì„ ìˆœìœ„ íê°€ êµ¬ì„±ë  ìˆ˜ ìžˆìŒ
+	// ìž‘ì€ ê°€ë°©ì— ë„£ì„ ìˆ˜ ìžˆëŠ” ê°€ìž¥ ë¹„ì‹¼ ë³´ì„ì„ í•˜ë‚˜í•˜ë‚˜ ì±„ì›Œê°€ëŠ” ë°©ë²•
 	for (int i = 0; i < k; i++) {
-		while (idx < n && jam[idx].first <= bag[i]) {	// forÇÏ°í if ¾²¸é ½Ã°£ÃÊ°ú ³ª¼­ while·Î ÇÑ¹ø¿¡ ÇØ¾ßµÊ
+		while (idx < n && jam[idx].first <= bag[i]) {	// forí•˜ê³  if ì“°ë©´ ì‹œê°„ì´ˆê³¼ ë‚˜ì„œ whileë¡œ í•œë²ˆì— í•´ì•¼ë¨
 			value.push(jam[idx].second);
 			idx++;
 		}
-		if (!value.empty()) {		// value ºñ¾îÀÖÀ¸¸é double free ¹ß»ýÇÏ¹Ç·Î
+		if (!value.empty()) {		// value ë¹„ì–´ìžˆìœ¼ë©´ double free ë°œìƒí•˜ë¯€ë¡œ
 			sum += value.top();
 			value.pop();
 		}

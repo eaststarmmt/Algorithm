@@ -7,29 +7,29 @@ int dice[6];
 int N, M;
 int x, y, k;
 vector<int> com;
-int dr[] = { 0, 0, 0, -1, 1 };	// ÁÖ»çÀ§ À§Ä¡ »ó ÇÏ ÁÂ ¿ì ¾Õ µÚ
+int dr[] = { 0, 0, 0, -1, 1 };	// ì£¼ì‚¬ìœ„ ìœ„ì¹˜ ìƒ í•˜ ì¢Œ ìš° ì• ë’¤
 int dc[] = { 0, 1, -1, 0, 0 };
 
-void changeNumber(int r, int c) {	// ¼ıÀÚ ¹Ù²Ù´Â ºÎºĞ
+void changeNumber(int r, int c) {	// ìˆ«ì ë°”ê¾¸ëŠ” ë¶€ë¶„
 	x = r;
 	y = c;
-	if (map[x][y] == 0) {		// ¹Ù´ÚÀÌ 0ÀÎ °æ¿ì
-		map[r][c] = dice[1];	// Áöµµ¿¡ ÁÖ»çÀ§ ¹Ù´Ú ¼ıÀÚ º¹»ç
+	if (map[x][y] == 0) {		// ë°”ë‹¥ì´ 0ì¸ ê²½ìš°
+		map[r][c] = dice[1];	// ì§€ë„ì— ì£¼ì‚¬ìœ„ ë°”ë‹¥ ìˆ«ì ë³µì‚¬
 	}
-	else {						// ¹Ù´Ú 1ÀÎ °æ¿ì
-		dice[1] = map[r][c];	// ¹Ù´Ú¿¡ ¸Ê ¼ıÀÚ º¹»ç ÈÄ ¹Ù´ÚÀº 0À¸·Î
+	else {						// ë°”ë‹¥ 1ì¸ ê²½ìš°
+		dice[1] = map[r][c];	// ë°”ë‹¥ì— ë§µ ìˆ«ì ë³µì‚¬ í›„ ë°”ë‹¥ì€ 0ìœ¼ë¡œ
 		map[r][c] = 0;
 	}
 }
 
 bool rollDice(int commend) {
-	// ¹üÀ§ ¹ÛÀÎÁö ¸ÕÀú È®ÀÎ
+	// ë²”ìœ„ ë°–ì¸ì§€ ë¨¼ì € í™•ì¸
 	int nr = x + dr[commend];
 	int nc = y + dc[commend];
 
-	if (nr < 0 || nc < 0 || nr >= N || nc >= M) return false;	// ¹üÀ§ ¹ş¾î³ª¸é ¹Ù·Î false·Î ²÷¾î¹ö¸²
-	int temp = dice[0];		// ÀÏ°ü¼º ÀÖ°Ô À§¸¦ ÀÓ½Ãº¯¼ö¿¡ ÀúÀåÇØ¼­ µ¹¸²
-	switch (commend) {		// ÀÌ°Å switch ¸»°í if°¡ Áßº¹ ´ú ÀÖ¾úÀ»°Å°°Àºµ¥...
+	if (nr < 0 || nc < 0 || nr >= N || nc >= M) return false;	// ë²”ìœ„ ë²—ì–´ë‚˜ë©´ ë°”ë¡œ falseë¡œ ëŠì–´ë²„ë¦¼
+	int temp = dice[0];		// ì¼ê´€ì„± ìˆê²Œ ìœ„ë¥¼ ì„ì‹œë³€ìˆ˜ì— ì €ì¥í•´ì„œ ëŒë¦¼
+	switch (commend) {		// ì´ê±° switch ë§ê³  ifê°€ ì¤‘ë³µ ëœ ìˆì—ˆì„ê±°ê°™ì€ë°...
 	case 1:	
 		dice[0] = dice[2];
 		dice[2] = dice[1];
@@ -56,7 +56,7 @@ bool rollDice(int commend) {
 		break;
 	}
 
-	changeNumber(nr, nc);		// ¹Ù´Ú°ú °ü°è È®ÀÎÇØ¼­ ¼ıÀÚ ¹Ù²ãÁà¾ßµÊ
+	changeNumber(nr, nc);		// ë°”ë‹¥ê³¼ ê´€ê³„ í™•ì¸í•´ì„œ ìˆ«ì ë°”ê¿”ì¤˜ì•¼ë¨
 
 	return true;
 }
@@ -78,7 +78,7 @@ int main() {
 	}
 
 	for (int i = 0; i < k; i++) {
-		if(rollDice(com[i]))		// true¸é °ª Ãâ·Â
+		if(rollDice(com[i]))		// trueë©´ ê°’ ì¶œë ¥
 			printf("%d\n", dice[0]);
 	}
 }

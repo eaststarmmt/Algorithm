@@ -7,12 +7,12 @@ using namespace std;
 vector<int> party[51];
 int parent[51];
 	
-int findParent(int x) {					// ºÎ¸ğ°¡ ´©±ºÁö Ã£´Â ÇÔ¼ö
+int findParent(int x) {					// ë¶€ëª¨ê°€ ëˆ„êµ°ì§€ ì°¾ëŠ” í•¨ìˆ˜
 	if (x == parent[x]) return x;
 	return findParent(parent[x]);
 }
 
-void unionParent(int a, int b) {		// µÎ°³¸¦ ÇÕÃÄÁÖ´Â ÇÔ¼ö
+void unionParent(int a, int b) {		// ë‘ê°œë¥¼ í•©ì³ì£¼ëŠ” í•¨ìˆ˜
 	a = findParent(a);
 	b = findParent(b);
 	if (a > b) parent[a] = b;
@@ -24,35 +24,35 @@ int main() {
 	scanf("%d %d", &n, &m);
 	int know;
 	int sum = m;
-	vector<int> knowing;			// Áø½ÇÀ» ¾Æ´Â »ç¶÷µé
+	vector<int> knowing;			// ì§„ì‹¤ì„ ì•„ëŠ” ì‚¬ëŒë“¤
 	scanf("%d", &know);	
-	for (int i = 0; i < know; i++) {	// Áø½Ç ¾Æ´Â »ç¶÷µé ÀúÀå
+	for (int i = 0; i < know; i++) {	// ì§„ì‹¤ ì•„ëŠ” ì‚¬ëŒë“¤ ì €ì¥
 		int x;
 		scanf("%d", &x);
 		knowing.push_back(x);
 	}
 
-	for (int i = 0; i < m; i++) {		// ÆÄÆ¼ °³¼ö¸¸Å­ ·çÇÁ
+	for (int i = 0; i < m; i++) {		// íŒŒí‹° ê°œìˆ˜ë§Œí¼ ë£¨í”„
 		int num;
 		scanf("%d", &num);
-		for (int j = 0; j < num; j++) {	// ÆÄÆ¼ ¿À´Â »ç¶÷µé ÀÎ¿ø ÀúÀå
+		for (int j = 0; j < num; j++) {	// íŒŒí‹° ì˜¤ëŠ” ì‚¬ëŒë“¤ ì¸ì› ì €ì¥
 			int x;
 			scanf("%d", &x);
 			party[i].push_back(x);
 		}
 	}
 
-	for (int i = 1; i <= n; i++) {	// ºÎ¸ğ ÀÚ±â ÀÚ½ÅÀ¸·Î ÃÊ±âÈ­
+	for (int i = 1; i <= n; i++) {	// ë¶€ëª¨ ìê¸° ìì‹ ìœ¼ë¡œ ì´ˆê¸°í™”
 		parent[i] = i;
 	}
 
-	for (int i = 0; i < m; i++) {		// °°Àº ÆÄÆ¼¿¡ ÀÖ´Â »ç¶÷µé À¯´Ï¿Â
+	for (int i = 0; i < m; i++) {		// ê°™ì€ íŒŒí‹°ì— ìˆëŠ” ì‚¬ëŒë“¤ ìœ ë‹ˆì˜¨
 		for (int j = 1; j < party[i].size(); j++) {
 			unionParent(party[i][0], party[i][j]);
 		}
 	}
-	for (int i = 0; i < m; i++) {		// ÆÄÆ¼¸¸Å­ ·çÇÁ
-		for (int j = 0; j < knowing.size(); j++) {	// ÆÄÆ¼¿ø ÇÑ¸í°ú Áø½ÇÀ» ¾Æ´Â »ç¶÷µé Áß ÇÑ¸íÀÌ¶óµµ ºÎ¸ğ °°À¸¸é °ÅÁş¸» ºÒ°¡´É
+	for (int i = 0; i < m; i++) {		// íŒŒí‹°ë§Œí¼ ë£¨í”„
+		for (int j = 0; j < knowing.size(); j++) {	// íŒŒí‹°ì› í•œëª…ê³¼ ì§„ì‹¤ì„ ì•„ëŠ” ì‚¬ëŒë“¤ ì¤‘ í•œëª…ì´ë¼ë„ ë¶€ëª¨ ê°™ìœ¼ë©´ ê±°ì§“ë§ ë¶ˆê°€ëŠ¥
 			if (findParent(knowing[j]) == findParent(party[i][0])) {
 				sum--;
 				break;

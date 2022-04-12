@@ -6,7 +6,7 @@ int main() {
 	int n;
 	scanf("%d", &n);
 	vector<int> swit;
-	swit.push_back(0);				// 1¹øÂ° ÀÎµ¦½ººÎÅÍ È®ÀÎÇÏ±â À§ÇØ ÀÇ¹Ì¾ø´Â 0À» ³Ö¾îÁÜ
+	swit.push_back(0);				// 1ë²ˆì§¸ ì¸ë±ìŠ¤ë¶€í„° í™•ì¸í•˜ê¸° ìœ„í•´ ì˜ë¯¸ì—†ëŠ” 0ì„ ë„£ì–´ì¤Œ
 	for (int i = 0; i < n; i++) {
 		int x;
 		scanf("%d", &x);
@@ -19,25 +19,25 @@ int main() {
 		scanf("%d %d", &gender, &num);
 		switch (gender) {
 		case 1:
-			for (int i = num; i <= n; i++) {		// ³²ÀÚÀÎ °æ¿ì num ÀÌÇÏ ÀÎµ¦½º´Â º¼ ÇÊ¿ä ¾øÀ½
-				if (i % num == 0) {					// numÀÇ ¹è¼öÀÏ °æ¿ì ¼ıÀÚ ¹Ù²Ş
+			for (int i = num; i <= n; i++) {		// ë‚¨ìì¸ ê²½ìš° num ì´í•˜ ì¸ë±ìŠ¤ëŠ” ë³¼ í•„ìš” ì—†ìŒ
+				if (i % num == 0) {					// numì˜ ë°°ìˆ˜ì¼ ê²½ìš° ìˆ«ì ë°”ê¿ˆ
 					swit[i] = (swit[i] + 1) % 2;
 				}
 			}
 			break;
 		case 2:
-			swit[num] = (swit[num] + 1) % 2;		// ¿©ÀÚÀÇ °æ¿ì num¹øÂ° ÀÎµ¦½º´Â ¹«Á¶°Ç ´©¸§
+			swit[num] = (swit[num] + 1) % 2;		// ì—¬ìì˜ ê²½ìš° numë²ˆì§¸ ì¸ë±ìŠ¤ëŠ” ë¬´ì¡°ê±´ ëˆ„ë¦„
 			for (int i = 1; i <= n; i++) {
-				int left = num - i;					// ÁÂ¿ì ÀÎµ¦½º ´ëÄª ÀÌµ¿
+				int left = num - i;					// ì¢Œìš° ì¸ë±ìŠ¤ ëŒ€ì¹­ ì´ë™
 				int right = num + i;
-				if ((left < 1) || (right > n))		// ÀÎµ¦½º ¹üÀ§¸¦ ³Ñ¾î°¡¸é break;
+				if ((left < 1) || (right > n))		// ì¸ë±ìŠ¤ ë²”ìœ„ë¥¼ ë„˜ì–´ê°€ë©´ break;
 					break;
 
-				if (swit[left] == swit[right]) {	// ÁÂ¿ì °°À¸¸é °ª ¹Ù²ãÁÜ
+				if (swit[left] == swit[right]) {	// ì¢Œìš° ê°™ìœ¼ë©´ ê°’ ë°”ê¿”ì¤Œ
 					swit[left] = (swit[left] + 1) % 2;
 					swit[right] = swit[left];
 				}
-				else								// ´ëÄªÀÌ ¾Æ´Ï¸é Á¾·á
+				else								// ëŒ€ì¹­ì´ ì•„ë‹ˆë©´ ì¢…ë£Œ
 					break;
 				
 			}

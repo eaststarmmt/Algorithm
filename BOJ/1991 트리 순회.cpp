@@ -6,23 +6,23 @@ using namespace std;
 int N;
 char input[26][2];
 
-void preOrder(char x) {		// Çö À§Ä¡¸¦ root·Î º½
+void preOrder(char x) {		// í˜„ ìœ„ì¹˜ë¥¼ rootë¡œ ë´„
 	if (x == '.') return;
-	cout << x;						// root°¡ Ã³À½ÀÌ¹Ç·Î ÀÚ±â ÀÚ½Å Ãâ·Â ÈÄ ¿ŞÂÊ ÀÚ½Ä ¿À¸¥ÂÊ ÀÚ½Ä Àç±Í·Î µé¾î°¡±â
+	cout << x;						// rootê°€ ì²˜ìŒì´ë¯€ë¡œ ìê¸° ìì‹  ì¶œë ¥ í›„ ì™¼ìª½ ìì‹ ì˜¤ë¥¸ìª½ ìì‹ ì¬ê·€ë¡œ ë“¤ì–´ê°€ê¸°
 	preOrder(input[x - 'A'][0]);
 	preOrder(input[x - 'A'][1]);
 }
 
 void inOrder(char x) {
 	if (x == '.') return;
-	inOrder(input[x - 'A'][0]);	// root¸¦ Áß°£¿¡ º¸±â ¶§¹®¿¡ ¿ŞÂÊ ÀÚ½ÄÀ¸·Î µé¾î°¡ ÈÄ ÀÚ½ÅÀ» Ãâ·ÂÇÏ°í ¿À¸¥ÂÊ ÀÚ½Ä Àç±Í·Î µé¾î°¡±â
+	inOrder(input[x - 'A'][0]);	// rootë¥¼ ì¤‘ê°„ì— ë³´ê¸° ë•Œë¬¸ì— ì™¼ìª½ ìì‹ìœ¼ë¡œ ë“¤ì–´ê°€ í›„ ìì‹ ì„ ì¶œë ¥í•˜ê³  ì˜¤ë¥¸ìª½ ìì‹ ì¬ê·€ë¡œ ë“¤ì–´ê°€ê¸°
 	cout << x;
 	inOrder(input[x - 'A'][1]);
 }
 
 void postOrder(char x) {
 	if (x == '.') return;
-	postOrder(input[x - 'A'][0]);	// root¸¦ ¸¶Áö¸·¿¡ º¸±â ¶§¹®¿¡ ¿ŞÂÊ ÀÚ½Ä ¿À¸¥ÂÊ ÀÚ½ÄÀ» Àç±Í·Î ´Ù º¸°í ÀÚ½Å Ãâ·Â
+	postOrder(input[x - 'A'][0]);	// rootë¥¼ ë§ˆì§€ë§‰ì— ë³´ê¸° ë•Œë¬¸ì— ì™¼ìª½ ìì‹ ì˜¤ë¥¸ìª½ ìì‹ì„ ì¬ê·€ë¡œ ë‹¤ ë³´ê³  ìì‹  ì¶œë ¥
 	postOrder(input[x - 'A'][1]);
 	cout << x;
 }
@@ -37,7 +37,7 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		char root, left, right;
 		cin >> root >> left >> right;
-		input[root - 'A'][0] = left;	// input[root][¿ŞÂÊ or ¿À¸¥ÂÊ ÀÚ½Ä] ÇüÅÂ·Î ÀúÀå
+		input[root - 'A'][0] = left;	// input[root][ì™¼ìª½ or ì˜¤ë¥¸ìª½ ìì‹] í˜•íƒœë¡œ ì €ì¥
 		input[root - 'A'][1] = right;
 	}
 	preOrder(65);

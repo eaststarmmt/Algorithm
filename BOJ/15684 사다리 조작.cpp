@@ -4,13 +4,13 @@
 #define MAXC 35
 using namespace std;
 
-int N, M, H;	// N: ¼¼·Î °³¼ö M: °¡·Î °³¼ö H °¡·Î¼±À» ³õÀ»¼ö ÀÖ´Â Çà °³¼ö
+int N, M, H;	// N: ì„¸ë¡œ ê°œìˆ˜ M: ê°€ë¡œ ê°œìˆ˜ H ê°€ë¡œì„ ì„ ë†“ì„ìˆ˜ ìˆëŠ” í–‰ ê°œìˆ˜
 int map[MAXR][MAXC];
 
 bool answer() {
 	for (int c = 1; c <= N; c++) {
 		int curC = c;
-		for (int r = 1; r <= H; r++) {	// ³»·Á°¡¸é¼­ È®ÀÎ
+		for (int r = 1; r <= H; r++) {	// ë‚´ë ¤ê°€ë©´ì„œ í™•ì¸
 			int left = map[r][curC - 1];
 			if (left == 1) {
 				curC--;
@@ -28,7 +28,7 @@ bool answer() {
 }
 
 void addLine(int end, int index, int r, int c) {
-	if (end == index) {		// ¼± °³¼ö ´Ù ±×¾úÀ» °æ¿ì
+	if (end == index) {		// ì„  ê°œìˆ˜ ë‹¤ ê·¸ì—ˆì„ ê²½ìš°
 		if (answer()) {
 			printf("%d", index);
 			exit(0);
@@ -36,18 +36,18 @@ void addLine(int end, int index, int r, int c) {
 		return;
 	}
 	
-	int x = c + 1 > H ? r + 1 : r;	// ¸¶Áö¸· ¼¼·ÎÁÙÀÎ °æ¿ì ´ÙÀ½ÁÙ·Î ³»·Á°¨
-	int y = c + 1 > H ? 0 : c + 1;	// ¸¶Áö¸· ¼¼·ÎÁÙÀÎ °æ¿ì ´ÙÀ½ÁÙ·Î ³»·Á°¡¼­ Ã³À½À¸·Î °¨
+	int x = c + 1 > H ? r + 1 : r;	// ë§ˆì§€ë§‰ ì„¸ë¡œì¤„ì¸ ê²½ìš° ë‹¤ìŒì¤„ë¡œ ë‚´ë ¤ê°
+	int y = c + 1 > H ? 0 : c + 1;	// ë§ˆì§€ë§‰ ì„¸ë¡œì¤„ì¸ ê²½ìš° ë‹¤ìŒì¤„ë¡œ ë‚´ë ¤ê°€ì„œ ì²˜ìŒìœ¼ë¡œ ê°
 
 	for (; x <= H; x++) {
 		for (; y <= N; y++) {
 			if (map[x][y - 1] == 1 || map[x][y] == 1 || map[x][y + 1] == 1)
 				continue;
 			map[x][y] = 1;
-			addLine(end, index + 1, x, y);	// À­ÁÙ¿¡¼­ ÁÙ ÇÏ³ª ´õ ±×¾î¼­ 1 ´Ã·Á¼­ º¸³¿
+			addLine(end, index + 1, x, y);	// ìœ—ì¤„ì—ì„œ ì¤„ í•˜ë‚˜ ë” ê·¸ì–´ì„œ 1 ëŠ˜ë ¤ì„œ ë³´ëƒ„
 			map[x][y] = 0;
 		}
-		y = 1; // ÃÊ±âÈ­°¡ ¹Û¿¡¼­ µÇ¾ú±â ¶§¹®¿¡ Ã³À½À¸·Î µ¹¾Æ°¡¾ß µÊ
+		y = 1; // ì´ˆê¸°í™”ê°€ ë°–ì—ì„œ ë˜ì—ˆê¸° ë•Œë¬¸ì— ì²˜ìŒìœ¼ë¡œ ëŒì•„ê°€ì•¼ ë¨
 	}
 
 }
@@ -68,7 +68,7 @@ int main() {
 	for (int line = 1; line <= 3; line++) {
 		for (int i = 1; i <= H; i++) {
 			for (int j = 1; j <= N; j++) {
-				if (map[i][j - 1] == 1 || map[i][j] == 1 || map[i][j + 1])	// ÀÌ¾îÁö´Â °æ¿ì ÀÖÀ¸¸é ¾ÈµÊ
+				if (map[i][j - 1] == 1 || map[i][j] == 1 || map[i][j + 1])	// ì´ì–´ì§€ëŠ” ê²½ìš° ìˆìœ¼ë©´ ì•ˆë¨
 					continue;
 				map[i][j] = 1;
 				addLine(line, 1, i, j);

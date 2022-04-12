@@ -10,7 +10,7 @@ int main() {
 		scanf("%d %d", &x, &y);
 		for (int j = 0; j < 10; j++) {
 			for (int k = 0; k < 10; k++) {
-				if (paper[j + y][k + x] != 1) {		// Ä­ ÀÔ·Â ¹ÞÀ¸¸é¼­ Ä«¿îÆÃ
+				if (paper[j + y][k + x] != 1) {		// ì¹¸ ìž…ë ¥ ë°›ìœ¼ë©´ì„œ ì¹´ìš´íŒ…
 					paper[j + y][k + x] = 1;
 					cnt++;
 				}

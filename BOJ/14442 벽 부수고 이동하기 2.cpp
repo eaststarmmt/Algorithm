@@ -10,13 +10,13 @@ struct Info {
 int dr[] = { -1, 1, 0, 0 };
 int dc[] = { 0, 0, -1, 1 };
 int map[1000][1000];
-bool visited[1000][1000][10];	// º® 10°³±îÁö ºÎ¼ú¼ö ÀÖÀ½
+bool visited[1000][1000][10];	// ë²½ 10ê°œê¹Œì§€ ë¶€ìˆ ìˆ˜ ìˆìŒ
 int R, C, K;
 int res;
 
 void bfs() {
 	queue<Info> Q;
-	Q.push({ 0, 0, 1, 0 });	// ½ÃÀÛÇÏ´Â Ä­°ú ³¡³ª´Â Ä­ Æ÷ÇÔÇØ¾ß µÇ¹Ç·Î
+	Q.push({ 0, 0, 1, 0 });	// ì‹œì‘í•˜ëŠ” ì¹¸ê³¼ ëë‚˜ëŠ” ì¹¸ í¬í•¨í•´ì•¼ ë˜ë¯€ë¡œ
 	visited[0][0][0] = true;
 
 	while (!Q.empty()) {
@@ -26,7 +26,7 @@ void bfs() {
 		int wall = Q.front().wall;
 		Q.pop();
 
-		if (r == R - 1 && c == C - 1) {	// ³¡ÁöÁ¡ µµ´Ş ½Ã
+		if (r == R - 1 && c == C - 1) {	// ëì§€ì  ë„ë‹¬ ì‹œ
 			printf("%d\n", time);
 			return;
 		}
@@ -36,11 +36,11 @@ void bfs() {
 			int nc = c + dc[i];
 			if (nr >= 0 && nr < R && nc >= 0 && nc < C) {	
 				if (!visited[nr][nc][wall]) {	
-					if (map[nr][nc] == 0) {		// º® ºÎ¼ú ÇÊ¿ä ¾ø´Â °æ¿ì
+					if (map[nr][nc] == 0) {		// ë²½ ë¶€ìˆ  í•„ìš” ì—†ëŠ” ê²½ìš°
 						visited[nr][nc][wall] = true;
 						Q.push({ nr, nc, time + 1, wall });
 					}
-					else if (map[nr][nc] == 1 && wall < K && !visited[nr][nc][wall + 1]) {	// º® ºÎ½¤¾ß µÇ´Â °æ¿ì. ¾ÆÁ÷ K¹ø ¾ÈºÎ½¥À»¶§
+					else if (map[nr][nc] == 1 && wall < K && !visited[nr][nc][wall + 1]) {	// ë²½ ë¶€ìˆ´ì•¼ ë˜ëŠ” ê²½ìš°. ì•„ì§ Kë²ˆ ì•ˆë¶€ì‰ˆì„ë•Œ
 						visited[nr][nc][wall + 1] = true;
 						Q.push({ nr, nc, time + 1, wall + 1 });
 					}
@@ -48,7 +48,7 @@ void bfs() {
 			}
 		}
 	}
-	printf("-1\n");		// Å¥°¡ ºñ¾î¹ö¸®¸é µµ´ŞÇÒ ¼ö ¾ø´Ù´Â ¶æ
+	printf("-1\n");		// íê°€ ë¹„ì–´ë²„ë¦¬ë©´ ë„ë‹¬í•  ìˆ˜ ì—†ë‹¤ëŠ” ëœ»
 }
 
 int main() {

@@ -5,8 +5,8 @@ using namespace std;
 int main() {
 	int n;
 	scanf("%d", &n);
-	priority_queue<int> positive;	// ³»¸²Â÷¼øÀ¸·Î °ª ¹Ş±â
-	priority_queue<int, vector<int>, greater<int>> negative;	// ¿À¸§Â÷¼øÀ¸·Î °ª ¹Ş±â
+	priority_queue<int> positive;	// ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ê°’ ë°›ê¸°
+	priority_queue<int, vector<int>, greater<int>> negative;	// ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ê°’ ë°›ê¸°
 	int result = 0;
 	bool zero = false;
 	for (int i = 0; i < n; i++) {
@@ -14,8 +14,8 @@ int main() {
 		scanf("%d", &x);
 		if (x < 0) negative.push(x);
 		else if (x > 1) positive.push(x);
-		else if (x == 1) result++;	// 1Àº °öÇÏ´Âµ¥ ¾²¸é ¼ÕÇØÀÌ¹Ç·Î ±×³É ´õÇØ¹ö¸²
-		else if (x == 0) zero = true;	// ¸¸¾à À½¼ö°¡ ÇÑ °³¸¸ ³²¾ÒÀ» ¶§ °öÇØ¼­ ¾ø¾Ö±â À§ÇÔ
+		else if (x == 1) result++;	// 1ì€ ê³±í•˜ëŠ”ë° ì“°ë©´ ì†í•´ì´ë¯€ë¡œ ê·¸ëƒ¥ ë”í•´ë²„ë¦¼
+		else if (x == 0) zero = true;	// ë§Œì•½ ìŒìˆ˜ê°€ í•œ ê°œë§Œ ë‚¨ì•˜ì„ ë•Œ ê³±í•´ì„œ ì—†ì• ê¸° ìœ„í•¨
 	}
 	if (positive.size() % 2 == 1) positive.push(1);
 	if (negative.size() % 2 == 1) {
@@ -23,7 +23,7 @@ int main() {
 		else negative.push(1);
 	}
 	while (!positive.empty()) {	
-		int a, b;		// µÎ °³¾¿ °öÇØ¼­ ´õÇÏ±â
+		int a, b;		// ë‘ ê°œì”© ê³±í•´ì„œ ë”í•˜ê¸°
 		a = positive.top();
 		positive.pop();
 		b = positive.top();

@@ -21,16 +21,16 @@ bool bfs() {
 	while(!hed.empty()) {
 
 		cnt++;
-		int travel = water.size();				// Å¥¿¡ enqueue ÀÛ¾÷À» °è¼Ó ÇÒ °ÍÀÌ±â ‹š¹®¿¡ »çÀÌÁî¸¦ ¹Ì¸® Àâ¾Æ¾ß µÊ
+		int travel = water.size();				// íì— enqueue ì‘ì—…ì„ ê³„ì† í•  ê²ƒì´ê¸° ë–„ë¬¸ì— ì‚¬ì´ì¦ˆë¥¼ ë¯¸ë¦¬ ì¡ì•„ì•¼ ë¨
 
-		for(int i = 0; i < travel; i++) {		// water Å¥¿¡ µé¾îÀÖ´Â ¸¸Å­ ¹° »ç¹æÀ¸·Î È®Àå
+		for(int i = 0; i < travel; i++) {		// water íì— ë“¤ì–´ìˆëŠ” ë§Œí¼ ë¬¼ ì‚¬ë°©ìœ¼ë¡œ í™•ì¥
 			int r = water.front().first;
 			int c = water.front().second;
 			water.pop();
 			for (int j = 0; j < 4; j++) {
 				int nr = r + dr[j];
 				int nc = c + dc[j];
-				if (map[nr][nc] == '.' || map[nr][nc] == 'S') {			// ºó °÷ÀÌ¸é ¹° È®ÀåÇÏ°í Çª½¬
+				if (map[nr][nc] == '.' || map[nr][nc] == 'S') {			// ë¹ˆ ê³³ì´ë©´ ë¬¼ í™•ì¥í•˜ê³  í‘¸ì‰¬
 					water.push({ nr, nc });
 					map[nr][nc] = '*';
 				}
@@ -40,7 +40,7 @@ bool bfs() {
 
 		travel = hed.size();
 
-		for (int i = 0; i < travel; i++) {	// hed¿¡ µé¾îÀÖ´ø »çÀÌÁî ¸¸Å­ °í½¿µµÄ¡°¡ °¥ °÷ 4¹æ È®Àå
+		for (int i = 0; i < travel; i++) {	// hedì— ë“¤ì–´ìˆë˜ ì‚¬ì´ì¦ˆ ë§Œí¼ ê³ ìŠ´ë„ì¹˜ê°€ ê°ˆ ê³³ 4ë°© í™•ì¥
 			int r = hed.front().first;
 			int c = hed.front().second;
 			hed.pop();
@@ -48,18 +48,18 @@ bool bfs() {
 				int nr = r + dr[j];
 				int nc = c + dc[j];
 
-				if (map[nr][nc] == '.') {		// ºó °÷ÀÌ¸é È®Àå
+				if (map[nr][nc] == '.') {		// ë¹ˆ ê³³ì´ë©´ í™•ì¥
 					hed.push({ nr, nc });
 					map[nr][nc] = 'S';
 				}
-				else if (map[nr][nc] == 'D') {	// µµÂøÁö¿¡ µµÂøÇÏ¸é true ¹İÈ¯
+				else if (map[nr][nc] == 'D') {	// ë„ì°©ì§€ì— ë„ì°©í•˜ë©´ true ë°˜í™˜
 					return true;
 				}
 			}
 		}
 	
 	}
-	return false;	// ÀÌµ¿°æ·Î°¡ ´Ù »ç¶óÁú¶§±îÁö µµÂøÁö ¸ø°¡¸é false
+	return false;	// ì´ë™ê²½ë¡œê°€ ë‹¤ ì‚¬ë¼ì§ˆë•Œê¹Œì§€ ë„ì°©ì§€ ëª»ê°€ë©´ false
 
 }
 
@@ -80,7 +80,7 @@ int main() {
 				beaverC = j;
 				break;
 			case '*':
-				water.push({ i, j });	// ¹°ÀÌ ¿©·¯±ºµ¥ ÀÖÀ» ¼öµµ ÀÖ¾î¼­ ¹Ì¸® ¹Ş¾Æ ³õÀ½
+				water.push({ i, j });	// ë¬¼ì´ ì—¬ëŸ¬êµ°ë° ìˆì„ ìˆ˜ë„ ìˆì–´ì„œ ë¯¸ë¦¬ ë°›ì•„ ë†“ìŒ
 				break;
 			case 'S':
 				hedR = i;

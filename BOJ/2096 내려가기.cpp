@@ -23,11 +23,11 @@ int main() {
 	minDp[0][2] = map[1][2];
 	for (int i = 2; i <= N; i++) {
 		for (int j = 0; j < 3; j++) {
-			if (j == 0) {							// j°¡ 0ÀÏ¶§´Â 0°ú 1¿¡¼­¸¸ ¿Ã ¼ö ÀÖÀ½
+			if (j == 0) {							// jê°€ 0ì¼ë•ŒëŠ” 0ê³¼ 1ì—ì„œë§Œ ì˜¬ ìˆ˜ ìžˆìŒ
 				maxDp[1][j] = map[i][j] + max(maxDp[0][0], maxDp[0][1]);
 				minDp[1][j] = map[i][j] + min(minDp[0][0], minDp[0][1]);
 			}
-			else if (j == 2) {						// j°¡ 2ÀÏ¶§´Â 1°ú 2¿¡¼­¸¸ ¿Ã ¼ö ÀÖÀ½
+			else if (j == 2) {						// jê°€ 2ì¼ë•ŒëŠ” 1ê³¼ 2ì—ì„œë§Œ ì˜¬ ìˆ˜ ìžˆìŒ
 				maxDp[1][j] = map[i][j] + max(maxDp[0][1], maxDp[0][2]);
 				minDp[1][j] = map[i][j] + min(minDp[0][1], minDp[0][2]);
 			}
@@ -36,7 +36,7 @@ int main() {
 				minDp[1][j] = map[i][j] + min(min(minDp[0][0], minDp[0][1]), minDp[0][2]);
 			}
 		}
-		for (int j = 0; j < 3; j++) {			// 0ÇàÀÇ °ªÀ¸·Î ¿Ã·ÁÁÖ°í ´ÙÀ½ °è»êÀ» ÁØºñ
+		for (int j = 0; j < 3; j++) {			// 0í–‰ì˜ ê°’ìœ¼ë¡œ ì˜¬ë ¤ì£¼ê³  ë‹¤ìŒ ê³„ì‚°ì„ ì¤€ë¹„
 			maxDp[0][j] = maxDp[1][j];
 			minDp[0][j] = minDp[1][j];
 		}

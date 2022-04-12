@@ -20,24 +20,24 @@ int main() {
 	int resHeight = 9999;
 	int resTime = 1e9;
 	for (int height = 0; height <= 256; height++) {
-		int inven = B;							// B¸¦ °Çµå¸®¸é ´ÙÀ½ ¿¬»ê¿¡¼­ ¹®Á¦°¡ »ı±æ ¼ö ÀÖÀ½
+		int inven = B;							// Bë¥¼ ê±´ë“œë¦¬ë©´ ë‹¤ìŒ ì—°ì‚°ì—ì„œ ë¬¸ì œê°€ ìƒê¸¸ ìˆ˜ ìˆìŒ
 		int time = 0;
 		for (int i = 0; i < R; i++) {
 			for (int j = 0; j < C; j++) {
-				// ¿øÇÏ´Â ³ôÀÌº¸´Ù ³ôÀº °æ¿ì
-				if (map[i][j] > height) {			// ³ôÀÌ Â÷ÀÌ * 2 ¸¸Å­ÀÇ ½Ã°£ÀÌ ¼Ò¿äµÊ
+				// ì›í•˜ëŠ” ë†’ì´ë³´ë‹¤ ë†’ì€ ê²½ìš°
+				if (map[i][j] > height) {			// ë†’ì´ ì°¨ì´ * 2 ë§Œí¼ì˜ ì‹œê°„ì´ ì†Œìš”ë¨
 					int x = map[i][j] - height;
 					inven += x;
 					time += 2 * x;
 				}
-				else if(map[i][j] < height){		// ³ôÀÌ Â÷ÀÌ ¸¸Å­ÀÇ ½Ã°£ÀÌ ¼Ò¿äµÊ
+				else if(map[i][j] < height){		// ë†’ì´ ì°¨ì´ ë§Œí¼ì˜ ì‹œê°„ì´ ì†Œìš”ë¨
 					int x =  height - map[i][j];
 					inven -= height - map[i][j];
 					time += x;
 				}
 			}
 		}
-		if (inven >= 0 && resTime >= time) {	// ³ôÀÌ´Â Á¡Á¡ ³ô¾ÆÁö´Ï±î ½Ã°£ °°À»¶§ Æ÷ÇÔÇÏ¸é °°Àº ½Ã°£ÀÏ¶§ ³ôÀº ³ôÀÌ°¡ ³ª¿È
+		if (inven >= 0 && resTime >= time) {	// ë†’ì´ëŠ” ì ì  ë†’ì•„ì§€ë‹ˆê¹Œ ì‹œê°„ ê°™ì„ë•Œ í¬í•¨í•˜ë©´ ê°™ì€ ì‹œê°„ì¼ë•Œ ë†’ì€ ë†’ì´ê°€ ë‚˜ì˜´
 			resTime = time;
 			resHeight = height;
 		}

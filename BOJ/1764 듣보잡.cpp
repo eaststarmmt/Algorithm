@@ -13,13 +13,13 @@ int main() {
 	int N, M;
 	cin >> N >> M;
 	unordered_map<string, int> notListen;
-	for (int i = 0; i < N; i++) {	// µèµµ ¸øÇÑÀÎ°£ ¸Ê¿¡ ÀúÀå
+	for (int i = 0; i < N; i++) {	// ë“£ë„ ëª»í•œì¸ê°„ ë§µì— ì €ìž¥
 		string s;
 		cin >> s;
 		notListen[s] = 1;
 	}
 	vector<string> result;
-	for (int j = 0; j < M; j++) {	//º¸µµ ¸øÇÑÀÎ°£ÀÌ ¸Ê¿¡ ¾øÀ¸¸é º¤ÅÍ¿¡ ³Ö±â
+	for (int j = 0; j < M; j++) {	//ë³´ë„ ëª»í•œì¸ê°„ì´ ë§µì— ì—†ìœ¼ë©´ ë²¡í„°ì— ë„£ê¸°
 		string s;
 		cin >> s;
 		if (notListen.find(s) != notListen.end())

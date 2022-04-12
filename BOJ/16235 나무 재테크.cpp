@@ -16,14 +16,14 @@ struct Pos {
 int dr[] = { -1, 1, 0, 0, -1, -1, 1, 1 };
 int dc[] = { 0, 0, -1, 1, -1, 1, -1, 1 };
 int N, M, K;
-int A[11][11];		// °Ü¿ï¸¶´Ù ÁÙ ¾çºĞ
-int map[11][11];	// µ¹¸®°í ÀÖ´Â ¸Ê
-deque<Tree> tree;	// ³ª¹«µé Á¤º¸
+int A[11][11];		// ê²¨ìš¸ë§ˆë‹¤ ì¤„ ì–‘ë¶„
+int map[11][11];	// ëŒë¦¬ê³  ìˆëŠ” ë§µ
+deque<Tree> tree;	// ë‚˜ë¬´ë“¤ ì •ë³´
 vector<Tree> die;
 vector<Pos> reproduce;
 
 void print() {
-	printf("¾çºĞ »óÈ²\n");
+	printf("ì–‘ë¶„ ìƒí™©\n");
 	for (int r = 1; r <= N; r++) {
 		for (int c = 1; c <= N; c++) {
 			printf("%d\t", map[r][c]);
@@ -33,7 +33,7 @@ void print() {
 }
 
 void printTree() {
-	printf("³ª¹« »óÈ²\n");
+	printf("ë‚˜ë¬´ ìƒí™©\n");
 	printf("r\tc\tage\n");
 	for (int i = 0; i < tree.size(); i++) {
 		printf("%d\t%d\t%d\n", tree[i].r, tree[i].c, tree[i].age);
@@ -41,7 +41,7 @@ void printTree() {
 }
 
 //void printTree2() {
-//	printf("³ª¹« »óÈ²\n");
+//	printf("ë‚˜ë¬´ ìƒí™©\n");
 //	printf("r\tc\tage\n");
 //	for (int i = 0; i < tree2.size(); i++) {
 //		printf("%d\t%d\t%d\n", tree2[i].r, tree2[i].c, tree2[i].age);
@@ -56,28 +56,28 @@ void dieTree() {
 	sort(tree.begin(), tree.end(), cmp);
 	int size = tree.size();
 	for (int i = size - 1; i >= 0; i--) {
-		if (tree[i].age == INF) tree.pop_back();	// Á×Àº ³ª¹« ÀÖÀ¸¸é »©±â
-		else return;	// INF ¾Æ´Ï¸é ±× µÚ´Â ´Ù »ì¾ÆÀÖÀ½
+		if (tree[i].age == INF) tree.pop_back();	// ì£½ì€ ë‚˜ë¬´ ìˆìœ¼ë©´ ë¹¼ê¸°
+		else return;	// INF ì•„ë‹ˆë©´ ê·¸ ë’¤ëŠ” ë‹¤ ì‚´ì•„ìˆìŒ
 	}
 }
 
 void spring() {
 	int size = tree.size();	
-	for (int i = 0; i < size; i++) {	// ¾Õ¿¡¼­ºÎÅÍ Ã³À½ ÀÖ´ø »çÀÌÁî ¸¸Å­ µ¹¸®±â
+	for (int i = 0; i < size; i++) {	// ì•ì—ì„œë¶€í„° ì²˜ìŒ ìˆë˜ ì‚¬ì´ì¦ˆ ë§Œí¼ ëŒë¦¬ê¸°
 		int r = tree.front().r;
 		int c = tree.front().c;
 		int age = tree.front().age;
 		tree.pop_front();
 
-		if (map[r][c] >= age) {		// ¶¥¿¡ ¾çºĞÀÌ ÃæºĞÈ÷ ÀÖÀ» ¶§
-			map[r][c] -= age;		// ¾çºĞ »¡¾Æ¸Ô°í ÇÑ »ì ¸ÔÀ½
-			tree.push_back({ r, c, age + 1 });		// Æ®¸® 2¹ø¿¡ ÀúÀå
-			if ((age + 1) % 5 == 0) {	// ¹ø½Ä ÇÒ ¾Öµé µû·Î ÀúÀå
+		if (map[r][c] >= age) {		// ë•…ì— ì–‘ë¶„ì´ ì¶©ë¶„íˆ ìˆì„ ë•Œ
+			map[r][c] -= age;		// ì–‘ë¶„ ë¹¨ì•„ë¨¹ê³  í•œ ì‚´ ë¨¹ìŒ
+			tree.push_back({ r, c, age + 1 });		// íŠ¸ë¦¬ 2ë²ˆì— ì €ì¥
+			if ((age + 1) % 5 == 0) {	// ë²ˆì‹ í•  ì• ë“¤ ë”°ë¡œ ì €ì¥
 				reproduce.push_back({ r, c });
 			}
 		}
 		else {
-			die.push_back({ r, c, age });	// Á×Àº ³ª¹« µû·Î ÀúÀå
+			die.push_back({ r, c, age });	// ì£½ì€ ë‚˜ë¬´ ë”°ë¡œ ì €ì¥
 		}
 	}
 
@@ -87,21 +87,21 @@ void spring() {
 	//	int c = tree[i].c;
 	//	int age = tree[i].age;
 
-	//	if (map[r][c] >= age) {		// ¶¥¿¡ ¾çºĞÀÌ ÃæºĞÈ÷ ÀÖÀ» ¶§
-	//		map[r][c] -= age;		// ¾çºĞ »¡¾Æ¸Ô°í ÇÑ »ì ¸ÔÀ½
-	//		tree2.push_back({ r, c, age + 1 });		// Æ®¸® 2¹ø¿¡ ÀúÀå
-	//		if ((age + 1) % 5 == 0) {	// ¹ø½Ä ÇÒ ¾Öµé µû·Î ÀúÀå
+	//	if (map[r][c] >= age) {		// ë•…ì— ì–‘ë¶„ì´ ì¶©ë¶„íˆ ìˆì„ ë•Œ
+	//		map[r][c] -= age;		// ì–‘ë¶„ ë¹¨ì•„ë¨¹ê³  í•œ ì‚´ ë¨¹ìŒ
+	//		tree2.push_back({ r, c, age + 1 });		// íŠ¸ë¦¬ 2ë²ˆì— ì €ì¥
+	//		if ((age + 1) % 5 == 0) {	// ë²ˆì‹ í•  ì• ë“¤ ë”°ë¡œ ì €ì¥
 	//			reproduce.push_back({ r, c });
 	//		}
 	//	}
 	//	else {
-	//		die.push_back({ r, c, age });	// Á×Àº ³ª¹« µû·Î ÀúÀå
+	//		die.push_back({ r, c, age });	// ì£½ì€ ë‚˜ë¬´ ë”°ë¡œ ì €ì¥
 	//	}
 	//}
 }
 
 void summer() {
-	for (int i = 0; i < die.size(); i++) {	// ³ªÀÌ / 2 ¸¸Å­ ¾çºĞ Ãß°¡
+	for (int i = 0; i < die.size(); i++) {	// ë‚˜ì´ / 2 ë§Œí¼ ì–‘ë¶„ ì¶”ê°€
 		int r = die[i].r;
 		int c = die[i].c;
 		int age = die[i].age;
@@ -112,15 +112,15 @@ void summer() {
 }
 
 void fall() {
-	int size = reproduce.size();	// ¹ø½ÄÇÒ ¾Öµé ¼ıÀÚ
+	int size = reproduce.size();	// ë²ˆì‹í•  ì• ë“¤ ìˆ«ì
 	for (int i = 0; i < size; i++) {
 		int r = reproduce[i].r;
 		int c = reproduce[i].c;
 		
-		for (int i = 0; i < 8; i++) {	// 8¹æÇâ ¹ø½Ä
+		for (int i = 0; i < 8; i++) {	// 8ë°©í–¥ ë²ˆì‹
 			int nr = r + dr[i];
 			int nc = c + dc[i];
-			if (nr >= 1 && nr <= N && nc >= 1 && nc <= N) {		// ¶¥ ¹üÀ§ ³»¿¡ ÀÖÀ» ¶§
+			if (nr >= 1 && nr <= N && nc >= 1 && nc <= N) {		// ë•… ë²”ìœ„ ë‚´ì— ìˆì„ ë•Œ
 				tree.push_front({ nr, nc, 1 });
 			}
 		}
@@ -128,7 +128,7 @@ void fall() {
 	reproduce.clear();
 }
 
-void winter() {		// °Ü¿ï¿¡ ¾çºĞ ÀçÃæÀü
+void winter() {		// ê²¨ìš¸ì— ì–‘ë¶„ ì¬ì¶©ì „
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) {
 			map[i][j] += A[i][j];
@@ -142,34 +142,34 @@ int main() {
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) {
 			scanf("%d", &A[i][j]);
-			map[i][j] = 5;			// Ã³À½¿¡ ¾çºĞ 5·Î ½ÃÀÛÇÔ
+			map[i][j] = 5;			// ì²˜ìŒì— ì–‘ë¶„ 5ë¡œ ì‹œì‘í•¨
 		}
 	}	// end of nourishment
 
 	for (int i = 0; i < M; i++) {
 		int r, c, age;
 		scanf("%d %d %d", &r, &c, &age);
-		tree.push_back({ r, c, age });	// ³ª¹« Á¤º¸ ¹Ş±â
+		tree.push_back({ r, c, age });	// ë‚˜ë¬´ ì •ë³´ ë°›ê¸°
 	}	// end of input of tree
 
 	sort(tree.begin(), tree.end(), cmp);
 
 	//printf("\n");
-	for (int i = 1; i <= K; i++) {	// k³â µ¿¾È ÁøÇà
-		//printf("%d³â ½ÃÀÛ\n", i);
+	for (int i = 1; i <= K; i++) {	// kë…„ ë™ì•ˆ ì§„í–‰
+		//printf("%dë…„ ì‹œì‘\n", i);
 		//printf("\n");
-		//printf("¾çºĞ ¸Ô±â Àü\n");
+		//printf("ì–‘ë¶„ ë¨¹ê¸° ì „\n");
 		//printTree();
 		//print();
 		spring();
-		//printf("¾çºĞ ¸ÔÀº ÈÄ\n");
+		//printf("ì–‘ë¶„ ë¨¹ì€ í›„\n");
 		//print();
 		//printTree2();
 		summer();
-		//printf("Á×Àº¾Öµé ¾çºĞÀ¸·Î º¯ÇÑ ÈÄ\n");
+		//printf("ì£½ì€ì• ë“¤ ì–‘ë¶„ìœ¼ë¡œ ë³€í•œ í›„\n");
 		//print();
 		fall();
-		//printf("¹ø½Ä ÈÄ\n");
+		//printf("ë²ˆì‹ í›„\n");
 		//printTree2();
 		winter();
 		//printf("\n");

@@ -8,9 +8,9 @@ bool visited[1001];
 int V, E;
 
 bool dfs(int x) {
-	if (visited[x]) return false;	// ¹æ¹®ÇÑÀû ÀÖÀ¸¸é ÀÌ¹Ì ÇßÀ¸¹Ç·Î false
+	if (visited[x]) return false;	// ë°©ë¬¸í•œì  ìˆìœ¼ë©´ ì´ë¯¸ í–ˆìœ¼ë¯€ë¡œ false
 	visited[x] = true;
-	for (int i = 0; i < graph[x].size(); i++) {	// x¿¡ ¿¬°áµÈ ¾Öµé ´Ù ¹æ¹®
+	for (int i = 0; i < graph[x].size(); i++) {	// xì— ì—°ê²°ëœ ì• ë“¤ ë‹¤ ë°©ë¬¸
 		dfs(graph[x][i]);
 	}
 	return true;
@@ -22,7 +22,7 @@ int main() {
 	cout.tie(NULL);
 	cin >> V >> E;
 
-	for (int i = 0; i < E; i++) {	// x¿¡¼­ y, y¿¡¼­ x µÑ´Ù ³Ö±â. ¹æÇâ¼º ¾øÀ½
+	for (int i = 0; i < E; i++) {	// xì—ì„œ y, yì—ì„œ x ë‘˜ë‹¤ ë„£ê¸°. ë°©í–¥ì„± ì—†ìŒ
 		int x, y;
 		cin >> x >> y;
 		graph[x].push_back(y);
@@ -31,7 +31,7 @@ int main() {
 
 	int cnt = 0;
 	for (int i = 1; i <= V; i++) {
-		if (dfs(i)) cnt++;		// dfs °¡´ÉÇÏ¸é Ä«¿îÆÃ
+		if (dfs(i)) cnt++;		// dfs ê°€ëŠ¥í•˜ë©´ ì¹´ìš´íŒ…
 	}
 	cout << cnt << endl;
 }

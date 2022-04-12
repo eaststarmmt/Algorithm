@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 	int n;
 	scanf("%d", &n);
-	vector<int> vec, sortVec;	//°ª Ã£À»¶§ ¾µ º¤ÅÍ¿Í Á¤·ÄÇÒ º¤ÅÍ µû·Î °ü¸®
+	vector<int> vec, sortVec;	//ê°’ ì°¾ì„ë•Œ ì“¸ ë²¡í„°ì™€ ì •ë ¬í•  ë²¡í„° ë”°ë¡œ ê´€ë¦¬
 	for (int i = 0; i < n; i++) {
 		int x;
 		scanf("%d", &x);
@@ -14,12 +14,12 @@ int main() {
 		sortVec.push_back(x);
 	}
 	sort(sortVec.begin(), sortVec.end());
-	sortVec.erase(unique(sortVec.begin(), sortVec.end()), sortVec.end());	//Áßº¹µÈ °ª Á¦°Å
+	sortVec.erase(unique(sortVec.begin(), sortVec.end()), sortVec.end());	//ì¤‘ë³µëœ ê°’ ì œê±°
 	
 	int cnt;
 	for (int i = 0; i < n; i++) {
 		cnt = 0;
-		cnt += lower_bound(sortVec.begin(), sortVec.end(), vec[i]) - sortVec.begin();	//Ã£°íÀÚ ÇÏ´Â º¤ÅÍÀÇ °ªÀÇ ÀÎµ¦½º Ã£±â. ¿À¸§Â÷¼ø ÀÌ¹Ç·Î ÀÎµ¦½º °ª = ÀÛÀº ¿ø¼ÒÀÇ °³¼ö°¡ µÊ
+		cnt += lower_bound(sortVec.begin(), sortVec.end(), vec[i]) - sortVec.begin();	//ì°¾ê³ ì í•˜ëŠ” ë²¡í„°ì˜ ê°’ì˜ ì¸ë±ìŠ¤ ì°¾ê¸°. ì˜¤ë¦„ì°¨ìˆœ ì´ë¯€ë¡œ ì¸ë±ìŠ¤ ê°’ = ì‘ì€ ì›ì†Œì˜ ê°œìˆ˜ê°€ ë¨
 		printf("%d ", cnt);
 	}
 	printf("\n");

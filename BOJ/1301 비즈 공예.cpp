@@ -7,17 +7,17 @@ long long dp[6][6][11][11][11][11][11];
 int bead[6];
 
 long long calc(int ppre, int pre, int a, int b, int c, int d, int e) {
-	if (a + b + c + d + e == 0) return 1;	// ³¡±îÁö °¬À¸¸é + 1
-	if (dp[ppre][pre][a][b][c][d][e] != -1) return dp[ppre][pre][a][b][c][d][e];	// ¿©±â±îÁö ¿Â Àû ÀÖÀ¸¸é ¾ê ±×³É ¸®ÅÏ. ¾îÂ÷ÇÇ ¹Ù´Ú¿¡¼­ °è¼Ó ´õÇÏ°í ÀÖÀ½
+	if (a + b + c + d + e == 0) return 1;	// ëê¹Œì§€ ê°”ìœ¼ë©´ + 1
+	if (dp[ppre][pre][a][b][c][d][e] != -1) return dp[ppre][pre][a][b][c][d][e];	// ì—¬ê¸°ê¹Œì§€ ì˜¨ ì  ìˆìœ¼ë©´ ì–˜ ê·¸ëƒ¥ ë¦¬í„´. ì–´ì°¨í”¼ ë°”ë‹¥ì—ì„œ ê³„ì† ë”í•˜ê³  ìˆìŒ
 	dp[ppre][pre][a][b][c][d][e] = 0;
-	// ±¸½½ ÇÏ³ª¾¿ »ç¿ëÇÏ¸é¼­ ÇöÀç °¡Áø »óÅÂ¿¡¼­ »ç¿ëÇÒ ¼ö ÀÖ´Â °æ¿ìÀÇ ¼ö °è¼Ó ´õÇÏ±â
+	// êµ¬ìŠ¬ í•˜ë‚˜ì”© ì‚¬ìš©í•˜ë©´ì„œ í˜„ì¬ ê°€ì§„ ìƒíƒœì—ì„œ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ê²½ìš°ì˜ ìˆ˜ ê³„ì† ë”í•˜ê¸°
 	if (ppre != 1 && pre != 1 && a > 0) dp[ppre][pre][a][b][c][d][e] += calc(pre, 1, a - 1, b, c, d, e);
 	if (ppre != 2 && pre != 2 && b > 0) dp[ppre][pre][a][b][c][d][e] += calc(pre, 2, a, b - 1, c, d, e);
 	if (ppre != 3 && pre != 3 && c > 0) dp[ppre][pre][a][b][c][d][e] += calc(pre, 3, a, b, c - 1, d, e);
 	if (ppre != 4 && pre != 4 && d > 0) dp[ppre][pre][a][b][c][d][e] += calc(pre, 4, a, b, c, d - 1, e);
 	if (ppre != 5 && pre != 5 && e > 0) dp[ppre][pre][a][b][c][d][e] += calc(pre, 5, a, b, c, d, e - 1);
 
-	return dp[ppre][pre][a][b][c][d][e];	// ´Ù ´õÇÑ ÈÄ ¸®ÅÏ
+	return dp[ppre][pre][a][b][c][d][e];	// ë‹¤ ë”í•œ í›„ ë¦¬í„´
 }
 int main() {
 	scanf("%d", &N);

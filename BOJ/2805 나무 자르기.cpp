@@ -6,8 +6,8 @@ using namespace std;
 long long binarySearch(vector<long long> tree, long long start, long long end, long long target) {
 	long long maxHeight = 0;
 	while (start <= end) {
-		long long mid = (start + end) / 2;	// Àý´Ü±â ³ôÀÌ
-		long long sum = 0;				// ÀÚ¸¥ ³ª¹« ³ôÀÌ ÇÕ
+		long long mid = (start + end) / 2;	// ì ˆë‹¨ê¸° ë†’ì´
+		long long sum = 0;				// ìžë¥¸ ë‚˜ë¬´ ë†’ì´ í•©
 		for (int i = 0; i < tree.size(); i++) {
 			if (tree[i] > mid) {
 				sum += tree[i] - mid;

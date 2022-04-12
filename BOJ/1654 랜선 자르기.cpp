@@ -13,7 +13,7 @@ int binarySearch(vector<long long> arr, long long target, long long start, long 
 			sum += arr[i] / mid;
 		}
 		if (target > sum) end = mid - 1;
-		else {		// ÀÛ°Ô Àß¶ú°Å³ª ¸Â°Ô ÀÚ¸¥ °æ¿ì ÀÌ¹Ç·Î ´ä º¸´Ù Ä¿ÁúÀÏÀº ¾øÀ½
+		else {		// ìž‘ê²Œ ìž˜ëžê±°ë‚˜ ë§žê²Œ ìžë¥¸ ê²½ìš° ì´ë¯€ë¡œ ë‹µ ë³´ë‹¤ ì»¤ì§ˆì¼ì€ ì—†ìŒ
 			start = mid + 1;
 			if (mid > max) max = mid;
 		}

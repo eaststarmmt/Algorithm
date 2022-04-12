@@ -17,24 +17,24 @@ int ans = 1e9;
 void calc() {
 	int cityDis = 0;
 	for (int i = 0; i < house.size(); i++) {
-		int nowDis = 1e9;	// Áý ¸¶´Ù Á¦ÀÏ °¡±î¿î °÷. Áï ÃÖ¼Ò°ª ÀúÀåÇÒ ¿¹Á¤
+		int nowDis = 1e9;	// ì§‘ ë§ˆë‹¤ ì œì¼ ê°€ê¹Œìš´ ê³³. ì¦‰ ìµœì†Œê°’ ì €ìž¥í•  ì˜ˆì •
 		for (int j = 0; j < chicken.size(); j++) {
-			if (disCard[j]) continue;	// Æó¾÷ÇÑ Ä¡Å²Áý Åë°ú
+			if (disCard[j]) continue;	// íì—…í•œ ì¹˜í‚¨ì§‘ í†µê³¼
 			nowDis = min(nowDis, abs(house[i].r - chicken[j].r) + abs(house[i].c - chicken[j].c));
 		}
-		cityDis += nowDis; // ÀüÃ¼ Ä¡Å²Áý°ú ºñ±³ÇØ¼­ Á¦ÀÏ ÀÛ¾Ò´ø °÷ ÀúÀå
+		cityDis += nowDis; // ì „ì²´ ì¹˜í‚¨ì§‘ê³¼ ë¹„êµí•´ì„œ ì œì¼ ìž‘ì•˜ë˜ ê³³ ì €ìž¥
 	}
 	ans = cityDis < ans ? cityDis : ans;
 }
 
 void comb(int start, int cnt) {
-	if (cnt == total - M) { // M °³ ¸¸Å­ Á¦¿Ü ÇßÀ»¶§
-		calc();	// Ä¡Å² °Å¸® °è»ê
+	if (cnt == total - M) { // M ê°œ ë§Œí¼ ì œì™¸ í–ˆì„ë•Œ
+		calc();	// ì¹˜í‚¨ ê±°ë¦¬ ê³„ì‚°
 		return;
 	}
 
 	for (int i = start; i < total; i++) {
-		disCard[i] = true;	// true °¡ ¹ö¸®´Â°Å
+		disCard[i] = true;	// true ê°€ ë²„ë¦¬ëŠ”ê±°
 		comb(i + 1, cnt + 1);
 		disCard[i] = false;
 	}
@@ -48,7 +48,7 @@ int main() {
 			if (map[i][j] == 1) {
 				house.push_back(Pos{ i, j });
 			}
-			else if (map[i][j] == 2) {	// Ä¡Å²Áý ¸î°µÁö ¹Ì¸® ¼¼µÎ±â
+			else if (map[i][j] == 2) {	// ì¹˜í‚¨ì§‘ ëª‡ê° ì§€ ë¯¸ë¦¬ ì„¸ë‘ê¸°
 				chicken.push_back(Pos{ i, j });
 				total++;
 			}

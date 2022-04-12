@@ -34,7 +34,7 @@ int main() {
 	for (int test = 1; test <= T; test++) {
 		int n, m, c;
 		scanf("%d %d %d", &n, &m, &c);
-		vector<vector<pair<int, int>>> graph(n + 1);	// ¹è¿­ ÇüÅÂ·Î´Â ³Ñ¾î°¡Áö ¾Ê¾Æ¼­ vector¸¦ ÀÌÁßÀ¸·Î Å©±â¸¦ ÁöÁ¤ÇØ¼­ °è¼Ó ÃÊ±âÈ­
+		vector<vector<pair<int, int>>> graph(n + 1);	// ë°°ì—´ í˜•íƒœë¡œëŠ” ë„˜ì–´ê°€ì§€ ì•Šì•„ì„œ vectorë¥¼ ì´ì¤‘ìœ¼ë¡œ í¬ê¸°ë¥¼ ì§€ì •í•´ì„œ ê³„ì† ì´ˆê¸°í™”
 		cnt = 0;
 
 		for (int i = 0; i < m; i++) {
@@ -50,9 +50,9 @@ int main() {
 		sort(d, d + n + 1);
 		int index = -1;
 		for (int i = n - 1; i >= 0; i--) {
-			if (d[i] != INF) {				// INF°¡ ¾Æ´Ï¸é °¨¿°µÇ¾ú´Ù°í ÆÇ´Ü
-				if(index == -1) index = i;	// °¡Àå Å« °ªÀÇ index¸¦ ÀúÀå
-				cnt++;						// °¨¿°µÈ pc counting
+			if (d[i] != INF) {				// INFê°€ ì•„ë‹ˆë©´ ê°ì—¼ë˜ì—ˆë‹¤ê³  íŒë‹¨
+				if(index == -1) index = i;	// ê°€ì¥ í° ê°’ì˜ indexë¥¼ ì €ì¥
+				cnt++;						// ê°ì—¼ëœ pc counting
 			}
 
 		}

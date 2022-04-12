@@ -5,19 +5,19 @@ using namespace std;
 int N, r, c;
 int cnt;
 void divideCon(int startR, int startC, int size) {
-	if (startR == r && startC == c) {	// ¿øÇÏ´Â À§Ä¡ Ã£¾ÒÀ» ¶§
+	if (startR == r && startC == c) {	// ì›í•˜ëŠ” ìœ„ì¹˜ ì°¾ì•˜ì„ ë•Œ
 		printf("%d", cnt);
 		return;
 	}
 	
-	if (startR <= r && r < startR + size && startC <= c && c < startC + size) {		// ¹üÀ§ ³»¿¡ ÀÖ´Â °æ¿ì
-		divideCon(startR, startC, size / 2);					// ¿ŞÂÊºÎÅÍ ¼ø¼­´ë·Î Ã£¾Æ¾ß µÊ. ¾È±×·¯¸é Ä«¿îÆÃ ²¿ÀÓ
+	if (startR <= r && r < startR + size && startC <= c && c < startC + size) {		// ë²”ìœ„ ë‚´ì— ìˆëŠ” ê²½ìš°
+		divideCon(startR, startC, size / 2);					// ì™¼ìª½ë¶€í„° ìˆœì„œëŒ€ë¡œ ì°¾ì•„ì•¼ ë¨. ì•ˆê·¸ëŸ¬ë©´ ì¹´ìš´íŒ… ê¼¬ì„
 		divideCon(startR, startC + size / 2, size / 2);
 		divideCon(startR + size / 2, startC, size / 2);
 		divideCon(startR + size / 2, startC + size / 2, size / 2);
 	}
 	else {
-		cnt += size * size;		// ¹üÀ§ ³»¿¡ ¾ø´Â °æ¿ì´Â ÇöÀç °®°í ÀÖ´Â sizeÀÇ Á¦°öÀ» ´õÇÔ. ¾îÂ÷ÇÇ ¼ø¼­´ë·Î Çß±â ¶§¹®¿¡ ´õÇØÁÖ¸é µÊ
+		cnt += size * size;		// ë²”ìœ„ ë‚´ì— ì—†ëŠ” ê²½ìš°ëŠ” í˜„ì¬ ê°–ê³  ìˆëŠ” sizeì˜ ì œê³±ì„ ë”í•¨. ì–´ì°¨í”¼ ìˆœì„œëŒ€ë¡œ í–ˆê¸° ë•Œë¬¸ì— ë”í•´ì£¼ë©´ ë¨
 	}
 }
 

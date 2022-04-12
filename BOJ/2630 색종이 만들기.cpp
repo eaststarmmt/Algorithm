@@ -5,8 +5,8 @@ int map[129][129];
 int blue;
 int white;
 void divCon(int x, int y, int size) {
-	int check = map[x][y];	//µÚ¶û ºñ±³ÇÏ±â À§ÇØ Ã¹¹øÂ° °ª ÀúÀå
-	if (size == 1) {	//Å©±â 1ÀÌ¸é Ä«¿îÆÃ¸¸ ÇÏ°í ¸®ÅÏ
+	int check = map[x][y];	//ë’¤ë‘ ë¹„êµí•˜ê¸° ìœ„í•´ ì²«ë²ˆì§¸ ê°’ ì €ì¥
+	if (size == 1) {	//í¬ê¸° 1ì´ë©´ ì¹´ìš´íŒ…ë§Œ í•˜ê³  ë¦¬í„´
 		if (check == 1) {
 			blue++;
 			return;
@@ -15,10 +15,10 @@ void divCon(int x, int y, int size) {
 			white++;
 			return;
 		}
-	}		//x y ÁÂÇ¥ Çò°¥¸®¸é ÇÇ°ïÇØÁü. ÀÌ·±¹®Á¦ µÎ¹ø ¼¼¹ø »ı°¢ÇÏ°í Ç®±â
+	}		//x y ì¢Œí‘œ í—·ê°ˆë¦¬ë©´ í”¼ê³¤í•´ì§. ì´ëŸ°ë¬¸ì œ ë‘ë²ˆ ì„¸ë²ˆ ìƒê°í•˜ê³  í’€ê¸°
 	for (int i = x; i < x + size; i++) {
 		for (int j = y; j < y + size; j++) {
-			if (check != map[i][j]) {		//°ª ´Ù¸£¸é Àç±Í·Î ³Ñ¾î°¡±â
+			if (check != map[i][j]) {		//ê°’ ë‹¤ë¥´ë©´ ì¬ê·€ë¡œ ë„˜ì–´ê°€ê¸°
 				divCon(x, y, size / 2);		
 				divCon(x + (size / 2), y, size / 2);
 				divCon(x, y + (size / 2), size / 2);

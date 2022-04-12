@@ -6,10 +6,10 @@ using namespace std;
 
 //bool node[5000002];
 int node[100001][3];
-bool check[5000001];	// ´Ü¼ø Ä«¿îÆÃ ¿ë
+bool check[5000001];	// ë‹¨ìˆœ ì¹´ìš´íŒ… ìš©
 
 int main() {
-	// vector<int>[10000] 0ºÎ¸ð 1¿À¸¥ÂÊ 2¿ÞÂÊ
+	// vector<int>[10000] 0ë¶€ëª¨ 1ì˜¤ë¥¸ìª½ 2ì™¼ìª½
 	int N;
 	scanf("%d", &N);
 	int lastLeaf = 0;
@@ -29,17 +29,17 @@ int main() {
 	int cnt = -1;
 	int now = 1;
 	check[now] = true;
-	bool flag = false;	// ¸ðµç ³ëµå¸¦ ´Ù Áö³ª°í °¡Àå ¿À¸¥ÂÊÀ» È®ÀÎÇØ¾ß ÇÏ¹Ç·Î »ç¿ë
-	int visit = 1;		// ÇöÀç±îÁö ÇÑ¹øÀÌ¶óµµ Áö³­ ³ëµå °³¼ö
+	bool flag = false;	// ëª¨ë“  ë…¸ë“œë¥¼ ë‹¤ ì§€ë‚˜ê³  ê°€ìž¥ ì˜¤ë¥¸ìª½ì„ í™•ì¸í•´ì•¼ í•˜ë¯€ë¡œ ì‚¬ìš©
+	int visit = 1;		// í˜„ìž¬ê¹Œì§€ í•œë²ˆì´ë¼ë„ ì§€ë‚œ ë…¸ë“œ ê°œìˆ˜
 	int curD = 0;
 	int maxD = 0;
-	stack<int> st;		// ÁßÀ§ ¼øÈ¸´Â °¡Àå ¿À¸¥ÂÊ¿¡¼­ ³¡³ª±â ¶§¹®¿¡ ±×°É Ç¥½ÃÇÏ±â À§ÇØ ½ºÅÃ »ç¿ë
+	stack<int> st;		// ì¤‘ìœ„ ìˆœíšŒëŠ” ê°€ìž¥ ì˜¤ë¥¸ìª½ì—ì„œ ëë‚˜ê¸° ë•Œë¬¸ì— ê·¸ê±¸ í‘œì‹œí•˜ê¸° ìœ„í•´ ìŠ¤íƒ ì‚¬ìš©
 	st.push(0);
 	while (true) {
-		if(!flag)		// ¾ÆÁ÷ ¸ðµç °÷À» ¼øÈ¸ÇÏÁö ¸øÇÑ »óÅÂ
-			maxD = curD > maxD ? curD : maxD;	// ÇöÀç±îÁöÁß °¡Àå ¿À¸¥ÂÊ Ã¼Å©
+		if(!flag)		// ì•„ì§ ëª¨ë“  ê³³ì„ ìˆœíšŒí•˜ì§€ ëª»í•œ ìƒíƒœ
+			maxD = curD > maxD ? curD : maxD;	// í˜„ìž¬ê¹Œì§€ì¤‘ ê°€ìž¥ ì˜¤ë¥¸ìª½ ì²´í¬
 		else {
-			if (curD == maxD) {		// ¸ðµç°÷À» ¼øÈ¸ÇÏ°í °¡Àå ¿À¸¥ÂÊ¿¡ ÀÖÀ¸¸é Á¾·á
+			if (curD == maxD) {		// ëª¨ë“ ê³³ì„ ìˆœíšŒí•˜ê³  ê°€ìž¥ ì˜¤ë¥¸ìª½ì— ìžˆìœ¼ë©´ ì¢…ë£Œ
 				printf("%d", cnt);
 				return 0;
 			}
@@ -49,29 +49,29 @@ int main() {
 			check[now] = true;
 			visit++;			
 		}
-		if (visit == N) {		// ¹æ¹®ÇÑ °÷ÀÌ NÀÌ µÇ¸é ¸ðµç ³ëµå ¹æ¹®Çß´Ù´Â °ÍÀ¸·Î ÆÇ´Ü
+		if (visit == N) {		// ë°©ë¬¸í•œ ê³³ì´ Nì´ ë˜ë©´ ëª¨ë“  ë…¸ë“œ ë°©ë¬¸í–ˆë‹¤ëŠ” ê²ƒìœ¼ë¡œ íŒë‹¨
 			flag = true;
 		}
 		
-		if (node[now][1] != 0) {	// ¿ÞÂÊ ÀÚ½Ä ÀÖ´Â °æ¿ì
+		if (node[now][1] != 0) {	// ì™¼ìª½ ìžì‹ ìžˆëŠ” ê²½ìš°
 			int x = node[now][1];
 			node[now][1] = 0;
 			now = x;
-			st.push(--curD);		// ¿ÞÂÊ ÀÚ½ÄÀÌ¹Ç·Î ÇöÀç À§Ä¡¸¦ ¿ÞÂÊÀ¸·Î ÀÌµ¿ÈÄ ±×°É ½ºÅÃ¿¡ ÀúÀå
+			st.push(--curD);		// ì™¼ìª½ ìžì‹ì´ë¯€ë¡œ í˜„ìž¬ ìœ„ì¹˜ë¥¼ ì™¼ìª½ìœ¼ë¡œ ì´ë™í›„ ê·¸ê±¸ ìŠ¤íƒì— ì €ìž¥
 		}
-		else {						// ¿ÞÂÊ ÀÚ½Ä ¾ø´Â °æ¿ì
-			if (node[now][2] != 0) {	// ¿À¸¥ÂÊ ÀÖ´ÂÁö È®ÀÎ
+		else {						// ì™¼ìª½ ìžì‹ ì—†ëŠ” ê²½ìš°
+			if (node[now][2] != 0) {	// ì˜¤ë¥¸ìª½ ìžˆëŠ”ì§€ í™•ì¸
 				int x = node[now][2];
 				node[now][2] = 0;
 				now = x;
 				st.push(++curD);
 			}
-			else {		// ÀÚ½Ä µÑ´Ù ¾øÀ½
+			else {		// ìžì‹ ë‘˜ë‹¤ ì—†ìŒ
 				
 				int x = node[now][0];
 				now = x;
-				curD = st.top();	// ºÎ¸ð·Î µ¹¾Æ°¥¶§ ¿ÞÂÊ¿¡¼­ ¿Ô´ÂÁö ¿À¸¥ÂÊ¿¡¼­ ¿Ô´ÂÁö ÆÇ´ÜÇÏ±â°¡ Èûµë
-				st.pop();			// ±×·¡¼­ ½ºÅÃ ¸Ç À§¿¡ ºÎ¸ðÀÇ À§Ä¡¸¦ ¿Ã·Á ³õÀ½À¸·Î ÇØ°á
+				curD = st.top();	// ë¶€ëª¨ë¡œ ëŒì•„ê°ˆë•Œ ì™¼ìª½ì—ì„œ ì™”ëŠ”ì§€ ì˜¤ë¥¸ìª½ì—ì„œ ì™”ëŠ”ì§€ íŒë‹¨í•˜ê¸°ê°€ íž˜ë“¬
+				st.pop();			// ê·¸ëž˜ì„œ ìŠ¤íƒ ë§¨ ìœ„ì— ë¶€ëª¨ì˜ ìœ„ì¹˜ë¥¼ ì˜¬ë ¤ ë†“ìŒìœ¼ë¡œ í•´ê²°
 				
 			}
 		}

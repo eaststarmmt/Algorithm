@@ -7,25 +7,25 @@ struct Grit {
 	int a, b, c;
 };
 
-bool visited[1501][1501];	// ¸ğµç µ¹ÀÌ ÇÑÂÊÀ¸·Î ¸ô»§µÇ´Â ÃÖ¾ÇÀÇ »óÈ²ÀÌ 1500ÀÓ. ¾Õ¿¡ µÎ°³¸¸ ºñ±³ÇÏ¸é ³ª¸ÓÁö ¼ıÀÚ´Â ¾îÂ÷ÇÇ Á¤ÇØÁ® ÀÖ´Ù´Â °³³äÀ¸·Î Á¢±Ù
+bool visited[1501][1501];	// ëª¨ë“  ëŒì´ í•œìª½ìœ¼ë¡œ ëª°ë¹µë˜ëŠ” ìµœì•…ì˜ ìƒí™©ì´ 1500ì„. ì•ì— ë‘ê°œë§Œ ë¹„êµí•˜ë©´ ë‚˜ë¨¸ì§€ ìˆ«ìëŠ” ì–´ì°¨í”¼ ì •í•´ì ¸ ìˆë‹¤ëŠ” ê°œë…ìœ¼ë¡œ ì ‘ê·¼
 
 void bfs(Grit grit) {
 	queue<Grit> Q;
 	Q.push(grit);
-	visited[grit.a][grit.b] = true;	// ¾ÕÀÌ ÀÛÀº °ª µÚ°¡ Å« °ª
+	visited[grit.a][grit.b] = true;	// ì•ì´ ì‘ì€ ê°’ ë’¤ê°€ í° ê°’
 	visited[grit.a][grit.c] = true;
 	visited[grit.b][grit.c] = true;
-	int ngrit[3] = { 0 };	// ±×³É sort¿ë ÀÌ°Å ¾È¾²´Â ¹æ¹ı ¾Ë¸é Á» °¡¸£ÃÄÁÖ¼¼¿ä....
+	int ngrit[3] = { 0 };	// ê·¸ëƒ¥ sortìš© ì´ê±° ì•ˆì“°ëŠ” ë°©ë²• ì•Œë©´ ì¢€ ê°€ë¥´ì³ì£¼ì„¸ìš”....
 
 	while (!Q.empty()) {
 		Grit g = Q.front();
 		Q.pop();
-		if (g.a == g.b && g.a == g.c) {	// ¸ğµÎ °°À¸¸é °Å±â¼­ Á¾·á
+		if (g.a == g.b && g.a == g.c) {	// ëª¨ë‘ ê°™ìœ¼ë©´ ê±°ê¸°ì„œ ì¢…ë£Œ
 			printf("1\n");
 			return;
 		}
 		
-		if (g.a != g.b) {	// a b ´Ù¸¥°æ¿ì
+		if (g.a != g.b) {	// a b ë‹¤ë¥¸ê²½ìš°
 			ngrit[2] = g.c;
 			if (g.a > g.b) {
 				ngrit[0] = g.a - g.b;
@@ -35,14 +35,14 @@ void bfs(Grit grit) {
 				ngrit[0] = g.a * 2;
 				ngrit[1] = g.b - g.a;
 			}
-			sort(ngrit, ngrit + 3);	// ¼¼ °³ ¹Û¿¡ ¾ø¾î¼­ sort »ç¿ëÇÔ
-			if (!visited[ngrit[0]][ngrit[1]]) {	// ¹æ¹®ÇÑ Àû ¾øÀ» ¶§¸¸
+			sort(ngrit, ngrit + 3);	// ì„¸ ê°œ ë°–ì— ì—†ì–´ì„œ sort ì‚¬ìš©í•¨
+			if (!visited[ngrit[0]][ngrit[1]]) {	// ë°©ë¬¸í•œ ì  ì—†ì„ ë•Œë§Œ
 				Q.push({ ngrit[0], ngrit[1], ngrit[2] });
 				visited[ngrit[0]][ngrit[1]] = true;
 			}
 		}
 
-		if (g.a != g.c) {	// a c ´Ù¸¥°æ¿ì
+		if (g.a != g.c) {	// a c ë‹¤ë¥¸ê²½ìš°
 			ngrit[1] = g.b;
 			if (g.a > g.c) {
 				ngrit[0] = g.a - g.c;
@@ -52,14 +52,14 @@ void bfs(Grit grit) {
 				ngrit[0] = g.a * 2;
 				ngrit[2] = g.c - g.a;
 			}
-			sort(ngrit, ngrit + 3);	// ¼¼ °³ ¹Û¿¡ ¾ø¾î¼­ sort »ç¿ëÇÔ
-			if (!visited[ngrit[0]][ngrit[1]]) {	// ¹æ¹®ÇÑ Àû ¾øÀ» ¶§¸¸
+			sort(ngrit, ngrit + 3);	// ì„¸ ê°œ ë°–ì— ì—†ì–´ì„œ sort ì‚¬ìš©í•¨
+			if (!visited[ngrit[0]][ngrit[1]]) {	// ë°©ë¬¸í•œ ì  ì—†ì„ ë•Œë§Œ
 				Q.push({ ngrit[0], ngrit[1], ngrit[2] });
 				visited[ngrit[0]][ngrit[1]] = true;
 			}
 		}
 
-		if (g.b != g.c) {	// b c ´Ù¸¥°æ¿ì
+		if (g.b != g.c) {	// b c ë‹¤ë¥¸ê²½ìš°
 			ngrit[0] = g.a;
 			if (g.b > g.c) {
 				ngrit[1] = g.b - g.c;
@@ -69,8 +69,8 @@ void bfs(Grit grit) {
 				ngrit[1] = g.b * 2;
 				ngrit[2] = g.c - g.b;
 			}
-			sort(ngrit, ngrit + 3);	// ¼¼ °³ ¹Û¿¡ ¾ø¾î¼­ sort »ç¿ëÇÔ
-			if (!visited[ngrit[0]][ngrit[1]]) {	// ¹æ¹®ÇÑ Àû ¾øÀ» ¶§¸¸
+			sort(ngrit, ngrit + 3);	// ì„¸ ê°œ ë°–ì— ì—†ì–´ì„œ sort ì‚¬ìš©í•¨
+			if (!visited[ngrit[0]][ngrit[1]]) {	// ë°©ë¬¸í•œ ì  ì—†ì„ ë•Œë§Œ
 				Q.push({ ngrit[0], ngrit[1], ngrit[2] });
 				visited[ngrit[0]][ngrit[1]] = true;
 			}

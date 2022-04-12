@@ -14,9 +14,9 @@ int main() {
 			sum += pizza[i][j];
 		}
 	}
-	set<pair<int, int>> view;	// Áßº¹À» ¹æÁöÇÏ±â À§ÇØ set »ç¿ë
+	set<pair<int, int>> view;	// ì¤‘ë³µì„ ë°©ì§€í•˜ê¸° ìœ„í•´ set ì‚¬ìš©
 	int x, y, value;
-	for (int i = 0; i < n; i++) {		// front ÃøÁ¤
+	for (int i = 0; i < n; i++) {		// front ì¸¡ì •
 		x = 0;
 		y = 0;
 		value = 0;
@@ -27,7 +27,7 @@ int main() {
 				value = pizza[i][j];
 			}
 		}
-		view.insert({ x, y });	// front·Î ºÃÀ»¶§ º¸ÀÌ´Â ¾Öµé ÁÂÇ¥¸¸ µû·Î ÀúÀå
+		view.insert({ x, y });	// frontë¡œ ë´¤ì„ë•Œ ë³´ì´ëŠ” ì• ë“¤ ì¢Œí‘œë§Œ ë”°ë¡œ ì €ì¥
 
 		
 	}
@@ -45,10 +45,10 @@ int main() {
 		}
 		view.insert({ x, y });
 	}
-	for (auto iter = view.begin(); iter != view.end(); iter++) {	// setÀº ÀÎµ¦½º°¡ ¾Æ´Ñ ÁÖ¼Ò·Î Á¢±Ù
+	for (auto iter = view.begin(); iter != view.end(); iter++) {	// setì€ ì¸ë±ìŠ¤ê°€ ì•„ë‹Œ ì£¼ì†Œë¡œ ì ‘ê·¼
 		int i = (*iter).first;
 		int j = (*iter).second;
-		sum -= pizza[i][j];		// ÇØ´ç ÁÂÇ¥¿¡ °ªÀº »©ÁÜ
+		sum -= pizza[i][j];		// í•´ë‹¹ ì¢Œí‘œì— ê°’ì€ ë¹¼ì¤Œ
 	}
-	printf("%lld", sum);	// int ¹üÀ§ ³Ñ¾î°¡¼­ long long À¸·Î
+	printf("%lld", sum);	// int ë²”ìœ„ ë„˜ì–´ê°€ì„œ long long ìœ¼ë¡œ
 }

@@ -7,7 +7,7 @@ struct Line {
 	int x, y;
 };
 
-bool cmp(Line a, Line b) {	// ¿ŞÂÊ Á¡ ±âÁØÀ¸·Î ¿À¸§Â÷¼ø
+bool cmp(Line a, Line b) {	// ì™¼ìª½ ì  ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ
 	return a.x < b.x;
 }
 
@@ -24,17 +24,17 @@ int main() {
 	sort(dots.begin(), dots.end(), cmp);
 
 	int ans = 0;
-	int left = dots[0].x;		// ÇöÀç È®ÀÎÇÏ°í ÀÖ´Â ¼±ÀÇ ¿ŞÂÊ ÁÂÇ¥
-	int right = dots[0].y;		// ÇöÀç È®ÀÎÇÏ°í ÀÖ´Â ¼±ÀÇ ¿À¸¥ÂÊ ÁÂÇ¥
+	int left = dots[0].x;		// í˜„ì¬ í™•ì¸í•˜ê³  ìˆëŠ” ì„ ì˜ ì™¼ìª½ ì¢Œí‘œ
+	int right = dots[0].y;		// í˜„ì¬ í™•ì¸í•˜ê³  ìˆëŠ” ì„ ì˜ ì˜¤ë¥¸ìª½ ì¢Œí‘œ
 
 	for (int i = 1; i < N; i++) {
-		if (dots[i].x <= right) {	// Áö±İ º¸°í ÀÖ´Â ¼± ¾ÈÀ¸·Î »õ·Î ±×¸° ¼±ÀÌ µé¾î¿À´Â °æ¿ì
-			right = dots[i].y > right ? dots[i].y : right;	// ¼±ÀÇ ±æÀÌ°¡ ÃÖ´ë°¡ µÇµµ·Ï °»½Å
+		if (dots[i].x <= right) {	// ì§€ê¸ˆ ë³´ê³  ìˆëŠ” ì„  ì•ˆìœ¼ë¡œ ìƒˆë¡œ ê·¸ë¦° ì„ ì´ ë“¤ì–´ì˜¤ëŠ” ê²½ìš°
+			right = dots[i].y > right ? dots[i].y : right;	// ì„ ì˜ ê¸¸ì´ê°€ ìµœëŒ€ê°€ ë˜ë„ë¡ ê°±ì‹ 
 		}
-		else {		// »õ·Î ±×¸° ¼±ÀÌ Æ÷ÇÔÀÌ µÇÁö ¾Ê´Â °æ¿ì
-			ans += right - left;	// ¼± ±æÀÌ ´õÇØÁÖ±â
-			left = dots[i].x;		// »õ·Î¿î ¼±ÀÇ ¿ŞÂÊ ÁÂÇ¥ ÀúÀå
-			right = dots[i].y;		// »õ·Î¿î ¼±ÀÇ ¿À¸¥ÂÊ ÁÂÇ¥ ÀúÀå
+		else {		// ìƒˆë¡œ ê·¸ë¦° ì„ ì´ í¬í•¨ì´ ë˜ì§€ ì•ŠëŠ” ê²½ìš°
+			ans += right - left;	// ì„  ê¸¸ì´ ë”í•´ì£¼ê¸°
+			left = dots[i].x;		// ìƒˆë¡œìš´ ì„ ì˜ ì™¼ìª½ ì¢Œí‘œ ì €ì¥
+			right = dots[i].y;		// ìƒˆë¡œìš´ ì„ ì˜ ì˜¤ë¥¸ìª½ ì¢Œí‘œ ì €ì¥
 		}
 	}	// end of calc without Nth line
 	ans += right - left;

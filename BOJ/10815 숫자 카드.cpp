@@ -12,13 +12,13 @@ int main() {
 		scanf("%d", &x);
 		card.push_back(x);
 	}
-	sort(card.begin(), card.end());		// ÀÔ·Â¹ŞÀº Ä«µå ¿À¸§Â÷¼ø Á¤·Ä
+	sort(card.begin(), card.end());		// ì…ë ¥ë°›ì€ ì¹´ë“œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 	int M;
 	scanf("%d", &M);
 	for (int i = 0; i < M; i++) {
 		int x;
 		scanf("%d", &x);
-		if (binary_search(card.begin(), card.end(), x)) {	// ÀÌºĞÅ½»öÀ¸·Î ÀÖÀ¸¸é 1 ¾øÀ¸¸é 0 Ãâ·Â
+		if (binary_search(card.begin(), card.end(), x)) {	// ì´ë¶„íƒìƒ‰ìœ¼ë¡œ ìˆìœ¼ë©´ 1 ì—†ìœ¼ë©´ 0 ì¶œë ¥
 			printf("%d ", 1);
 		}
 		else {

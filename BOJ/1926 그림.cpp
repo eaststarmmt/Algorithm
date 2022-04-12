@@ -9,15 +9,15 @@ int dr[] = { -1, 1, 0, 0 };
 int dc[] = { 0, 0, -1, 1 };
 
 void dfs(int r, int c) {
-	visited[r][c] = true;	// ¹æ¹® Ã³¸®
-	cnt++;				// cnt Áõ°¡
+	visited[r][c] = true;	// ë°©ë¬¸ ì²˜ë¦¬
+	cnt++;				// cnt ì¦ê°€
 
 	for (int i = 0; i < 4; i++) {
 		int nr = r + dr[i];
 		int nc = c + dc[i];
 
 		if (nr >= 0 && nc >= 0 && nr < N && nc < M && !visited[nr][nc] && map[nr][nc] == 1) {
-			dfs(nr, nc);	// ¹æ¹® ¾ÈÇß°í 1ÀÌ¸é ¹æ¹®
+			dfs(nr, nc);	// ë°©ë¬¸ ì•ˆí–ˆê³  1ì´ë©´ ë°©ë¬¸
 		}
 	}
 }
@@ -33,11 +33,11 @@ int main() {
 
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < M; j++) {
-			if (!visited[i][j] && map[i][j] == 1) {		// ¹æ¹® ¾ÈÇß°í 1ÀÎ°÷ÀÌ ÀÖÀ¸¸é ±×¸² ÇÑ °³ ÀÖÀ½
+			if (!visited[i][j] && map[i][j] == 1) {		// ë°©ë¬¸ ì•ˆí–ˆê³  1ì¸ê³³ì´ ìˆìœ¼ë©´ ê·¸ë¦¼ í•œ ê°œ ìˆìŒ
 				dfs(i, j);
-				picture++;							// ±×¸² Ä«¿îÆÃ
-				maxCnt = cnt > maxCnt ? cnt : maxCnt;	// °¡Àå ³ĞÀº ±×¸² °»½Å
-				cnt = 0;		// cnt ÃÊ±âÈ­
+				picture++;							// ê·¸ë¦¼ ì¹´ìš´íŒ…
+				maxCnt = cnt > maxCnt ? cnt : maxCnt;	// ê°€ì¥ ë„“ì€ ê·¸ë¦¼ ê°±ì‹ 
+				cnt = 0;		// cnt ì´ˆê¸°í™”
 			}
 		}
 	}

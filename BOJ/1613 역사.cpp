@@ -14,15 +14,15 @@ int main() {
 	for (int i = 0; i < K; i++) {
 		int a, b;
 		cin >> a >> b;
-		graph[a][b] = -1;	// [x][y]Áß x°¡ ºü¸£¸é -1 y°¡ ºü¸£¸é 1
+		graph[a][b] = -1;	// [x][y]ì¤‘ xê°€ ë¹ ë¥´ë©´ -1 yê°€ ë¹ ë¥´ë©´ 1
 		graph[b][a] = 1;
 	}
 
 	for (int k = 1; k <= N; k++) {
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
-				if (graph[i][k] != 0 && graph[i][k] == graph[k][j]) {	// Áß°£ °æ·Î°¡ 0ÀÌ ¾Æ´Ï°í µÑÀÌ ¹æÇâÀÌ °°Àº °æ¿ì
-					graph[i][j] = graph[i][k];						// [i][j]¿¡ [i][k] °ª ÀúÀå
+				if (graph[i][k] != 0 && graph[i][k] == graph[k][j]) {	// ì¤‘ê°„ ê²½ë¡œê°€ 0ì´ ì•„ë‹ˆê³  ë‘˜ì´ ë°©í–¥ì´ ê°™ì€ ê²½ìš°
+					graph[i][j] = graph[i][k];						// [i][j]ì— [i][k] ê°’ ì €ìž¥
 				}
 			}
 		}

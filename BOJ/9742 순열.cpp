@@ -1,5 +1,5 @@
-// ¹®Á¦ÀÇµµ´Â ¶óÀÌºê·¯¸®°¡ ¾Æ´Ñ Á÷Á¢ ±¸ÇöÇØ¶ó °°Àºµ¥.... 
-// ´äÀ» »Ì´Â°Ç ¼º°ø ÇßÀ¸³ª Àç±Í¸¦ ³Ê¹« ±íÀÌ µé¾î°¡¼­ ¸Þ¸ð¸® ÃÊ°ú°¡ ³ª´Â°É ±Øº¹ ¸øÇÔ
+// ë¬¸ì œì˜ë„ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬ê°€ ì•„ë‹Œ ì§ì ‘ êµ¬í˜„í•´ë¼ ê°™ì€ë°.... 
+// ë‹µì„ ë½‘ëŠ”ê±´ ì„±ê³µ í–ˆìœ¼ë‚˜ ìž¬ê·€ë¥¼ ë„ˆë¬´ ê¹Šì´ ë“¤ì–´ê°€ì„œ ë©”ëª¨ë¦¬ ì´ˆê³¼ê°€ ë‚˜ëŠ”ê±¸ ê·¹ë³µ ëª»í•¨
 #include<iostream>
 #include<string>
 #include<vector>
@@ -9,11 +9,11 @@ using namespace std;
 int main() {
 	string input;
 	int n;
-	while (!(cin >> input >> n).eof()) {		// ÀÔ·ÂÀ» ¹Þ¾ÒÀ¸¸é ½ÇÇà
-		bool output = false;					// ¸¸¾à °æ¿ìÀÇ ¼ö°¡ n¹øÀ» ³Ñ¾î°¡¸é outputÀº ³¡±îÁö false·Î ³²¾ÆÀÖÀ½
+	while (!(cin >> input >> n).eof()) {		// ìž…ë ¥ì„ ë°›ì•˜ìœ¼ë©´ ì‹¤í–‰
+		bool output = false;					// ë§Œì•½ ê²½ìš°ì˜ ìˆ˜ê°€ në²ˆì„ ë„˜ì–´ê°€ë©´ outputì€ ëê¹Œì§€ falseë¡œ ë‚¨ì•„ìžˆìŒ
 		string result = input;
 		int i = 0;
-		do {									// do whileÀ» »ç¿ëÇÏ´Â ÀÌÀ¯´Â ·çÇÁ°¡ Ã³À½ºÎÅÍ next_permutation¿¡ µé¾î°¡¾ß µÇ±â ¶§¹®
+		do {									// do whileì„ ì‚¬ìš©í•˜ëŠ” ì´ìœ ëŠ” ë£¨í”„ê°€ ì²˜ìŒë¶€í„° next_permutationì— ë“¤ì–´ê°€ì•¼ ë˜ê¸° ë•Œë¬¸
 			i++;
 			if (i == n) {				
 				cout << input << " " << n << " = " << result << "\n";

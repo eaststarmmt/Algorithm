@@ -3,15 +3,15 @@
 using namespace std;
 
 int N;
-double prob[4];		// 0: µ¿ 1: ¼­ 2: ³² 3: ºÏ
+double prob[4];		// 0: ë™ 1: ì„œ 2: ë‚¨ 3: ë¶
 bool visited[29][29];
 
-int dr[] = { 0, 0, 1, -1 };		// µ¿¼­³²ºÏÀ¸·Î ÅëÀÏÇÔ
+int dr[] = { 0, 0, 1, -1 };		// ë™ì„œë‚¨ë¶ìœ¼ë¡œ í†µì¼í•¨
 int dc[] = { 1, -1, 0, 0 };
 double result = 0;
 
 void dfs(int r, int c, int cnt, double probability) {
-	if (cnt == N) {			// Depth ³¡±îÁö °¬´Âµ¥ Ã³À½ °£ °÷ÀÌ¸é È®·ü ´õÇÏ±â
+	if (cnt == N) {			// Depth ëê¹Œì§€ ê°”ëŠ”ë° ì²˜ìŒ ê°„ ê³³ì´ë©´ í™•ë¥  ë”í•˜ê¸°
 		result += probability;
 		return;
 	}
@@ -20,14 +20,14 @@ void dfs(int r, int c, int cnt, double probability) {
 		int nr = r + dr[i];
 		int nc = c + dc[i];
 
-		if (visited[r + dr[i]][c + dc[i]]) continue;	// ÀÌ¹Ì ¹æ¹® ÇßÀ¸¸é ¹«½Ã
+		if (visited[r + dr[i]][c + dc[i]]) continue;	// ì´ë¯¸ ë°©ë¬¸ í–ˆìœ¼ë©´ ë¬´ì‹œ
 
-		visited[nr][nc] = true;			//	¹æ¹® Ã³¸®
+		visited[nr][nc] = true;			//	ë°©ë¬¸ ì²˜ë¦¬
 		if (cnt == 0)
-			dfs(nr, nc, cnt + 1, prob[i]);	// Ã³À½ ¹æÇâ ÀâÀ»¶§ °öÇÏ¸é 0¿¡ °öÇØÁö¹Ç·Î ±× ¹æÇâ¿¡ ´ëÇÑ È®·ü ±×´ë·Î ³Ö±â
+			dfs(nr, nc, cnt + 1, prob[i]);	// ì²˜ìŒ ë°©í–¥ ì¡ì„ë•Œ ê³±í•˜ë©´ 0ì— ê³±í•´ì§€ë¯€ë¡œ ê·¸ ë°©í–¥ì— ëŒ€í•œ í™•ë¥  ê·¸ëŒ€ë¡œ ë„£ê¸°
 		else 
-			dfs(nr, nc, cnt + 1, probability * prob[i]);	// ex) µ¿ÂÊ °¬´Ù°¡ ¼­ÂÊ °¥ È®·ü = µ¿ÂÊ * ¼­ÂÊ
-		visited[nr][nc] = false;		//	³ª¿À¸é ´Ù¸¥ °æ¿ì ÀÌ¹Ç·Î ¹æ¹® Ã³¸® ÇØÁ¦
+			dfs(nr, nc, cnt + 1, probability * prob[i]);	// ex) ë™ìª½ ê°”ë‹¤ê°€ ì„œìª½ ê°ˆ í™•ë¥  = ë™ìª½ * ì„œìª½
+		visited[nr][nc] = false;		//	ë‚˜ì˜¤ë©´ ë‹¤ë¥¸ ê²½ìš° ì´ë¯€ë¡œ ë°©ë¬¸ ì²˜ë¦¬ í•´ì œ
 	}
 	
 }
@@ -48,6 +48,6 @@ int main() {
 
 	visited[14][14] = true;
 	dfs(14, 14, 0, 0);
-	cout.precision(10);			// ¼Ò¼öÁ¡ 10Â°Â¥¸®±îÁö Ç¥½Ã. 10^-9ÀÌ ¿ÀÂ÷ ¹üÀ§ ÀÌ¹Ç·Î ÇÏ³ª ´õ Ç¥½ÃÇØ¾ß ¾ÈÆ²¸²
+	cout.precision(10);			// ì†Œìˆ˜ì  10ì§¸ì§œë¦¬ê¹Œì§€ í‘œì‹œ. 10^-9ì´ ì˜¤ì°¨ ë²”ìœ„ ì´ë¯€ë¡œ í•˜ë‚˜ ë” í‘œì‹œí•´ì•¼ ì•ˆí‹€ë¦¼
 	cout << result << endl;
 }

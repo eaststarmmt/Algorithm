@@ -19,7 +19,7 @@ bool check(int& x, int& y, int& d1, int& d2) {
 }
 
 void calc() {
-	memset(population, 0, sizeof(population));	// ¿Œ±∏ ¥Ÿ 0¿∏∑Œ √ ±‚»≠
+	memset(population, 0, sizeof(population));	// Ïù∏Íµ¨ Îã§ 0ÏúºÎ°ú Ï¥àÍ∏∞Ìôî
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) {
 			population[border[i][j] - 1] += map[i][j];
@@ -31,12 +31,12 @@ void calc() {
 }
 
 void border_setting(int& x, int& y, int& d1, int& d2) {
-	for (int r = 1; r <= N; r++) {	// ±∏ø™ ¥Ÿ 5∑Œ √ ±‚»≠
+	for (int r = 1; r <= N; r++) {	// Íµ¨Ïó≠ Îã§ 5Î°ú Ï¥àÍ∏∞Ìôî
 		fill(border[r] + 1, border[r] + N + 1, 5);
 	}	// end of border init
 	
-	// 1π¯ º±∞≈±∏ «•Ω√
-	int cnt = 0;	// ¥Î∞¢¿∏∑Œ ∞Ê∞Ë∞° ¿÷æÓº≠ ≥ª∑¡∞• ∂ß∏∂¥Ÿ «œ≥™æø ¡Ÿ∞≈≥™ ¥√æÓ≥≤. ∫Ø«œ¥¬ Ω√¡° ¿ﬂ ∆ƒæ««ÿæﬂ µ 
+	// 1Î≤à ÏÑ†Í±∞Íµ¨ ÌëúÏãú
+	int cnt = 0;	// ÎåÄÍ∞ÅÏúºÎ°ú Í≤ΩÍ≥ÑÍ∞Ä ÏûàÏñ¥ÏÑú ÎÇ¥Î†§Í∞à ÎïåÎßàÎã§ ÌïòÎÇòÏî© Ï§ÑÍ±∞ÎÇò ÎäòÏñ¥ÎÇ®. Î≥ÄÌïòÎäî ÏãúÏ†ê Ïûò ÌååÏïÖÌï¥Ïïº Îê®
 	for (int r = 1; r < corner[1].r; r++) {
 		if (r >= corner[0].r) cnt++;
 		for (int c = 1; c <= corner[0].c - cnt; c++) {
@@ -44,16 +44,16 @@ void border_setting(int& x, int& y, int& d1, int& d2) {
 		}
 	}
 
-	// 2π¯ º±∞≈±∏ «•Ω√
+	// 2Î≤à ÏÑ†Í±∞Íµ¨ ÌëúÏãú
 	cnt = 0;
 	for (int r = 1; r <= corner[2].r; r++) {
 		if (r > corner[0].r) cnt++;
-		for (int c = corner[0].c + 1 + cnt; c <= N; c++) {	// ¥Î∞¢ Ω√¿€ Ω√¡°¿Ã ø¿∏•¬ ¿∏∑Œ π–∏≤
+		for (int c = corner[0].c + 1 + cnt; c <= N; c++) {	// ÎåÄÍ∞Å ÏãúÏûë ÏãúÏ†êÏù¥ Ïò§Î•∏Ï™ΩÏúºÎ°ú Î∞ÄÎ¶º
 			border[r][c] = 2;
 		}
 	}
 
-	// 3π¯ º±∞≈±∏ «•Ω√
+	// 3Î≤à ÏÑ†Í±∞Íµ¨ ÌëúÏãú
 	cnt = 0;
 	for(int r = N; r >= corner[1].r; r--) {
 		if (r < corner[3].r) cnt++;
@@ -62,7 +62,7 @@ void border_setting(int& x, int& y, int& d1, int& d2) {
 		}
 	}
 
-	// 4π¯ º±∞≈±∏ «•Ω√
+	// 4Î≤à ÏÑ†Í±∞Íµ¨ ÌëúÏãú
 	cnt = 0;
 	for (int r = N; r > corner[2].r; r--) {
 		if (r <= corner[3].r) cnt++;
@@ -79,10 +79,10 @@ void select_length() {
 			for (int d1 = 1; d1 <= N - x; d1++) {
 				for (int d2 = 1; d2 <= N - y; d2++) {
 					if (check(x, y, d1, d2)) {
-						corner[0] = { x, y };	// ¿ß
-						corner[1] = { x + d1, y - d1 }; // øﬁ¬ 
-						corner[2] = { x + d2, y + d2 };	// ø¿∏•¬ 
-						corner[3] = { x + d1 + d2, y - d1 + d2 };	// æ∆∑°
+						corner[0] = { x, y };	// ÏúÑ
+						corner[1] = { x + d1, y - d1 }; // ÏôºÏ™Ω
+						corner[2] = { x + d2, y + d2 };	// Ïò§Î•∏Ï™Ω
+						corner[3] = { x + d1 + d2, y - d1 + d2 };	// ÏïÑÎûò
 						border_setting(x, y, d1, d2);
 					}
 				}

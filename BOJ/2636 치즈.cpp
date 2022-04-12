@@ -15,9 +15,9 @@ void bfs() {
 	vector<int> cheeze;
 	int time = 0;
 	while (true) {
-		Q = queue<pair<int, int>>();	// Å¥ ÃÊ±âÈ­
-		Q.push({ 0, 0 });	// Ç×»ó 0, 0 ºÎÅÍ ½ÃÀÛ
-		for (int i = 0; i < R; i++) {	// visited ÃÊ±âÈ­
+		Q = queue<pair<int, int>>();	// í ì´ˆê¸°í™”
+		Q.push({ 0, 0 });	// í•­ìƒ 0, 0 ë¶€í„° ì‹œì‘
+		for (int i = 0; i < R; i++) {	// visited ì´ˆê¸°í™”
 			fill(visited[i], visited[i] + C + 1, false);
 		}
 		visited[0][0] = true;
@@ -26,7 +26,7 @@ void bfs() {
 			int r = Q.front().first;
 			int c = Q.front().second;
 			Q.pop();
-			// °ø±âÁß¿¡ ´êÀº Ä¡ÁîÀÎ °æ¿ì. ¹Û¿¡¼­ ½ÃÀÛÇÏ¹Ç·Î ÀÎÁ¢ÇÑ À§Ä¡¸¦ push ¾ÈÇÏ¸é °ø±âÁß¿¡ ³ëÃâµÈ Ä¡Áî¸¸ ¸¸³²
+			// ê³µê¸°ì¤‘ì— ë‹¿ì€ ì¹˜ì¦ˆì¸ ê²½ìš°. ë°–ì—ì„œ ì‹œì‘í•˜ë¯€ë¡œ ì¸ì ‘í•œ ìœ„ì¹˜ë¥¼ push ì•ˆí•˜ë©´ ê³µê¸°ì¤‘ì— ë…¸ì¶œëœ ì¹˜ì¦ˆë§Œ ë§Œë‚¨
 			if (map[r][c] == 1) {
 				map[r][c] = 0;
 				cnt++;
@@ -36,17 +36,17 @@ void bfs() {
 			for (int i = 0; i < 4; i++) {
 				int nr = r + dr[i];
 				int nc = c + dc[i];
-				// Ä¡ÁîÀÎ °æ¿ì ÀÌ°÷¿¡ ¿ÀÁö ¾ÊÀ¸¹Ç·Î ÀÎÁ¢ÇÏ¸é ÀÏ´Ü ´Ù ³Ö¾îµµ µÊ
+				// ì¹˜ì¦ˆì¸ ê²½ìš° ì´ê³³ì— ì˜¤ì§€ ì•Šìœ¼ë¯€ë¡œ ì¸ì ‘í•˜ë©´ ì¼ë‹¨ ë‹¤ ë„£ì–´ë„ ë¨
 				if (nr >= 0 && nr < R && nc >= 0 && nc < C && !visited[nr][nc]) {
 					Q.push({ nr, nc });
 					visited[nr][nc] = true;
 				}
-			}	// end of for »ç¹æÅ½»ö
+			}	// end of for ì‚¬ë°©íƒìƒ‰
 		}	// end of while Q
-		if (cnt == 0) break;	// Ä¡Áî ¾øÀ¸¸é ¹«ÇÑ·çÇÁ Å»Ãâ
+		if (cnt == 0) break;	// ì¹˜ì¦ˆ ì—†ìœ¼ë©´ ë¬´í•œë£¨í”„ íƒˆì¶œ
 		cheeze.push_back(cnt);
 		time++;
-	}	// end of while ¹«ÇÑ·çÇÁ
+	}	// end of while ë¬´í•œë£¨í”„
 
 	printf("%d\n", time);
 	printf("%d\n", cheeze[time - 1]);

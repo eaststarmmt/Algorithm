@@ -8,16 +8,16 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	int N, K;
-	string input;		// ¼ıÀÚ¸¦ ÇÑÀÚ¸®¾¿ ³ª´©±â À§ÇØ stringÀ¸·Î ¹ŞÀ½
+	string input;		// ìˆ«ìë¥¼ í•œìë¦¬ì”© ë‚˜ëˆ„ê¸° ìœ„í•´ stringìœ¼ë¡œ ë°›ìŒ
 	cin >> N >> K >> input;
 	stack<int> stk;
 	int cnt = K;
 
-	if (N == K) return 0;		// ex 1ÀÚ¸®¿¡¼­ 1°³ Áö¿ì¸é Ãâ·ÂÇÒ°Ô ¾øÀ½
+	if (N == K) return 0;		// ex 1ìë¦¬ì—ì„œ 1ê°œ ì§€ìš°ë©´ ì¶œë ¥í• ê²Œ ì—†ìŒ
 
 	for (int i = 0; i < N; i++) {
 		
-		while (K > 0 && !stk.empty() && stk.top() < input[i] -'0') {	// K°¡ 0º¸´Ù Å©´Ù´Â Á¶°ÇÀÌ ¾øÀ¸¸é ÇÊ¿ä ÀÌ»óÀ¸·Î Áö¿öÁü. topº¸´Ù ´ÙÀ½ ¼ıÀÚ°¡ Å©¸é ½ºÅÃ¿¡¼­ ºñ¿ò
+		while (K > 0 && !stk.empty() && stk.top() < input[i] -'0') {	// Kê°€ 0ë³´ë‹¤ í¬ë‹¤ëŠ” ì¡°ê±´ì´ ì—†ìœ¼ë©´ í•„ìš” ì´ìƒìœ¼ë¡œ ì§€ì›Œì§. topë³´ë‹¤ ë‹¤ìŒ ìˆ«ìê°€ í¬ë©´ ìŠ¤íƒì—ì„œ ë¹„ì›€
 			stk.pop();
 			K--;
 		}
@@ -33,7 +33,7 @@ int main() {
 		stk.pop();
 		if (stk.empty()) break;
 	}
-	for (int i = result.size() - 1; i >= 0 + K; i--) {		// K°¡ ¿ÏÀüÈ÷ ¼Ò°ÅµÇÁö ¾Ê¾ÒÀ» °æ¿ì¸¦ ´ëºñÇØ +K·Î ÀâÀ½
+	for (int i = result.size() - 1; i >= 0 + K; i--) {		// Kê°€ ì™„ì „íˆ ì†Œê±°ë˜ì§€ ì•Šì•˜ì„ ê²½ìš°ë¥¼ ëŒ€ë¹„í•´ +Kë¡œ ì¡ìŒ
 		cout << result[i];
 	}
 

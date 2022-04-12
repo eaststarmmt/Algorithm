@@ -6,7 +6,7 @@ using namespace std;
 int N, M;
 bool visited[100][70];
 int map[100][70];
-int dr[] = { -1, 1, 0, 0, -1, -1, 1, 1 };	// 8¹æ Å½»ö
+int dr[] = { -1, 1, 0, 0, -1, -1, 1, 1 };	// 8ë°© íƒìƒ‰
 int dc[] = { 0, 0, -1, 1, -1, 1, -1, 1 };
 bool peek;
 void dfs(int r, int c) {
@@ -14,8 +14,8 @@ void dfs(int r, int c) {
 		int nr = r + dr[i];
 		int nc = c + dc[i];
 		if (nr >= 0 && nr < N && nc >= 0 && nc < M) {
-			if (map[nr][nc] > map[r][c]) peek = false;	// ´õ ³ôÀº°Ô ÀÖÀ¸¸é ºÒ°¡´É
-			if (visited[nr][nc] || map[r][c] != map[nr][nc]) continue;	// ¹æ¹® Çß°Å³ª °ª ´Ù¸£¸é ¹«½Ã
+			if (map[nr][nc] > map[r][c]) peek = false;	// ë” ë†’ì€ê²Œ ìˆìœ¼ë©´ ë¶ˆê°€ëŠ¥
+			if (visited[nr][nc] || map[r][c] != map[nr][nc]) continue;	// ë°©ë¬¸ í–ˆê±°ë‚˜ ê°’ ë‹¤ë¥´ë©´ ë¬´ì‹œ
 			visited[nr][nc] = true;
 			dfs(nr, nc);
 
@@ -36,7 +36,7 @@ int main() {
 		}
 	}	// end of input
 
-	int res = 0;	// »êºÀ¿ì¸® Ä«¿îÆÃ
+	int res = 0;	// ì‚°ë´‰ìš°ë¦¬ ì¹´ìš´íŒ…
 
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < M; j++) {

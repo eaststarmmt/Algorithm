@@ -32,16 +32,16 @@ void bfs() {
 	graph[1] = 1;
 	
 	while (!Q.empty()) {
-		int x = Q.front();	// ∞™
-		int idx = path[x];	// ¿Œµ¶Ω∫
+		int x = Q.front();	// Í∞í
+		int idx = path[x];	// Ïù∏Îç±Ïä§
 		Q.pop();
 		for (int i = 0; i < C; i++) {
 			int next = x ^ (1 << i);
-			if (path.find(next) != path.end()) {	// «ÿπ÷∞≈∏Æ∞° 1¿Œ∞≈ √£±‚ xor∑Œ ¿⁄∏Æ ºˆ ∫∞∑Œ «œ≥™∏∏ ¥Ÿ∏•æ÷ √£¿ª ºˆ ¿÷¿Ω
+			if (path.find(next) != path.end()) {	// Ìï¥Î∞çÍ±∞Î¶¨Í∞Ä 1Ïù∏Í±∞ Ï∞æÍ∏∞ xorÎ°ú ÏûêÎ¶¨ Ïàò Î≥ÑÎ°ú ÌïòÎÇòÎßå Îã§Î•∏Ïï† Ï∞æÏùÑ Ïàò ÏûàÏùå
 				int nextIdx = path[next];
-				if (graph[nextIdx] == -1) { // æ∆¡˜ πÊπÆ æ»«ﬂ¿∏∏È
-					Q.push(next);			// ≈•ø° ∞™ ≥÷±‚
-					graph[nextIdx] = idx;	// æÓµº≠ πÊπÆ«ﬂ¥¬¡ˆ √º≈©. ∞™ ªÃæ∆≥ªæﬂ µ«±‚ ∂ßπÆø°
+				if (graph[nextIdx] == -1) { // ÏïÑÏßÅ Î∞©Î¨∏ ÏïàÌñàÏúºÎ©¥
+					Q.push(next);			// ÌÅêÏóê Í∞í ÎÑ£Í∏∞
+					graph[nextIdx] = idx;	// Ïñ¥ÎîîÏÑú Î∞©Î¨∏ÌñàÎäîÏßÄ Ï≤¥ÌÅ¨. Í∞í ÎΩëÏïÑÎÇ¥Ïïº ÎêòÍ∏∞ ÎïåÎ¨∏Ïóê
 				}
 			}
 		}
@@ -57,7 +57,7 @@ int main() {
 			if (s[j] == '1')
 				hamming[i] += (1 << C - j - 1);
 		}
-		path[hamming[i]] = i;	// ∞™¿ª ∞°¡ˆ∞Ì π¯»£∏¶ √£æ∆æﬂ µ 
+		path[hamming[i]] = i;	// Í∞íÏùÑ Í∞ÄÏßÄÍ≥† Î≤àÌò∏Î•º Ï∞æÏïÑÏïº Îê®
 		if (i == 1) start = hamming[i];
 	}	// end of hamming 
 	

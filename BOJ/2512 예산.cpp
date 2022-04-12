@@ -8,18 +8,18 @@ int binarySearch(vector<int> input, int start, int end, int target) {
 	int maxValue = 0;
 
 	while (start <= end) {
-		int mid = (start + end) / 2;		// »óÇÑ°ªÀ» È®ÀÎÇÒ º¯¼ö
+		int mid = (start + end) / 2;		// ìƒí•œê°’ì„ í™•ì¸í•  ë³€ìˆ˜
 		int sum = 0;
 		for (int i = 0; i < input.size(); i++) {
-			if (mid < input[i]) sum += mid;		// »óÇÑ°ª º¸´Ù Å©¸é »óÇÑ°ª ³Ö±â
-			else sum += input[i];			// ÀÛÀ¸¸é ±×³É ³Ö±â
+			if (mid < input[i]) sum += mid;		// ìƒí•œê°’ ë³´ë‹¤ í¬ë©´ ìƒí•œê°’ ë„£ê¸°
+			else sum += input[i];			// ì‘ìœ¼ë©´ ê·¸ëƒ¥ ë„£ê¸°
 		}
 
-		if (sum <= target) {				// ÇÕÀÌ ¿¹»ê ÀÌÇÏÀÌ¸é start ´Ã·Á¼­ ´õ Å« °ª ³ÖÀ»¼ö ÀÖ´ÂÁö Ã£±â
+		if (sum <= target) {				// í•©ì´ ì˜ˆì‚° ì´í•˜ì´ë©´ start ëŠ˜ë ¤ì„œ ë” í° ê°’ ë„£ì„ìˆ˜ ìˆëŠ”ì§€ ì°¾ê¸°
 			start = mid + 1;
 			maxValue = mid > maxValue ? mid : maxValue;
 		}
-		else end = mid - 1;				// ¿¹»êº¸´Ù Å©¸é end°ª ÁÙ¿©¼­ Á¶°Ç¿¡ ¸ÂÃçº¸±â
+		else end = mid - 1;				// ì˜ˆì‚°ë³´ë‹¤ í¬ë©´ endê°’ ì¤„ì—¬ì„œ ì¡°ê±´ì— ë§ì¶°ë³´ê¸°
 	}
 	return maxValue;
 }
@@ -33,13 +33,13 @@ int main() {
 		int x;
 		scanf("%d", &x);
 		input.push_back(x);
-		sum += x;				// ¿¹»ê°ú ºñ±³ÇÏ±â À§ÇØ ¹Ì¸® ÇÕÀ» ±¸ÇØµÒ
+		sum += x;				// ì˜ˆì‚°ê³¼ ë¹„êµí•˜ê¸° ìœ„í•´ ë¯¸ë¦¬ í•©ì„ êµ¬í•´ë‘ 
 	}
 	int M;				
 	scanf("%d", &M);
 	sort(input.begin(), input.end());
 	
-	if (sum <= M) {		// ÇÕÀÌ ¿¹»ê ÀÌÇÏÀÌ¸é ÃÖ´ë°ª Ãâ·Â
+	if (sum <= M) {		// í•©ì´ ì˜ˆì‚° ì´í•˜ì´ë©´ ìµœëŒ€ê°’ ì¶œë ¥
 		printf("%d\n", input[input.size() - 1]);
 		return 0;
 	}

@@ -4,7 +4,7 @@
 #define INF 1e9
 using namespace std;
 
-vector<pair<int, pair<int, int>>> edge;		// ºñ¿ëÀ¸·Î ¿À¸§Â÷¼ø Á¤·ÄÇÏ±â À§ÇØ cost¸¦ °¡Àå ¾Õ¿¡ µÒ
+vector<pair<int, pair<int, int>>> edge;		// ë¹„ìš©ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬í•˜ê¸° ìœ„í•´ costë¥¼ ê°€ì¥ ì•ì— ë‘ 
 int d[1001];
 int parent[1001];
 
@@ -44,7 +44,7 @@ int main() {
 		int b = edge[i].second.second;
 		int cost = edge[i].first;
 
-		if (findParent(a) != findParent(b)) {	// ºÎ¸ğ°¡ °°À»¶§µµ ÁøÇàµÇ¸é »çÀÌÅ¬ ¹ß»ı
+		if (findParent(a) != findParent(b)) {	// ë¶€ëª¨ê°€ ê°™ì„ë•Œë„ ì§„í–‰ë˜ë©´ ì‚¬ì´í´ ë°œìƒ
 			unionParent(a, b);
 			result += cost;
 		}

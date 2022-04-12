@@ -5,7 +5,7 @@ int sawtooth[5][8];
 
 void turn(int tooth, int dir) {
 	int temp = sawtooth[tooth][0];
-	if (dir == 1) {		// ½Ã°è¹æÇâ
+	if (dir == 1) {		// ì‹œê³„ë°©í–¥
 		sawtooth[tooth][0] = sawtooth[tooth][7];
 		for (int i = 6; i >= 1; i--) {
 			sawtooth[tooth][i + 1] = sawtooth[tooth][i];
@@ -21,14 +21,14 @@ void turn(int tooth, int dir) {
 	}
 }
 
-void leftCheck(int tooth, int dir) {	// Àç±Í·Î ¿ÞÂÊÀ» ¸ÕÀú ´Ù È®ÀÎ ÇØ¾ß °ªÀÌ ¹Ù²î¾î¼­ ¾Èµ¹¾Æ°¡´Â °æ¿ì¸¦ ¹æÁöÇÒ ¼ö ÀÖÀ½
+void leftCheck(int tooth, int dir) {	// ìž¬ê·€ë¡œ ì™¼ìª½ì„ ë¨¼ì € ë‹¤ í™•ì¸ í•´ì•¼ ê°’ì´ ë°”ë€Œì–´ì„œ ì•ˆëŒì•„ê°€ëŠ” ê²½ìš°ë¥¼ ë°©ì§€í•  ìˆ˜ ìžˆìŒ
 	if (tooth < 1) return;
 	if (tooth - 1 > 0 && sawtooth[tooth - 1][2] != sawtooth[tooth][6])
 		leftCheck(tooth - 1, -1 * dir);
 	turn(tooth, dir);
 }
 
-void rightCheck(int tooth, int dir) {// Àç±Í·Î ¿À¸¥ÂÊÀ» ¸ÕÀú ´Ù È®ÀÎ ÇØ¾ß °ªÀÌ ¹Ù²î¾î¼­ ¾Èµ¹¾Æ°¡´Â °æ¿ì¸¦ ¹æÁöÇÒ ¼ö ÀÖÀ½
+void rightCheck(int tooth, int dir) {// ìž¬ê·€ë¡œ ì˜¤ë¥¸ìª½ì„ ë¨¼ì € ë‹¤ í™•ì¸ í•´ì•¼ ê°’ì´ ë°”ë€Œì–´ì„œ ì•ˆëŒì•„ê°€ëŠ” ê²½ìš°ë¥¼ ë°©ì§€í•  ìˆ˜ ìžˆìŒ
 	if (tooth > 4) return;
 	if (tooth + 1 < 5 && sawtooth[tooth][2] != sawtooth[tooth + 1][6])
 		rightCheck(tooth + 1, -1 * dir);
@@ -49,11 +49,11 @@ int main() {
 		int tooth, dir;
 		scanf("%d %d", &tooth, &dir);
 
-		// ¿ÞÂÊ ¸ÕÀú µ¹¸®±â
+		// ì™¼ìª½ ë¨¼ì € ëŒë¦¬ê¸°
 		if (tooth - 1 > 0 && sawtooth[tooth - 1][2] != sawtooth[tooth][6])
 			leftCheck(tooth - 1, -1 * dir);
 
-		// ¿À¸¥ÂÊ ¸ÕÀú µ¹¸®±â
+		// ì˜¤ë¥¸ìª½ ë¨¼ì € ëŒë¦¬ê¸°
 		if (tooth + 1 < 5 && sawtooth[tooth][2] != sawtooth[tooth + 1][6])
 			rightCheck(tooth + 1, -1 * dir);
 

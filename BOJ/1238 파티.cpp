@@ -4,10 +4,10 @@
 #define INF 1e9
 using namespace std;
 
-vector<pair<int, int>> graph[1001];	// µµ·Î Á¤º¸ ¹ŞÀ» º¤ÅÍ
+vector<pair<int, int>> graph[1001];	// ë„ë¡œ ì •ë³´ ë°›ì„ ë²¡í„°
 
 void dijkstra(int start, int d[]) {
-	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;	// ¿ì¼±¼øÀ§ Å¥ ÀÌ¿ëÇÏ¿© °Å¸®°¡ ÂªÀº ¼øÀ¸·Î °è»ê
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;	// ìš°ì„ ìˆœìœ„ í ì´ìš©í•˜ì—¬ ê±°ë¦¬ê°€ ì§§ì€ ìˆœìœ¼ë¡œ ê³„ì‚°
 	pq.push({ 0, start });
 	d[start] = 0;
 
@@ -42,11 +42,11 @@ int main() {
 	int result = -1;
 
 	fill(back, back + N + 1, INF);
-	dijkstra(X, back);				// ÆÄÆ¼Àå¼Ò¿¡¼­ µ¹¾Æ¿À´Â °æ¿ì ¹Ì¸® °è»ê
+	dijkstra(X, back);				// íŒŒí‹°ì¥ì†Œì—ì„œ ëŒì•„ì˜¤ëŠ” ê²½ìš° ë¯¸ë¦¬ ê³„ì‚°
 
 	for (int i = 1; i <= N; i++) {
 		fill(d, d + N + 1, INF);
-		dijkstra(i, d);				// °¡´Â °Å¸® °è»ê
+		dijkstra(i, d);				// ê°€ëŠ” ê±°ë¦¬ ê³„ì‚°
 		int sum = d[X];
 		sum += back[i];
 		result = sum > result? sum : result;

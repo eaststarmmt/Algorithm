@@ -7,7 +7,7 @@ char input[15];
 char output[15];
 void comb(int cnt, int vowel, int consonant, int start) {
 	if (cnt == N) {								
-		if (vowel >= 1 && consonant >= 2) {		// °³¼ö Ã¤¿öÁö°í ÀÚÀ½ ÇÑ °³ ÀÌ»ó ¸ðÀ½ µÎ °³ ÀÌ»ó µÇ¸é Ãâ·Â
+		if (vowel >= 1 && consonant >= 2) {		// ê°œìˆ˜ ì±„ì›Œì§€ê³  ìžìŒ í•œ ê°œ ì´ìƒ ëª¨ìŒ ë‘ ê°œ ì´ìƒ ë˜ë©´ ì¶œë ¥
 			for (int i = 0; i < cnt; i++) {
 				printf("%c", output[i]);
 			}
@@ -18,9 +18,9 @@ void comb(int cnt, int vowel, int consonant, int start) {
 
 	for (int i = start; i < C; i++) {
 		output[cnt] = input[i];
-		if (input[i] == 'a' || input[i] == 'e' || input[i] == 'i' || input[i] == 'o' || input[i] == 'u')	// ¸ðÀ½ÀÎ °æ¿ì
+		if (input[i] == 'a' || input[i] == 'e' || input[i] == 'i' || input[i] == 'o' || input[i] == 'u')	// ëª¨ìŒì¸ ê²½ìš°
 			comb(cnt + 1, vowel + 1, consonant, i + 1);
-		else																							// ÀÚÀ½ÀÎ °æ¿ì
+		else																							// ìžìŒì¸ ê²½ìš°
 			comb(cnt + 1, vowel, consonant + 1, i + 1);
 	}
 
@@ -33,6 +33,6 @@ int main() {
 		scanf(" %c", &input[i]);
 	}
 	
-	sort(input, input + C);			// »çÀü¼øÀ¸·Î Ãâ·ÂÇÏ±â À§ÇØ ¹Ì¸® sort
+	sort(input, input + C);			// ì‚¬ì „ìˆœìœ¼ë¡œ ì¶œë ¥í•˜ê¸° ìœ„í•´ ë¯¸ë¦¬ sort
 	comb(0, 0, 0, 0);
 }

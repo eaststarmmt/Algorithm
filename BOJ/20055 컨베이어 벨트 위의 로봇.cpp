@@ -3,36 +3,36 @@
 #include<algorithm>
 using namespace std;
 
-int A[202];		// ¾ç ³¡¿¡ ¿©À¯°ø°£À» µÎ±â À§ÇÔ
+int A[202];		// ì–‘ ëì— ì—¬ìœ ê³µê°„ì„ ë‘ê¸° ìœ„í•¨
 bool robot[101];
 int N, K;
 
-void turnWithBelt() {	// 1¹ø º§Æ®¶û °°ÀÌ ÀÌµ¿
+void turnWithBelt() {	// 1ë²ˆ ë²¨íŠ¸ëž‘ ê°™ì´ ì´ë™
 	int tmp = A[1];
-	A[1] = A[2 * N];	// 2N¿¡ ÀÖ´Â°Å 1·Î ÀÌµ¿
+	A[1] = A[2 * N];	// 2Nì— ìžˆëŠ”ê±° 1ë¡œ ì´ë™
 	for (int i = 2 * N - 1; i >= 2; i--) {
 		A[i + 1] = A[i];
 	}	// end of turn A
 	A[2] = tmp;
 	
-	for (int i = N - 1; i >= 1; i--) {	// ·Îº¿µµ º§Æ®¶û °°ÀÌ ÀÌµ¿
+	for (int i = N - 1; i >= 1; i--) {	// ë¡œë´‡ë„ ë²¨íŠ¸ëž‘ ê°™ì´ ì´ë™
 		robot[i + 1] = robot[i];
 	}
-	robot[N] = false;	// N¹øÂ°·Î ÀÌµ¿ÇØ¼­ ºüÁü. º§Æ®¶û °°ÀÌ ÀÌµ¿ÇØ¼­ ³»±¸µµ ¾ÈÁÙ¾îµë
-	robot[1] = false;	// º§Æ® ÀÌµ¿ÇßÀ¸¹Ç·Î 1¹øÀº ºñ¾îÀÖÀ½
+	robot[N] = false;	// Në²ˆì§¸ë¡œ ì´ë™í•´ì„œ ë¹ ì§. ë²¨íŠ¸ëž‘ ê°™ì´ ì´ë™í•´ì„œ ë‚´êµ¬ë„ ì•ˆì¤„ì–´ë“¬
+	robot[1] = false;	// ë²¨íŠ¸ ì´ë™í–ˆìœ¼ë¯€ë¡œ 1ë²ˆì€ ë¹„ì–´ìžˆìŒ
 
 }
 
-void moveRobot() {	// ¾Õ¿¡¼­ Ã³¸®ÇØ¼­ ¹«Á¶°Ç N Ä­Àº ºñ¾îÀÖÀ½
+void moveRobot() {	// ì•žì—ì„œ ì²˜ë¦¬í•´ì„œ ë¬´ì¡°ê±´ N ì¹¸ì€ ë¹„ì–´ìžˆìŒ
 	for (int i = N - 1; i >= 1; i--) {	
-		if (robot[i] && A[i + 1] > 0 && !robot[i + 1]) {		// ´ÙÀ½ Ä­ÀÌ ºñ¾îÀÖ°í ³»±¸µµ°¡ 0 ÀÌ»ó ÀÖÀ»¶§
-			robot[i + 1] = true;	// i + 1·Î ÀÌµ¿
+		if (robot[i] && A[i + 1] > 0 && !robot[i + 1]) {		// ë‹¤ìŒ ì¹¸ì´ ë¹„ì–´ìžˆê³  ë‚´êµ¬ë„ê°€ 0 ì´ìƒ ìžˆì„ë•Œ
+			robot[i + 1] = true;	// i + 1ë¡œ ì´ë™
 			robot[i] = false;
-			if (--A[i + 1] == 0)		// i + 1 ³»±¸µµ 1 °¨¼Ò
-				K--;	// Ä«¿îÆÃ ÇÒ ÇÊ¿ä ¾øÀÌ K¸¦ ¶³±À
+			if (--A[i + 1] == 0)		// i + 1 ë‚´êµ¬ë„ 1 ê°ì†Œ
+				K--;	// ì¹´ìš´íŒ… í•  í•„ìš” ì—†ì´ Kë¥¼ ë–¨êµ¼
 		}
 	}
-	robot[N] = false;		// ³»¸®´Â À§Ä¡¿¡ ÀÖ´Â ·Îº¿ Á¦°Å
+	robot[N] = false;		// ë‚´ë¦¬ëŠ” ìœ„ì¹˜ì— ìžˆëŠ” ë¡œë´‡ ì œê±°
 }
 
 void putRobot() {

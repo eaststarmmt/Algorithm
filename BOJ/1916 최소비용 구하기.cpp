@@ -3,12 +3,12 @@
 #include<vector>
 #define INF 1e9
 using namespace std;
-vector<pair<int, int>> graph[1001]; // Ã¹¹øÂ° °ª µÎ¹øÂ° °ª ¹ºÁö È®½ÇÈ÷ ÇÏ±â. Å©±â´Â ³ëµå °³¼ö·Î Àâ±â
+vector<pair<int, int>> graph[1001]; // ì²«ë²ˆì§¸ ê°’ ë‘ë²ˆì§¸ ê°’ ë­”ì§€ í™•ì‹¤íˆ í•˜ê¸°. í¬ê¸°ëŠ” ë…¸ë“œ ê°œìˆ˜ë¡œ ì¡ê¸°
 int d[1001];
-// ±×³É ´ÙÀÍ½ºÆ®¶ó ¿Ü¿ö³õ°í Çª´Â ¹®Á¦
+// ê·¸ëƒ¥ ë‹¤ìµìŠ¤íŠ¸ë¼ ì™¸ì›Œë†“ê³  í‘¸ëŠ” ë¬¸ì œ
 void dijkstra(int start) {
 	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-	pq.push({ 0, start }); // ¿©±â¼­ Ã¹¹øÂ° °ªÀÌ °Å¸®ÀÎÁö ³ëµå¹øÈ£ÀÎÁö Àß ±â¾ïÇÏ±â. Çò°¥¸®¸é Á¸³ª Â¥Áõ³²
+	pq.push({ 0, start }); // ì—¬ê¸°ì„œ ì²«ë²ˆì§¸ ê°’ì´ ê±°ë¦¬ì¸ì§€ ë…¸ë“œë²ˆí˜¸ì¸ì§€ ì˜ ê¸°ì–µí•˜ê¸°. í—·ê°ˆë¦¬ë©´ ì¡´ë‚˜ ì§œì¦ë‚¨
 	d[start] = 0;
 	while (!pq.empty()) {
 		int dist = pq.top().first;

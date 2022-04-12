@@ -14,10 +14,10 @@ int main() {
 	for (int commend = 0; commend < N; commend++) {
 		int c, r, w, h;
 		scanf("%d %d %d %d", &c, &r, &w, &h);
-		width.push_back(w * h);					// ³ÐÀÌ ¹Ì¸® ÀúÀå
+		width.push_back(w * h);					// ë„“ì´ ë¯¸ë¦¬ ì €ìž¥
 		for (int i = r; i < r + h; i++) {
 			for (int j = c; j < c + w; j++) {
-				if (map[i][j] != 0) {			// °ãÄ¡´Â ºÎºÐ ÀÖÀ¸¸é ±ò¸®´Â ºÎºÐÀÇ ³ÐÀÌ 1¾¿ »©ÁÜ
+				if (map[i][j] != 0) {			// ê²¹ì¹˜ëŠ” ë¶€ë¶„ ìžˆìœ¼ë©´ ê¹”ë¦¬ëŠ” ë¶€ë¶„ì˜ ë„“ì´ 1ì”© ë¹¼ì¤Œ
 					width[map[i][j] - 1]--;
 				}
 				map[i][j] = commend + 1;

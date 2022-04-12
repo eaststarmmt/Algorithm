@@ -9,20 +9,20 @@ int main() {
 	vector<vector<int>> list(N + 1);
 	for (int i = 0; i < M; i++) {
 		int a, b;
-		scanf("%d %d", &a, &b);		// a ¿Í b Ä£±¸ °ü°èÀÌ¹Ç·Î ¾çÂÊ ´Ù ¿¬°á
+		scanf("%d %d", &a, &b);		// a ì™€ b ì¹œêµ¬ ê´€ê³„ì´ë¯€ë¡œ ì–‘ìª½ ë‹¤ ì—°ê²°
 		list[a].push_back(b);		
 		list[b].push_back(a);
 	}
 
-	set<int> result;	// Áßº¹ ¾ø¾Ö±â À§ÇØ set »ç¿ë
+	set<int> result;	// ì¤‘ë³µ ì—†ì• ê¸° ìœ„í•´ set ì‚¬ìš©
 	
 	for (int i = 0; i < list[1].size(); i++) {
-		result.insert(list[1][i]);	// 1ÀÇ Ä£±¸µé ´Ù »ðÀÔ
+		result.insert(list[1][i]);	// 1ì˜ ì¹œêµ¬ë“¤ ë‹¤ ì‚½ìž…
 	}
 
-	for (int i = 0; i < list[1].size(); i++) {	// 1ÀÇ Ä£±¸µé ¸¸Å­ ¹Ýº¹
-		for (int j = 0; j < list[list[1][i]].size(); j++) {		// 1ÀÇ Ä£±¸ÀÇ Ä£±¸ ºÎºÐ »ðÀÔ
-			if(list[list[1][i]][j] != 1)			// 1ÀÌ¸é ÀÚ±â ÀÚ½ÅÀÓÀ¸·Î Æ÷ÇÔ ÇÏÁö ¾ÊÀ½
+	for (int i = 0; i < list[1].size(); i++) {	// 1ì˜ ì¹œêµ¬ë“¤ ë§Œí¼ ë°˜ë³µ
+		for (int j = 0; j < list[list[1][i]].size(); j++) {		// 1ì˜ ì¹œêµ¬ì˜ ì¹œêµ¬ ë¶€ë¶„ ì‚½ìž…
+			if(list[list[1][i]][j] != 1)			// 1ì´ë©´ ìžê¸° ìžì‹ ìž„ìœ¼ë¡œ í¬í•¨ í•˜ì§€ ì•ŠìŒ
 				result.insert(list[list[1][i]][j]);
 		}
 	}

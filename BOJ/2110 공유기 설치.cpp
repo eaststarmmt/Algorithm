@@ -4,24 +4,24 @@
 using namespace std;
 
 int binarySearch(vector<int> input, int start, int end, int target) {
-	int maxDis = 0;		// °¡Àå Å« ÃÖ¼Ò °Å¸®
+	int maxDis = 0;		// ê°€ì¥ í° ìµœì†Œ ê±°ë¦¬
 	while (start <= end) {
-		int mid = (start + end) / 2;	// ÃÖ¼Ò°Å¸®¸¦ Áß°£ °ªÀ¸·Î Å½»ö. ½ÃÀÛÁ¡°ú ³¡ Á¡ÀÇ Áß°£°ªÀ» Å½»öÇÏ´Â ¹æ½Ä ÀÌ¿ë
-		int last = 0;					// ÃÖ±Ù¿¡ °øÀ¯±â°¡ ¼³Ä¡µÈ °÷ÀÇ ÀÎµ¦½º
-		int cnt = 1;					// ¼³Ä¡µÈ °øÀ¯±â °³¼ö
+		int mid = (start + end) / 2;	// ìµœì†Œê±°ë¦¬ë¥¼ ì¤‘ê°„ ê°’ìœ¼ë¡œ íƒìƒ‰. ì‹œì‘ì ê³¼ ë ì ì˜ ì¤‘ê°„ê°’ì„ íƒìƒ‰í•˜ëŠ” ë°©ì‹ ì´ìš©
+		int last = 0;					// ìµœê·¼ì— ê³µìœ ê¸°ê°€ ì„¤ì¹˜ëœ ê³³ì˜ ì¸ë±ìŠ¤
+		int cnt = 1;					// ì„¤ì¹˜ëœ ê³µìœ ê¸° ê°œìˆ˜
 		for (int i = 1; i < input.size(); i++) {
-			int dis = input[i] - input[last];	// ¸¶Áö¸· ¼³Ä¡µÈ °÷°ú ÇöÀç À§Ä¡ÀÇ °Å¸®
-			if (dis >= mid) {			// midº¸´Ù Å« °æ¿ì¸¸ ¼³Ä¡
+			int dis = input[i] - input[last];	// ë§ˆì§€ë§‰ ì„¤ì¹˜ëœ ê³³ê³¼ í˜„ì¬ ìœ„ì¹˜ì˜ ê±°ë¦¬
+			if (dis >= mid) {			// midë³´ë‹¤ í° ê²½ìš°ë§Œ ì„¤ì¹˜
 				cnt++;
 				last = i;
 			}
 			
 		}
-		if (cnt >= target) {		// target ÀÇ °³¼ö ÀÌ»ó ¼³Ä¡ µÈ °æ¿ì
-			start = mid + 1;		// start °ªÀ» ´Ã·Á¼­ mid °ªÀ» Å°¿ò
-			maxDis = mid > maxDis ? mid : maxDis;	// target ¸¸Å­ ¼³Ä¡ °¡´ÉÇÏ´Ü ¶æÀÌ±â ¶§¹®¿¡ ÃÖ´ëÃÖ¼Ò°Å¸® °»½Å
+		if (cnt >= target) {		// target ì˜ ê°œìˆ˜ ì´ìƒ ì„¤ì¹˜ ëœ ê²½ìš°
+			start = mid + 1;		// start ê°’ì„ ëŠ˜ë ¤ì„œ mid ê°’ì„ í‚¤ì›€
+			maxDis = mid > maxDis ? mid : maxDis;	// target ë§Œí¼ ì„¤ì¹˜ ê°€ëŠ¥í•˜ë‹¨ ëœ»ì´ê¸° ë•Œë¬¸ì— ìµœëŒ€ìµœì†Œê±°ë¦¬ ê°±ì‹ 
 		}
-		else end = mid - 1;			// end °ªÀ» ÁÙ¿©¼­ mid °ªÀ» ÁÙÀÓ		
+		else end = mid - 1;			// end ê°’ì„ ì¤„ì—¬ì„œ mid ê°’ì„ ì¤„ì„		
 	}
 	return maxDis;
 }
@@ -37,6 +37,6 @@ int main() {
 		input.push_back(x);
 	}
 	sort(input.begin(), input.end());
-	printf("%d", binarySearch(input, 0, input[input.size() - 1], C));	// ½ÃÀÛÁ¡Àº input°ú »ó°ü¾øÀÌ ¹«Á¶°Ç 0À¸·Î ÇØ¾ß ³¡Á¡°úÀÇ Á¤È®ÇÑ Áß°£°ªÀÌ ³ª¿È
+	printf("%d", binarySearch(input, 0, input[input.size() - 1], C));	// ì‹œì‘ì ì€ inputê³¼ ìƒê´€ì—†ì´ ë¬´ì¡°ê±´ 0ìœ¼ë¡œ í•´ì•¼ ëì ê³¼ì˜ ì •í™•í•œ ì¤‘ê°„ê°’ì´ ë‚˜ì˜´
 
 }

@@ -7,12 +7,12 @@ using namespace std;
 bool button[10] = { true,true,true,true,true,true,true,true,true,true };
 int N, M;
 int ans;
-int len;	// ±æÀÌ °è¼Ó ¹İÈ¯ÇØÁÖ´Â ¹æ¹ı »ç¿ë
+int len;	// ê¸¸ì´ ê³„ì† ë°˜í™˜í•´ì£¼ëŠ” ë°©ë²• ì‚¬ìš©
 bool checked(int x) {
-	string check = to_string(x);	// x¸¦ ¹®ÀÚ¿­·Î º¯È¯
+	string check = to_string(x);	// xë¥¼ ë¬¸ìì—´ë¡œ ë³€í™˜
 	len = check.length();
 	for (int i = 0; i < check.size(); i++) {
-		if (!button[check[i] - '0']) return false;	// ÇÏ³ª¶óµµ ¾È´­¸®¸é ÀÇ¹Ì ¾øÀ½
+		if (!button[check[i] - '0']) return false;	// í•˜ë‚˜ë¼ë„ ì•ˆëˆŒë¦¬ë©´ ì˜ë¯¸ ì—†ìŒ
 	}
 	return true;
 }
@@ -27,9 +27,9 @@ int main() {
 		cin >> b;
 		button[b] = false;
 	}
-	ans = abs(100 - N);	// Â÷ÀÌ¸¸Å­ ¹«Á¶°Ç ´©¸£´Â ¹æ¹ı
-	for (int i = 0; i <= 1000000; i++) {		// ÀÏ´Ü ¹öÆ° ½ÃÀÛÀ§Ä¡ ´Ù Âï¾îº¸±â. ÀÌ°Å ´õ Å« ¼ıÀÚ Âï°í ³»·Á¿À´Â °æ¿ì¶§¹®¿¡ 1000000 Àâ¾Æ¾ß µÊ. ´õ Å« ¼ıÀÚ´Â ¹Ø¿¡¼­ ¿À´Â°Ô ´õ ºü¸£¹Ç·Î ÀÇ¹Ì ¾øÀ½
-		if (checked(i)) {	// i °¡ ¹öÆ° ´­¸®´ÂÁö È®ÀÎ
+	ans = abs(100 - N);	// ì°¨ì´ë§Œí¼ ë¬´ì¡°ê±´ ëˆ„ë¥´ëŠ” ë°©ë²•
+	for (int i = 0; i <= 1000000; i++) {		// ì¼ë‹¨ ë²„íŠ¼ ì‹œì‘ìœ„ì¹˜ ë‹¤ ì°ì–´ë³´ê¸°. ì´ê±° ë” í° ìˆ«ì ì°ê³  ë‚´ë ¤ì˜¤ëŠ” ê²½ìš°ë•Œë¬¸ì— 1000000 ì¡ì•„ì•¼ ë¨. ë” í° ìˆ«ìëŠ” ë°‘ì—ì„œ ì˜¤ëŠ”ê²Œ ë” ë¹ ë¥´ë¯€ë¡œ ì˜ë¯¸ ì—†ìŒ
+		if (checked(i)) {	// i ê°€ ë²„íŠ¼ ëˆŒë¦¬ëŠ”ì§€ í™•ì¸
 			int x = abs(N - i) + len;
 			ans = x < ans ? x : ans;
 		}

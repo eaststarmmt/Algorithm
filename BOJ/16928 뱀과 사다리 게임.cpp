@@ -22,8 +22,8 @@ void bfs(int start) {
 	while (!Q.empty()) {
 		int x = Q.front().x;
 		int cnt = Q.front().cnt;
-		if (x > 100) continue;	// 100À» ³Ñ¾î°¡¸é ÀÌµ¿ ºÒ°¡. ±×³É ¹ö¸®±â
-		else if (x == 100) {	// 100 µµÂøÇÏ¸é Ã³À½ µµÂøÀÌ ÃÖ¼Ò °Å¸®ÀÌ¹Ç·Î ÀúÀå ÈÄ ¸®ÅÏ
+		if (x > 100) continue;	// 100ì„ ë„˜ì–´ê°€ë©´ ì´ë™ ë¶ˆê°€. ê·¸ëƒ¥ ë²„ë¦¬ê¸°
+		else if (x == 100) {	// 100 ë„ì°©í•˜ë©´ ì²˜ìŒ ë„ì°©ì´ ìµœì†Œ ê±°ë¦¬ì´ë¯€ë¡œ ì €ì¥ í›„ ë¦¬í„´
 			res = cnt;
 			return;
 		}
@@ -31,8 +31,8 @@ void bfs(int start) {
 		for (int i = 1; i <= 6; i++) {
 			if (!visited[x + i]) {
 				visited[x + i] = true;
-				if (ladder.find(x + i) != ladder.end()) {	// »ç´Ù¸®³ª ¹ì¿¡ °£ °æ¿ì
-					Q.push(Info(ladder[x + i], cnt + 1));	// ¹Ù·Î ±× À§Ä¡·Î ÀÌµ¿ÇØ¼­ ¹æ¹® Ã³¸® ÈÄ Å¥¿¡ ³Ö±â
+				if (ladder.find(x + i) != ladder.end()) {	// ì‚¬ë‹¤ë¦¬ë‚˜ ë±€ì— ê°„ ê²½ìš°
+					Q.push(Info(ladder[x + i], cnt + 1));	// ë°”ë¡œ ê·¸ ìœ„ì¹˜ë¡œ ì´ë™í•´ì„œ ë°©ë¬¸ ì²˜ë¦¬ í›„ íì— ë„£ê¸°
 					visited[ladder[x + i]] = true;
 				}
 				else {
@@ -54,13 +54,13 @@ int main() {
 		int x, y;
 		cin >> x >> y;
 		ladder[x] = y;
-	}	// »ç´Ù¸® ÀÔ·Â
+	}	// ì‚¬ë‹¤ë¦¬ ì…ë ¥
 
 	for (int i = 0; i < M; i++) {
 		int u, v;
 		cin >> u >> v;
 		ladder[u] = v;
-	}	// ¹ì ÀÔ·Â
+	}	// ë±€ ì…ë ¥
 
 	bfs(1);
 	cout << res << endl;

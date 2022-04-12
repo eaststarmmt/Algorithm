@@ -21,7 +21,7 @@ void bfs(int start) {
 		Q.pop();
 		for (int i = 0; i < graph[x].size(); i++) {
 			int y = graph[x][i];
-			if (cycleLine[y]) {			// »çÀÌÅ¬ ÃÖ´Ü °æ·Î Ã£¾ÒÀ¸¸é °ª ÀúÀå
+			if (cycleLine[y]) {			// ì‚¬ì´í´ ìµœë‹¨ ê²½ë¡œ ì°¾ì•˜ìœ¼ë©´ ê°’ ì €ì¥
 				res.push_back(dis + 1);
 				return;
 			}
@@ -34,7 +34,7 @@ void bfs(int start) {
 }
 
 void dfs(int now, int len, int start) {
-	if (now == start && len >= 2) {	// »çÀÌÅ¬ Çü¼º µÆÀ»¶§. ±æÀÌ°¡ 1 ÀÌÇÏ¸é ¼øÈ¯ÀÌ ¾Æ´Ï¶ó ¿Õº¹
+	if (now == start && len >= 2) {	// ì‚¬ì´í´ í˜•ì„± ëì„ë•Œ. ê¸¸ì´ê°€ 1 ì´í•˜ë©´ ìˆœí™˜ì´ ì•„ë‹ˆë¼ ì™•ë³µ
 		isCycle = true;
 		return;
 	}
@@ -43,10 +43,10 @@ void dfs(int now, int len, int start) {
 	for (int i = 0; i < graph[now].size(); i++) {
 		if (isCycle) return;
 		int x = graph[now][i];
-		if (!visited[x]) {		// ¹æ¹® ¾ÈÇßÀ» °æ¿ì¸¸ Å½»ö
+		if (!visited[x]) {		// ë°©ë¬¸ ì•ˆí–ˆì„ ê²½ìš°ë§Œ íƒìƒ‰
 			dfs(x, len + 1, start);
 		}
-		else if(x == start && len >= 2) {	// ´ÙÀ½ °¥ °÷ÀÌ ½ÃÀÛÁ¡ÀÌ°í ÇöÀç ±æÀÌ°¡ 2 ÀÌ»óÀÌ¸é ¸¶¹«¸® ÀÛ¾÷ÇÏ·¯ °¨
+		else if(x == start && len >= 2) {	// ë‹¤ìŒ ê°ˆ ê³³ì´ ì‹œì‘ì ì´ê³  í˜„ì¬ ê¸¸ì´ê°€ 2 ì´ìƒì´ë©´ ë§ˆë¬´ë¦¬ ì‘ì—…í•˜ëŸ¬ ê°
 			dfs(x, len + 1, start);
 		}
 	}
@@ -61,19 +61,19 @@ int main() {
 		graph[b].push_back(a);
 	}
 
-	for (int i = 1; i <= N; i++) {	// »çÀÌÅ¬ Ã¼Å©
-		memset(visited, false, sizeof(visited));	// visited ÃÊ±âÈ­
+	for (int i = 1; i <= N; i++) {	// ì‚¬ì´í´ ì²´í¬
+		memset(visited, false, sizeof(visited));	// visited ì´ˆê¸°í™”
 		isCycle = false;
 		dfs(i, 0, i);
-		if (isCycle) {	// ¼øÈ¯¼± µû·Î Ã¼Å©
-			cycleLine[i] = true;	// ÇÑ¹ø¿¡ °æ·Î ³Ö°í Ã¼Å©ÇÏ°í ÀÌ·±°Ç µµÀúÈ÷ ´äÀÌ ¾Èº¸ÀÓ
+		if (isCycle) {	// ìˆœí™˜ì„  ë”°ë¡œ ì²´í¬
+			cycleLine[i] = true;	// í•œë²ˆì— ê²½ë¡œ ë„£ê³  ì²´í¬í•˜ê³  ì´ëŸ°ê±´ ë„ì €íˆ ë‹µì´ ì•ˆë³´ì„
 		}
 	}	// end of cycle
 	
 	for (int i = 1; i <= N; i++) {
-		if (cycleLine[i])	// ¼øÈ¯¼±¿¡ Æ÷ÇÔ µÇ¸é 0
+		if (cycleLine[i])	// ìˆœí™˜ì„ ì— í¬í•¨ ë˜ë©´ 0
 			res.push_back(0);
-		else {				// ¾Æ´Ñ °æ¿ì ´Ù½Ã °Å¸® ÃøÁ¤
+		else {				// ì•„ë‹Œ ê²½ìš° ë‹¤ì‹œ ê±°ë¦¬ ì¸¡ì •
 			memset(visited, false, sizeof(visited));
 			bfs(i);
 		}

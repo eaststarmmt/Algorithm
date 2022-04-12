@@ -13,25 +13,25 @@ int main() {
 	}	// end of input
 
 	sort(sol, sol + N);
-	int ans[3] = { 0 };	// Á¤´ä Ãâ·ÂÇÒ ¹è¿­
-	ll minVal = 50000000000;	// ÃÖ¼Ò°ª ±â·Ï
+	int ans[3] = { 0 };	// ì •ë‹µ ì¶œë ¥í•  ë°°ì—´
+	ll minVal = 50000000000;	// ìµœì†Œê°’ ê¸°ë¡
 	for (int i = 0; i < N - 2; i++) {
 		int start = i;
 		int left = i + 1;
 		int right = N - 1;
-		while (left < right) {	// ÅõÆ÷ÀÎÅÍ °³³ä
-			ll sum = (ll)sol[start] + sol[left] + sol[right];	// Ä³½ºÆÃ ¾ÈÇÏ¸é int¶ó Á¦´ë·Î ¸ø ÀĞÀ½
-			if (minVal > abs(sum)) {			// Àı´ë°ª ´õ ÀÛÀ¸¸é °»½Å
+		while (left < right) {	// íˆ¬í¬ì¸í„° ê°œë…
+			ll sum = (ll)sol[start] + sol[left] + sol[right];	// ìºìŠ¤íŒ… ì•ˆí•˜ë©´ intë¼ ì œëŒ€ë¡œ ëª» ì½ìŒ
+			if (minVal > abs(sum)) {			// ì ˆëŒ€ê°’ ë” ì‘ìœ¼ë©´ ê°±ì‹ 
 				ans[0] = sol[start];
 				ans[1] = sol[left];
 				ans[2] = sol[right];
 				minVal = abs(sum);
 			}
-			if (sum > 0) 	// ¾ç¼öÀÎ °æ¿ì right¸¦ ¾ÕÀ¸·Î ¶¯°Ü¼­ ¼ıÀÚ ÁÙ¿©ÁÜ
+			if (sum > 0) 	// ì–‘ìˆ˜ì¸ ê²½ìš° rightë¥¼ ì•ìœ¼ë¡œ ë•¡ê²¨ì„œ ìˆ«ì ì¤„ì—¬ì¤Œ
 				right--;
-			else if (sum < 0) // À½¼öÀÎ °æ¿ì left¸¦ µÚ·Î ¹Ğ¾î¼­ ¼ıÀÚ ´Ã·ÁÁÜ
+			else if (sum < 0) // ìŒìˆ˜ì¸ ê²½ìš° leftë¥¼ ë’¤ë¡œ ë°€ì–´ì„œ ìˆ«ì ëŠ˜ë ¤ì¤Œ
 				left++;
-			else {		// 0 ÀÌ¸é ¾îÂ÷ÇÇ ÇÏ³ª¸¸ Ãâ·ÂÇÏ¸é µÇ¹Ç·Î ¹Ù·Î Á¾·á
+			else {		// 0 ì´ë©´ ì–´ì°¨í”¼ í•˜ë‚˜ë§Œ ì¶œë ¥í•˜ë©´ ë˜ë¯€ë¡œ ë°”ë¡œ ì¢…ë£Œ
 				printf("%d %d %d\n", ans[0], ans[1], ans[2]);
 				return 0;
 			}

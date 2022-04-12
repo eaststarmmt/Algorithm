@@ -10,9 +10,9 @@ int res = 1e9;
 
 void comb(vector<int> star, int start) {
 	if (star.size() == N / 2) {
-		// Â÷ ±¸ÇÏ±â
+		// ì°¨ êµ¬í•˜ê¸°
 		vector<int> link;
-		for (int i = 1; i <= N; i++) {	// ¸µÅ©ÆÀ ¸â¹ö ÀúÀå
+		for (int i = 1; i <= N; i++) {	// ë§í¬íŒ€ ë©¤ë²„ ì €ìž¥
 			if (!selected[i]) 
 				link.push_back(i);
 		}	// end of link team
@@ -32,10 +32,10 @@ void comb(vector<int> star, int start) {
 	}
 
 	for (int i = start; i <= N; i++) {
-		selected[i] = true;	// ½ºÅ¸Æ® ÆÀ¿¡ ³ÖÀº¾Öµé Ç¥½Ã
-		star.push_back(i);	// ½ºÅ¸Æ® ÆÀ¿¡ ³Ö±â
+		selected[i] = true;	// ìŠ¤íƒ€íŠ¸ íŒ€ì— ë„£ì€ì• ë“¤ í‘œì‹œ
+		star.push_back(i);	// ìŠ¤íƒ€íŠ¸ íŒ€ì— ë„£ê¸°
 		comb(star, i + 1);
-		star.pop_back();	// ½ºÅ¸Æ® ÆÀ¿¡¼­ »©°í ´ÙÀ½ Á¶ÇÕ
+		star.pop_back();	// ìŠ¤íƒ€íŠ¸ íŒ€ì—ì„œ ë¹¼ê³  ë‹¤ìŒ ì¡°í•©
 		selected[i] = false;
 	}
 }

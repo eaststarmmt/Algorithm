@@ -23,8 +23,8 @@ vector < pair<int, pair<int, int>>> eat;
 void shark(int r, int c) {
 	queue<pair<int, int>> queue;
 	queue.push({ r, c });
-	eat.clear();						// ¸ÔÀ»¼ö ÀÖ´Â ¸ñ·Ï ´Ù Áö¿ò. °Å¸® °è»ê ´Ù½Ã ÇØ¾ßµÊ
-	memset(time, 0, sizeof(time));		// °É¸®´Â ½Ã°£ Ç¥½ÃÇÒ ¹è¿­ ÃÊ±âÈ­
+	eat.clear();						// ë¨¹ì„ìˆ˜ ìˆëŠ” ëª©ë¡ ë‹¤ ì§€ì›€. ê±°ë¦¬ ê³„ì‚° ë‹¤ì‹œ í•´ì•¼ë¨
+	memset(time, 0, sizeof(time));		// ê±¸ë¦¬ëŠ” ì‹œê°„ í‘œì‹œí•  ë°°ì—´ ì´ˆê¸°í™”
 	while (!queue.empty()) {
 		int r = queue.front().first;
 		int c = queue.front().second;
@@ -34,11 +34,11 @@ void shark(int r, int c) {
 			int nr = r + dr[i];
 			int nc = c + dc[i];
 
-			if (0 <= nr && 0 <= nc && nr < N && nc < N && time[nr][nc] == 0 && curSize >= map[nr][nc]) {	// Áöµµ ¾È¹ş¾î³ª°í °¡º»Àû ¾ø°í ¹°°í±â Å©±â ÀÛ°Å³ª °°À» ¶§
+			if (0 <= nr && 0 <= nc && nr < N && nc < N && time[nr][nc] == 0 && curSize >= map[nr][nc]) {	// ì§€ë„ ì•ˆë²—ì–´ë‚˜ê³  ê°€ë³¸ì  ì—†ê³  ë¬¼ê³ ê¸° í¬ê¸° ì‘ê±°ë‚˜ ê°™ì„ ë•Œ
 				queue.push({ nr, nc });
-				time[nr][nc] = time[r][c] + 1;							// ÇöÀç ÀÖ´Â °÷ + 1·Î °è»ê
+				time[nr][nc] = time[r][c] + 1;							// í˜„ì¬ ìˆëŠ” ê³³ + 1ë¡œ ê³„ì‚°
 				if (map[nr][nc] != 0 && curSize > map[nr][nc]) {
-					eat.push_back({ time[nr][nc], {nr, nc} });			// °É¸®´Â ½Ã°£(°Å¸®)¿Í ÁÂÇ¥ ÀúÀå
+					eat.push_back({ time[nr][nc], {nr, nc} });			// ê±¸ë¦¬ëŠ” ì‹œê°„(ê±°ë¦¬)ì™€ ì¢Œí‘œ ì €ì¥
 				}
 			}
 		}
@@ -62,18 +62,18 @@ int main() {
 	while (true) {
 		shark(curR, curC);
 		
-		if (eat.empty()) break;		// ¸ÔÀ»¼ö ÀÖ´Â°Ô ¾øÀ¸¸é Á¾·á
+		if (eat.empty()) break;		// ë¨¹ì„ìˆ˜ ìˆëŠ”ê²Œ ì—†ìœ¼ë©´ ì¢…ë£Œ
 
-		sort(eat.begin(), eat.end());	// °É¸®´Â ½Ã°£ ¼øÀ¸·Î Á¤·Ä
-		totalTime += eat[0].first;		// °¡Àå °¡±î¿î°Í ¸¸Å­ ½Ã°£ Ãß°¡
+		sort(eat.begin(), eat.end());	// ê±¸ë¦¬ëŠ” ì‹œê°„ ìˆœìœ¼ë¡œ ì •ë ¬
+		totalTime += eat[0].first;		// ê°€ì¥ ê°€ê¹Œìš´ê²ƒ ë§Œí¼ ì‹œê°„ ì¶”ê°€
 		curEat++;
-		if (curEat == curSize) {		// º»ÀÎ »çÀÌÁî ¸¸Å­ Àâ¾Æ¸ÔÀ¸¸é »ó¾î 1 Ä¿Áü
+		if (curEat == curSize) {		// ë³¸ì¸ ì‚¬ì´ì¦ˆ ë§Œí¼ ì¡ì•„ë¨¹ìœ¼ë©´ ìƒì–´ 1 ì»¤ì§
 			curSize++;
 			curEat = 0;
 		}
 		curR = eat[0].second.first;
 		curC = eat[0].second.second;
-		map[curR][curC] = 0;	// Àâ¾Æ¸ÔÀº ÀÚ¸® 0À¸·Î °»½Å
+		map[curR][curC] = 0;	// ì¡ì•„ë¨¹ì€ ìë¦¬ 0ìœ¼ë¡œ ê°±ì‹ 
 	}
 	printf("%d\n", totalTime);
 }

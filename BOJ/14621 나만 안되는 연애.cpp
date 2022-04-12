@@ -25,7 +25,7 @@ int main() {
 	for (int i = 1; i <= N; i++) {
 		char x;
 		cin >> x;
-		if (x == 'M') gen[i] = 1;		// ¼ºº°¿¡ ´ëÇÑ Á¤º¸ ¹Ì¸® ¹Ş¾Æ³õ±â
+		if (x == 'M') gen[i] = 1;		// ì„±ë³„ì— ëŒ€í•œ ì •ë³´ ë¯¸ë¦¬ ë°›ì•„ë†“ê¸°
 		else gen[i] = 2;
 	}
 	for (int i = 0; i < M; i++) {
@@ -33,7 +33,7 @@ int main() {
 		cin >> a >> b >> c;
 		edge.push_back({ c, {a, b} });
 	}
-	for (int i = 1; i <= N; i++) {	// ºÎ¸ğ ÃÊ±âÈ­
+	for (int i = 1; i <= N; i++) {	// ë¶€ëª¨ ì´ˆê¸°í™”
 		parent[i] = i;
 	}
 
@@ -45,13 +45,13 @@ int main() {
 		int b = edge[i].second.second;
 		int cost = edge[i].first;
 
-		if ((findParent(a) != findParent(b)) && gen[a] != gen[b]) {	// ºÎ¸ğ°¡ ´Ù¸£°í ¼ºº°ÀÌ ´Ù¸£¸é union
+		if ((findParent(a) != findParent(b)) && gen[a] != gen[b]) {	// ë¶€ëª¨ê°€ ë‹¤ë¥´ê³  ì„±ë³„ì´ ë‹¤ë¥´ë©´ union
 			result += cost;
 			unionParent(a, b);
 			cnt++;
 		}
 	}
-	if (cnt == N - 1)				// cnt°¡ N - 1 º¸´Ù ÀÛÀ¸¸é °í¸³µÈ ³ëµå°¡ ÀÖ´Ù´Â°ÍÀ» ÀÇ¹ÌÇÔ
+	if (cnt == N - 1)				// cntê°€ N - 1 ë³´ë‹¤ ì‘ìœ¼ë©´ ê³ ë¦½ëœ ë…¸ë“œê°€ ìˆë‹¤ëŠ”ê²ƒì„ ì˜ë¯¸í•¨
 		printf("%d\n", result);
 	else
 		printf("%d\n", -1);

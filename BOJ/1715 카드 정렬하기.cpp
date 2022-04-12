@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-	priority_queue<int, vector<int>, greater<int>> card;	// Ä«µå¸¦ ¿À¸§Â÷¼øÀ¸·Î °è¼ÓÇØ¼­ Á¤¸®ÇØ ÁÖ±â À§ÇØ ¿ì¼±¼øÀ§ Å¥ »ç¿ë
+	priority_queue<int, vector<int>, greater<int>> card;	// ì¹´ë“œë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ê³„ì†í•´ì„œ ì •ë¦¬í•´ ì£¼ê¸° ìœ„í•´ ìš°ì„ ìˆœìœ„ í ì‚¬ìš©
 	int n;
 	scanf("%d", &n);
 
@@ -13,7 +13,7 @@ int main() {
 		card.push(x);
 	}
 	int sum = 0;
-	while (card.size() != 1) {	// ¿À¸§Â÷¼ø Á¤·ÄµÈ Ä«µå¹­À½À» ¾Õ¿¡¼­ µÎ ¹­À½¾¿ »©¼­ ´õÇÏ°í ´õÇÑ °ÍÀ» ´Ù½Ã ³Ö´Â´Ù
+	while (card.size() != 1) {	// ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ëœ ì¹´ë“œë¬¶ìŒì„ ì•ì—ì„œ ë‘ ë¬¶ìŒì”© ë¹¼ì„œ ë”í•˜ê³  ë”í•œ ê²ƒì„ ë‹¤ì‹œ ë„£ëŠ”ë‹¤
 		int a, b;
 		a = card.top();
 		card.pop();

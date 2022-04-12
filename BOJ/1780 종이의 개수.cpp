@@ -5,13 +5,13 @@ int paper[2188][2188];
 int result[3];
 
 void divide(int x, int y, int size) {
-	if (size == 1) {		//Å©±â°¡ 1ÀÌ¸é ¹Ù·Î Ä«¿îÆÃ
+	if (size == 1) {		//í¬ê¸°ê°€ 1ì´ë©´ ë°”ë¡œ ì¹´ìš´íŒ…
 		result[paper[x][y] + 1]++;
 		return;
 	}
 	for (int i = x; i < x + size; i++) {
 		for (int j = y; j < y + size; j++) {
-			if (paper[x][y] != paper[i][j]) {		//´Ù¸¥°Ô ³ª¿À¸é Àç±Í·Î 9µîºĞ ÇØ¼­ ´Ù½Ã È®ÀÎ. ¸®ÅÏ ¾ÈÇÏ¸é Áßº¹ Ä«¿îÆÃµÊ
+			if (paper[x][y] != paper[i][j]) {		//ë‹¤ë¥¸ê²Œ ë‚˜ì˜¤ë©´ ì¬ê·€ë¡œ 9ë“±ë¶„ í•´ì„œ ë‹¤ì‹œ í™•ì¸. ë¦¬í„´ ì•ˆí•˜ë©´ ì¤‘ë³µ ì¹´ìš´íŒ…ë¨
 				for (int a = 0; a < 3; a++) {
 					for (int b = 0; b < 3; b++) {
 						divide(x + a * size / 3, y + b * size / 3, size / 3);

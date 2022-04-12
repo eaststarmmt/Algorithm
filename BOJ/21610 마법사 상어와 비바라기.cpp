@@ -5,7 +5,7 @@ using namespace std;
 struct Pos {
 	int r, c;
 };
-int dr[] = { 0, -1, -1, -1, 0, 1, 1, 1 };	// ¹®Á¦¿¡¼­ 1ºÎÅÍ ½ÃÀÛÀÌ¶ó -1 ÇØÁà¾ß µÊ
+int dr[] = { 0, -1, -1, -1, 0, 1, 1, 1 };	// ë¬¸ì œì—ì„œ 1ë¶€í„° ì‹œì‘ì´ë¼ -1 í•´ì¤˜ì•¼ ë¨
 int dc[] = { -1, -1, 0, 1, 1, 1, 0, -1 };
 int map[51][51];
 int ans;
@@ -14,21 +14,21 @@ int d, s;
 bool visited[51][51];
 vector<Pos> cloud;
 
-int rangeCheck(int x) {		// ¸Ê µÕ±Û°Ô ÀÌ¾îÁ®ÀÖ´Â ºÎºĞ ±¸Çö
+int rangeCheck(int x) {		// ë§µ ë‘¥ê¸€ê²Œ ì´ì–´ì ¸ìˆëŠ” ë¶€ë¶„ êµ¬í˜„
 	if (x == 0) return N;
 	if (x == N + 1) return 1;
 	return x;
 
 }
 
-void moveCloud() {	// ±¸¸§ ÀÌµ¿
+void moveCloud() {	// êµ¬ë¦„ ì´ë™
 	memset(visited, false, sizeof(visited));
 	for (int i = 0; i < cloud.size(); i++) {
 		int r = cloud[i].r;
 		int c = cloud[i].c;
 		int nr = r;
 		int nc = c;
-		for (int j = 0; j < s; j++) {	// ÇÑ Ä­¾¿ ÀÌµ¿ÇÏ¸é¼­ ¹üÀ§ ³Ñ¾î°£ ºÎºĞ Ã¼Å©
+		for (int j = 0; j < s; j++) {	// í•œ ì¹¸ì”© ì´ë™í•˜ë©´ì„œ ë²”ìœ„ ë„˜ì–´ê°„ ë¶€ë¶„ ì²´í¬
 			nr += dr[d - 1];
 			nc += dc[d - 1];
 			nr = rangeCheck(nr);
@@ -42,26 +42,26 @@ void moveCloud() {	// ±¸¸§ ÀÌµ¿
 	}
 }
 
-void addWater() {	// ±¸¸§ÀÌ ÀÖ´Â Ä­¿¡ ¹° 1¾¿ Áõ°¡
+void addWater() {	// êµ¬ë¦„ì´ ìˆëŠ” ì¹¸ì— ë¬¼ 1ì”© ì¦ê°€
 	for (int i = 0; i < cloud.size(); i++) {
 		map[cloud[i].r][cloud[i].c]++;
 	}
 }
 
-void waterCopy() {	// ¹° º¹»ç. ´ë°¢¿¡ ¹° ÀÖÀ¸¸é 1 Áõ°¡
+void waterCopy() {	// ë¬¼ ë³µì‚¬. ëŒ€ê°ì— ë¬¼ ìˆìœ¼ë©´ 1 ì¦ê°€
 	for (int i = 0; i < cloud.size(); i++) {
 		int r = cloud[i].r;
 		int c = cloud[i].c;
-		for (int i = 0; i < 4; i++) {	// ´ë°¢ ¹æÇâ È®ÀÎ
+		for (int i = 0; i < 4; i++) {	// ëŒ€ê° ë°©í–¥ í™•ì¸
 			int nr = r + dr[2 * i + 1];
 			int nc = c + dc[2 * i + 1];
-			if (nr < 1 || nr > N || nc < 1 || nc > N || map[nr][nc] == 0) continue;	// Áöµµ¿¡¼­ ¹ş¾î³ª°Å³ª ¹°ÀÌ ¾ø´Â °æ¿ì
+			if (nr < 1 || nr > N || nc < 1 || nc > N || map[nr][nc] == 0) continue;	// ì§€ë„ì—ì„œ ë²—ì–´ë‚˜ê±°ë‚˜ ë¬¼ì´ ì—†ëŠ” ê²½ìš°
 			map[r][c]++;
 		}
 	}
 }
 
-void createCloud() {	// ¹° 2 ÀÌ»óÀÌ°í ±¸¸§ ¾ø¾ú´ø Ä­ÀÌ¸é ±¸¸§ »ı¼º
+void createCloud() {	// ë¬¼ 2 ì´ìƒì´ê³  êµ¬ë¦„ ì—†ì—ˆë˜ ì¹¸ì´ë©´ êµ¬ë¦„ ìƒì„±
 	for (int i = 1; i <= N; i++) {
 		for (int j = 1; j <= N; j++) {
 			if (map[i][j] >= 2 && !visited[i][j]) {

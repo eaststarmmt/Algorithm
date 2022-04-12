@@ -4,9 +4,9 @@
 #include<vector>
 #define INF 1e9
 using namespace std;
-vector<pair<int, int>> graph[20001];	//Å©±â´Â ³ëµå °¹¼ö ±âÁØÀ¸·Î Àâ±â
+vector<pair<int, int>> graph[20001];	//í¬ê¸°ëŠ” ë…¸ë“œ ê°¯ìˆ˜ ê¸°ì¤€ìœ¼ë¡œ ì¡ê¸°
 int d[20001];
-// »ı°¢ÀÌ ÀÖÀ¸¸é ¿Ü¿ï°Í. ¾ğÁ¦ ¹°¾îºÁµµ ¼ûµµ ¾È½¬°í ¼Õ°¡¶ôÀÌ ¿òÁ÷¿©¾ßµÊ
+// ìƒê°ì´ ìˆìœ¼ë©´ ì™¸ìš¸ê²ƒ. ì–¸ì œ ë¬¼ì–´ë´ë„ ìˆ¨ë„ ì•ˆì‰¬ê³  ì†ê°€ë½ì´ ì›€ì§ì—¬ì•¼ë¨
 void dijkstra(int start) {
 	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 	pq.push({ 0, start });

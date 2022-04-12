@@ -3,7 +3,7 @@
 #include<vector>
 using namespace std;
 
-long long A, B, result = -1;	// Å»Ãâ Á¶°ÇÀ» µû·Î ÁÙ ¹æ¹ıÀ» ¸øÃ£¾Æ¼­ ³¡±îÁö ´Ù µ¹¸®±â À§ÇØ -1·Î ÃÊ±âÈ­
+long long A, B, result = -1;	// íƒˆì¶œ ì¡°ê±´ì„ ë”°ë¡œ ì¤„ ë°©ë²•ì„ ëª»ì°¾ì•„ì„œ ëê¹Œì§€ ë‹¤ ëŒë¦¬ê¸° ìœ„í•´ -1ë¡œ ì´ˆê¸°í™”
 
 void bfs() {
 	queue<pair<long long, int>> queue;
@@ -11,13 +11,13 @@ void bfs() {
 	while (!queue.empty()) {
 		long long x = queue.front().first;
 		int cnt = queue.front().second;
-		if (x == B) {				// °°À¸¸é Å»Ãâ. ¿©±æ ¾È¿À¸é -1·Î Ãâ·Â
+		if (x == B) {				// ê°™ìœ¼ë©´ íƒˆì¶œ. ì—¬ê¸¸ ì•ˆì˜¤ë©´ -1ë¡œ ì¶œë ¥
 			result = cnt;
 			return;
 		}
 		queue.pop();
 
-		if (x * 2 <= B)							// Å©¸é ÀÇ¹Ì°¡ ¾øÀ½. ¾îÂ÷ÇÇ ÀÛ¾ÆÁöÁø ¾ÊÀ½
+		if (x * 2 <= B)							// í¬ë©´ ì˜ë¯¸ê°€ ì—†ìŒ. ì–´ì°¨í”¼ ì‘ì•„ì§€ì§„ ì•ŠìŒ
 			queue.push({ x * 2, cnt + 1 });
 		if (x * 10 + 1 <= B)
 			queue.push({ x * 10 + 1, cnt + 1 });

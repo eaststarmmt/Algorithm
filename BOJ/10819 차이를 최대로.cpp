@@ -3,7 +3,7 @@
 #include<algorithm>
 #define MIN -1e9
 using namespace std;
-						// ±ÔÄ¢ ¾ø´Âµí. ±×³É ´Ù ÇØº¸´Â ¹®Á¦
+						// ê·œì¹™ ì—†ëŠ”ë“¯. ê·¸ëƒ¥ ë‹¤ í•´ë³´ëŠ” ë¬¸ì œ
 int main() {
 	int N;
 	scanf("%d", &N);
@@ -22,7 +22,7 @@ int main() {
 			sum += abs(seq[i] - seq[i - 1]);
 		}
 		maxSum = max(sum, maxSum);
-	} while (next_permutation(seq.begin(), seq.end()));		// next permutaionÀ» ÀÌ¿ëÇØ¼­ »çÀü¼øÀ¸·Î ÇÏ³ª¾¿ ¸ğµç °æ¿ì ´Ù µûÁü
+	} while (next_permutation(seq.begin(), seq.end()));		// next permutaionì„ ì´ìš©í•´ì„œ ì‚¬ì „ìˆœìœ¼ë¡œ í•˜ë‚˜ì”© ëª¨ë“  ê²½ìš° ë‹¤ ë”°ì§
 
 	printf("%d\n", maxSum);
 }

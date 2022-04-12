@@ -16,12 +16,12 @@ int main() {
 	int ans = 0;
 
 	for (int i = 1; i <= N; i++) {
-		int nextTime = i + t[i];	// Áö±İ ÀÏ ÇßÀ»¶§ °á°ú ³ª¿À´Â ½Ã°£
-		int noWork = i + 1;		// ÀÏ ¾ÈÇßÀ»¶§ °æ¿ì °è»êÇÏ±â À§ÇÔ
+		int nextTime = i + t[i];	// ì§€ê¸ˆ ì¼ í–ˆì„ë•Œ ê²°ê³¼ ë‚˜ì˜¤ëŠ” ì‹œê°„
+		int noWork = i + 1;		// ì¼ ì•ˆí–ˆì„ë•Œ ê²½ìš° ê³„ì‚°í•˜ê¸° ìœ„í•¨
 
-		if (nextTime <= N + 1) // N + 1ÀÌ¸é N ÀÏ±îÁö ÀÏ Çß´Ù´Â ¶æÀÓ
+		if (nextTime <= N + 1) // N + 1ì´ë©´ N ì¼ê¹Œì§€ ì¼ í–ˆë‹¤ëŠ” ëœ»ì„
 			dp[nextTime] = dp[i] + p[i] > dp[nextTime] ? dp[i] + p[i] : dp[nextTime];
-		else	// ÀÎµ¦½º ¹üÀ§ ³Ñ¾î°¡´Â°Å ¹æÁö
+		else	// ì¸ë±ìŠ¤ ë²”ìœ„ ë„˜ì–´ê°€ëŠ”ê±° ë°©ì§€
 			nextTime = 0;
 
 		if (noWork <= N + 1)
@@ -29,7 +29,7 @@ int main() {
 		else
 			noWork = 0;
 		
-		ans = max(ans, max(dp[noWork], dp[nextTime]));	// Áö±İ±îÁö ³ª¿Â °Í Áß¿¡ ÃÖ´ë°ª °ñ¶ó³¿
+		ans = max(ans, max(dp[noWork], dp[nextTime]));	// ì§€ê¸ˆê¹Œì§€ ë‚˜ì˜¨ ê²ƒ ì¤‘ì— ìµœëŒ€ê°’ ê³¨ë¼ëƒ„
 	}
 	printf("%d\n", ans);
 }

@@ -8,23 +8,23 @@ int N, M;
 vector<int> pocket;
 int sum;
 int binarySearch(int start, int end) {
-	int result = sum;	// Ãâ·ÂÇÒ °á°ú°ª ÀúÀåÇÒ º¯¼ö
+	int result = sum;	// ì¶œë ¥í•  ê²°ê³¼ê°’ ì €ì¥í•  ë³€ìˆ˜
 	while (start <= end) {
-		int mid = (start + end) / 2;	// ¾ê°¡ ¹®Á¦¿¡¼­ K Áï ÀÎÃâÇÏ´Â ±İ¾×
+		int mid = (start + end) / 2;	// ì–˜ê°€ ë¬¸ì œì—ì„œ K ì¦‰ ì¸ì¶œí•˜ëŠ” ê¸ˆì•¡
 		int haveMoney = mid;
-		int cnt = 1;			// ÀÎÃâ Ä«¿îÆÃ
+		int cnt = 1;			// ì¸ì¶œ ì¹´ìš´íŒ…
 		for (int i = 0; i < N; i++) {
-			if (haveMoney < pocket[i]) {	// °¡Áøµ·ÀÌ ´õ ÀÛÀ¸¸é ´Ù½Ã mid ¸¸Å­ ¸ÂÃçÁÖ°í Ä«¿îÆÃ
+			if (haveMoney < pocket[i]) {	// ê°€ì§„ëˆì´ ë” ì‘ìœ¼ë©´ ë‹¤ì‹œ mid ë§Œí¼ ë§ì¶°ì£¼ê³  ì¹´ìš´íŒ…
 				cnt++;
 				haveMoney = mid;
 			}
-			haveMoney -= pocket[i];		// °¡Áøµ·¿¡¼­ ÇÊ¿ä ±İ¾×¸¸Å­ »©ÁÜ
+			haveMoney -= pocket[i];		// ê°€ì§„ëˆì—ì„œ í•„ìš” ê¸ˆì•¡ë§Œí¼ ë¹¼ì¤Œ
 			
 		}
-		if (cnt > M) start = mid + 1;	//	cnt°¡ Mº¸´Ù Å©¸é Á¤´ä¿¡ ¿µÇâÀ» ¾ÈÁÜ
-		else {							// Çö¿ì°¡ M º¸´Ù Àû°Ô ÀÎÃâÇÏ´õ¶óµµ 
-			end = mid - 1;				// MÀ» ¸ÂÃß·Á°í ´Ù½Ã ÀÎÃâÇÏ´Â º¯ÅÂ°°Àº ¼ºÇâÀÌ ÀÖ´Ù°í ¹àÈû
-			result = mid < result ? mid : result;	// Áï Mº¸´Ù ÀÛÀº °æ¿ìµµ Á¤´äÀÌ µÉ ¼ö ÀÖ±â¿¡ result °ª °»½Å¿¡ ¿µÇâÀ» ÁÜ
+		if (cnt > M) start = mid + 1;	//	cntê°€ Më³´ë‹¤ í¬ë©´ ì •ë‹µì— ì˜í–¥ì„ ì•ˆì¤Œ
+		else {							// í˜„ìš°ê°€ M ë³´ë‹¤ ì ê²Œ ì¸ì¶œí•˜ë”ë¼ë„ 
+			end = mid - 1;				// Mì„ ë§ì¶”ë ¤ê³  ë‹¤ì‹œ ì¸ì¶œí•˜ëŠ” ë³€íƒœê°™ì€ ì„±í–¥ì´ ìˆë‹¤ê³  ë°í˜
+			result = mid < result ? mid : result;	// ì¦‰ Më³´ë‹¤ ì‘ì€ ê²½ìš°ë„ ì •ë‹µì´ ë  ìˆ˜ ìˆê¸°ì— result ê°’ ê°±ì‹ ì— ì˜í–¥ì„ ì¤Œ
 		}
 	}
 	return result;
@@ -36,12 +36,12 @@ int main() {
 	cout.tie(NULL);
 
 	cin >> N >> M;
-	int maxValue = 0;				// °¡Àå ºñ½Ñ °ªÀ» ÃÖ¼Ò°ªÀ¸·Î º¸³»¾ß µÊ
+	int maxValue = 0;				// ê°€ì¥ ë¹„ì‹¼ ê°’ì„ ìµœì†Œê°’ìœ¼ë¡œ ë³´ë‚´ì•¼ ë¨
 	for (int i = 0; i < N; i++) {
 		int x;
 		cin >> x;
 		pocket.push_back(x);
-		sum += x;					// ÇÕÀ» ÃÖ´ë°ªÀ¸·Î º¸³»¾ß µÊ
+		sum += x;					// í•©ì„ ìµœëŒ€ê°’ìœ¼ë¡œ ë³´ë‚´ì•¼ ë¨
 		maxValue = x > maxValue ? x : maxValue;
 	}
 

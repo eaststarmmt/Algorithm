@@ -14,7 +14,7 @@ int dr[] = { -1, 1, 0, 0 };
 int dc[] = { 0, 0, -1, 1 };
 int dfsCnt;
 
-class Air {			// º¤ÅÍ¿¡ ÁÂÇ¥ ³Ö±â À§ÇØ. ±×³É ½áº¸°í ½Í¾úÀ½
+class Air {			// ë²¡í„°ì— ì¢Œí‘œ ë„£ê¸° ìœ„í•´. ê·¸ëƒ¥ ì¨ë³´ê³  ì‹¶ì—ˆìŒ
 public:
 	int r, c;
 	Air(int r, int c) {
@@ -23,7 +23,7 @@ public:
 	}
 };
 
-vector<Air> cheezeVec;		// Áö¿ï Ä¡Áî¸¦ ÀúÀåÇÒ º¤ÅÍ
+vector<Air> cheezeVec;		// ì§€ìš¸ ì¹˜ì¦ˆë¥¼ ì €ì¥í•  ë²¡í„°
 
 void dfs(int r, int c) {
 	air[r][c] = true;
@@ -37,22 +37,22 @@ void dfs(int r, int c) {
 	}
 }
 
-void removeCheeze() {		// Ä¡Áî Áö¿öÁÖ´Â ÇÔ¼ö
+void removeCheeze() {		// ì¹˜ì¦ˆ ì§€ì›Œì£¼ëŠ” í•¨ìˆ˜
 	for (int i = 0; i < cheezeVec.size(); i++) {
 		map[cheezeVec[i].r][cheezeVec[i].c] = 0;
 	}
 }
 
-void cheeze(int r, int c) {		// Ä¡Áî°¡ °ø±â¶û 2¹ø ÀÌ»ó ´ê¾Ò´ÂÁö È®ÀÎ
+void cheeze(int r, int c) {		// ì¹˜ì¦ˆê°€ ê³µê¸°ë‘ 2ë²ˆ ì´ìƒ ë‹¿ì•˜ëŠ”ì§€ í™•ì¸
 	int airCnt = 0;
-	for (int i = 0; i < 4; i++) {	// »ç¹æ Å½»ö ÀÌ¿ë
+	for (int i = 0; i < 4; i++) {	// ì‚¬ë°© íƒìƒ‰ ì´ìš©
 		int nr = r + dr[i];
 		int nc = c + dc[i];
 		if (nr >= 0 && nr < N && nc >= 0 && nc < M && air[nr][nc]) {
 			airCnt++;
-			if (airCnt == 2) {		// µÎ±ºµ¥ ÀÌ»ó ´ê¾ÒÀ»¶§ 
-				cheezeVec.push_back(Air(r, c));	// ¹Ù·Î 0 Ã³¸®ÇÏ¸é ´ÙÀ½ Ä¡Áî°¡ °ø±â¶û ÇÏ³ª¸¸ ´ê¾Ò´Âµ¥µµ Áö¿öÁö´Â °æ¿ì°¡ »ı±æ ¼ö ÀÖÀ½
-				cheezeCnt--;			// ±×·¯¹Ç·Î º¤ÅÍ¿¡ ³Ö¾î¼­ µû·Î •û´Â ÀÛ¾÷ ÁøÇà
+			if (airCnt == 2) {		// ë‘êµ°ë° ì´ìƒ ë‹¿ì•˜ì„ë•Œ 
+				cheezeVec.push_back(Air(r, c));	// ë°”ë¡œ 0 ì²˜ë¦¬í•˜ë©´ ë‹¤ìŒ ì¹˜ì¦ˆê°€ ê³µê¸°ë‘ í•˜ë‚˜ë§Œ ë‹¿ì•˜ëŠ”ë°ë„ ì§€ì›Œì§€ëŠ” ê²½ìš°ê°€ ìƒê¸¸ ìˆ˜ ìˆìŒ
+				cheezeCnt--;			// ê·¸ëŸ¬ë¯€ë¡œ ë²¡í„°ì— ë„£ì–´ì„œ ë”°ë¡œ ëº´ëŠ” ì‘ì—… ì§„í–‰
 				return;
 			}
 		}
@@ -61,7 +61,7 @@ void cheeze(int r, int c) {		// Ä¡Áî°¡ °ø±â¶û 2¹ø ÀÌ»ó ´ê¾Ò´ÂÁö È®ÀÎ
 }
 
 
-void bfs() {				// Áö¿öÁö´Â Ä¡Áî Å½»ö
+void bfs() {				// ì§€ì›Œì§€ëŠ” ì¹˜ì¦ˆ íƒìƒ‰
 	memset(visited, false, sizeof(visited));
 	queue<Air> Q;
 	Q.push(Air(0, 0));
@@ -78,15 +78,15 @@ void bfs() {				// Áö¿öÁö´Â Ä¡Áî Å½»ö
 				
 				visited[nr][nc] = true;
 
-				if (map[nr][nc] == 1)		// Ä¡ÁîÀÏ °æ¿ì
-					cheeze(nr, nc);			// È®ÀÎÀÛ¾÷
+				if (map[nr][nc] == 1)		// ì¹˜ì¦ˆì¼ ê²½ìš°
+					cheeze(nr, nc);			// í™•ì¸ì‘ì—…
 				else
-					Q.push(Air(nr, nc));	// °ø±âÀÏ °æ¿ì push
+					Q.push(Air(nr, nc));	// ê³µê¸°ì¼ ê²½ìš° push
 			}
 			
 		}
 		
-		if (cheezeCnt == 0) return;		// Ä¡Áî°¡ ¾øÀ¸¸é Á¾·á
+		if (cheezeCnt == 0) return;		// ì¹˜ì¦ˆê°€ ì—†ìœ¼ë©´ ì¢…ë£Œ
 	}
 
 }
@@ -96,18 +96,18 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < M; j++) {
 			scanf("%d", &map[i][j]);
-			if (map[i][j] == 1)		// Ä¡Áî °³¼ö ¹Ì¸® Ä«¿îÆÃ
+			if (map[i][j] == 1)		// ì¹˜ì¦ˆ ê°œìˆ˜ ë¯¸ë¦¬ ì¹´ìš´íŒ…
 				cheezeCnt++;
 		}
 	}	// end of for input
 
 	while (cheezeCnt > 0) {
-		memset(air, false, sizeof(air));	// °ø±â¸¦ dfs·Î Ã£¾Æ¾ß Ä¡Áî ¼Ó¿¡ °ø±â¸¦ °°ÀÌ ¼¼Áö ¾ÊÀ½
-		memset(visited, false, sizeof(visited));	// dfs·Î Ä¡Áî ¹Û °ø±â¸¦ Ã£±â À§ÇØ visited ¹è¿­ ÃÊ±âÈ­
+		memset(air, false, sizeof(air));	// ê³µê¸°ë¥¼ dfsë¡œ ì°¾ì•„ì•¼ ì¹˜ì¦ˆ ì†ì— ê³µê¸°ë¥¼ ê°™ì´ ì„¸ì§€ ì•ŠìŒ
+		memset(visited, false, sizeof(visited));	// dfsë¡œ ì¹˜ì¦ˆ ë°– ê³µê¸°ë¥¼ ì°¾ê¸° ìœ„í•´ visited ë°°ì—´ ì´ˆê¸°í™”
 		dfs(0, 0);
 
-		bfs();				// Á¦°ÅÇÒ Ä¡Áî Å½»ö
-		removeCheeze();		// bfs°¡ ¸ğµÎ ³¡³­ ÈÄ Ä¡Áî Á¦°Å
+		bfs();				// ì œê±°í•  ì¹˜ì¦ˆ íƒìƒ‰
+		removeCheeze();		// bfsê°€ ëª¨ë‘ ëë‚œ í›„ ì¹˜ì¦ˆ ì œê±°
 		cheezeVec.clear();
 	}
 

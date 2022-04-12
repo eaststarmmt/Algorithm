@@ -12,7 +12,7 @@ int dr[] = { -1, 1, 0, 0 };
 int dc[] = { 0, 0, -1, 1 };
 int result, safe;
 
-class Pos {	// À§Ä¡ ÀúÀåÇÏ±â À§ÇØ class »ı¼º
+class Pos {	// ìœ„ì¹˜ ì €ì¥í•˜ê¸° ìœ„í•´ class ìƒì„±
 public:
 	int x, y;
 
@@ -23,7 +23,7 @@ public:
 };
 
 void bfs(queue<Pos> Q) {
-	memset(visited, false, sizeof(visited));	// visited ÃÊ±âÈ­
+	memset(visited, false, sizeof(visited));	// visited ì´ˆê¸°í™”
 	int cnt = 0;
 	visited[Q.front().x][Q.front().y] = true;
 	while (!Q.empty()) {
@@ -38,11 +38,11 @@ void bfs(queue<Pos> Q) {
 				cnt++;
 				Q.push(Pos(nr, nc));
 				visited[nr][nc] = true;
-				if (safe - cnt - 3 == result) return;	// ±âÁ¸ÀÇ result ÀÌ»óÀÌ¸é ÇÒ ÇÊ¿ä ¾øÀ½
+				if (safe - cnt - 3 == result) return;	// ê¸°ì¡´ì˜ result ì´ìƒì´ë©´ í•  í•„ìš” ì—†ìŒ
 			}
 		}
 	}
-	result = safe - cnt - 3 > result ? safe - cnt - 3 : result;	// ¼¼±ºµ¥ º®ÀÌ¹Ç·Î -3
+	result = safe - cnt - 3 > result ? safe - cnt - 3 : result;	// ì„¸êµ°ë° ë²½ì´ë¯€ë¡œ -3
 }
 
 int main() {
@@ -53,16 +53,16 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < M; j++) {
 			scanf("%d", &map[i][j]);
-			if (map[i][j] == 0) {		// ºóÄ­ À§Ä¡ ÀúÀåÇÏ°í ¾ÈÀüÁö´ë °³¼ö ¼¼±â
+			if (map[i][j] == 0) {		// ë¹ˆì¹¸ ìœ„ì¹˜ ì €ì¥í•˜ê³  ì•ˆì „ì§€ëŒ€ ê°œìˆ˜ ì„¸ê¸°
 				blank.push_back(Pos(i, j));
 				safe++;
 			}
-			else if (map[i][j] == 2) virus.push(Pos(i, j));	// ¹ÙÀÌ·¯½º À§Ä¡ ¹Ì¸® Å¥¿¡ ÀúÀå
+			else if (map[i][j] == 2) virus.push(Pos(i, j));	// ë°”ì´ëŸ¬ìŠ¤ ìœ„ì¹˜ ë¯¸ë¦¬ íì— ì €ì¥
 		}
 	}
 	
 	for (int i = 0; i < blank.size() - 2; i++) {
-		map[blank[i].x][blank[i].y] = 1;	// 3Áß Æ÷¹®À¸·Î ºóÄ­ À§Ä¡ º® ¼³Ä¡ -> bfs -> Á¦°Å ¹İº¹
+		map[blank[i].x][blank[i].y] = 1;	// 3ì¤‘ í¬ë¬¸ìœ¼ë¡œ ë¹ˆì¹¸ ìœ„ì¹˜ ë²½ ì„¤ì¹˜ -> bfs -> ì œê±° ë°˜ë³µ
 
 		for (int j = i + 1; j < blank.size() - 1; j++) {
 			map[blank[j].x][blank[j].y] = 1;

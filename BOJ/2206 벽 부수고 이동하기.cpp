@@ -19,8 +19,8 @@ int bfs() {
 	while (!Q.empty()) {
 		int r = Q.front().r;
 		int c = Q.front().c;
-		int wall = Q.front().wall;	// º® ºÎ¼ø È½¼ö
-		int cnt = Q.front().cnt;	// ÀÌµ¿ È½¼ö
+		int wall = Q.front().wall;	// ë²½ ë¶€ìˆœ íšŸìˆ˜
+		int cnt = Q.front().cnt;	// ì´ë™ íšŸìˆ˜
 		Q.pop();
 		if (r == R - 1 && c == C - 1) 
 			return cnt;
@@ -28,11 +28,11 @@ int bfs() {
 			int nr = r + dr[i];
 			int nc = c + dc[i];
 			if (nr < 0 || nc < 0 || nr >= R || nc >= C) continue;
-			if (map[nr][nc] == 0 && !visited[nr][nc][wall]) {	// º®ÀÌ ¾Æ´Ï¸é¼­ ¹æ¹®ÇÏÁö ¾ÊÀº °æ¿ì
+			if (map[nr][nc] == 0 && !visited[nr][nc][wall]) {	// ë²½ì´ ì•„ë‹ˆë©´ì„œ ë°©ë¬¸í•˜ì§€ ì•Šì€ ê²½ìš°
 				Q.push({ nr, nc, wall, cnt + 1 });
 				visited[nr][nc][wall] = true;
 			}
-			else if (map[nr][nc] == 1 && wall == 0 && !visited[nr][nc][1]) {	// º®ÀÎµ¥ ¾ÆÁ÷ º®À» ¾È ºÎ¼ø °æ¿ì
+			else if (map[nr][nc] == 1 && wall == 0 && !visited[nr][nc][1]) {	// ë²½ì¸ë° ì•„ì§ ë²½ì„ ì•ˆ ë¶€ìˆœ ê²½ìš°
 				Q.push({ nr, nc, 1, cnt + 1 });
 				visited[nr][nc][1] = true;
 			}

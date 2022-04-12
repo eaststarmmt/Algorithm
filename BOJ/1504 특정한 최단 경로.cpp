@@ -43,14 +43,14 @@ int main() {
 		return 0;
 	}
 	int distv1 = d[v1], distv2 = d[v2];
-	fill(d, d + 801, INF);		//¹è¿­ ÃÊ±âÈ­ °è¼Ó ÇØÁà¾ßµÊ. ½ÃÀÛ ÁöÁ¡ÀÌ ´Ş¶óÁø°Å °í·ÁÇÒ°Í
+	fill(d, d + 801, INF);		//ë°°ì—´ ì´ˆê¸°í™” ê³„ì† í•´ì¤˜ì•¼ë¨. ì‹œì‘ ì§€ì ì´ ë‹¬ë¼ì§„ê±° ê³ ë ¤í• ê²ƒ
 	dijkstra(v1);
 	if (d[v2] == INF && d[n] == INF) {
 		printf("-1\n");
 		return 0;
 	}
-	distv1 += d[v2];	//	1 -> v1 -> v2 -> n	v2±îÁö ÀúÀå
-	distv2 += d[n];		// 1 -> v2 -> v1 -> n	v1 -> n ºÎÅÍ ÀÏ´Ü ÀúÀå
+	distv1 += d[v2];	//	1 -> v1 -> v2 -> n	v2ê¹Œì§€ ì €ì¥
+	distv2 += d[n];		// 1 -> v2 -> v1 -> n	v1 -> n ë¶€í„° ì¼ë‹¨ ì €ì¥
 	if (d[v2] == INF && d[n] == INF) {
 		printf("-1\n");
 		return 0;

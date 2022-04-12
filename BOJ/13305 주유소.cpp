@@ -18,11 +18,11 @@ int main() {
 		scanf("%d", &x);
 		fuel.push_back(x);
 	}
-	int minFuel = fuel[0];	// ±â¸§ ÃÖ¼Ú°ª ÀúÀå
-	long result = (long)fuel[0] * dis[0];	// µÎ ¹øÂ° µµ½Ã±îÁö °¡´Âµ¥ ÇÊ¿äÇÑ ±â¸§°ª
+	int minFuel = fuel[0];	// ê¸°ë¦„ ìµœì†Ÿê°’ ì €ì¥
+	long result = (long)fuel[0] * dis[0];	// ë‘ ë²ˆì§¸ ë„ì‹œê¹Œì§€ ê°€ëŠ”ë° í•„ìš”í•œ ê¸°ë¦„ê°’
 	for (int i = 1; i < n - 1; i++) {
-		minFuel = min(minFuel, fuel[i]);	// ÇöÀç±îÁö ±â¸§°ª Áß ÃÖ¼Ò ±â¸§°ª Ã£±â
-		result += (long)minFuel * dis[i];	// ÃÖ¼Ò ±â¸§°ª°ú °Å¸®ÀÇ °öÀ» ´õÇØÁà¼­ ÇöÀç±îÁö ¿À´Âµ¥ µå´Â ÃÖ¼Ò ºñ¿ë °è»ê
+		minFuel = min(minFuel, fuel[i]);	// í˜„ì¬ê¹Œì§€ ê¸°ë¦„ê°’ ì¤‘ ìµœì†Œ ê¸°ë¦„ê°’ ì°¾ê¸°
+		result += (long)minFuel * dis[i];	// ìµœì†Œ ê¸°ë¦„ê°’ê³¼ ê±°ë¦¬ì˜ ê³±ì„ ë”í•´ì¤˜ì„œ í˜„ì¬ê¹Œì§€ ì˜¤ëŠ”ë° ë“œëŠ” ìµœì†Œ ë¹„ìš© ê³„ì‚°
 	}
 	printf("%lld\n", result);
 }

@@ -3,7 +3,7 @@
 #define endl "\n"
 using namespace std;
 
-int dr[] = { -1, 0, 1, 0 };		// »ó ¿ì ÇÏ ÁÂ
+int dr[] = { -1, 0, 1, 0 };		// ìƒ ìš° í•˜ ì¢Œ
 int dc[] = { 0, 1, 0, -1 };	
 int map[101][101];
 char rotation[10001];
@@ -14,7 +14,7 @@ int main() {
 	for (int i = 0; i < K; i++) {
 		int r, c;
 		scanf("%d %d", &r, &c);
-		map[r][c] = 1;	// 1ÀÌ »ç°ú 2°¡ ¹ì
+		map[r][c] = 1;	// 1ì´ ì‚¬ê³¼ 2ê°€ ë±€
 	}
 	int dir;
 	scanf("%d", &dir);
@@ -22,7 +22,7 @@ int main() {
 		int x;
 		char rot;
 		scanf("%d", &x);
-		scanf(" %c", &rot);		// °ø¹é ¹«½ÃÇÏ°í ¹Ş¾Æ¾ßµÊ
+		scanf(" %c", &rot);		// ê³µë°± ë¬´ì‹œí•˜ê³  ë°›ì•„ì•¼ë¨
 		rotation[x] = rot;
 	}	// end of input
 	int time = 0;
@@ -32,21 +32,21 @@ int main() {
 	int r = 1, c = 1;
 	while (true) {
 		time++;
-		// ÀÌµ¿
-		r += dr[d];	// ±âÁ¸ °ªÀ» ¾µ ÀÏÀÌ ¾ø¾î¼­ r c¸¦ ±×³É °»½ÅÇÔ
+		// ì´ë™
+		r += dr[d];	// ê¸°ì¡´ ê°’ì„ ì“¸ ì¼ì´ ì—†ì–´ì„œ r cë¥¼ ê·¸ëƒ¥ ê°±ì‹ í•¨
 		c += dc[d];
-		if (r < 1 || r > N || c < 1 || c > N || map[r][c] == 2) {	// º®¿¡ ¹Ú¾Ò°Å³ª ¸ö¿¡ ´êÀ¸¸é return
+		if (r < 1 || r > N || c < 1 || c > N || map[r][c] == 2) {	// ë²½ì— ë°•ì•˜ê±°ë‚˜ ëª¸ì— ë‹¿ìœ¼ë©´ return
 			printf("%d\n", time);
 			return 0;
 		}
 		snake.push({ r, c });
-		if (map[r][c] == 0) {	// »ç°ú°¡ ¾ø´Â °æ¿ì ²¿¸® ÀÚ¸® ºñ¿öÁÜ
+		if (map[r][c] == 0) {	// ì‚¬ê³¼ê°€ ì—†ëŠ” ê²½ìš° ê¼¬ë¦¬ ìë¦¬ ë¹„ì›Œì¤Œ
 			map[snake.front().first][snake.front().second] = 0;
 			snake.pop();
 		}
 		map[r][c] = 2;
 
-		// È¸Àü
+		// íšŒì „
 		if (rotation[time] == 'L')
 			d = (d + 3) % 4;
 		else if (rotation[time] == 'D')

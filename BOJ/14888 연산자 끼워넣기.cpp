@@ -15,9 +15,9 @@ void recursive(int idx, int curResult) {
 		maxResult = max(maxResult, curResult);
 		minResult = min(minResult, curResult);
 		return;
-	}	// ±âÀúÁ¶°Ç
+	}	// ê¸°ì €ì¡°ê±´
 
-	if (oper[0] > 0) {			// ±âº»ÀûÀÎ ¼ø¿­ ¾Ë°í¸®Áò °³³ä. Áßº¹ Á¦°ÅÇÏ±â À§ÇØ »ç¿ëÇÑ ÈÄ 1À» ÁÙÀÌ°í ´ÙÀ½ Àç±Í¸¦ À§ÇØ ´Ù½Ã 1 ´Ã¸®´Â ¹æ½Ä
+	if (oper[0] > 0) {			// ê¸°ë³¸ì ì¸ ìˆœì—´ ì•Œê³ ë¦¬ì¦˜ ê°œë…. ì¤‘ë³µ ì œê±°í•˜ê¸° ìœ„í•´ ì‚¬ìš©í•œ í›„ 1ì„ ì¤„ì´ê³  ë‹¤ìŒ ìž¬ê·€ë¥¼ ìœ„í•´ ë‹¤ì‹œ 1 ëŠ˜ë¦¬ëŠ” ë°©ì‹
 		oper[0]--;
 		recursive(idx + 1, curResult + seq[idx + 1]);
 		oper[0]++;

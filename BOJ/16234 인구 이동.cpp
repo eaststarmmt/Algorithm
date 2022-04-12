@@ -5,23 +5,23 @@
 using namespace std;
 
 int N, L, R;
-int map[50][50];		// ³ª¶óº° ÀÎ±¸¼ö ÀúÀå ¹è¿­
-int unions[50][50];		// ¾î´À ¿¬ÇÕ¿¡ µé¾î°¡ÀÖ´ÂÁö È®ÀÎÇÏ±â À§ÇÑ ¹è¿­
+int map[50][50];		// ë‚˜ë¼ë³„ ì¸êµ¬ìˆ˜ ì €ì¥ ë°°ì—´
+int unions[50][50];		// ì–´ëŠ ì—°í•©ì— ë“¤ì–´ê°€ìˆëŠ”ì§€ í™•ì¸í•˜ê¸° ìœ„í•œ ë°°ì—´
 
 int dr[] = { -1, 1, 0, 0 };
 int dc[] = { 0, 0, -1, 1 };
 
-int moveCnt;			// ÀÌµ¿È½¼ö Ä«¿îÆÃ
+int moveCnt;			// ì´ë™íšŸìˆ˜ ì¹´ìš´íŒ…
 
 void move(int r, int c, int index) {
-	vector<pair<int, int>> unionPair;	// °°Àº ¿¬ÇÕ¿¡ µé¾î°¥ ³ª¶ó ÁÂÇ¥ ÀúÀå
+	vector<pair<int, int>> unionPair;	// ê°™ì€ ì—°í•©ì— ë“¤ì–´ê°ˆ ë‚˜ë¼ ì¢Œí‘œ ì €ì¥
 	unionPair.push_back({ r, c });
-	queue<pair<int, int>> queue;		// bfs¿¡ »ç¿ëÇÒ Å¥
+	queue<pair<int, int>> queue;		// bfsì— ì‚¬ìš©í•  í
 	queue.push({ r, c });
 	unions[r][c] = index;
 
-	int cnt = 1;						// ¿¬ÇÕ¿¡ Æ÷ÇÔµÈ ³ª¶ó ¼ö
-	int sum = map[r][c];				// ¿¬ÇÕ ÃÑ ÀÎ±¸¼ö
+	int cnt = 1;						// ì—°í•©ì— í¬í•¨ëœ ë‚˜ë¼ ìˆ˜
+	int sum = map[r][c];				// ì—°í•© ì´ ì¸êµ¬ìˆ˜
 
 	while (queue.size() > 0) {
 		int r = queue.front().first;
@@ -31,8 +31,8 @@ void move(int r, int c, int index) {
 		for (int i = 0; i < 4; i++) {
 			int nr = r + dr[i];
 			int nc = c + dc[i];
-			if (0 <= nr && 0 <= nc && nr < N && nc < N && unions[nr][nc] == -1) {	// ÁÂÇ¥ ¹üÀ§¿¡ ¸Â°í ¾ÆÁ÷ ¿¬ÇÕÀÌ ÀÖ´ÂÁö È®ÀÎ ¾ÈÇßÀ¸¸é ½ÇÇà
-				int gap = abs(map[r][c] - map[nr][nc]);		// Â÷ÀÌ°¡ LÀÌ»ó RÀÌÇÏÀÌ¸é Å¥¿¡ Áı¾î³Ö°í ÁÂÇ¥ ÀúÀåÇÏ°í ÇÕ°ú Ä«¿îÆÃ ÇÏ±â
+			if (0 <= nr && 0 <= nc && nr < N && nc < N && unions[nr][nc] == -1) {	// ì¢Œí‘œ ë²”ìœ„ì— ë§ê³  ì•„ì§ ì—°í•©ì´ ìˆëŠ”ì§€ í™•ì¸ ì•ˆí–ˆìœ¼ë©´ ì‹¤í–‰
+				int gap = abs(map[r][c] - map[nr][nc]);		// ì°¨ì´ê°€ Lì´ìƒ Rì´í•˜ì´ë©´ íì— ì§‘ì–´ë„£ê³  ì¢Œí‘œ ì €ì¥í•˜ê³  í•©ê³¼ ì¹´ìš´íŒ… í•˜ê¸°
 				if (L <= gap && gap <= R) {
 					queue.push({ nr, nc });
 					unionPair.push_back({ nr, nc });
@@ -43,7 +43,7 @@ void move(int r, int c, int index) {
 			}
 		}
 	}
-	for (int i = 0; i < unionPair.size(); i++) {	// ÀúÀåÇÑ ÁÂÇ¥¿¡ ÀÖ´Â ³ª¶óµé ÀÎ±¸ ÀÌµ¿
+	for (int i = 0; i < unionPair.size(); i++) {	// ì €ì¥í•œ ì¢Œí‘œì— ìˆëŠ” ë‚˜ë¼ë“¤ ì¸êµ¬ ì´ë™
 		map[unionPair[i].first][unionPair[i].second] = sum / cnt;
 	}
 }
@@ -58,22 +58,22 @@ int main() {
 	}
 
 	while (true) {
-		fill(&unions[0][0], &unions[N - 1][N], -1);	// ¿¬ÇÕ ¹øÈ£ È®ÀÎÀü¿¡ -1·Î ÃÊ±âÈ­
+		fill(&unions[0][0], &unions[N - 1][N], -1);	// ì—°í•© ë²ˆí˜¸ í™•ì¸ì „ì— -1ë¡œ ì´ˆê¸°í™”
 
-		int index = 0;		// ¸î¹ø Á¶ÇÕÀÎÁö ±¸ºĞÇÏ±â À§ÇÑ º¯¼ö
+		int index = 0;		// ëª‡ë²ˆ ì¡°í•©ì¸ì§€ êµ¬ë¶„í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
 
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
 				if (unions[i][j] == -1) {
 					move(i, j, index);
-					index++;	// ¿¬ÇÕ ÇÏ³ªÀÇ Å½»öÀÌ ³¡³µÀ¸¹Ç·Î ´ÙÀ½ ¿¬ÇÕ ÀÎµ¦½º °ª¿¡ 1À» Ãß°¡
+					index++;	// ì—°í•© í•˜ë‚˜ì˜ íƒìƒ‰ì´ ëë‚¬ìœ¼ë¯€ë¡œ ë‹¤ìŒ ì—°í•© ì¸ë±ìŠ¤ ê°’ì— 1ì„ ì¶”ê°€
 				}
 			}
 		}
 
-		if (index == N * N)		// index°¡ N*N ÀÌ¸é ¿¬ÇÕÀÌ ´Ü ÇÑ°³µµ ¾È³ª¿Ô´Ù´Â ¶æÀÌ¹Ç·Î Å»Ãâ
+		if (index == N * N)		// indexê°€ N*N ì´ë©´ ì—°í•©ì´ ë‹¨ í•œê°œë„ ì•ˆë‚˜ì™”ë‹¤ëŠ” ëœ»ì´ë¯€ë¡œ íƒˆì¶œ
 			break;
-		moveCnt++;				// ¿¬ÇÕÀÌ ÀÖ¾úÀ¸¸é ÀÌµ¿È½¼ö 1 Áõ°¡
+		moveCnt++;				// ì—°í•©ì´ ìˆì—ˆìœ¼ë©´ ì´ë™íšŸìˆ˜ 1 ì¦ê°€
 	}
 
 	printf("%d\n", moveCnt);

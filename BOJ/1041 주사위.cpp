@@ -21,17 +21,17 @@ int main() {
 	}
 
 	int select[3] = { 0 };
-	select[0] = dice[1] < dice[6] ? dice[1] : dice[6];	// ¸¶ÁÖº¸´Â ¾Öµé Áß¿¡ ÀÛÀº°ª ÀúÀå
+	select[0] = dice[1] < dice[6] ? dice[1] : dice[6];	// ë§ˆì£¼ë³´ëŠ” ì• ë“¤ ì¤‘ì— ìž‘ì€ê°’ ì €ìž¥
 	select[1] = dice[2] < dice[5] ? dice[2] : dice[5];
 	select[2] = dice[3] < dice[4] ? dice[3] : dice[4];
 	
 	sort(select, select + 3);
-	long long side1 = select[0];		// Á¦ÀÏ ÀÛÀº ¾Ö°¡ 3¹ø º¸¿©¾ß µÊ
+	long long side1 = select[0];		// ì œì¼ ìž‘ì€ ì• ê°€ 3ë²ˆ ë³´ì—¬ì•¼ ë¨
 	long long side2 = side1 + select[1];
 	long long side3 = side2 + select[2];
-	res = side3 * 4;	// 3¹ø º¸ÀÏ¸éÀ¸·Î 4¹ø
-	res += side2 * (8 * N - 12);	// 3¹ø º¸ÀÏ ¸é°ú 2¹ø º¸ÀÏ¸é
-	res += side1 * ((long long)N * N * 5 - 16 * N + 12);	// 1¹ø¸¸ º¸ÀÏ ¸é
+	res = side3 * 4;	// 3ë²ˆ ë³´ì¼ë©´ìœ¼ë¡œ 4ë²ˆ
+	res += side2 * (8 * N - 12);	// 3ë²ˆ ë³´ì¼ ë©´ê³¼ 2ë²ˆ ë³´ì¼ë©´
+	res += side1 * ((long long)N * N * 5 - 16 * N + 12);	// 1ë²ˆë§Œ ë³´ì¼ ë©´
 	
 	printf("%lld\n", res);
 

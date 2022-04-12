@@ -20,7 +20,7 @@ void unionParent(int a, int b) {
 
 int main() {
 	int n, m;
-	int maxCost = 0;		// Å©·ç½ºÄ® Ç®°í ±×Áß¿¡ °¡Àå Å« °£¼± Ã£´Â ¿ëµµ
+	int maxCost = 0;		// í¬ë£¨ìŠ¤ì¹¼ í’€ê³  ê·¸ì¤‘ì— ê°€ì¥ í° ê°„ì„  ì°¾ëŠ” ìš©ë„
 	scanf("%d %d", &n, &m);
 	for (int i = 1; i <= n; i++) {
 		parent[i] = i;
@@ -45,5 +45,5 @@ int main() {
 			maxCost = max(cost, maxCost);
 		}
 	}
-	printf("%d\n", result - maxCost);	// ¸¶Áö¸·¿¡ °¡Àå Å« °£¼±À» ¾ø¾ÖÁÜ
+	printf("%d\n", result - maxCost);	// ë§ˆì§€ë§‰ì— ê°€ì¥ í° ê°„ì„ ì„ ì—†ì• ì¤Œ
 }

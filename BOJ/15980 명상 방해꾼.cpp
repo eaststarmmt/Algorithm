@@ -7,10 +7,10 @@ int main() {
 	int N, M;
 	scanf("%d %d", &N, &M);
 
-	for (int bird = 1; bird <= N; bird++) {	// »õ´Â 1ºÎÅÍ
+	for (int bird = 1; bird <= N; bird++) {	// ìƒˆëŠ” 1ë¶€í„°
 		char s;
 		scanf(" %c", &s);
-		for (int i = 0; i < M; i++) {	// ½Ã°£Àº 0ºÎÅÍ
+		for (int i = 0; i < M; i++) {	// ì‹œê°„ì€ 0ë¶€í„°
 			int x;
 			scanf("%1d", &x);
 			if (s == 'L')
@@ -20,12 +20,12 @@ int main() {
 		}
 	}	// end of input
 	
-	// ÇöÀç °ª Å×ÀÌºí ¸¸µé±â
+	// í˜„ìž¬ ê°’ í…Œì´ë¸” ë§Œë“¤ê¸°
 	for (int bird = 1; bird <= N; bird++) {
 		now[0] += map[bird][0];
 	}
 	for (int i = 1; i < M; i++) {
-		now[i] = now[i - 1];	// ÀÌÀü¿¡ ¿òÁ÷ÀÎ°Å¿¡¼­ ´©ÀûÀÓ
+		now[i] = now[i - 1];	// ì´ì „ì— ì›€ì§ì¸ê±°ì—ì„œ ëˆ„ì ìž„
 		for (int bird = 1; bird <= N; bird++) {
 			now[i] += map[bird][i];
 		}
@@ -34,14 +34,14 @@ int main() {
 	int kill = 1;
 	int ans = 1e9;
 
-	for (int bird = 1; bird <= N; bird++) {	// »õ ÇÑ¸¶¸®¾¿ Á¦¿ÜÇÏ¸é¼­ °á°ú Ã£±â
+	for (int bird = 1; bird <= N; bird++) {	// ìƒˆ í•œë§ˆë¦¬ì”© ì œì™¸í•˜ë©´ì„œ ê²°ê³¼ ì°¾ê¸°
 		int min = 0;
 		int max = 0;
-		int noBird = 0;	// ÇØ´ç »õ ¾ø´Â °æ¿ì °ª
-		int sum = 0;	// ¾ø¾îÁø »õ°¡ Áö±Ý±îÁö ¿µÇâ Áá´ø °ª ´©Àû
-		for (int i = 0; i < M; i++) {	// À½¼öÀÏÁö ¾ç¼öÀÏÁö ¸ô¶ó¼­ µÑ´Ù »ý°¢ÇÔ. TLE ¸·±â À§ÇÔ
+		int noBird = 0;	// í•´ë‹¹ ìƒˆ ì—†ëŠ” ê²½ìš° ê°’
+		int sum = 0;	// ì—†ì–´ì§„ ìƒˆê°€ ì§€ê¸ˆê¹Œì§€ ì˜í–¥ ì¤¬ë˜ ê°’ ëˆ„ì 
+		for (int i = 0; i < M; i++) {	// ìŒìˆ˜ì¼ì§€ ì–‘ìˆ˜ì¼ì§€ ëª°ë¼ì„œ ë‘˜ë‹¤ ìƒê°í•¨. TLE ë§‰ê¸° ìœ„í•¨
 			sum += map[bird][i];
-			noBird = now[i] - sum;		// ÀâÀ» »õ°¡ ÀÌµ¿ÇÑ ´©ÀûÀ» ±âÁ¸ÀÇ °ª¿¡¼­ »©ÁÖ¸é Á¤È®È÷ ¾ø´Â °æ¿ì°¡ ³ª¿È
+			noBird = now[i] - sum;		// ìž¡ì„ ìƒˆê°€ ì´ë™í•œ ëˆ„ì ì„ ê¸°ì¡´ì˜ ê°’ì—ì„œ ë¹¼ì£¼ë©´ ì •í™•ížˆ ì—†ëŠ” ê²½ìš°ê°€ ë‚˜ì˜´
 			min = noBird < min ? noBird : min;
 			max = noBird > max ? noBird : max;
 		}

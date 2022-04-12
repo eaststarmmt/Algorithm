@@ -5,16 +5,16 @@
 using namespace std;
 
 int binarySearch(vector<int> lecture, long long start, long long end, long long target) {
-	long long minBlue = INF;			// ÃÖ¼Ò°ª ±¸ÇÏ±â ¶§¹®¿¡ Å« °ªÀ¸·Î ÃÊ±âÈ­
+	long long minBlue = INF;			// ìµœì†Œê°’ êµ¬í•˜ê¸° ë•Œë¬¸ì— í° ê°’ìœ¼ë¡œ ì´ˆê¸°í™”
 
 	while (start <= end) {
-		long long mid = (start + end) / 2;			// ºí·ç·¹ÀÌÀÇ Å©±â Ã£´Â º¯¼ö
+		long long mid = (start + end) / 2;			// ë¸”ë£¨ë ˆì´ì˜ í¬ê¸° ì°¾ëŠ” ë³€ìˆ˜
 		long long sum = 0;
 		long long total = 0;
 		long long cnt = 1;
 
 		for (int i = 0; i < lecture.size(); i++) {
-			if (sum + lecture[i] <= mid) sum += lecture[i];	// Å©±â ±âÁØ ¾È³ÑÀ¸¸é ´õÇÏ°í ³ÑÀ¸¸é »õ·Î ¸¸µé¸é¼­ Ä«¿îÆÃ
+			if (sum + lecture[i] <= mid) sum += lecture[i];	// í¬ê¸° ê¸°ì¤€ ì•ˆë„˜ìœ¼ë©´ ë”í•˜ê³  ë„˜ìœ¼ë©´ ìƒˆë¡œ ë§Œë“¤ë©´ì„œ ì¹´ìš´íŒ…
 			else {
 				total = sum > total ? sum : total;
 				sum = lecture[i];
@@ -24,7 +24,7 @@ int binarySearch(vector<int> lecture, long long start, long long end, long long 
 
 		total = sum > total ? sum : total;
 
-		if (cnt > target) {			// cnt°¡ ´õ Å©¸é Àß°Ô ÂÉ°³Á³±â ¶§¹®¿¡ start °ª Å°¿ò
+		if (cnt > target) {			// cntê°€ ë” í¬ë©´ ì˜ê²Œ ìª¼ê°œì¡Œê¸° ë•Œë¬¸ì— start ê°’ í‚¤ì›€
 			start = mid + 1;
 		}
 		else {
@@ -44,7 +44,7 @@ int main() {
 		long long x;
 		scanf("%d", &x);
 		lecture.push_back(x);
-		sum += x;				// °­ÀÇ ÃÑ ÇÕ ±¸ÇØ¼­ end°ª °áÁ¤
+		sum += x;				// ê°•ì˜ ì´ í•© êµ¬í•´ì„œ endê°’ ê²°ì •
 	}
 
 	printf("%lld\n", binarySearch(lecture, 0, sum, M));

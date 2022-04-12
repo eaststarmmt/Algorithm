@@ -1,12 +1,12 @@
-// ÀÌÀ¯´Â ¸ð¸£°ÚÀ¸³ª ¸Þ¸ð¸® ÃÊ°ú°¡ °è¼ÓÇØ¼­ ¹ß»ýÇß°í if¹®ÀÇ ¼ø¼­¸¦ ¹Ù²Ù´Ï Á¤´äÃ³¸®
-// ´Ù½Ã ¸Þ¸ð¸®ÃÊ°ú¶§ÀÇ ¼ø¼­·Î µ¹·È´Âµ¥ Á¤´ä
+// ì´ìœ ëŠ” ëª¨ë¥´ê² ìœ¼ë‚˜ ë©”ëª¨ë¦¬ ì´ˆê³¼ê°€ ê³„ì†í•´ì„œ ë°œìƒí–ˆê³  ifë¬¸ì˜ ìˆœì„œë¥¼ ë°”ê¾¸ë‹ˆ ì •ë‹µì²˜ë¦¬
+// ë‹¤ì‹œ ë©”ëª¨ë¦¬ì´ˆê³¼ë•Œì˜ ìˆœì„œë¡œ ëŒë ¸ëŠ”ë° ì •ë‹µ
 
 #include<stdio.h>
 #include<queue>
 #define MAX 100001
 using namespace std;
 
-bool visited[MAX];					// ¹æ¹®ÇÑ °÷ Ã¼Å© ¾ÈÇÏ¸é Å¥¿¡ ³Ê¹« ¸¹ÀÌ µé¾î¿Í¼­ °¨´çÇÏ±â Èûµë
+bool visited[MAX];					// ë°©ë¬¸í•œ ê³³ ì²´í¬ ì•ˆí•˜ë©´ íì— ë„ˆë¬´ ë§Žì´ ë“¤ì–´ì™€ì„œ ê°ë‹¹í•˜ê¸° íž˜ë“¬
 
 int bfs(int start, int end) {
 
@@ -20,20 +20,20 @@ int bfs(int start, int end) {
 		int sec = queue.front().second;
 		queue.pop();
 
-		if (pos == end) return sec;						// ÇöÀç À§Ä¡°¡ µµÂøÁöÁ¡°ú °°À¸¸é ÃÊ °ªÀ» ¸®ÅÏ
+		if (pos == end) return sec;						// í˜„ìž¬ ìœ„ì¹˜ê°€ ë„ì°©ì§€ì ê³¼ ê°™ìœ¼ë©´ ì´ˆ ê°’ì„ ë¦¬í„´
 
-		if ((pos + 1 < MAX) && !visited[pos + 1]) {		// ¾ÕÀ¸·Î ÀÌµ¿ÇÏ´Â °æ¿ì
-			queue.push({ pos + 1, sec + 1 });			// ¹æ¹®ÇÑÀû ¾ø°í ¹üÀ§¸¦ ¹þ¾î³ªÁö ¾ÊÀ¸¸é ¹æ¹®
+		if ((pos + 1 < MAX) && !visited[pos + 1]) {		// ì•žìœ¼ë¡œ ì´ë™í•˜ëŠ” ê²½ìš°
+			queue.push({ pos + 1, sec + 1 });			// ë°©ë¬¸í•œì  ì—†ê³  ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ì§€ ì•Šìœ¼ë©´ ë°©ë¬¸
 			visited[pos + 1] = true;
 		}
 
-		if ((0 <= pos - 1) && !visited[pos - 1]) {		// µÚ·Î ÀÌµ¿ÇÏ´Â °æ¿ì
-			queue.push({ pos - 1, sec + 1 });			// ¹æ¹®ÇÑÀû ¾ø°í ¹üÀ§¸¦ ¹þ¾î³ªÁö ¾ÊÀ¸¸é ¹æ¹®
+		if ((0 <= pos - 1) && !visited[pos - 1]) {		// ë’¤ë¡œ ì´ë™í•˜ëŠ” ê²½ìš°
+			queue.push({ pos - 1, sec + 1 });			// ë°©ë¬¸í•œì  ì—†ê³  ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ì§€ ì•Šìœ¼ë©´ ë°©ë¬¸
 			visited[pos - 1] = true;
 		}
 			
-		if ((pos * 2 < MAX) && !visited[pos * 2]) {		// ¼ø°£ÀÌµ¿ ÇÏ´Â °æ¿ì
-			queue.push({ pos * 2, sec + 1 });			// ¹æ¹®ÇÑÀû ¾ø°í ¹üÀ§¸¦ ¹þ¾î³ªÁö ¾ÊÀ¸¸é ¹æ¹®
+		if ((pos * 2 < MAX) && !visited[pos * 2]) {		// ìˆœê°„ì´ë™ í•˜ëŠ” ê²½ìš°
+			queue.push({ pos * 2, sec + 1 });			// ë°©ë¬¸í•œì  ì—†ê³  ë²”ìœ„ë¥¼ ë²—ì–´ë‚˜ì§€ ì•Šìœ¼ë©´ ë°©ë¬¸
 			visited[pos * 2] = true;
 		}
 	}

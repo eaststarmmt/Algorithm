@@ -19,7 +19,7 @@ int map[8][8];
 int res = 1e9;
 int rotation[] = { 0, 4, 2, 4, 4, 1 };
 
-void mapCopy(int src[8][8], int des[8][8]) {	// ¸Ê º¹»çÇÏ±â
+void mapCopy(int src[8][8], int des[8][8]) {	// ë§µ ë³µì‚¬í•˜ê¸°
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			des[i][j] = src[i][j];
@@ -31,28 +31,28 @@ void check(int dir, Cctv cctv) {
 	dir %= 4;
 	switch (dir) {
 
-	case 0:		// À§
+	case 0:		// ìœ„
 		for (int r = cctv.r - 1; r >= 0; r--) {
 			if (map[r][cctv.c] == 6) break;
 			map[r][cctv.c] = -1;
 		}
 		break;
 
-	case 1:		// ¿ÞÂÊ
+	case 1:		// ì™¼ìª½
 		for (int c = cctv.c - 1; c >= 0; c--) {
 			if (map[cctv.r][c] == 6) break;
 			map[cctv.r][c] = -1;
 		}
 		break;
 
-	case 2:		// ¾Æ·¡
+	case 2:		// ì•„ëž˜
 		for (int r = cctv.r + 1; r < R; r++) {
 			if (map[r][cctv.c] == 6) break;
 			map[r][cctv.c] = -1;
 		}
 		break;
 
-	case 3:		// ¿ÞÂÊ
+	case 3:		// ì™¼ìª½
 		for (int c = cctv.c + 1; c < C; c++) {
 			if (map[cctv.r][c] == 6) break;
 			map[cctv.r][c] = -1;
@@ -62,8 +62,8 @@ void check(int dir, Cctv cctv) {
 }
 
 void comb(int cnt) {	
-	if (cnt == cctv.size()) {	// cctv·Î ´Ù È®ÀÎ ÇßÀ»¶§
-		int blind = 0;	// »ç°¢Áö´ë
+	if (cnt == cctv.size()) {	// cctvë¡œ ë‹¤ í™•ì¸ í–ˆì„ë•Œ
+		int blind = 0;	// ì‚¬ê°ì§€ëŒ€
 
 		for (int i = 0; i < R; i++) {	
 			for (int j = 0; j < C; j++) {
@@ -77,31 +77,31 @@ void comb(int cnt) {
 	int copy_map[8][8];
 	int type = cctv[cnt].type;
 
-	for (int i = 0; i < rotation[type]; i++) {	// cctv ¹æÇâ ¼¼ÆÃÇÏ±â
-		mapCopy(map, copy_map);		// ¸Ê ¹é¾÷
+	for (int i = 0; i < rotation[type]; i++) {	// cctv ë°©í–¥ ì„¸íŒ…í•˜ê¸°
+		mapCopy(map, copy_map);		// ë§µ ë°±ì—…
 		
 		switch (type) {
-		case 1:	// 1¹øÀº ´Ü¹æÇâ
+		case 1:	// 1ë²ˆì€ ë‹¨ë°©í–¥
 			check(i, cctv[cnt]);
 			break;
 
-		case 2:	// 2¹øÀº 180µµ µÎ °³
+		case 2:	// 2ë²ˆì€ 180ë„ ë‘ ê°œ
 			check(i, cctv[cnt]);
 			check(i + 2, cctv[cnt]);
 			break;
 
-		case 3:	// 90µµ 2°³
+		case 3:	// 90ë„ 2ê°œ
 			check(i, cctv[cnt]);
 			check(i + 1, cctv[cnt]);
 			break;
 
-		case 4:	// ¼¼¹æÇâ
+		case 4:	// ì„¸ë°©í–¥
 			check(i, cctv[cnt]);
 			check(i + 1, cctv[cnt]);
 			check(i + 2, cctv[cnt]);
 			break;
 
-		case 5:	// ³×¹æÇâ
+		case 5:	// ë„¤ë°©í–¥
 			check(i, cctv[cnt]);
 			check(i + 1, cctv[cnt]);
 			check(i + 2, cctv[cnt]);
@@ -110,7 +110,7 @@ void comb(int cnt) {
 		}
 
 		comb(cnt + 1);
-		mapCopy(copy_map, map);		// ¸Ê º¹¿ø
+		mapCopy(copy_map, map);		// ë§µ ë³µì›
 	}
 }
 

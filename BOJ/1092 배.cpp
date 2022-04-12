@@ -24,9 +24,9 @@ int main() {
 		box.push_back(x);
 	}	// end of for boxes input
 
-	sort(crane.begin(), crane.end(), cmp);	// ¹Ú½º, Å©·¹ÀÎ ³»¸²Â÷¼ø Á¤·Ä
+	sort(crane.begin(), crane.end(), cmp);	// ë°•ìŠ¤, í¬ë ˆì¸ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
 	sort(box.begin(), box.end(), cmp);
-	if (crane[0] < box[0]) {	// ¹Ú½º°¡ Å©·¹ÀÎ Çã¿ë ¹«°Ôº¸´Ù Å©¸é Á¾·á
+	if (crane[0] < box[0]) {	// ë°•ìŠ¤ê°€ í¬ë ˆì¸ í—ˆìš© ë¬´ê²Œë³´ë‹¤ í¬ë©´ ì¢…ë£Œ
 		printf("-1\n");
 		return 0;
 	}
@@ -34,9 +34,9 @@ int main() {
 	while (m > 0) {	
 		for (int i = 0; i < crane.size(); i++) {
 			for (int j = 0; j < box.size(); j++) {
-				if (crane[i] >= box[j]) {	// ¹Ú½º ¿Å±æ ¼ö ÀÖÀ¸¸é ´ÙÀ½ Å©·¹ÀÎÀ¸·Î
-					box.erase(box.begin() + j);		// bool ¹è¿­·Î Ç¥½ÃÇÏ°í continue ÇÏ´Â °Íº¸´Ù Áö¿ì´Â°Ô ´õ ºü¸§
-					m--;	// ³²Àº ¹Ú½º ¼ö Ä«¿îÆÃ
+				if (crane[i] >= box[j]) {	// ë°•ìŠ¤ ì˜®ê¸¸ ìˆ˜ ìˆìœ¼ë©´ ë‹¤ìŒ í¬ë ˆì¸ìœ¼ë¡œ
+					box.erase(box.begin() + j);		// bool ë°°ì—´ë¡œ í‘œì‹œí•˜ê³  continue í•˜ëŠ” ê²ƒë³´ë‹¤ ì§€ìš°ëŠ”ê²Œ ë” ë¹ ë¦„
+					m--;	// ë‚¨ì€ ë°•ìŠ¤ ìˆ˜ ì¹´ìš´íŒ…
 					break;
 				}
 			}	// end of for box

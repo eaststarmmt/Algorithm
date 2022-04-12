@@ -4,10 +4,10 @@
 using namespace std;
 
 int N, res;
-int col[16]; // col[i] = x	i ÇàÀÇ x ¿­¿¡ Äı ÀÖÀ½
+int col[16]; // col[i] = x	i í–‰ì˜ x ì—´ì— í€¸ ìˆìŒ
 bool checked(int r) {
 	for (int i = 1; i < r; i++) {
-		if(col[i] == col[r] || abs(col[i] - col[r]) == r - i)	// °°Àº ¿­¿¡ ÀÖ°Å³ª ´ë°¢ °ü°è
+		if(col[i] == col[r] || abs(col[i] - col[r]) == r - i)	// ê°™ì€ ì—´ì— ìˆê±°ë‚˜ ëŒ€ê° ê´€ê³„
 			return false;
 	}
 	return true;

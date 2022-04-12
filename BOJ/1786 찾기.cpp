@@ -3,14 +3,14 @@
 #include<vector>
 using namespace std;
 
-int pi[1000001];	// ½ÇÆĞÇÔ¼ö
+int pi[1000001];	// ì‹¤íŒ¨í•¨ìˆ˜
 
 int main() {
 	string text, pattern;
-	getline(cin, text);		// °ø¹é Æ÷ÇÔÇØ¾ß µÇ±â ¶§¹®¿¡ getlineÀ¸·Î ¹ŞÀ½
+	getline(cin, text);		// ê³µë°± í¬í•¨í•´ì•¼ ë˜ê¸° ë•Œë¬¸ì— getlineìœ¼ë¡œ ë°›ìŒ
 	getline(cin, pattern);
 	int textLen = text.length(), pattLen = pattern.length();
-	// kmp ¾Ë°í¸®Áò
+	// kmp ì•Œê³ ë¦¬ì¦˜
 	for (int i = 1, j = 0; i < pattLen; i++) {
 		while (j > 0 && pattern[i] != pattern[j]) {
 			j = pi[j - 1];

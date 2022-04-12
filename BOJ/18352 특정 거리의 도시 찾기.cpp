@@ -8,9 +8,9 @@ using namespace std;
 bool visited[300001];
 vector<int> graph[300001];
 int V, E, K, X;
-vector<int> result;	// °á°ú ¿À¸§Â÷¼øÀ¸·Î ÇÏ¶ó ÇØ¼­
+vector<int> result;	// ê²°ê³¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ í•˜ë¼ í•´ì„œ
 
-class info {	// Å¬·¡½º IDE ¾øÀÌ Â©¶§±îÁö ÇØº¸±â À§ÇÔ
+class info {	// í´ë˜ìŠ¤ IDE ì—†ì´ ì§¤ë•Œê¹Œì§€ í•´ë³´ê¸° ìœ„í•¨
 public:
 	int x, dis;
 	info(int x, int dis) {	
@@ -23,11 +23,11 @@ void bfs(int start) {
 	queue<info> Q;
 	Q.push(info(start, 0));
 	visited[start] = true;
-	while (!Q.empty()) {	// Æò¹üÇÑ bfs 
+	while (!Q.empty()) {	// í‰ë²”í•œ bfs 
 		int x = Q.front().x;
 		int dis = Q.front().dis;
 		Q.pop();
-		if (dis == K) result.push_back(x);	// °Å¸®°¡ K ¶ó¸é ÀúÀå
+		if (dis == K) result.push_back(x);	// ê±°ë¦¬ê°€ K ë¼ë©´ ì €ì¥
 		for (int i = 0; i < graph[x].size(); i++) {
 			if (!visited[graph[x][i]]) {
 				Q.push(info(graph[x][i], dis + 1));

@@ -1,7 +1,7 @@
 #include<cstdio>
 #include<vector>
 using namespace std;
-int dr[] = { 0, -1, 0, 1 };	// ¹æÇâ ¹øÈ£ ±×´ë·Î
+int dr[] = { 0, -1, 0, 1 };	// ë°©í–¥ ë²ˆí˜¸ ê·¸ëŒ€ë¡œ
 int dc[] = { 1, 0, -1, 0 };
 int map[101][101];
 int N, c, r, d, g;
@@ -11,21 +11,21 @@ int countingSquare() {
 	int cnt = 0;
 	for (int i = 0; i <= 100; i++) {
 		for (int j = 0; j <= 100; j++) {
-			if (map[i][j] == 1 && map[i][j + 1] && map[i + 1][j] == 1 && map[i + 1][j + 1] == 1)	// ¼±ÀÌ ÀÌ¾îÁú ÇÊ¿ä ¾øÀÌ ²ÀÁöÁ¡¸¸ ¸ÂÀ¸¸é µÇ´Âµí...
+			if (map[i][j] == 1 && map[i][j + 1] && map[i + 1][j] == 1 && map[i + 1][j + 1] == 1)	// ì„ ì´ ì´ì–´ì§ˆ í•„ìš” ì—†ì´ ê¼­ì§€ì ë§Œ ë§ìœ¼ë©´ ë˜ëŠ”ë“¯...
 				cnt++;
 		}
 	}
 	return cnt;
 }
 
-void dragonCurve() {		// Àü ¼¼´ë ¹æÇâµé µÚºÎÅÍ + 1 ÇØ¼­ ºÙÀÌ¸é µÊ
+void dragonCurve() {		// ì „ ì„¸ëŒ€ ë°©í–¥ë“¤ ë’¤ë¶€í„° + 1 í•´ì„œ ë¶™ì´ë©´ ë¨
 	int size = save.size();
 	for (int i = size - 1; i >= 0; i--) {
 		int d = (save[i] + 1) % 4;
 		r += dr[d];
 		c += dc[d];
 		map[r][c] = 1;
-		save.push_back(d);		// ´ÙÀ½ ¼¼´ë °è»êÀ» À§ÇØ ÀúÀå
+		save.push_back(d);		// ë‹¤ìŒ ì„¸ëŒ€ ê³„ì‚°ì„ ìœ„í•´ ì €ì¥
 	}
 }
 
@@ -37,7 +37,7 @@ int main() {
 		map[r][c] = 1;
 		r += dr[d];
 		c += dc[d];
-		map[r][c] = 1;	// 0¼¼´ë ±¸Çö
+		map[r][c] = 1;	// 0ì„¸ëŒ€ êµ¬í˜„
 		save.push_back(d);
 		for (int j = 0; j < g; j++) {
 			dragonCurve();

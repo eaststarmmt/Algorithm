@@ -25,7 +25,7 @@ void bfs(queue<pair<int, int>> Q) {
 		int c = Q.front().second;
 		Q.pop();
 
-		if (cnt == blank) break;		// ¹ÙÀÌ·¯½º°¡ ºóÄ­¸¸Å­ ÀüÀÌ ÇßÀ¸¸é Å»Ãâ
+		if (cnt == blank) break;		// ë°”ì´ëŸ¬ìŠ¤ê°€ ë¹ˆì¹¸ë§Œí¼ ì „ì´ í–ˆìœ¼ë©´ íƒˆì¶œ
 
 		for (int i = 0; i < 4; i++) {
 			int nr = r + dr[i];
@@ -34,10 +34,10 @@ void bfs(queue<pair<int, int>> Q) {
 			if (nr >= 0 && nr < N && nc >= 0 && nc < N) {
 				if (map[nr][nc] != 1 && time[nr][nc] == -1) {
 					time[nr][nc] = time[r][c] + 1;
-					if (map[nr][nc] == 0) {				// ºóÄ­ÀÎ °æ¿ì
-						lastTime = time[nr][nc];		// bfs Æ¯¼º»ó ¸¶Áö¸·¿¡ ¿Ã¼ö·Ï ½Ã°£ Ä¿Áü
-						if (lastTime >= res) return;	// ±âÁ¸ ÃÖ¼Ò°ªº¸´Ù Å©¸é Å»Ãâ
-						cnt++;							// ºóÄ­À» ÀüÀÌ ÇßÀ¸¹Ç·Î Ä«¿îÆÃ
+					if (map[nr][nc] == 0) {				// ë¹ˆì¹¸ì¸ ê²½ìš°
+						lastTime = time[nr][nc];		// bfs íŠ¹ì„±ìƒ ë§ˆì§€ë§‰ì— ì˜¬ìˆ˜ë¡ ì‹œê°„ ì»¤ì§
+						if (lastTime >= res) return;	// ê¸°ì¡´ ìµœì†Œê°’ë³´ë‹¤ í¬ë©´ íƒˆì¶œ
+						cnt++;							// ë¹ˆì¹¸ì„ ì „ì´ í–ˆìœ¼ë¯€ë¡œ ì¹´ìš´íŒ…
 
 					}
 					Q.push({ nr, nc });
@@ -51,13 +51,13 @@ void bfs(queue<pair<int, int>> Q) {
 }
 
 void comb(int start, int cnt) {
-	if (cnt == M) {		// M°³¸¸Å­ »ÌÀ¸¸é
+	if (cnt == M) {		// Mê°œë§Œí¼ ë½‘ìœ¼ë©´
 		queue<pair<int, int>> Q;
-		memset(time, -1, sizeof(time));	// ½Ã°£ ÀüºÎ -1 ·Î ÃÊ±âÈ­
+		memset(time, -1, sizeof(time));	// ì‹œê°„ ì „ë¶€ -1 ë¡œ ì´ˆê¸°í™”
 		for (int i = 0; i < virus.size(); i++) {
 			if (selected[i]) {
-				Q.push({ virus[i].first, virus[i].second });	// Å¥¿¡ °ª ³Ö±â
-				time[virus[i].first][virus[i].second] = 0;		// ¹ÙÀÌ·¯½º ÀÖ´Â ÀÚ¸®´Â 0À¸·Î ¼³Á¤
+				Q.push({ virus[i].first, virus[i].second });	// íì— ê°’ ë„£ê¸°
+				time[virus[i].first][virus[i].second] = 0;		// ë°”ì´ëŸ¬ìŠ¤ ìˆëŠ” ìë¦¬ëŠ” 0ìœ¼ë¡œ ì„¤ì •
 			}
 		}
 		bfs(Q);
@@ -84,13 +84,13 @@ int main() {
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
 			cin >> map[i][j];
-			if (map[i][j] == 2)					// ¹ÙÀÌ·¯½º À§Ä¡ µû·Î ÀúÀå
+			if (map[i][j] == 2)					// ë°”ì´ëŸ¬ìŠ¤ ìœ„ì¹˜ ë”°ë¡œ ì €ì¥
 				virus.push_back({ i, j });
-			else if (map[i][j] == 0)			// ºóÄ­ °³¼ö ¼¼±â
+			else if (map[i][j] == 0)			// ë¹ˆì¹¸ ê°œìˆ˜ ì„¸ê¸°
 				blank++;
 		}
 	}
-	if (blank == 0) {		// ºóÄ­ °³¼ö 0ÀÌ¸é 0 Ãâ·Â
+	if (blank == 0) {		// ë¹ˆì¹¸ ê°œìˆ˜ 0ì´ë©´ 0 ì¶œë ¥
 		printf("%d\n", 0);
 		return 0;
 	}

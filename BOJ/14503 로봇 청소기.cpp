@@ -4,7 +4,7 @@ using namespace std;
 
 int map[50][50];
 bool cleaning[50][50];
-int dr[] = { -1, 0, 1, 0 };		// ºÏ µ¿ ³² ¼­
+int dr[] = { -1, 0, 1, 0 };		// ë¶ ë™ ë‚¨ ì„œ
 int dc[] = { 0, 1, 0, -1 };
 int R, C;
 int main() {
@@ -21,20 +21,20 @@ int main() {
 		}
 	}	// end of input
 	int cnt = 0;
-	while (true) {	// 1. ÇöÀç À§Ä¡ Ã»¼Ò. 
+	while (true) {	// 1. í˜„ì¬ ìœ„ì¹˜ ì²­ì†Œ. 
 		if (!cleaning[r][c]) {
 			cleaning[r][c] = true;
 			cnt++;
 		}
 		bool flag = false;
-		// 2. ¿ŞÂÊºÎÅÍ Â÷·Ê´ë·Î Ã»¼Ò
+		// 2. ì™¼ìª½ë¶€í„° ì°¨ë¡€ëŒ€ë¡œ ì²­ì†Œ
 		for (int i = 0; i < 4; i++) {
-			dir = (dir + 3) % 4;	// ¿ŞÂÊ ¹æÇâ
+			dir = (dir + 3) % 4;	// ì™¼ìª½ ë°©í–¥
 			int nr = r + dr[dir];
 			int nc = c + dc[dir];
-			// °ø°£ ÀÖ´ÂÁö È®ÀÎºÎÅÍ
-			if (nr >= 0 && nr < R && nc >= 0 && nc < C) {	// °ø°£ÀÌ ÀÖ´Â °æ¿ì
-				if (!cleaning[nr][nc] && map[nr][nc] == 0) {	// a. Ã»¼Ò°¡ °¡´ÉÇÑ °æ¿ì
+			// ê³µê°„ ìˆëŠ”ì§€ í™•ì¸ë¶€í„°
+			if (nr >= 0 && nr < R && nc >= 0 && nc < C) {	// ê³µê°„ì´ ìˆëŠ” ê²½ìš°
+				if (!cleaning[nr][nc] && map[nr][nc] == 0) {	// a. ì²­ì†Œê°€ ê°€ëŠ¥í•œ ê²½ìš°
 					r = nr;
 					c = nc;
 					flag = true;
@@ -43,11 +43,11 @@ int main() {
 			}
 		}
 		
-		if (!flag) {	// ³×¹æÇâ ¸ğµÎ È®ÀÎÇÑ °æ¿ì
+		if (!flag) {	// ë„¤ë°©í–¥ ëª¨ë‘ í™•ì¸í•œ ê²½ìš°
 			int nr = r - dr[dir];
 			int nc = c - dc[dir];
 			
-			if (nr >= 0 && nr < R && nc >= 0 && nc < C) {	// µÚ¿¡ °ø°£ ÀÖ´ÂÁö
+			if (nr >= 0 && nr < R && nc >= 0 && nc < C) {	// ë’¤ì— ê³µê°„ ìˆëŠ”ì§€
 				if (map[nr][nc] == 0) {
 					r = nr;
 					c = nc;

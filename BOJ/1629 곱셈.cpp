@@ -4,11 +4,11 @@ using namespace std;
 int C;
 
 long long divideCon(int A, int B) {
-	if (B == 0) return 1;		// 0½ÂÀÌ¸é 1 Ãâ·Â
-	else if (B == 1) return A;	// 1½ÂÀÌ¸é A Ãâ·Â
-	if (B % 2 != 0) return A * divideCon(A, B - 1); // È¦¼ö¸é 2µîºĞ ÇÏ±â À§ÇØ Â¦¼ö·Î ¸ÂÃçÁÜ
+	if (B == 0) return 1;		// 0ìŠ¹ì´ë©´ 1 ì¶œë ¥
+	else if (B == 1) return A;	// 1ìŠ¹ì´ë©´ A ì¶œë ¥
+	if (B % 2 != 0) return A * divideCon(A, B - 1); // í™€ìˆ˜ë©´ 2ë“±ë¶„ í•˜ê¸° ìœ„í•´ ì§ìˆ˜ë¡œ ë§ì¶°ì¤Œ
 	else {
-		return (divideCon(A, B / 2) % C) * (divideCon(A, B / 2) % C) % C;	// ¸î¹ø ³ª´©´ø ³ª¸ÓÁö´Â °è¼Ó °°À½ ¹üÀ§ ¾È³Ñ°Ô °è¼Ó ³ª´®
+		return (divideCon(A, B / 2) % C) * (divideCon(A, B / 2) % C) % C;	// ëª‡ë²ˆ ë‚˜ëˆ„ë˜ ë‚˜ë¨¸ì§€ëŠ” ê³„ì† ê°™ìŒ ë²”ìœ„ ì•ˆë„˜ê²Œ ê³„ì† ë‚˜ëˆ”
 	}
 }
 

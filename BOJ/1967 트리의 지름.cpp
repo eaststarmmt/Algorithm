@@ -5,14 +5,14 @@
 using namespace std;
 
 int v;
-vector<pair<int, int>> dis[100001];		// <³ëµå ¹øÈ£, °Å¸®> ÇüÅÂ·Î ÀúÀå
+vector<pair<int, int>> dis[100001];		// <ë…¸ë“œ ë²ˆí˜¸, ê±°ë¦¬> í˜•íƒœë¡œ ì €ì¥
 bool visited[100001];
 int radius;
 int farIdx;
 
 void dfs(int x, int sum) {
 	visited[x] = true;
-	if (radius < sum) {				// °¡Àå ¸Ö¸® ÀÖ´Â °÷ÀÇ ÀÎµ¦½º ÀúÀå
+	if (radius < sum) {				// ê°€ì¥ ë©€ë¦¬ ìˆëŠ” ê³³ì˜ ì¸ë±ìŠ¤ ì €ì¥
 		radius = sum;
 		farIdx = x;
 	}
@@ -36,9 +36,9 @@ int main() {
 		
 	}
 
-	dfs(1, 0);								// ¾Æ¹«µ¥¼­³ª dfs¸¦ ÇÑ¹ø µ¹·Á¼­ °¡Àå ¸Õ °÷ ÀÎµ¦½º ÀâÀ½
-	memset(visited, false, sizeof(visited));	// false °ªÀ¸·Î ÃÊ±âÈ­
-	dfs(farIdx, 0);							// °¡Àå ¸Õ ÀÎµ¦½º¿¡¼­ ´Ù½Ã dfs µ¹·Á¼­ ÃÖÁ¾°ª Ã£±â
+	dfs(1, 0);								// ì•„ë¬´ë°ì„œë‚˜ dfsë¥¼ í•œë²ˆ ëŒë ¤ì„œ ê°€ì¥ ë¨¼ ê³³ ì¸ë±ìŠ¤ ì¡ìŒ
+	memset(visited, false, sizeof(visited));	// false ê°’ìœ¼ë¡œ ì´ˆê¸°í™”
+	dfs(farIdx, 0);							// ê°€ì¥ ë¨¼ ì¸ë±ìŠ¤ì—ì„œ ë‹¤ì‹œ dfs ëŒë ¤ì„œ ìµœì¢…ê°’ ì°¾ê¸°
 
 	printf("%d\n", radius);
 }

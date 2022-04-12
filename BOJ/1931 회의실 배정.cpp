@@ -3,8 +3,8 @@
 #include<algorithm>
 using namespace std;
 
-bool cmp(pair<int, int> a, pair<int, int> b) {	// ³¡³ª´Â ½Ã°£ÀÌ ºü¸¥ ¼øÀ¸·Î Á¤·Ä
-	if (a.second == b.second) return a.first < b.first;	// ³¡³ª´Â ½Ã°£ÀÌ °°À» °æ¿ì ½ÃÀÛ½Ã°£ÀÌ ºü¸¥ È¸ÀÇ°¡ ¸ÕÀú ¿Í¾ß µÊ
+bool cmp(pair<int, int> a, pair<int, int> b) {	// ëë‚˜ëŠ” ì‹œê°„ì´ ë¹ ë¥¸ ìˆœìœ¼ë¡œ ì •ë ¬
+	if (a.second == b.second) return a.first < b.first;	// ëë‚˜ëŠ” ì‹œê°„ì´ ê°™ì„ ê²½ìš° ì‹œì‘ì‹œê°„ì´ ë¹ ë¥¸ íšŒì˜ê°€ ë¨¼ì € ì™€ì•¼ ë¨
 	return a.second < b.second;
 }
 
@@ -20,11 +20,11 @@ int main() {
 
 	sort(input.begin(), input.end(), cmp);	
 	int cnt = 0;
-	int nowWork = -1;	// ÇöÀç È¸ÀÇ ³¡³ª´Â ½Ã°£
+	int nowWork = -1;	// í˜„ì¬ íšŒì˜ ëë‚˜ëŠ” ì‹œê°„
 	for (int i = 0; i < input.size(); i++) {
-		if (input[i].first >= nowWork) {	// È¸ÀÇ ½ÃÀÛ½Ã°£ÀÌ ³¡³ª´Â ½Ã°£º¸´Ù Å©°Å³ª °°Àº°æ¿ì
-			nowWork = input[i].second;	// È¸ÀÇ°ª °»½Å
-			cnt++;			// Ä«¿îÆÃ
+		if (input[i].first >= nowWork) {	// íšŒì˜ ì‹œì‘ì‹œê°„ì´ ëë‚˜ëŠ” ì‹œê°„ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ì€ê²½ìš°
+			nowWork = input[i].second;	// íšŒì˜ê°’ ê°±ì‹ 
+			cnt++;			// ì¹´ìš´íŒ…
 		}
 	}
 	printf("%d\n", cnt);

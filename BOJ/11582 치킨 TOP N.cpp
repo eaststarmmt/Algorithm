@@ -16,7 +16,7 @@ int main() {
 	int K;
 	scanf("%d", &K);
 
-	if (K == N) {	// K°¡ N°ú °°À¸¸é Á¤·ÄÇÏÁö ¾ÊÀº »óÅÂÀÌ¹Ç·Î ¹Ù·Î Ãâ·Â
+	if (K == N) {	// Kê°€ Nê³¼ ê°™ìœ¼ë©´ ì •ë ¬í•˜ì§€ ì•Šì€ ìƒíƒœì´ë¯€ë¡œ ë°”ë¡œ ì¶œë ¥
 		for (int i = 1; i <= N; i++) {
 			printf("%d ", chicken[i]);
 		}
@@ -25,11 +25,11 @@ int main() {
 		return 0;
 	}
 
-	for (int work = N / 2; work > 0; work /= 2) {	// work ÇöÀç ÀÏÇÏ´Â »ç¶÷ ¼ö
-		for (int i = 1; i <= N; i += N / work) {	// index¸¦ (N / ÀÏÇÏ´Â »ç¶÷ ¼ö) ¸¸Å­ ¹­¾î¼­ Á¤·Ä
-			sort(chicken + i, chicken + i + N / work);	// ÀÏÇÏ´Â »ç¶÷ ¼ö * Á¤·ÄÇÒ Ä¡Å²ÀÇ °³¼ö = N
+	for (int work = N / 2; work > 0; work /= 2) {	// work í˜„ìž¬ ì¼í•˜ëŠ” ì‚¬ëžŒ ìˆ˜
+		for (int i = 1; i <= N; i += N / work) {	// indexë¥¼ (N / ì¼í•˜ëŠ” ì‚¬ëžŒ ìˆ˜) ë§Œí¼ ë¬¶ì–´ì„œ ì •ë ¬
+			sort(chicken + i, chicken + i + N / work);	// ì¼í•˜ëŠ” ì‚¬ëžŒ ìˆ˜ * ì •ë ¬í•  ì¹˜í‚¨ì˜ ê°œìˆ˜ = N
 		}
-		if (K == work) break;		// work¸íÀ¸·Î Á¤·ÄÀ» ³¡³½ ÈÄ ·çÇÁ Å»Ãâ
+		if (K == work) break;		// workëª…ìœ¼ë¡œ ì •ë ¬ì„ ëë‚¸ í›„ ë£¨í”„ íƒˆì¶œ
 	}
 
 	for (int i = 1; i <= N; i++) {

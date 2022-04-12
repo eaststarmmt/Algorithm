@@ -1,6 +1,6 @@
 #include<cstdio>
 #include<algorithm>
-#define MAX 101		// °£¼± ÃÖ´ë °³¼ö
+#define MAX 101		// ê°„ì„  ìµœëŒ€ ê°œìˆ˜
 #define INF 1e9
 using namespace std;
 
@@ -11,23 +11,23 @@ int main() {
 	scanf("%d %d", &V, &E);
 
 	for (int i = 1; i <= V; i++) {
-		fill(d[i], d[i] + V + 1, INF);	// ¹è¿­ÀÇ °ªÀ» INF·Î ÃÊ±âÈ­
+		fill(d[i], d[i] + V + 1, INF);	// ë°°ì—´ì˜ ê°’ì„ INFë¡œ ì´ˆê¸°í™”
 	}
 
 	for (int i = 1; i <= V; i++) {
-		d[i][i] = 0;		// ÀÚ±â ÀÚ½ÅÀº 0
+		d[i][i] = 0;		// ìžê¸° ìžì‹ ì€ 0
 	}
 
 	for (int i = 0; i < E; i++) {
 		int a, b, c;
 		scanf("%d %d %d", &a, &b, &c);
-		d[a][b] = c < d[a][b] ? c : d[a][b];	// a¿¡¼­ b·Î °¡´Â cost = c. ¿©±â¼­´Â ¿©·¯°³ ÀÔ·Â µÇ¹Ç·Î ÃÖ¼Ò°ª ³Ö±â
+		d[a][b] = c < d[a][b] ? c : d[a][b];	// aì—ì„œ bë¡œ ê°€ëŠ” cost = c. ì—¬ê¸°ì„œëŠ” ì—¬ëŸ¬ê°œ ìž…ë ¥ ë˜ë¯€ë¡œ ìµœì†Œê°’ ë„£ê¸°
 	}
 
 	for (int k = 1; k <= V; k++) {
 		for (int i = 1; i <= V; i++) {
 			for (int j = 1; j <= V; j++) {
-				d[i][j] = min(d[i][j], d[i][k] + d[k][j]);	// ±âÁ¸ i¿¡¼­ j °¡´Â ¹æ¹ý°ú k °ÅÃÄ¼­ °¡´Â ¹æ¹ý ºñ±³
+				d[i][j] = min(d[i][j], d[i][k] + d[k][j]);	// ê¸°ì¡´ iì—ì„œ j ê°€ëŠ” ë°©ë²•ê³¼ k ê±°ì³ì„œ ê°€ëŠ” ë°©ë²• ë¹„êµ
 			}
 		}
 	}

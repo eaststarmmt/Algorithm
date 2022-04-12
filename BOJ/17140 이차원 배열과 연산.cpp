@@ -8,7 +8,7 @@ struct Info {
 
 int map[101][101];
 int R, C, K;
-int Row, Col;	// Çà°ú ¿­ °³¼ö Ä«¿îÆÃ ÇÒ º¯¼ö
+int Row, Col;	// í–‰ê³¼ ì—´ ê°œìˆ˜ ì¹´ìš´íŒ… í•  ë³€ìˆ˜
 int counting[101];
 
 bool cmp(Info a, Info b) {
@@ -19,29 +19,29 @@ bool cmp(Info a, Info b) {
 
 void RCalc() {
 	int tempCol = Col;
-	Col = 0;	// ÃÖ´ë column °³¼ö °»½ÅÇÒ º¯¼ö
+	Col = 0;	// ìµœëŒ€ column ê°œìˆ˜ ê°±ì‹ í•  ë³€ìˆ˜
 	for (int r = 1; r <= Row; r++) {
-		vector<Info> info;	// ÁÙ ¹Ù²ğ¶§¸¶´Ù »õ·Î ÇØ¾ß µÊ
-		fill(counting, counting + 101, 0);	// 0À¸·Î ÃÊ±âÈ­
+		vector<Info> info;	// ì¤„ ë°”ë€”ë•Œë§ˆë‹¤ ìƒˆë¡œ í•´ì•¼ ë¨
+		fill(counting, counting + 101, 0);	// 0ìœ¼ë¡œ ì´ˆê¸°í™”
 		for (int c = 1; c <= tempCol; c++) {
-			counting[map[r][c]]++;	// ¼ıÀÚ Ä«¿îÆÃ
+			counting[map[r][c]]++;	// ìˆ«ì ì¹´ìš´íŒ…
 		}	// end of counting
 		for (int num = 1; num <= 100; num++) {
 			if(counting[num] != 0)
 				info.push_back({ counting[num], num });
 		}	// end of push
-		sort(info.begin(), info.end(), cmp);	// µîÀå È½¼ö ¼ıÀÚ ¿À¸§Â÷¼ø Á¤·Ä
+		sort(info.begin(), info.end(), cmp);	// ë“±ì¥ íšŸìˆ˜ ìˆ«ì ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 
-		for(int c = 1; c <= tempCol; c++) {		// ±âÁ¸¿¡ col ±æÀÌ°¡ ´õ ±æ¾î¼­ ÀÌÀü °ªÀÌ ³²´Â°É ¹æÁö
+		for(int c = 1; c <= tempCol; c++) {		// ê¸°ì¡´ì— col ê¸¸ì´ê°€ ë” ê¸¸ì–´ì„œ ì´ì „ ê°’ì´ ë‚¨ëŠ”ê±¸ ë°©ì§€
 			map[r][c] = 0;
 		}	
 
 		int c = 0;
-		for (int i = 0; i < info.size(); i++) {	// ¸Ê¿¡ »õ·Î¿î °ª Ã¤¿ì±â
+		for (int i = 0; i < info.size(); i++) {	// ë§µì— ìƒˆë¡œìš´ ê°’ ì±„ìš°ê¸°
 			map[r][++c] = info[i].num;
 			map[r][++c] = info[i].cnt;
 		}
-		Col = c > Col ? c : Col;	// ÃÖ´ë°ª ±¸ÇÏ±â
+		Col = c > Col ? c : Col;	// ìµœëŒ€ê°’ êµ¬í•˜ê¸°
 	}
 }
 
@@ -50,26 +50,26 @@ void CCalc() {
 	Row = 0;
 	for (int c = 1; c <= Col; c++) {
 		vector<Info> info;
-		fill(counting, counting + 101, 0);	// 0À¸·Î ÃÊ±âÈ­
+		fill(counting, counting + 101, 0);	// 0ìœ¼ë¡œ ì´ˆê¸°í™”
 		for (int r = 1; r <= tempRow; r++) {
-			counting[map[r][c]]++;	// ¼ıÀÚ Ä«¿îÆÃ
+			counting[map[r][c]]++;	// ìˆ«ì ì¹´ìš´íŒ…
 		}	// end of counting
 		for (int num = 1; num <= 100; num++) {
 			if (counting[num] != 0)
 				info.push_back({ counting[num], num });
 		}	// end of push
-		sort(info.begin(), info.end(), cmp);	// µîÀå È½¼ö ¼ıÀÚ ¿À¸§Â÷¼ø Á¤·Ä
+		sort(info.begin(), info.end(), cmp);	// ë“±ì¥ íšŸìˆ˜ ìˆ«ì ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 
-		for (int r = 1; r <= tempRow; r++) {		// ±âÁ¸¿¡ row ±æÀÌ°¡ ´õ ±æ¾î¼­ ÀÌÀü °ªÀÌ ³²´Â°É ¹æÁö
+		for (int r = 1; r <= tempRow; r++) {		// ê¸°ì¡´ì— row ê¸¸ì´ê°€ ë” ê¸¸ì–´ì„œ ì´ì „ ê°’ì´ ë‚¨ëŠ”ê±¸ ë°©ì§€
 			map[r][c] = 0;
 		}
 
 		int r = 0;
-		for (int i = 0; i < info.size(); i++) {	// ¸Ê¿¡ »õ·Î¿î °ª Ã¤¿ì±â
+		for (int i = 0; i < info.size(); i++) {	// ë§µì— ìƒˆë¡œìš´ ê°’ ì±„ìš°ê¸°
 			map[++r][c] = info[i].num;
 			map[++r][c] = info[i].cnt;
 		}
-		Row = r > Row ? r : Row;	// ÃÖ´ë°ª ±¸ÇÏ±â
+		Row = r > Row ? r : Row;	// ìµœëŒ€ê°’ êµ¬í•˜ê¸°
 	}
 }
 
@@ -81,7 +81,7 @@ int main() {
 		}
 	}	// end of map
 	Row = Col = 3;
-	if (map[R][C] == K) {	// Ã³À½ºÎÅÍ Á¶°Ç ¸¸Á·ÇßÀ» °æ¿ì 0 Ãâ·Â ÈÄ Á¾·á
+	if (map[R][C] == K) {	// ì²˜ìŒë¶€í„° ì¡°ê±´ ë§Œì¡±í–ˆì„ ê²½ìš° 0 ì¶œë ¥ í›„ ì¢…ë£Œ
 		printf("%d\n", 0);
 		return 0;
 	}

@@ -7,20 +7,20 @@ int main() {
 	int N, K;
 	scanf("%d %d", &N, &K);
 	vector<int> sensor;
-	for (int i = 0; i < N; i++) {	// ¼¾¼­ À§Ä¡ ÀÔ·Â¹Þ±â
+	for (int i = 0; i < N; i++) {	// ì„¼ì„œ ìœ„ì¹˜ ìž…ë ¥ë°›ê¸°
 		int x;
 		scanf("%d", &x);
 		sensor.push_back(x);
 	}
 
-	sort(sensor.begin(), sensor.end());	// ¿À¸§Â÷¼ø Á¤·Ä
+	sort(sensor.begin(), sensor.end());	// ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 	vector<int> dis;
 	for (int i = 1; i < N; i++) {
-		dis.push_back(sensor[i] - sensor[i - 1]);	// ¼¾¼­°£ °Å¸® ÀÔ·Â
+		dis.push_back(sensor[i] - sensor[i - 1]);	// ì„¼ì„œê°„ ê±°ë¦¬ ìž…ë ¥
 	}
-	sort(dis.begin(), dis.end(), greater<int>());	// ³»¸²Â÷¼ø Á¤·Ä
+	sort(dis.begin(), dis.end(), greater<int>());	// ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
 	int ans = 0;
-	for (int i = K - 1; i < dis.size(); i++) {	// K°³ ¸¸Å­ ÁýÁ¾±¹À¸·Î ´ëÃ¼ °¡´É ÇÏ¹Ç·Î Å« ¼ø¼­´ë·Î K°³ Á¦¿ÜÇÏ°í ´õÇÔ
+	for (int i = K - 1; i < dis.size(); i++) {	// Kê°œ ë§Œí¼ ì§‘ì¢…êµ­ìœ¼ë¡œ ëŒ€ì²´ ê°€ëŠ¥ í•˜ë¯€ë¡œ í° ìˆœì„œëŒ€ë¡œ Kê°œ ì œì™¸í•˜ê³  ë”í•¨
 		ans += dis[i];
 	}
 	printf("%d\n", ans);

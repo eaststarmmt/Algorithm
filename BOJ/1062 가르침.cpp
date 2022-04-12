@@ -8,27 +8,27 @@ int N, K, maxReadable;
 vector<string> word;
 
 void comb(int learn, int cnt, int start) {
-	if (cnt == K) {	// K°³ ¸¸Å­ ¹è¿üÀ»¶§
-		int readable = 0;	// ÇöÀç ¹è¿î ´Ü¾î¿¡¼­ ÀĞÀ» ¼ö ÀÖ´Â ´Ü¾î °³¼ö
-		for (int i = 0; i < word.size(); i++) {	// ÀúÀåµÈ ´Ü¾î °³¼ö¸¸Å­ ¹İº¹
-			int check = 0;						// ´Ü¾î ºñÆ®·Î ¹Ù²ã¼­ ÀúÀåÇÒ º¯¼ö
-			for (int j = 0; j < word[i].size(); j++) {	// ´Ü¾î¿¡¼­ ±ÛÀÚ ÇÏ³ªÇÏ³ª È®ÀÎ
-				check |= 1 << word[i][j] - 'a';		// ÇØ´ç ±ÛÀÚ°¡ Æ÷ÇÔµÈ °÷ 1·Î Ç¥½Ã
+	if (cnt == K) {	// Kê°œ ë§Œí¼ ë°°ì› ì„ë•Œ
+		int readable = 0;	// í˜„ì¬ ë°°ìš´ ë‹¨ì–´ì—ì„œ ì½ì„ ìˆ˜ ìˆëŠ” ë‹¨ì–´ ê°œìˆ˜
+		for (int i = 0; i < word.size(); i++) {	// ì €ì¥ëœ ë‹¨ì–´ ê°œìˆ˜ë§Œí¼ ë°˜ë³µ
+			int check = 0;						// ë‹¨ì–´ ë¹„íŠ¸ë¡œ ë°”ê¿”ì„œ ì €ì¥í•  ë³€ìˆ˜
+			for (int j = 0; j < word[i].size(); j++) {	// ë‹¨ì–´ì—ì„œ ê¸€ì í•˜ë‚˜í•˜ë‚˜ í™•ì¸
+				check |= 1 << word[i][j] - 'a';		// í•´ë‹¹ ê¸€ìê°€ í¬í•¨ëœ ê³³ 1ë¡œ í‘œì‹œ
 			}
-			if ((learn & check) == check) {		// ¹è¿î ±ÛÀÚ¿Í ´Ü¾î¿¡ ±ÛÀÚ¸¦ and ¿¬»êÇØ¼­ ±× °ªÀÌ ´Ü¾î¿Í °°À¸¸é ÀĞÀ» ¼ö ÀÖÀ½
+			if ((learn & check) == check) {		// ë°°ìš´ ê¸€ìì™€ ë‹¨ì–´ì— ê¸€ìë¥¼ and ì—°ì‚°í•´ì„œ ê·¸ ê°’ì´ ë‹¨ì–´ì™€ ê°™ìœ¼ë©´ ì½ì„ ìˆ˜ ìˆìŒ
 				readable++;
 			}
 		}
-		maxReadable = readable > maxReadable ? readable : maxReadable;	// ÃÖ´ë°ª °»½Å
+		maxReadable = readable > maxReadable ? readable : maxReadable;	// ìµœëŒ€ê°’ ê°±ì‹ 
 		return;
 	}
 	for (int i = start; i < 26; i++) {
-		if (i == 'a' || i == 'c' || i == 'i' || i == 'n' || i == 't')	// ¹İµå½Ã Æ÷ÇÔµÇ¾î¾ß ÇÏ´Â ´Ü¾î
+		if (i == 'a' || i == 'c' || i == 'i' || i == 'n' || i == 't')	// ë°˜ë“œì‹œ í¬í•¨ë˜ì–´ì•¼ í•˜ëŠ” ë‹¨ì–´
 			continue;
 		int x = 0;	
 		x |= 1 << i;		
-		if (x & learn) continue;		// i °¡ learn¿¡ Æ÷ÇÔ µÇ¾î ÀÖÀ¸¸é ´ÙÀ½ ´Ü¾î È®ÀÎ
-		comb(learn | (1 << i), cnt + 1, i + 1);		// »õ·Î¿î ´Ü¾î ¹è¿î ÈÄ Àç±Í. ÀÌ·¸°Ô ÇÏ¸é ´ÙÀ½ ´Ü¾î ¼±ÅÃ¶§ 1À» ¾È²¨µµ µÊ
+		if (x & learn) continue;		// i ê°€ learnì— í¬í•¨ ë˜ì–´ ìˆìœ¼ë©´ ë‹¤ìŒ ë‹¨ì–´ í™•ì¸
+		comb(learn | (1 << i), cnt + 1, i + 1);		// ìƒˆë¡œìš´ ë‹¨ì–´ ë°°ìš´ í›„ ì¬ê·€. ì´ë ‡ê²Œ í•˜ë©´ ë‹¤ìŒ ë‹¨ì–´ ì„ íƒë•Œ 1ì„ ì•ˆêº¼ë„ ë¨
 	}
 }
 
@@ -43,7 +43,7 @@ int main() {
 		string s;
 		cin >> s;
 		word.push_back(s);
-	}	// N °³ÀÇ ´Ü¾î ÀúÀå
+	}	// N ê°œì˜ ë‹¨ì–´ ì €ì¥
 
 	if (K < 5) {
 		cout << 0 << endl;
@@ -57,6 +57,6 @@ int main() {
 	learn |= 1 << 'n' - 'a';
 	learn |= 1 << 't' - 'a';
 
-	comb(learn, 5, 0);	// Ã³À½ Á¢µÎ»ç Á¢¹Ì»ç¿¡ Æ÷ÇÔµÇ´Â ´Ü¾î 5°³´Â µé°í ½ÃÀÛ
+	comb(learn, 5, 0);	// ì²˜ìŒ ì ‘ë‘ì‚¬ ì ‘ë¯¸ì‚¬ì— í¬í•¨ë˜ëŠ” ë‹¨ì–´ 5ê°œëŠ” ë“¤ê³  ì‹œì‘
 	cout << maxReadable << endl;
 }

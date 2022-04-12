@@ -18,13 +18,13 @@ int main() {
 		for (int i = 0; i < N; i++) {
 			string item, classification;
 			cin >> item >> classification;
-			cnt[classification]++;	// ºĞ·ù º°·Î ¼ıÀÚ¸¸ Ä«¿îÆÃ
+			cnt[classification]++;	// ë¶„ë¥˜ ë³„ë¡œ ìˆ«ìë§Œ ì¹´ìš´íŒ…
 		}
 
 		int ans = 1;
 		for (auto i : cnt) {
-			ans *= i.second + 1;	// ºĞ·ùº° ¸ğµç ¿Ê °æ¿ì ´Ù + 1 ÇØ¼­ °öÇÔ. ¿ÊÀÇ ¼ö + ¾ÈÀÔ´Â °æ¿ì
+			ans *= i.second + 1;	// ë¶„ë¥˜ë³„ ëª¨ë“  ì˜· ê²½ìš° ë‹¤ + 1 í•´ì„œ ê³±í•¨. ì˜·ì˜ ìˆ˜ + ì•ˆì…ëŠ” ê²½ìš°
 		}
-		cout << ans - 1 << endl;	// ¾Ë¸öÀÎ °æ¿ì »©Áà¾ß ÇÏ¹Ç·Î - 1
+		cout << ans - 1 << endl;	// ì•Œëª¸ì¸ ê²½ìš° ë¹¼ì¤˜ì•¼ í•˜ë¯€ë¡œ - 1
 	}
 }

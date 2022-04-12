@@ -11,10 +11,10 @@ int main() {
 	for (int i = 0; i < N / 2; i++) {
 		int x, y;
 		scanf("%d %d", &x, &y);
-		down.push_back(x);		// ¹Ø¿¡¼­ ¼Ú¾Æ¿À¸£´Â ¾Ö
-		up.push_back(y);		// À§¿¡¼­ ³»·Á¿À´Â ¾Ö
+		down.push_back(x);		// ë°‘ì—ì„œ ì†Ÿì•„ì˜¤ë¥´ëŠ” ì• 
+		up.push_back(y);		// ìœ„ì—ì„œ ë‚´ë ¤ì˜¤ëŠ” ì• 
 	}
-	sort(down.begin(), down.end());	// ÀÌºĞÅ½»öÀ» À§ÇØ Á¤·Ä
+	sort(down.begin(), down.end());	// ì´ë¶„íƒìƒ‰ì„ ìœ„í•´ ì •ë ¬
 	sort(up.begin(), up.end());	
 
 	int result = INF, cnt = 0;;
@@ -22,14 +22,14 @@ int main() {
 
 	for (int i = 1; i <= H; i++) {
 		int sum, upBreak, downBreak;
-		downBreak = lower_bound(down.begin(), down.end(), i) - down.begin();	// °¡Àå¸ÕÀú ¸¸³ª´Â ¾Ö ÀÎµ¦½º
-		upBreak = upper_bound(up.begin(), up.end(), H - i) - up.begin();		// ÀüÃ¼³ôÀÌ - ÇöÀç³ôÀÌ¸¦ ÃÊ°úÇÏ´Â Ã¹¹øÂ° ¿ä¼Ò ÀÎµ¦½º
-		sum = N - downBreak - upBreak;	// °¢°¢ N / 2 - ¹Ø¿¡¼­ ³ª¿À´Â¾Ö Ã¹ ÀÎµ¦½º, N / 2 - À§¿¡¼­ ³ª¿À´Â¾Ö Ã¹ ÀÎµ¦½ºÀÌ±â ¶§¹®¿¡ N¿¡¼­ »©ÁÜ
-		if (result > sum) {	// »õ·Î¿î ÃÖ¼Ò°ª ¹ß°ßµÇ¸é °»½ÅÇÏ°í Ä«¿îÆÃ ÃÊ±âÈ­
+		downBreak = lower_bound(down.begin(), down.end(), i) - down.begin();	// ê°€ì¥ë¨¼ì € ë§Œë‚˜ëŠ” ì•  ì¸ë±ìŠ¤
+		upBreak = upper_bound(up.begin(), up.end(), H - i) - up.begin();		// ì „ì²´ë†’ì´ - í˜„ì¬ë†’ì´ë¥¼ ì´ˆê³¼í•˜ëŠ” ì²«ë²ˆì§¸ ìš”ì†Œ ì¸ë±ìŠ¤
+		sum = N - downBreak - upBreak;	// ê°ê° N / 2 - ë°‘ì—ì„œ ë‚˜ì˜¤ëŠ”ì•  ì²« ì¸ë±ìŠ¤, N / 2 - ìœ„ì—ì„œ ë‚˜ì˜¤ëŠ”ì•  ì²« ì¸ë±ìŠ¤ì´ê¸° ë•Œë¬¸ì— Nì—ì„œ ë¹¼ì¤Œ
+		if (result > sum) {	// ìƒˆë¡œìš´ ìµœì†Œê°’ ë°œê²¬ë˜ë©´ ê°±ì‹ í•˜ê³  ì¹´ìš´íŒ… ì´ˆê¸°í™”
 			cnt = 1;
 			result = sum;
 		}
-		else if (result == sum) cnt++;	// ÇöÀç ÃÖ¼Ò°ª°í °°À¸¸é Ä«¿îÆÃ
+		else if (result == sum) cnt++;	// í˜„ì¬ ìµœì†Œê°’ê³  ê°™ìœ¼ë©´ ì¹´ìš´íŒ…
 	}
 	printf("%d %d\n", result, cnt);
 }

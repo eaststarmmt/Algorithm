@@ -3,14 +3,14 @@
 #include<algorithm>
 using namespace std;
 
-int n , k, result;		// Àç±Í·Î µ¹¸®±â À§ÇØ Àü¿ªº¯¼ö ¼±¾ğ
-vector<int> vec;		// kÀÇ ¿ø¼Òµé
+int n , k, result;		// ì¬ê·€ë¡œ ëŒë¦¬ê¸° ìœ„í•´ ì „ì—­ë³€ìˆ˜ ì„ ì–¸
+vector<int> vec;		// kì˜ ì›ì†Œë“¤
 
 void recursive(int x) {
-	if (n < x) return;	// x °¡ 0º¸´Ù Å©¸é Á¶°Ç¿¡ ¾È¸ÂÀ¸¹Ç·Î Å»Ãâ
-	result = result < x ? x : result;	// resultº¸´Ù È®ÀÎ ÇÏ·Á´Â x°ªÀÌ Å©¸é x°ªÀ» ³Ö¾îÁÜ. °á±¹ nÀÌÇÏÀÇ ¼ıÀÚ Áß ÃÖ´ë°ªÀÌ ³²´Â´Ù
+	if (n < x) return;	// x ê°€ 0ë³´ë‹¤ í¬ë©´ ì¡°ê±´ì— ì•ˆë§ìœ¼ë¯€ë¡œ íƒˆì¶œ
+	result = result < x ? x : result;	// resultë³´ë‹¤ í™•ì¸ í•˜ë ¤ëŠ” xê°’ì´ í¬ë©´ xê°’ì„ ë„£ì–´ì¤Œ. ê²°êµ­ nì´í•˜ì˜ ìˆ«ì ì¤‘ ìµœëŒ€ê°’ì´ ë‚¨ëŠ”ë‹¤
 	for (int i = 0; i < k; i++) {
-		recursive(10 * x + vec[i]);		// x¿¡ 10À» °öÇØ¼­ ÇÑÀÚ¸®¾¿ ¿Ã¸®°í kÀÇ ¿ø¼Ò¸¦ ÇÏ³ª¾¿ ºÙ¿©¼­ È®ÀÎÇÏ´Â ¹æ½Ä
+		recursive(10 * x + vec[i]);		// xì— 10ì„ ê³±í•´ì„œ í•œìë¦¬ì”© ì˜¬ë¦¬ê³  kì˜ ì›ì†Œë¥¼ í•˜ë‚˜ì”© ë¶™ì—¬ì„œ í™•ì¸í•˜ëŠ” ë°©ì‹
 	}
 
 }
@@ -22,7 +22,7 @@ int main() {
 		scanf("%d", &x);
 		vec.push_back(x);
 	}
-	sort(vec.begin(), vec.end(), greater<int>());	// ³»¸²Â÷¼øÀ¸·Î Á¤·Ä
+	sort(vec.begin(), vec.end(), greater<int>());	// ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 	recursive(0);
 	printf("%d\n", result);
 }

@@ -9,15 +9,15 @@ int main() {
 	for (int i = 0; i < 6; i++) {
 		int x;
 		scanf("%d %d", &x, &map[i]);
-		if (i % 2 == 0) max1 = map[i] > max1 ? map[i] : max1;	// Â¦¼öÀÏ¶§ °¡Àå ±ä ±æÀÌ
-		else max2 = map[i] > max2 ? map[i] : max2;				// È¦¼öÀÏ¶§ °¡Àå ±ä ±æÀÌ
+		if (i % 2 == 0) max1 = map[i] > max1 ? map[i] : max1;	// ì§ìˆ˜ì¼ë•Œ ê°€ì¥ ê¸´ ê¸¸ì´
+		else max2 = map[i] > max2 ? map[i] : max2;				// í™€ìˆ˜ì¼ë•Œ ê°€ì¥ ê¸´ ê¸¸ì´
 	}
 
 	int w, h;
 
 	for (int i = 0; i < 6; i++) {
 
-		if (i % 2 == 0) {								// Â¦¼öÀÏ¶§ max1ÀÌ¾úÀ¸¹Ç·Î ºñ±³´Â max2¶û ÇØ¾ßµÊ
+		if (i % 2 == 0) {								// ì§ìˆ˜ì¼ë•Œ max1ì´ì—ˆìœ¼ë¯€ë¡œ ë¹„êµëŠ” max2ë‘ í•´ì•¼ë¨
 			if (max2 == map[(i + 5) % 6] + map[(i + 1) % 6])
 				w = map[i];
 		}

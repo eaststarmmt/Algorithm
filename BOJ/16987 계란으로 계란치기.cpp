@@ -11,17 +11,17 @@ void permutation(int now, int broken) {
 	
 	result = max(result, broken);
 
-	if (now == N) return;	// ³¡±îÁö ´Ù ÇØº» °æ¿ì
+	if (now == N) return;	// ëê¹Œì§€ ë‹¤ í•´ë³¸ ê²½ìš°
 
-	for (int i = 0; i < N; i++) {	// now°¡ µé°íÀÖ´Â °è¶õ, i°¡ ¸ÂÀ» °è¶õ
+	for (int i = 0; i < N; i++) {	// nowê°€ ë“¤ê³ ìˆëŠ” ê³„ë€, iê°€ ë§ì„ ê³„ë€
 
-		if (i == now || durability[i] <= 0) continue;	// ÇöÀç µé°íÀÖ´Â °è¶õÇÏ°í ¸ÂÀ» °è¶õÀÌ °ãÄ¡°Å³ª ¶§¸®·Á´Â °è¶õÀÌ ±úÁ®ÀÖÀ¸¸é ¹«½Ã
-		if (durability[now] <= 0) {						// Áö±İ ÀâÀº °è¶õÀÌ ±úÁ®ÀÖÀ¸¸é ´ÙÀ½ °è¶õÀ» ÀâÀ¸·¯ ³Ñ±â°í Á¾·á
+		if (i == now || durability[i] <= 0) continue;	// í˜„ì¬ ë“¤ê³ ìˆëŠ” ê³„ë€í•˜ê³  ë§ì„ ê³„ë€ì´ ê²¹ì¹˜ê±°ë‚˜ ë•Œë¦¬ë ¤ëŠ” ê³„ë€ì´ ê¹¨ì ¸ìˆìœ¼ë©´ ë¬´ì‹œ
+		if (durability[now] <= 0) {						// ì§€ê¸ˆ ì¡ì€ ê³„ë€ì´ ê¹¨ì ¸ìˆìœ¼ë©´ ë‹¤ìŒ ê³„ë€ì„ ì¡ìœ¼ëŸ¬ ë„˜ê¸°ê³  ì¢…ë£Œ
 			permutation(now + 1, broken);
 			return;
 		}
 		int cnt = 0;
-		durability[i] -= weight[now];				// °è¶õÀÌ ±úÁø °æ¿ì Ä«¿îÆÃ
+		durability[i] -= weight[now];				// ê³„ë€ì´ ê¹¨ì§„ ê²½ìš° ì¹´ìš´íŒ…
 		if (durability[i] <= 0) 
 			cnt++;
 		durability[now] -= weight[i];
@@ -29,7 +29,7 @@ void permutation(int now, int broken) {
 			cnt++;
 
 		permutation(now + 1, broken + cnt);
-		durability[i] += weight[now];				// ´ÙÀ½ ¼ø¿­ Á¶È¸¸¦ À§ÇØ µ¹·Á³õ´Â´Ù
+		durability[i] += weight[now];				// ë‹¤ìŒ ìˆœì—´ ì¡°íšŒë¥¼ ìœ„í•´ ëŒë ¤ë†“ëŠ”ë‹¤
 		durability[now] += weight[i];
 		
 	}

@@ -2,7 +2,7 @@
 #define endl "\n"
 using namespace std;
 
-int anaSibal[][2] = {	// µµÇü ³ë°¡´Ù·Î À§Ä¡ ´Ù ±×·Á¼­ ³Ö¾î³õ±â
+int anaSibal[][2] = {	// ë„í˜• ë…¸ê°€ë‹¤ë¡œ ìœ„ì¹˜ ë‹¤ ê·¸ë ¤ì„œ ë„£ì–´ë†“ê¸°
 	{0, 0}, {0, 1}, {0, 2}, {0, 3},
 	{0, 0}, {1, 0}, {2, 0}, {3, 0},
 
@@ -32,19 +32,19 @@ int R, C, res;
 int map[500][500];
 
 void check(int r, int c) {
-	for (int i = 0; i < 19; i++) {	// µµÇüÀÌ ÃÑ 19 °¡Áö
+	for (int i = 0; i < 19; i++) {	// ë„í˜•ì´ ì´ 19 ê°€ì§€
 		int sum = 0;
 		bool flag = true;
-		for (int j = i * 4; j < i * 4 + 4; j++) {	// 4°³ ´ÜÀ§·Î ²÷¾î¼­ °è»ê
+		for (int j = i * 4; j < i * 4 + 4; j++) {	// 4ê°œ ë‹¨ìœ„ë¡œ ëŠì–´ì„œ ê³„ì‚°
 			int nr = r + anaSibal[j][0];
 			int nc = c + anaSibal[j][1];
-			if (nr < 0 || nr >= R || nc < 0 || nc >= C) {	// ¹üÀ§ ³Ñ¾î°¡¸é flag·Î ÃÑ°ªÀ¸·Î ³ÖÁö ¸»¶ó°í Ç¥½ÃÇÏ°í Å»Ãâ
+			if (nr < 0 || nr >= R || nc < 0 || nc >= C) {	// ë²”ìœ„ ë„˜ì–´ê°€ë©´ flagë¡œ ì´ê°’ìœ¼ë¡œ ë„£ì§€ ë§ë¼ê³  í‘œì‹œí•˜ê³  íƒˆì¶œ
 				flag = false;
 				break;
 			}
-			sum += map[nr][nc];			// ÇØ´ç À§Ä¡ ¸Ê °ª °è¼Ó ´õÇÏ±â
+			sum += map[nr][nc];			// í•´ë‹¹ ìœ„ì¹˜ ë§µ ê°’ ê³„ì† ë”í•˜ê¸°
 		}
-		if (flag) res = sum > res ? sum : res;	// ÃÖ´ë°ª °»½Å
+		if (flag) res = sum > res ? sum : res;	// ìµœëŒ€ê°’ ê°±ì‹ 
 	}
 }
 

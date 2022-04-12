@@ -6,33 +6,33 @@
 #define endl "\n"
 using namespace std;
 
-set<string> visited;		// ±âÁ¸ÀÇ ´Ü¾î°¡ µé¾î¿Ô´ÂÁö Ã¼Å©ÇÏ±â À§ÇØ »ç¿ë. setÀº binary search tree ÀÌ¹Ç·Î ½Ã°£º¹Àâµµ O(logN)
+set<string> visited;		// ê¸°ì¡´ì˜ ë‹¨ì–´ê°€ ë“¤ì–´ì™”ëŠ”ì§€ ì²´í¬í•˜ê¸° ìœ„í•´ ì‚¬ìš©. setì€ binary search tree ì´ë¯€ë¡œ ì‹œê°„ë³µì¡ë„ O(logN)
 string sortGame;			
 int N, K;
 
 int bfs() {
 	string want = sortGame;		
-	sort(want.begin(), want.end());		// ÀÔ·Â¹ŞÀº ´Ü¾î¸¦ sortÇØ¼­ Á¤´äÀÌ ¹ºÁö Ã£¾Æ³õ±â
+	sort(want.begin(), want.end());		// ì…ë ¥ë°›ì€ ë‹¨ì–´ë¥¼ sortí•´ì„œ ì •ë‹µì´ ë­”ì§€ ì°¾ì•„ë†“ê¸°
 	queue<pair<string, int>> Q;
 	Q.push({ sortGame, 0 });
-	visited.insert(sortGame);			// visited¿¡ ÇöÀç ´Ü¾î ÀúÀå
+	visited.insert(sortGame);			// visitedì— í˜„ì¬ ë‹¨ì–´ ì €ì¥
 
 	while (!Q.empty()) {
 		string s = Q.front().first;
 		int cnt = Q.front().second;
 		Q.pop();
 
-		if (s == want) return cnt;		// Á¤´äÀÌ¸é cnt Ãâ·Â
+		if (s == want) return cnt;		// ì •ë‹µì´ë©´ cnt ì¶œë ¥
 
 		for (int i = 0; i <= N - K; i++) {
-			string cut = s.substr(i, K);	// iºÎÅÍ K°³ Àß¶ó³»±â
-			reverse(cut.begin(), cut.end());	// reverse ¶óÀÌºê·¯¸® ÀÌ¿ë
-			string check = s.substr(0, i);		// 0¹øÂ°ºÎÅÍ i°³ Áï cut¿¡¼­ Àß¶ó³»±â ÀÌÀüºÎºĞ Àß¶ó³¿
-			check += cut + s.substr(i + K);		// µÚÁıÀº cut°ú cut ÀÌÈÄ ºÎºĞ ºÙÀÌ±â
+			string cut = s.substr(i, K);	// ië¶€í„° Kê°œ ì˜ë¼ë‚´ê¸°
+			reverse(cut.begin(), cut.end());	// reverse ë¼ì´ë¸ŒëŸ¬ë¦¬ ì´ìš©
+			string check = s.substr(0, i);		// 0ë²ˆì§¸ë¶€í„° iê°œ ì¦‰ cutì—ì„œ ì˜ë¼ë‚´ê¸° ì´ì „ë¶€ë¶„ ì˜ë¼ëƒ„
+			check += cut + s.substr(i + K);		// ë’¤ì§‘ì€ cutê³¼ cut ì´í›„ ë¶€ë¶„ ë¶™ì´ê¸°
 				
-			if (visited.find(check) == visited.end()) {		// visited ¿¡ µé¾î¿Ô´ÂÁö È®ÀÎ
-				Q.push({ check, cnt + 1 });			// ´Ü¾î°¡ ¾ø¾ú´Ù¸é Q¿¡ ³Ö±â
-				visited.insert(check);				// ÇöÀç ´Ü¾î visited¿¡ µî·Ï
+			if (visited.find(check) == visited.end()) {		// visited ì— ë“¤ì–´ì™”ëŠ”ì§€ í™•ì¸
+				Q.push({ check, cnt + 1 });			// ë‹¨ì–´ê°€ ì—†ì—ˆë‹¤ë©´ Qì— ë„£ê¸°
+				visited.insert(check);				// í˜„ì¬ ë‹¨ì–´ visitedì— ë“±ë¡
 			}
 		}
 	}

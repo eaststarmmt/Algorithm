@@ -1,6 +1,6 @@
 #include<stdio.h>
-//°è»êÇÏ´Ù º¸¸é Á¸³ª Ä¿Á®¼­ long long Á¶Â÷ °¨´ç ¾ÈµÉ ¼ö ÀÖÀ½
-//¹Ì¸®¹Ì¸® ³ª´²¼­ ÀúÀåÇÒ °Í
+//ê³„ì‚°í•˜ë‹¤ ë³´ë©´ ì¡´ë‚˜ ì»¤ì ¸ì„œ long long ì¡°ì°¨ ê°ë‹¹ ì•ˆë  ìˆ˜ ìžˆìŒ
+//ë¯¸ë¦¬ë¯¸ë¦¬ ë‚˜ëˆ ì„œ ì €ìž¥í•  ê²ƒ
 int d[1000001];
 
 int main() {

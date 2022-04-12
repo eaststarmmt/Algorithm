@@ -7,14 +7,14 @@ int num[1001];
 long long result;
 
 void divideCon(int start, int end, int maxValue) {
-	if (start == end) return;					// ½ÃÀÛ°ú ³¡ °ªÀÌ °°À¸¸é Ä«¿îÆÃ ¾ÈµÇ¹Ç·Î ¸®ÅÏ
-	int nowMax = *max_element(num + start, num + end);	// ÃÖ´ë°ª Ã£±â. end´Â ¹è¿­ »çÀÌÁî
-	int maxIndex = find(num + start, num + end, nowMax) - num;	// ÃÖ´ë°ª ÀÎµ¦½º Ã£±â
+	if (start == end) return;					// ì‹œì‘ê³¼ ë ê°’ì´ ê°™ìœ¼ë©´ ì¹´ìš´íŒ… ì•ˆë˜ë¯€ë¡œ ë¦¬í„´
+	int nowMax = *max_element(num + start, num + end);	// ìµœëŒ€ê°’ ì°¾ê¸°. endëŠ” ë°°ì—´ ì‚¬ì´ì¦ˆ
+	int maxIndex = find(num + start, num + end, nowMax) - num;	// ìµœëŒ€ê°’ ì¸ë±ìŠ¤ ì°¾ê¸°
 
-	if (start <= maxIndex - 1) divideCon(start, maxIndex, nowMax);	// ÃÖ´ë°ª À§Ä¡ÀÇ ¿ŞÂÊ °ª º¸³»±â. maxIndex±îÁö º¸³»µµ end -1 ¸¸Å­¸¸ Å½»öµÊ
-	if (maxIndex + 1 < end) divideCon(maxIndex + 1, end, nowMax);	// ¿À¸¥ÂÊ °ª º¸³»±â.
+	if (start <= maxIndex - 1) divideCon(start, maxIndex, nowMax);	// ìµœëŒ€ê°’ ìœ„ì¹˜ì˜ ì™¼ìª½ ê°’ ë³´ë‚´ê¸°. maxIndexê¹Œì§€ ë³´ë‚´ë„ end -1 ë§Œí¼ë§Œ íƒìƒ‰ë¨
+	if (maxIndex + 1 < end) divideCon(maxIndex + 1, end, nowMax);	// ì˜¤ë¥¸ìª½ ê°’ ë³´ë‚´ê¸°.
 
-	result += maxValue - nowMax;	// ±âÁ¸ÀÇ ÃÖ´ë°ª - ÇöÀç ÃÖ´ë°ª ¸¸Å­ ´õÇØ¾ß ¼ıÀÚ°¡ ¸ÂÃçÁü
+	result += maxValue - nowMax;	// ê¸°ì¡´ì˜ ìµœëŒ€ê°’ - í˜„ì¬ ìµœëŒ€ê°’ ë§Œí¼ ë”í•´ì•¼ ìˆ«ìê°€ ë§ì¶°ì§
 }
 
 int main() {
@@ -27,7 +27,7 @@ int main() {
 		int x;
 		scanf("%d", &x);
 		num[i] = x;
-		maxValue = x > maxValue ? x : maxValue;	// ÃÖ´ë°ª ±â·Ï
+		maxValue = x > maxValue ? x : maxValue;	// ìµœëŒ€ê°’ ê¸°ë¡
 	}
 
 	divideCon(0, N, maxValue);

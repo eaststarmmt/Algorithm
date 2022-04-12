@@ -7,7 +7,7 @@ using namespace std;
 int map[50][50];
 bool visited[50][50];
 int R, C;
-int dr[] = { 0, -1, 0, 1 };	// ¼­ ºÏ µ¿ ³² ¼ø¼­·Î
+int dr[] = { 0, -1, 0, 1 };	// ì„œ ë¶ ë™ ë‚¨ ìˆœì„œë¡œ
 int dc[] = { -1, 0, 1, 0 };
 
 class Pos {
@@ -33,12 +33,12 @@ int bfs(int r, int c) {
 		for (int i = 0; i < 4; i++) {
 			int nr = r + dr[i];
 			int nc = c + dc[i];
-			if (nr >= 0 && nc >= 0 && nr < R && nc < C && !visited[nr][nc] && (wall & ~map[r][c]) != 0) {	// º®ÀÌ ÀÖ´ÂÁö ¾ø´ÂÁö ºñÆ®¿¬»êÀ¸·Î È®ÀÎ
+			if (nr >= 0 && nc >= 0 && nr < R && nc < C && !visited[nr][nc] && (wall & ~map[r][c]) != 0) {	// ë²½ì´ ìˆëŠ”ì§€ ì—†ëŠ”ì§€ ë¹„íŠ¸ì—°ì‚°ìœ¼ë¡œ í™•ì¸
 				Q.push(Pos(nr, nc));
 				visited[nr][nc] = true;
 				width++;
 			}
-			wall <<= 1;	// ´ÙÀ½ ¹æÇâÀÇ º®À» È®ÀÎÇÏ±â À§ÇØ shift
+			wall <<= 1;	// ë‹¤ìŒ ë°©í–¥ì˜ ë²½ì„ í™•ì¸í•˜ê¸° ìœ„í•´ shift
 		}
 	}
 	return width;
@@ -56,7 +56,7 @@ int main() {
 		}
 	}
 
-	int cnt = 0;	// ¹æÀÇ °³¼ö
+	int cnt = 0;	// ë°©ì˜ ê°œìˆ˜
 	int maxWidth = 0;
 	for (int i = 0; i < R; i++) {
 		for (int j = 0; j < C; j++) {
@@ -67,16 +67,16 @@ int main() {
 			}
 		}
 	}
-	cout << cnt << endl << maxWidth << endl;	// maxWidth ±»ÀÌ ÃÊ±âÈ­ ¾ÈÇØµµ ´õ Ä¿Áú°ÍÀÌ¹Ç·Î ÁøÇà
+	cout << cnt << endl << maxWidth << endl;	// maxWidth êµ³ì´ ì´ˆê¸°í™” ì•ˆí•´ë„ ë” ì»¤ì§ˆê²ƒì´ë¯€ë¡œ ì§„í–‰
 	for (int i = 0; i < R; i++) {
 		for (int j = 0; j < C; j++) {
-			for (int k = 1; k < 16; k <<= 1) {	// ÇØ´ç ÁÂÇ¥¿¡¼­ º® ÇÏ³ª¾¿ ¾ø¾Öº¸±â
-				if ((map[i][j] & k) != 0) {		// º®ÀÌ ÀÖ´Ù¸é º® ¾ø¾Ö°í ÁøÇà
-					map[i][j] -= k;		// º® ¾ø¾Ö±â
+			for (int k = 1; k < 16; k <<= 1) {	// í•´ë‹¹ ì¢Œí‘œì—ì„œ ë²½ í•˜ë‚˜ì”© ì—†ì• ë³´ê¸°
+				if ((map[i][j] & k) != 0) {		// ë²½ì´ ìˆë‹¤ë©´ ë²½ ì—†ì• ê³  ì§„í–‰
+					map[i][j] -= k;		// ë²½ ì—†ì• ê¸°
 					memset(visited, false, sizeof(visited));
 					int width = bfs(i, j);
 					maxWidth = width > maxWidth ? width : maxWidth;
-					map[i][j] += k;		// º® ´Ù½Ã º¹±¸
+					map[i][j] += k;		// ë²½ ë‹¤ì‹œ ë³µêµ¬
 				}
 			}
 		}

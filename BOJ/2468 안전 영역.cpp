@@ -12,7 +12,7 @@ int dc[] = { 0, 0, -1, 1 };
 bool visited[MAX][MAX];
 
 bool dfs(int r, int c, int height) {
-	if (visited[r][c] || map[r][c] <= height) return false;	// ¹°¿¡ Àá±â°Å³ª ¹æ¹®ÇßÀ¸¸é ³ª°¡±â
+	if (visited[r][c] || map[r][c] <= height) return false;	// ë¬¼ì— ìž ê¸°ê±°ë‚˜ ë°©ë¬¸í–ˆìœ¼ë©´ ë‚˜ê°€ê¸°
 	visited[r][c] = true;
 	for (int i = 0; i < 4; i++) {
 		int nr = r + dr[i];
@@ -35,11 +35,11 @@ int main() {
 		}
 	}
 	for (int i = minHeight - 1; i <= maxHeight; i++) {
-		int cnt = 0;								// Ä«¿îÆÃ ÃÊ±âÈ­
-		memset(visited, false, sizeof(visited));	// visited ÃÊ±âÈ­
+		int cnt = 0;								// ì¹´ìš´íŒ… ì´ˆê¸°í™”
+		memset(visited, false, sizeof(visited));	// visited ì´ˆê¸°í™”
 		for (int r = 0; r < N; r++) {
 			for (int c = 0; c < N; c++) {
-				if (dfs(r, c, i)) cnt++;	// dfs °úÁ¤ÀÌ ÀÌ·ç¾î Áö¸é Áï µ¢¾î¸®°¡ ÇÏ³ª¶óµµ ³ª¿À¸é Ä«¿îÆÃ
+				if (dfs(r, c, i)) cnt++;	// dfs ê³¼ì •ì´ ì´ë£¨ì–´ ì§€ë©´ ì¦‰ ë©ì–´ë¦¬ê°€ í•˜ë‚˜ë¼ë„ ë‚˜ì˜¤ë©´ ì¹´ìš´íŒ…
 			}
 		}
 		result = cnt > result ? cnt : result;

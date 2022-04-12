@@ -11,19 +11,19 @@ int main() {
 	vector<long long> prime;
 	for (long long i = 2; i < MAX; i++) {
 		if (composite[i]) continue;
-		prime.push_back(i);			// ¼Ò¼ö¸¸ µû·Î ÀúÀå
+		prime.push_back(i);			// ì†Œìˆ˜ë§Œ ë”°ë¡œ ì €ìž¥
 		for (long long j = i * 2; j < MAX; j += i) {
 			composite[j] = true;
 		}
 	}		// end of for composite
 
 	long long res = 0;
-	for (auto i : prime) {	// size¸¦ long long ÇüÀ¸·Î »ç¿ëÇÒ ¼ö ¾ø¾î¼­ for each·Î Á¢±Ù
+	for (auto i : prime) {	// sizeë¥¼ long long í˜•ìœ¼ë¡œ ì‚¬ìš©í•  ìˆ˜ ì—†ì–´ì„œ for eachë¡œ ì ‘ê·¼
 		long long now = i;
 		for (long long j = now * now; j <= B; j *= now) {
 			if (j < A) continue;
 			res++;
-			if (LLONG_MAX / now < j) break;		// overflow·Î ÀÎÇÑ °ªÀÌ Æ²·ÁÁö´Â Çö»ó ¸·±â À§ÇÔ
+			if (LLONG_MAX / now < j) break;		// overflowë¡œ ì¸í•œ ê°’ì´ í‹€ë ¤ì§€ëŠ” í˜„ìƒ ë§‰ê¸° ìœ„í•¨
 		}
 	}
 	printf("%lld\n", res);

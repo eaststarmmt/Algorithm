@@ -4,16 +4,16 @@
 using namespace std;
 
 void postOrder(string preOrder, string inOrder) {
-	int size = preOrder.length();	// Å©±â
-	if (size == 0) return;		// ±âÀúÁ¶°Ç
-	char root = preOrder[0];	// ·çÆ®³ëµå
-	int leftTree = find(inOrder.begin(), inOrder.end(), root) - inOrder.begin();	// inOrder¿¡¼­ ·çÆ®³ëµå ÀÎµ¦½º¸¦ ÀÌ¿ëÇÏ¿© ¿ŞÂÊ ¼­ºêÆ®¸®ÀÇ ³ëµå °³¼ö Ã£±â
-	int rightTree = size - leftTree - 1;	// ¿À¸¥ÂÊ ¼­ºêÆ®¸®ÀÇ ³ëµå °³¼ö
+	int size = preOrder.length();	// í¬ê¸°
+	if (size == 0) return;		// ê¸°ì €ì¡°ê±´
+	char root = preOrder[0];	// ë£¨íŠ¸ë…¸ë“œ
+	int leftTree = find(inOrder.begin(), inOrder.end(), root) - inOrder.begin();	// inOrderì—ì„œ ë£¨íŠ¸ë…¸ë“œ ì¸ë±ìŠ¤ë¥¼ ì´ìš©í•˜ì—¬ ì™¼ìª½ ì„œë¸ŒíŠ¸ë¦¬ì˜ ë…¸ë“œ ê°œìˆ˜ ì°¾ê¸°
+	int rightTree = size - leftTree - 1;	// ì˜¤ë¥¸ìª½ ì„œë¸ŒíŠ¸ë¦¬ì˜ ë…¸ë“œ ê°œìˆ˜
 
-	postOrder(preOrder.substr(1, leftTree), inOrder.substr(0, leftTree));	// ¿ŞÂÊ ¼­ºêÆ®¸®
-	postOrder(preOrder.substr(1 + leftTree), inOrder.substr(1 + leftTree));	// ¿À¸¥ÂÊ ¼­ºêÆ®¸®
+	postOrder(preOrder.substr(1, leftTree), inOrder.substr(0, leftTree));	// ì™¼ìª½ ì„œë¸ŒíŠ¸ë¦¬
+	postOrder(preOrder.substr(1 + leftTree), inOrder.substr(1 + leftTree));	// ì˜¤ë¥¸ìª½ ì„œë¸ŒíŠ¸ë¦¬
 
-	cout << root;	// post order ÀÌ¹Ç·Î ·çÆ®¸¦ ¸¶Áö¸·¿¡ Ãâ·Â
+	cout << root;	// post order ì´ë¯€ë¡œ ë£¨íŠ¸ë¥¼ ë§ˆì§€ë§‰ì— ì¶œë ¥
 }
 
 int main() {

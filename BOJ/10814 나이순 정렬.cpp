@@ -11,20 +11,20 @@ int main() {
 	ios_base::sync_with_stdio(false);
 	int N;
 	cin >> N;
-	vector<vector<string>> input(201);	// counting sort¸¦ À§ÇÑ vector. 200»ì ±îÁö µÇ¹Ç·Î 201°³ ¼±¾ğ
+	vector<vector<string>> input(201);	// counting sortë¥¼ ìœ„í•œ vector. 200ì‚´ ê¹Œì§€ ë˜ë¯€ë¡œ 201ê°œ ì„ ì–¸
 	for (int i = 0; i < N; i++) {
 		int x;
 		string s;
 		cin >> x >> s;			
-		input[x].push_back(s);	// ³ªÀÌ°¡ xÀÎ »ç¶÷µéÀÌ µî·ÏµÈ ¼ø¼­´ë·Î ¹èÄ¡µÊ
+		input[x].push_back(s);	// ë‚˜ì´ê°€ xì¸ ì‚¬ëŒë“¤ì´ ë“±ë¡ëœ ìˆœì„œëŒ€ë¡œ ë°°ì¹˜ë¨
 	}
 	int cnt = 0;
-	for (int i = 1; i < 201; i++) {	// 1»ìºÎÅÍ 200»ì ±îÁö È®ÀÎ
-		if (input[i].size() == 0) continue;	// ÇØ´ç ³ªÀÌÀÇ »ç¶÷ÀÌ ¾øÀ¸¸é °Ç³Ê¶Ù±â
+	for (int i = 1; i < 201; i++) {	// 1ì‚´ë¶€í„° 200ì‚´ ê¹Œì§€ í™•ì¸
+		if (input[i].size() == 0) continue;	// í•´ë‹¹ ë‚˜ì´ì˜ ì‚¬ëŒì´ ì—†ìœ¼ë©´ ê±´ë„ˆë›°ê¸°
 		for (string s : input[i]) {
 			cout << i << " " << s << endl;	
 			cnt++;
 		}
-		if (cnt == N) return 0;	// N¸í ³ª¿ÔÀ¸¸é µÚ¿¡ »ç¶÷ ¾øÀ¸¹Ç·Î Á¾·á
+		if (cnt == N) return 0;	// Nëª… ë‚˜ì™”ìœ¼ë©´ ë’¤ì— ì‚¬ëŒ ì—†ìœ¼ë¯€ë¡œ ì¢…ë£Œ
 	}
 }
