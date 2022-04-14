@@ -3,32 +3,32 @@
 #include <stack>
 using namespace std;
 
-// ¿Ã¹Ù¸¥ ¹®ÀÚ¿­ Ã¼Å© ÇÔ¼ö
+// ì˜¬ë°”ë¥¸ ë¬¸ìì—´ ì²´í¬ í•¨ìˆ˜
 bool correct(string p) {
 	stack<char> stk;
-	if (p[0] == ')')     // ½ÃÀÛÀÌ ´İ´Â °ıÈ£¸é ¿Ã¹Ù¸¦¼ö ¾øÀ½
+	if (p[0] == ')')     // ì‹œì‘ì´ ë‹«ëŠ” ê´„í˜¸ë©´ ì˜¬ë°”ë¥¼ìˆ˜ ì—†ìŒ
 		return false;
 
 	for (int i = 0; i < p.size(); i++) {
-		if (p[i] == '(') {    // ¿©´Â °ıÈ£Àº ÀÏ´Ü ¿©±â¼­ °É·¯Áü. µÚ´Â ´Ù ´İ´Â °ıÈ£ÀÇ °æ¿ì¶ó°í »ı°¢ÇÏ¸é µÊ
+		if (p[i] == '(') {    // ì—¬ëŠ” ê´„í˜¸ì€ ì¼ë‹¨ ì—¬ê¸°ì„œ ê±¸ëŸ¬ì§. ë’¤ëŠ” ë‹¤ ë‹«ëŠ” ê´„í˜¸ì˜ ê²½ìš°ë¼ê³  ìƒê°í•˜ë©´ ë¨
 			stk.push(p[i]);
 		}
-		else if (stk.empty()) {  // ´İ´Â °ıÈ£ ³ª¿Ô´Âµ¥ ½ºÅÃ ºñ¾úÀ¸¸é ±×³É °É·¯µµ µÊ
+		else if (stk.empty()) {  // ë‹«ëŠ” ê´„í˜¸ ë‚˜ì™”ëŠ”ë° ìŠ¤íƒ ë¹„ì—ˆìœ¼ë©´ ê·¸ëƒ¥ ê±¸ëŸ¬ë„ ë¨
 			return false;
 		}
 		else if (stk.top() == '(') {
 			stk.pop();
 		}
-		else {    // ³ª¸ÓÁö °æ¿ì ±×³É Áı¾î ³ÖÀ½
+		else {    // ë‚˜ë¨¸ì§€ ê²½ìš° ê·¸ëƒ¥ ì§‘ì–´ ë„£ìŒ
 			stk.push(p[i]);
 		}
 	}   // end of for
-	if (stk.empty()) return true;    // ½ºÅÃÀÌ ºñ¾îÀÖÀ¸¸é ¿Ã¹Ù¸¥ °æ¿ì
+	if (stk.empty()) return true;    // ìŠ¤íƒì´ ë¹„ì–´ìˆìœ¼ë©´ ì˜¬ë°”ë¥¸ ê²½ìš°
 	return false;
 
 }
 
-// ´Ü¾î µÚÁı¾îÁÖ´Â ÇÔ¼ö
+// ë‹¨ì–´ ë’¤ì§‘ì–´ì£¼ëŠ” í•¨ìˆ˜
 string reverse(string p) {
 	string answer = "";
 	for (int i = 1; i < p.size() - 1; i++) {
@@ -41,24 +41,24 @@ string reverse(string p) {
 string recursive(string p) {
 	string answer = "";
 	if (p.size() == 0) return p;
-	int open = 0;   // ¿©´Â °ıÈ£¿Í ´İ´Â °ıÈ£ °³¼ö ¼¼±â
+	int open = 0;   // ì—¬ëŠ” ê´„í˜¸ì™€ ë‹«ëŠ” ê´„í˜¸ ê°œìˆ˜ ì„¸ê¸°
 	int close = 0;
 
-	for (int i = 0; i < p.size(); i++) { // ±ÕÇüÀâÈù °ıÈ£ ¸¸µé±â
+	for (int i = 0; i < p.size(); i++) { // ê· í˜•ì¡íŒ ê´„í˜¸ ë§Œë“¤ê¸°
 		if (p[i] == '(') open++;
 		else close++;
-		if (open == close) break;    // °ıÈ£ °³¼ö ¸ÂÀ¸¸é Å»Ãâ
+		if (open == close) break;    // ê´„í˜¸ ê°œìˆ˜ ë§ìœ¼ë©´ íƒˆì¶œ
 	}   // end of for
 
 	string u = p.substr(0, open + close);
 	string v = p.substr(open + close);
 
-	if (correct(u)) {    // u°¡ ¿Ã¹Ù¸¥ ¹®ÀÚ¿­ÀÎ °æ¿ì
+	if (correct(u)) {    // uê°€ ì˜¬ë°”ë¥¸ ë¬¸ìì—´ì¸ ê²½ìš°
 		answer = u + recursive(v);
 	}
-	else {        // ¿Ã¹Ù¸£Áö ¾ÊÀº ¹®ÀÚ¿­ÀÎ °æ¿ì
-		answer = "(" + recursive(v) + ")";   // Àç±Í °ÅÃÄ¼­ »çÀÌ¿¡ ³ÖÀ½
-		string temp = reverse(u);           // Á¶°Ç´ë·Î µÚÁı¾î¼­ ³ÖÀ½
+	else {        // ì˜¬ë°”ë¥´ì§€ ì•Šì€ ë¬¸ìì—´ì¸ ê²½ìš°
+		answer = "(" + recursive(v) + ")";   // ì¬ê·€ ê±°ì³ì„œ ì‚¬ì´ì— ë„£ìŒ
+		string temp = reverse(u);           // ì¡°ê±´ëŒ€ë¡œ ë’¤ì§‘ì–´ì„œ ë„£ìŒ
 		answer += temp;
 	}
 	return answer;

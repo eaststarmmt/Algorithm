@@ -7,11 +7,11 @@ unordered_map<string, int> profit;
 unordered_map<string, string> refer;
 
 void recordProfit(string name, int money) {
-	if (name == "-")	// º»ÀÎÀÌ ¸¶Áö¸·ÀÌ¸é Å»Ãâ. ±âÀúÁ¶°Ç
+	if (name == "-")	// ë³¸ì¸ì´ ë§ˆì§€ë§‰ì´ë©´ íƒˆì¶œ. ê¸°ì €ì¡°ê±´
 		return;
 
 	int sendMoney = money / 10;
-	profit[name] += money - sendMoney;	// 1 ¹Ì¸¸ÀÌ¸é ¾îÂ÷ÇÇ ¾ÈºüÁü
+	profit[name] += money - sendMoney;	// 1 ë¯¸ë§Œì´ë©´ ì–´ì°¨í”¼ ì•ˆë¹ ì§
 	if (sendMoney < 1)
 		return;
 
@@ -24,10 +24,10 @@ vector<int> solution(vector<string> enroll, vector<string> referral, vector<stri
 	for (int i = 0; i < enroll.size(); i++) {
 		//refer.insert(make_pair(enroll[i], referral[i]));
 		refer[enroll[i]] = referral[i];
-	}	// map ¼¼ÆÃ
+	}	// map ì„¸íŒ…
 
 	for (int i = 0; i < seller.size(); i++) {
-		recordProfit(seller[i], amount[i] * 100);	// ÇÑ °³´ç 100¿ø
+		recordProfit(seller[i], amount[i] * 100);	// í•œ ê°œë‹¹ 100ì›
 	}
 	for (int i = 0; i < enroll.size(); i++) {
 		answer.push_back(profit[enroll[i]]);

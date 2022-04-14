@@ -14,21 +14,21 @@ int solution(vector<int> a) {
 	if (a.size() <= 2) return a.size();
 	vector<balloon> balloons;
 	for (int i = 0; i < a.size(); i++) {
-		balloons.push_back({ i, a[i] });  // index¿Í ¼ıÀÚ ÀúÀå
+		balloons.push_back({ i, a[i] });  // indexì™€ ìˆ«ì ì €ì¥
 	}
 	sort(balloons.begin(), balloons.end(), cmp);
-	// °¡Àå ÀÛÀº °ª µÎ°³·Î »óÇÑ¼± ÇÏÇÑ¼± ÀâÀ½. ÀÌ »çÀÌ¿¡ °ª µé¾î¿À¸é »ì¾Æ³²À» ¼ö ¾øÀ½
+	// ê°€ì¥ ì‘ì€ ê°’ ë‘ê°œë¡œ ìƒí•œì„  í•˜í•œì„  ì¡ìŒ. ì´ ì‚¬ì´ì— ê°’ ë“¤ì–´ì˜¤ë©´ ì‚´ì•„ë‚¨ì„ ìˆ˜ ì—†ìŒ
 	int lower = balloons[0].index < balloons[1].index ? balloons[0].index : balloons[1].index;
 	int upper = balloons[0].index > balloons[1].index ? balloons[0].index : balloons[1].index;
-	// ¾ç ¿·¿¡ ÀÛÀº¼ıÀÚ°¡ ¾øÀ¸¸é »ì ¼ö ÀÖÀ½
+	// ì–‘ ì˜†ì— ì‘ì€ìˆ«ìê°€ ì—†ìœ¼ë©´ ì‚´ ìˆ˜ ìˆìŒ
 	for (int i = 2; i < balloons.size(); i++) {
-		if (balloons[i].index > lower && balloons[i].index < upper)  // »çÀÌ¿¡ µé¾î¿ÔÀ¸¸é ¹«Á¶°Ç ÅÍÁü
+		if (balloons[i].index > lower && balloons[i].index < upper)  // ì‚¬ì´ì— ë“¤ì–´ì™”ìœ¼ë©´ ë¬´ì¡°ê±´ í„°ì§
 			continue;
-		if (balloons[i].index < lower)   // ÀÎµ¦½º°¡ ÇÏÇÑ¼± º¸´Ù ÀÛÀ¸¸é ÇÏÇÑ¼± º¯°æ
+		if (balloons[i].index < lower)   // ì¸ë±ìŠ¤ê°€ í•˜í•œì„  ë³´ë‹¤ ì‘ìœ¼ë©´ í•˜í•œì„  ë³€ê²½
 			lower = balloons[i].index;
-		else if (balloons[i].index > upper)  // »óÇÑ¼±º¸´Ù Å©¸é »óÇÑ¼± º¯°æ
+		else if (balloons[i].index > upper)  // ìƒí•œì„ ë³´ë‹¤ í¬ë©´ ìƒí•œì„  ë³€ê²½
 			upper = balloons[i].index;
-		answer++;       // contiune¿¡ °É·¯ÁöÁö ¾Ê¾ÒÀ¸¸é »ì¾Æ³²¾ÒÀ¸¹Ç·Î Ä«¿îÆÃ
+		answer++;       // contiuneì— ê±¸ëŸ¬ì§€ì§€ ì•Šì•˜ìœ¼ë©´ ì‚´ì•„ë‚¨ì•˜ìœ¼ë¯€ë¡œ ì¹´ìš´íŒ…
 	}
 	return answer;
 }

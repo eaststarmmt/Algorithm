@@ -2,14 +2,14 @@
 #include <vector>
 
 using namespace std;
-char num[] = { '4', '1', '2' };   // ³ª´² ¶³¾îÁ³À» ¶§ 4°¡ µé¾î°¡¾ß µÅ¼­ 0¹øÀÌ 4°¡ µÊ
+char num[] = { '4', '1', '2' };   // ë‚˜ëˆ  ë–¨ì–´ì¡Œì„ ë•Œ 4ê°€ ë“¤ì–´ê°€ì•¼ ë¼ì„œ 0ë²ˆì´ 4ê°€ ë¨
 
 string solution(int n) {
 	string answer = "";
 	while (n > 0) {
 		int remainder = n % 3;
 		n /= 3;
-		if (remainder == 0) // ¼ıÀÚ°¡ 0ºÎÅÍ°¡ ¾Æ´Ñ 1ºÎÅÍ ½ÃÀÛÇØ¼­ »ı±â´Â ¹®Á¦
+		if (remainder == 0) // ìˆ«ìê°€ 0ë¶€í„°ê°€ ì•„ë‹Œ 1ë¶€í„° ì‹œì‘í•´ì„œ ìƒê¸°ëŠ” ë¬¸ì œ
 			n--;
 		answer = num[remainder] + answer;
 	}

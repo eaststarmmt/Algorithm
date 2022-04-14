@@ -14,21 +14,21 @@ long long solution(string expression) {
 	queue<char> oper;
 	string num = "";
 	for (int i = 0; i < expression.length(); i++) {
-		if (expression[i] >= '0' && expression[i] <= '9') {    // ¼ıÀÚ¸é °è¼Ó ´õÇÏ±â
+		if (expression[i] >= '0' && expression[i] <= '9') {    // ìˆ«ìë©´ ê³„ì† ë”í•˜ê¸°
 			num += expression[i];
 		}
-		else {    // ¿¬»êÀÚ°¡ ³ª¿ÔÀ» ¶§
-			oper.push(expression[i]);  // Å¥¿¡ ¿¬»êÀÚ ³Ö±â
-			operand.push(stoll(num));    // ¼ıÀÚµµ ³¡³µÀ¸¹Ç·Î Å¥¿¡ ³Ö°í ÃÊ±âÈ­
+		else {    // ì—°ì‚°ìê°€ ë‚˜ì™”ì„ ë•Œ
+			oper.push(expression[i]);  // íì— ì—°ì‚°ì ë„£ê¸°
+			operand.push(stoll(num));    // ìˆ«ìë„ ëë‚¬ìœ¼ë¯€ë¡œ íì— ë„£ê³  ì´ˆê¸°í™”
 			num = "";
 		}
 	}
-	operand.push(stoi(num));    // ¿©±â±îÁö ¼ıÀÚ¶û ¿¬»êÀÚ ºĞÇØ
+	operand.push(stoi(num));    // ì—¬ê¸°ê¹Œì§€ ìˆ«ìë‘ ì—°ì‚°ì ë¶„í•´
 
 	do {
-		queue<long long> operand_copy = operand;  // ´ÙÀ½ ¿ì¼±¼øÀ§¿¡µµ ¶Ç »ç¿ëÇØ¾ß ÇÏ±â ¶§¹®¿¡ º¹»çº» ¸¸µé±â
+		queue<long long> operand_copy = operand;  // ë‹¤ìŒ ìš°ì„ ìˆœìœ„ì—ë„ ë˜ ì‚¬ìš©í•´ì•¼ í•˜ê¸° ë•Œë¬¸ì— ë³µì‚¬ë³¸ ë§Œë“¤ê¸°
 		queue<char> oper_copy = oper;
-		for (int i = 0; i < 3; i++) {     // ¿¬»êÀÚ º°·Î ÇÏ³ª¾¿ °è»êÇÏ±â
+		for (int i = 0; i < 3; i++) {     // ì—°ì‚°ì ë³„ë¡œ í•˜ë‚˜ì”© ê³„ì‚°í•˜ê¸°
 			long long num1 = operand_copy.front();
 			long long num2;
 			operand_copy.pop();
@@ -37,7 +37,7 @@ long long solution(string expression) {
 			for (int j = 0; j < size; j++) {
 				num2 = operand_copy.front();
 				operand_copy.pop();
-				if (sequence[i] == oper_copy.front()) {    // °è»ê ÇÏ·Á´Â ¿¬»êÀÚ°¡ ¸Â´Â °æ¿ì
+				if (sequence[i] == oper_copy.front()) {    // ê³„ì‚° í•˜ë ¤ëŠ” ì—°ì‚°ìê°€ ë§ëŠ” ê²½ìš°
 					if (sequence[i] == '*') {
 						num1 *= num2;
 					}
@@ -47,18 +47,18 @@ long long solution(string expression) {
 					else if (sequence[i] == '-') {
 						num1 -= num2;
 					}
-					oper_copy.pop();    // Áö±İ ¿¬»êÀ» ÇßÀ¸¹Ç·Î Á¦°Å
+					oper_copy.pop();    // ì§€ê¸ˆ ì—°ì‚°ì„ í–ˆìœ¼ë¯€ë¡œ ì œê±°
 				}
-				else {      // °è»ê ¾ÈÇÏ´Â °æ¿ì
+				else {      // ê³„ì‚° ì•ˆí•˜ëŠ” ê²½ìš°
 					operand_copy.push(num1);
-					num1 = num2;    // ÀÌÀü±îÁö °è»êÇÑ°Å pushÇÏ°í num2 °ª num1·Î ¿Å±â±â
-					oper_copy.push(oper_copy.front());  // ÇöÀç ¿¬»êÀÚ ¸Ç µÚ·Î º¸³»±â                    
+					num1 = num2;    // ì´ì „ê¹Œì§€ ê³„ì‚°í•œê±° pushí•˜ê³  num2 ê°’ num1ë¡œ ì˜®ê¸°ê¸°
+					oper_copy.push(oper_copy.front());  // í˜„ì¬ ì—°ì‚°ì ë§¨ ë’¤ë¡œ ë³´ë‚´ê¸°                    
 					oper_copy.pop();
 				}
 
 			}
-			operand_copy.push(num1);    // ¸¶Áö¸· °ª µé¾î°¥ ¼ö ÀÖ°Ô push
-			if (operand_copy.size() == 1) {  // °è»êÀÌ ´Ù ³¡³µÀ» ¶§
+			operand_copy.push(num1);    // ë§ˆì§€ë§‰ ê°’ ë“¤ì–´ê°ˆ ìˆ˜ ìˆê²Œ push
+			if (operand_copy.size() == 1) {  // ê³„ì‚°ì´ ë‹¤ ëë‚¬ì„ ë•Œ
 				answer = abs(num1) > answer ? abs(num1) : answer;
 			}
 		}

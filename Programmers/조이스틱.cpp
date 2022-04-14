@@ -9,19 +9,19 @@ int solution(string name) {
 	int answer = 0;
 	int len = name.size();
 	int mid = len / 2;
-	int front = 0;      // ¾ÕÀ¸·Î ºÎÅÍ °Å¸®
-	int front_to_mid = 0;   // ¾Õ¿¡¼­ Áß°£±îÁö °Å¸®
-	int end = 0;        // µÚ·ÎºÎÅÍ °Å¸®
-	int end_to_mid = 0; // Áß°£ºÎÅÍ µÚ±îÁö °Å¸®
-	// Áß°£À» ±âÁØÀ¸·Î ¾ÕÂÊ°ú µÚÂÊ ¸¶Áö¸·À¸·Î A°¡ ¾Æ´Ñ ºÎºĞ È®ÀÎÇØ¾ß µÊ
+	int front = 0;      // ì•ìœ¼ë¡œ ë¶€í„° ê±°ë¦¬
+	int front_to_mid = 0;   // ì•ì—ì„œ ì¤‘ê°„ê¹Œì§€ ê±°ë¦¬
+	int end = 0;        // ë’¤ë¡œë¶€í„° ê±°ë¦¬
+	int end_to_mid = 0; // ì¤‘ê°„ë¶€í„° ë’¤ê¹Œì§€ ê±°ë¦¬
+	// ì¤‘ê°„ì„ ê¸°ì¤€ìœ¼ë¡œ ì•ìª½ê³¼ ë’¤ìª½ ë§ˆì§€ë§‰ìœ¼ë¡œ Aê°€ ì•„ë‹Œ ë¶€ë¶„ í™•ì¸í•´ì•¼ ë¨
 	for (int i = 0; i < len; i++) {
-		answer += name[i] - 'A' <= 13 ? name[i] - 'A' : 'Z' - name[i] + 1;    // ¾ËÆÄºª ¹Ù²Ù´Â È½¼ö
-		if (name[i] != 'A') {    // ¾Õ¿¡¼­ºÎÅÍÀÇ °Å¸® °è»ê
+		answer += name[i] - 'A' <= 13 ? name[i] - 'A' : 'Z' - name[i] + 1;    // ì•ŒíŒŒë²³ ë°”ê¾¸ëŠ” íšŸìˆ˜
+		if (name[i] != 'A') {    // ì•ì—ì„œë¶€í„°ì˜ ê±°ë¦¬ ê³„ì‚°
 			front = i;
 			if (i <= mid)
-				front_to_mid = i;   // Áß°£ ÀüÀÌ¸é °Å¸® ÀúÀå
+				front_to_mid = i;   // ì¤‘ê°„ ì „ì´ë©´ ê±°ë¦¬ ì €ì¥
 		}
-		if (name[len - i] != 'A') {    // front¿Í °°À½
+		if (name[len - i] != 'A') {    // frontì™€ ê°™ìŒ
 			end = i;
 			if (len - i > mid)
 				end_to_mid = i;

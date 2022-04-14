@@ -5,8 +5,8 @@
 #include <iostream>
 using namespace std;
 
-vector<string> id_list;		// µé¾î¿À°Å³ª ³ª°£ °æ¿ì id¸¦ ÀúÀåÇÒ º¤ÅÍ
-unordered_map<string, string> nicks;	// ¾ÆÀÌµğ¶û ´Ğ³×ÀÓ ¸ÅÇÎ½ÃÅ°±â À§ÇØ ÀúÀåÇÒ ¸Ê
+vector<string> id_list;		// ë“¤ì–´ì˜¤ê±°ë‚˜ ë‚˜ê°„ ê²½ìš° idë¥¼ ì €ì¥í•  ë²¡í„°
+unordered_map<string, string> nicks;	// ì•„ì´ë””ë‘ ë‹‰ë„¤ì„ ë§¤í•‘ì‹œí‚¤ê¸° ìœ„í•´ ì €ì¥í•  ë§µ
 vector<string> answer;
 
 void stringTokenizer(string s) {
@@ -14,28 +14,28 @@ void stringTokenizer(string s) {
 	int idx = 0;
 	string id, nick;
 	bool flag = false;
-	while (getline(stream, s, ' ')) {    // °ø¹é ±âÁØÀ¸·Î ¹®ÀÚ¿­ ³ª´®. LeaveÀÇ °æ¿ì idx°¡ 2ÀÏ¶§ while¹®ÀÌ µ¹Áö ¾ÊÀ½
+	while (getline(stream, s, ' ')) {    // ê³µë°± ê¸°ì¤€ìœ¼ë¡œ ë¬¸ìì—´ ë‚˜ëˆ”. Leaveì˜ ê²½ìš° idxê°€ 2ì¼ë•Œ whileë¬¸ì´ ëŒì§€ ì•ŠìŒ
 		if (idx == 0) {
 			if (s == "Enter") {
-				answer.push_back("´ÔÀÌ µé¾î¿Ô½À´Ï´Ù.");    // ÀÏ´Ü ÀÌ°É·Î ÀúÀå
-				flag = true;  // ¾ÆÀÌµğ ÀúÀåÇØ¾ß µÇ´Â ÇÃ·¡±×    
+				answer.push_back("ë‹˜ì´ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.");    // ì¼ë‹¨ ì´ê±¸ë¡œ ì €ì¥
+				flag = true;  // ì•„ì´ë”” ì €ì¥í•´ì•¼ ë˜ëŠ” í”Œë˜ê·¸    
 			}
 			else if (s == "Leave") {
-				answer.push_back("´ÔÀÌ ³ª°¬½À´Ï´Ù.");    // ÀÏ´Ü ÀÌ°É·Î ÀúÀå
-				flag = true;  // ¾ÆÀÌµğ ÀúÀåÇØ¾ß µÇ´Â ÇÃ·¡±×
+				answer.push_back("ë‹˜ì´ ë‚˜ê°”ìŠµë‹ˆë‹¤.");    // ì¼ë‹¨ ì´ê±¸ë¡œ ì €ì¥
+				flag = true;  // ì•„ì´ë”” ì €ì¥í•´ì•¼ ë˜ëŠ” í”Œë˜ê·¸
 			}
 		}
 		else if (idx == 1) {
-			id = s;         // µÎ¹øÂ° ´Ü¾î ¾ÆÀÌµğ¿¡ ³Ö±â
+			id = s;         // ë‘ë²ˆì§¸ ë‹¨ì–´ ì•„ì´ë””ì— ë„£ê¸°
 
-			if (flag) {       // µé¾î¿À°Å³ª ³ª°£ °æ¿ì ¾ÆÀÌµğ ÀúÀå
+			if (flag) {       // ë“¤ì–´ì˜¤ê±°ë‚˜ ë‚˜ê°„ ê²½ìš° ì•„ì´ë”” ì €ì¥
 				id_list.push_back(id);
 			}
 
 		}
 		else if (idx == 2) {
-			nick = s;       // ¼¼¹øÂ° ´Ü¾î ´Ğ³×ÀÓ¿¡ ³Ö±â
-			nicks[id] = nick;   // ¾ÆÀÌµğ ±âÁØÀ¸·Î ´Ğ³×ÀÓ ¸Ê¿¡ ÀúÀåÇØ¼­ ¸¶Áö¸· °ªÀ¸·Î °è¼Ó °»½ÅµÊ
+			nick = s;       // ì„¸ë²ˆì§¸ ë‹¨ì–´ ë‹‰ë„¤ì„ì— ë„£ê¸°
+			nicks[id] = nick;   // ì•„ì´ë”” ê¸°ì¤€ìœ¼ë¡œ ë‹‰ë„¤ì„ ë§µì— ì €ì¥í•´ì„œ ë§ˆì§€ë§‰ ê°’ìœ¼ë¡œ ê³„ì† ê°±ì‹ ë¨
 		}
 		idx++;
 	}   // end of while stream
@@ -49,7 +49,7 @@ vector<string> solution(vector<string> record) {
 		stringTokenizer(record[i]);
 	}   // end of for
 
-	for (int i = 0; i < answer.size(); i++) {    // answer¿¡ id Ãß°¡
+	for (int i = 0; i < answer.size(); i++) {    // answerì— id ì¶”ê°€
 		answer[i] = nicks[id_list[i]] + answer[i];
 	}
 	return answer;

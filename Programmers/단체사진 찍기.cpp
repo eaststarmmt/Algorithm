@@ -5,42 +5,42 @@
 using namespace std;
 
 bool selected[8];
-char friends1[8] = { 'A', 'C', 'F', 'J', 'M', 'N', 'R', 'T' };  // µû·Î ÀúÀå ¾ÈÇÏ¸é Á¢±ÙÇÏ±â°¡ ³Ê¹« ¾î·Á¿ò. ÀÌ°Å friends·Î ÇÏ¸é ·±Å¸ÀÓ ¿¡·¯³². ÀÌÀ¯´Â ¸ğ¸£°ÚÀ½
+char friends1[8] = { 'A', 'C', 'F', 'J', 'M', 'N', 'R', 'T' };  // ë”°ë¡œ ì €ì¥ ì•ˆí•˜ë©´ ì ‘ê·¼í•˜ê¸°ê°€ ë„ˆë¬´ ì–´ë ¤ì›€. ì´ê±° friendsë¡œ í•˜ë©´ ëŸ°íƒ€ì„ ì—ëŸ¬ë‚¨. ì´ìœ ëŠ” ëª¨ë¥´ê² ìŒ
 int answer;
 void permutation(vector<string> data, int cnt, char line[]) {
 	if (cnt == 8) {
 		for (int i = 0; i < data.size(); i++) {
-			char from = data[i][0];     // ¿øÇÏ´Â ³ğ
-			char to = data[i][2];       // Å¸°Ù
-			char oper = data[i][3];     // ¿¬»êÀÚ
-			int val = 1 + (data[i][4] - '0');      // Á¶°Ç¿¡ ÇØ´çÇÏ´Â °ª. µü ºÙ¾îÀÖ´Â°Ô 1ÀÌ±â ¶§¹®¿¡ +1 ÇØÁà¾ß µÊ
+			char from = data[i][0];     // ì›í•˜ëŠ” ë†ˆ
+			char to = data[i][2];       // íƒ€ê²Ÿ
+			char oper = data[i][3];     // ì—°ì‚°ì
+			int val = 1 + (data[i][4] - '0');      // ì¡°ê±´ì— í•´ë‹¹í•˜ëŠ” ê°’. ë”± ë¶™ì–´ìˆëŠ”ê²Œ 1ì´ê¸° ë•Œë¬¸ì— +1 í•´ì¤˜ì•¼ ë¨
 
 			int from_idx, to_idx;
-			from_idx = to_idx = -1;     // µÑ´Ù -1·Î ÃÊ±âÈ­
-			for (int j = 0; j < 8; j++) {    // 8¸í À§Ä¡ ÀÏÀÏÈ÷ Ã£¾Æ¼­ Á¶°Ç ¸Â´ÂÁö È®ÀÎ
+			from_idx = to_idx = -1;     // ë‘˜ë‹¤ -1ë¡œ ì´ˆê¸°í™”
+			for (int j = 0; j < 8; j++) {    // 8ëª… ìœ„ì¹˜ ì¼ì¼íˆ ì°¾ì•„ì„œ ì¡°ê±´ ë§ëŠ”ì§€ í™•ì¸
 				if (line[j] == from) from_idx = j;
 				if (line[j] == to) to_idx = j;
 				if (from_idx != -1 && to_idx != -1) break;
 			}   // end of for 8
-			// ¾Æ´Ñ °æ¿ì return ÇØ¹ö·Á¼­ Ä«¿îÆÃ ¾ÈµÇ°Ô ¸·À½
+			// ì•„ë‹Œ ê²½ìš° return í•´ë²„ë ¤ì„œ ì¹´ìš´íŒ… ì•ˆë˜ê²Œ ë§‰ìŒ
 			if (oper == '=' && val != abs(from_idx - to_idx)) return;
 			if (oper == '<' && val <= abs(from_idx - to_idx)) return;
 			if (oper == '>' && val >= abs(from_idx - to_idx)) return;
 		}   // end of for data
-		answer++;    // loopÀ» ¹«»çÈ÷ ºüÁ® ³ª¿ÔÀ¸¸é °æ¿ìÀÇ ¼ö¿¡ ÇÏ³ª Ãß°¡
-		return;     // Áö±İ °æ¿ì´Â Ä«¿îÆÃ ÇßÀ¸¹Ç·Î ¼ø¿­¿¡ °ü¿©ÇÏÁö ¾Ê°Ô return
+		answer++;    // loopì„ ë¬´ì‚¬íˆ ë¹ ì ¸ ë‚˜ì™”ìœ¼ë©´ ê²½ìš°ì˜ ìˆ˜ì— í•˜ë‚˜ ì¶”ê°€
+		return;     // ì§€ê¸ˆ ê²½ìš°ëŠ” ì¹´ìš´íŒ… í–ˆìœ¼ë¯€ë¡œ ìˆœì—´ì— ê´€ì—¬í•˜ì§€ ì•Šê²Œ return
 	}
 
-	for (int i = 0; i < 8; i++) {    // ¼ø¿­ ¸¸µé±â
-		if (selected[i]) continue;   // ÀÌ¹Ì ¼±ÅÃÇß´Ù¸é ¹«½Ã
+	for (int i = 0; i < 8; i++) {    // ìˆœì—´ ë§Œë“¤ê¸°
+		if (selected[i]) continue;   // ì´ë¯¸ ì„ íƒí–ˆë‹¤ë©´ ë¬´ì‹œ
 		selected[i] = true;
-		line[cnt] = friends1[i];     // cnt¸¦ ÀÎµ¦½º·Î »ç¿ëÇØ¼­ ¼ÅÇÃ
+		line[cnt] = friends1[i];     // cntë¥¼ ì¸ë±ìŠ¤ë¡œ ì‚¬ìš©í•´ì„œ ì…”í”Œ
 		permutation(data, cnt + 1, line);
 		selected[i] = false;
 	}
 }
 
-// Àü¿ª º¯¼ö¸¦ Á¤ÀÇÇÒ °æ¿ì ÇÔ¼ö ³»¿¡ ÃÊ±âÈ­ ÄÚµå¸¦ ²À ÀÛ¼ºÇØÁÖ¼¼¿ä.
+// ì „ì—­ ë³€ìˆ˜ë¥¼ ì •ì˜í•  ê²½ìš° í•¨ìˆ˜ ë‚´ì— ì´ˆê¸°í™” ì½”ë“œë¥¼ ê¼­ ì‘ì„±í•´ì£¼ì„¸ìš”.
 int solution(int n, vector<string> data) {
 	answer = 0;
 	char line[8] = { 0 };

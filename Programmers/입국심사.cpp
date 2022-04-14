@@ -3,22 +3,22 @@
 #include <algorithm>
 #include <iostream>
 using namespace std;
-// ½Ã°£À» Å¸°ÙÀ¸·Î Àâ¾Æ¼­ ¸ğµç ½É»ç°üÀÌ ÇØ´ç ½Ã°£ µ¿¾È ½É»çÇÒ ¼ö ÀÖ´Â »ç¶÷ ¼ö ¼¼¼­ ±× Áß ½Ã°£ ÃÖ¼Ò°ªÀ¸·Î »Ì¾Æ³»´Â ¹æ¹ı
+// ì‹œê°„ì„ íƒ€ê²Ÿìœ¼ë¡œ ì¡ì•„ì„œ ëª¨ë“  ì‹¬ì‚¬ê´€ì´ í•´ë‹¹ ì‹œê°„ ë™ì•ˆ ì‹¬ì‚¬í•  ìˆ˜ ìˆëŠ” ì‚¬ëŒ ìˆ˜ ì„¸ì„œ ê·¸ ì¤‘ ì‹œê°„ ìµœì†Œê°’ìœ¼ë¡œ ë½‘ì•„ë‚´ëŠ” ë°©ë²•
 long long binarySearch(int n, vector<int> times) {
 	long long start = 1;
-	long long end = (long long)n * (*max_element(times.begin(), times.end()));    // ÃÖ¾ÇÀÇ °æ¿ì
+	long long end = (long long)n * (*max_element(times.begin(), times.end()));    // ìµœì•…ì˜ ê²½ìš°
 	long long res = end;
 	while (start <= end) {
 		long long mid = (start + end) / 2;
 		long long sum = 0;
 		for (int i = 0; i < times.size(); i++) {
-			sum += mid / times[i];  // ½Ã°£ / ½É»çÇÏ´Âµ¥ °É¸®´Â ½Ã°£ = ÇØ´ç ½Ã°£µ¿¾È ½É»çÇÒ ¼ö ÀÖ´Â »ç¶÷ ¼ö
+			sum += mid / times[i];  // ì‹œê°„ / ì‹¬ì‚¬í•˜ëŠ”ë° ê±¸ë¦¬ëŠ” ì‹œê°„ = í•´ë‹¹ ì‹œê°„ë™ì•ˆ ì‹¬ì‚¬í•  ìˆ˜ ìˆëŠ” ì‚¬ëŒ ìˆ˜
 		}   // end of sum
-		if (sum >= n) {  // °Ë»ç¸¦ ¸ğµÎ ÇÒ ¼ö ÀÖ´Â °æ¿ì. ÀÌ Áß¿¡ ÃÖ¼Ò°ª »Ì¾Æ³»¾ßµÊ
+		if (sum >= n) {  // ê²€ì‚¬ë¥¼ ëª¨ë‘ í•  ìˆ˜ ìˆëŠ” ê²½ìš°. ì´ ì¤‘ì— ìµœì†Œê°’ ë½‘ì•„ë‚´ì•¼ë¨
 			res = mid < res ? mid : res;
 			end = mid - 1;
 		}
-		else {  // ½Ã°£ÀÌ ¸ğÀÚ¶õ °æ¿ì. ½Ã°£ ´Ã·ÁÁà¾ß µÊ
+		else {  // ì‹œê°„ì´ ëª¨ìë€ ê²½ìš°. ì‹œê°„ ëŠ˜ë ¤ì¤˜ì•¼ ë¨
 			start = mid + 1;
 		}
 	}

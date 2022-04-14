@@ -5,32 +5,32 @@
 using namespace std;
 
 bool isPossible(int a, int b, vector<int> g, vector<int> s, vector<int> w, vector<int> t, long long mid) {
-	long long gold = 0;     // Á¶´ŞÇÑ ±¤¹°µé ¾ç
+	long long gold = 0;     // ì¡°ë‹¬í•œ ê´‘ë¬¼ë“¤ ì–‘
 	long long silver = 0;
 	long long goldSilver = 0;
 	for (int i = 0; i < g.size(); i++) {
-		long long rtt = t[i] * 2;       // ¿Õº¹ ½Ã°£
-		long long cnt = mid / rtt;      // ÁÖ¾îÁø ½Ã°£ / ¿Õº¹½Ã°£
-		if (mid % rtt >= t[i]) cnt++;    // ³ª¸ÓÁö°¡ ¿Ã¼ö ÀÖ´Â ½Ã°£ÀÌ¸é Ä«¿îÆÃ. µ¹¾Æ°¥ ÇÊ¿ä ¾øÀ¸¹Ç·Î
-		long long send = w[i] * cnt;    // Àü´ŞÇÑ È½¼ö * ÇÑ¹ø¿¡ º¸³¾ ¼ö ÀÖ´Â ÃÖ´ë ¹«°Ô¸¦ ÅëÇØ ¾ó¸¶³ª ¹Ş¾Ò´ÂÁö Ã¼Å©
-		gold += min((long long)g[i], send); // ÃÖ´ë Àü´ŞÇÑ ¹«°Ô°¡ ±İÀÇ ¹«°Ôº¸´Ù ¸¹À¸¸é ¾ÈµÊ. ÃÖ´ë°ª ´õÇØÁÖ±â
+		long long rtt = t[i] * 2;       // ì™•ë³µ ì‹œê°„
+		long long cnt = mid / rtt;      // ì£¼ì–´ì§„ ì‹œê°„ / ì™•ë³µì‹œê°„
+		if (mid % rtt >= t[i]) cnt++;    // ë‚˜ë¨¸ì§€ê°€ ì˜¬ìˆ˜ ìˆëŠ” ì‹œê°„ì´ë©´ ì¹´ìš´íŒ…. ëŒì•„ê°ˆ í•„ìš” ì—†ìœ¼ë¯€ë¡œ
+		long long send = w[i] * cnt;    // ì „ë‹¬í•œ íšŸìˆ˜ * í•œë²ˆì— ë³´ë‚¼ ìˆ˜ ìˆëŠ” ìµœëŒ€ ë¬´ê²Œë¥¼ í†µí•´ ì–¼ë§ˆë‚˜ ë°›ì•˜ëŠ”ì§€ ì²´í¬
+		gold += min((long long)g[i], send); // ìµœëŒ€ ì „ë‹¬í•œ ë¬´ê²Œê°€ ê¸ˆì˜ ë¬´ê²Œë³´ë‹¤ ë§ìœ¼ë©´ ì•ˆë¨. ìµœëŒ€ê°’ ë”í•´ì£¼ê¸°
 		silver += min((long long)s[i], send);
-		goldSilver += min((long long)s[i] + g[i], send);   // µÑ ´Ù °¡´ÉÇÏ°í µÑÀ» ÇÕÄ£°ÍÀÇ ¹«°Ô±îÁö È®ÀÎÇØ¾ß µÊ
+		goldSilver += min((long long)s[i] + g[i], send);   // ë‘˜ ë‹¤ ê°€ëŠ¥í•˜ê³  ë‘˜ì„ í•©ì¹œê²ƒì˜ ë¬´ê²Œê¹Œì§€ í™•ì¸í•´ì•¼ ë¨
 	}
 
-	if (gold >= a && silver >= b && goldSilver >= a + b) return true;    // ±¤¹°À» ÇÊ¿äÇÑ ¾ç ÀÌ»ó Àü´Ş °¡´ÉÇÏ¸é true
+	if (gold >= a && silver >= b && goldSilver >= a + b) return true;    // ê´‘ë¬¼ì„ í•„ìš”í•œ ì–‘ ì´ìƒ ì „ë‹¬ ê°€ëŠ¥í•˜ë©´ true
 	return false;
 
 }
 
 long long solution(int a, int b, vector<int> g, vector<int> s, vector<int> w, vector<int> t) {
 	long long start = 0;
-	long long end = 10e14 * 4;   // Á¦ÇÑ »çÇ× ³» ÃÖ¾ÇÀÇ °æ¿ì
+	long long end = 10e14 * 4;   // ì œí•œ ì‚¬í•­ ë‚´ ìµœì•…ì˜ ê²½ìš°
 	long long answer = end;
 
 	while (start <= end) {
 		long long mid = (start + end) / 2;
-		if (isPossible(a, b, g, s, w, t, mid)) {     // mid ¾È¿¡ ¿Å±æ ¼ö ÀÖ´Â °æ¿ì
+		if (isPossible(a, b, g, s, w, t, mid)) {     // mid ì•ˆì— ì˜®ê¸¸ ìˆ˜ ìˆëŠ” ê²½ìš°
 			answer = mid < answer ? mid : answer;
 			end = mid - 1;
 		}

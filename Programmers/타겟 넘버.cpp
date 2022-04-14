@@ -4,13 +4,13 @@
 #include <iostream>
 using namespace std;
 
-struct Info {   // numbersÀÇ ÀÎµ¦½º, ÇöÀç±îÁöÀÇ ÇÕ, °è»êÇÑ ¼ıÀÚ °³¼ö
+struct Info {   // numbersì˜ ì¸ë±ìŠ¤, í˜„ì¬ê¹Œì§€ì˜ í•©, ê³„ì‚°í•œ ìˆ«ì ê°œìˆ˜
 	int index, sum, cnt;
 };
 int answer;
 void bfs(vector<int> numbers, int target) {
 	queue<Info> Q;
-	Q.push({ 0, numbers[0], 1 }); // +¿Í - °¢°¢ Àâ°í ½ÃÀÛ
+	Q.push({ 0, numbers[0], 1 }); // +ì™€ - ê°ê° ì¡ê³  ì‹œì‘
 	Q.push({ 0, -numbers[0], 1 });
 	int size = numbers.size();
 	while (!Q.empty()) {
@@ -18,8 +18,8 @@ void bfs(vector<int> numbers, int target) {
 		int sum = Q.front().sum;
 		int cnt = Q.front().cnt;
 		Q.pop();
-		if (cnt == size && sum == target) answer++;  // ¸ğµç ¼ıÀÚ¸¦ ´Ù °è»ê ÇßÀ» ¶§ target°ú ÀÏÄ¡ÇÏ¸é Ä«¿îÆÃ
-		if (index == size) return;   // Å©±â ³Ñ¾î°¡¸é Á¾·á
+		if (cnt == size && sum == target) answer++;  // ëª¨ë“  ìˆ«ìë¥¼ ë‹¤ ê³„ì‚° í–ˆì„ ë•Œ targetê³¼ ì¼ì¹˜í•˜ë©´ ì¹´ìš´íŒ…
+		if (index == size) return;   // í¬ê¸° ë„˜ì–´ê°€ë©´ ì¢…ë£Œ
 
 		Q.push({ index + 1, sum + numbers[index + 1], cnt + 1 });
 		Q.push({ index + 1, sum - numbers[index + 1], cnt + 1 });

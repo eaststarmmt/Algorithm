@@ -9,18 +9,18 @@ int solution(vector<int> people, int limit) {
 	sort(people.begin(), people.end());
 	int start = 0;
 	int end = people.size() - 1;
-	int escape = 0;     // Å»ÃâÇÑ »ç¶÷ ¼ö
-	while (start < end) {    // ÅõÆ÷ÀÎÅÍ °³³ä
-		if (people[start] + people[end] <= limit) {  // µÎ¸íÀÌ ´Ù ³ª°¡Áö´Â °æ¿ì
+	int escape = 0;     // íƒˆì¶œí•œ ì‚¬ëŒ ìˆ˜
+	while (start < end) {    // íˆ¬í¬ì¸í„° ê°œë…
+		if (people[start] + people[end] <= limit) {  // ë‘ëª…ì´ ë‹¤ ë‚˜ê°€ì§€ëŠ” ê²½ìš°
 			answer++;
 			escape += 2;
 			start++;
 			end--;
 		}
-		else {    // ´ú ¹«°Å¿î »ç¶÷À¸·Î ¹Ù²ã¼­ ´ÙÀ½ ·çÇÁ¿¡¼­ ³ª°¡Áö´ÂÁö È®ÀÎÇÏ±â
+		else {    // ëœ ë¬´ê±°ìš´ ì‚¬ëŒìœ¼ë¡œ ë°”ê¿”ì„œ ë‹¤ìŒ ë£¨í”„ì—ì„œ ë‚˜ê°€ì§€ëŠ”ì§€ í™•ì¸í•˜ê¸°
 			end--;
 		}
 	}
-	answer += people.size() - escape;   // µÎ¸í¾¿ Å»Ãâ ¸øÇÑ »ç¶÷µé ¼ıÀÚ ¸¸Å­ 
+	answer += people.size() - escape;   // ë‘ëª…ì”© íƒˆì¶œ ëª»í•œ ì‚¬ëŒë“¤ ìˆ«ì ë§Œí¼ 
 	return answer;
 }

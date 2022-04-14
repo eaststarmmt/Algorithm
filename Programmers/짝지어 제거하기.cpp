@@ -7,20 +7,20 @@ int solution(string s)
 {
 	int answer = -1;
 
-	// [½ÇÇà] ¹öÆ°À» ´©¸£¸é Ãâ·Â °ªÀ» º¼ ¼ö ÀÖ½À´Ï´Ù.
+	// [ì‹¤í–‰] ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ì¶œë ¥ ê°’ì„ ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 	cout << "Hello Cpp" << endl;
 	stack<char> stk;
 	for (int i = 0; i < s.size(); i++) {
-		if (stk.empty())     // ºñ¾îÀÖÀ¸¸é push
+		if (stk.empty())     // ë¹„ì–´ìˆìœ¼ë©´ push
 			stk.push(s[i]);
-		else if (stk.top() == s[i])  // top°ú °°Àº ±ÛÀÚ¸é ³ÖÁö ¾Ê°í pop
+		else if (stk.top() == s[i])  // topê³¼ ê°™ì€ ê¸€ìë©´ ë„£ì§€ ì•Šê³  pop
 			stk.pop();
-		else                // µé¾îÀÖ´Âµ¥ ´Ù¸£¸é push
+		else                // ë“¤ì–´ìˆëŠ”ë° ë‹¤ë¥´ë©´ push
 			stk.push(s[i]);
 	}
-	if (stk.empty()) // ½ºÅÃÀÌ ºñ¾î ÀÖÀ¸¸é °¡´É
+	if (stk.empty()) // ìŠ¤íƒì´ ë¹„ì–´ ìˆìœ¼ë©´ ê°€ëŠ¥
 		answer = 1;
-	else            // µé¾îÀÖÀ¸¸é ºÒ°¡´É
+	else            // ë“¤ì–´ìˆìœ¼ë©´ ë¶ˆê°€ëŠ¥
 		answer = 0;
 	return answer;
 }

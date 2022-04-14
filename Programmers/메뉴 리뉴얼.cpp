@@ -9,7 +9,7 @@ bool cmp(pair<string, int> a, pair<string, int> b) {
 }
 
 void comb(int start, int cnt, int& target, string menu, string& order, unordered_map<string, int>& map) {
-	if (cnt == target) { // target ¸¸Å­ °ñ¶úÀ» ¶§
+	if (cnt == target) { // target ë§Œí¼ ê³¨ëì„ ë•Œ
 		map[menu]++;
 		return;
 	}
@@ -20,21 +20,21 @@ void comb(int start, int cnt, int& target, string menu, string& order, unordered
 
 vector<string> solution(vector<string> orders, vector<int> course) {
 	vector<string> answer;
-	for (int i = 0; i < course.size(); i++) {    // courseÀÇ ¼ıÀÚ ¸¸Å­ ¸ÕÀú Á¶ÇÕ Â¥±â
+	for (int i = 0; i < course.size(); i++) {    // courseì˜ ìˆ«ì ë§Œí¼ ë¨¼ì € ì¡°í•© ì§œê¸°
 		unordered_map<string, int> map;
 		for (int j = 0; j < orders.size(); j++) {
-			if (orders[j].size() < course[i])    // Å©±â°¡ courseº¸´Ù ÀÛÀ¸¸é ¹«½Ã
+			if (orders[j].size() < course[i])    // í¬ê¸°ê°€ courseë³´ë‹¤ ì‘ìœ¼ë©´ ë¬´ì‹œ
 				continue;
-			sort(orders[j].begin(), orders[j].end()); // ¾ËÆÄºª ¼ø¼­ ÅëÀÏÇÏ±â À§ÇØ Á¤·Ä
+			sort(orders[j].begin(), orders[j].end()); // ì•ŒíŒŒë²³ ìˆœì„œ í†µì¼í•˜ê¸° ìœ„í•´ ì •ë ¬
 			comb(0, 0, course[i], "", orders[j], map);
 		}
-		if (map.empty()) continue;  // mapÀÌ ºñ¾îÀÖÀ¸¸é info[0] Á¢±ÙÀÌ ºÒ°¡´É
-		vector<pair<string, int>> info(map.begin(), map.end());  // map¿¡ ÀúÀåÇÑ°Å °¡Á®¿È
-		sort(info.begin(), info.end(), cmp);        // ¸¹ÀÌ ³ª¿Â ¼øÀ¸·Î Á¤·Ä
+		if (map.empty()) continue;  // mapì´ ë¹„ì–´ìˆìœ¼ë©´ info[0] ì ‘ê·¼ì´ ë¶ˆê°€ëŠ¥
+		vector<pair<string, int>> info(map.begin(), map.end());  // mapì— ì €ì¥í•œê±° ê°€ì ¸ì˜´
+		sort(info.begin(), info.end(), cmp);        // ë§ì´ ë‚˜ì˜¨ ìˆœìœ¼ë¡œ ì •ë ¬
 		if (info[0].second < 2) continue;
 		answer.push_back(info[0].first);
 		for (int j = 1; j < info.size(); j++) {
-			if (info[j].second == info[0].second)  // °¡Àå ¸¹Àº°Ô °°À» ¶§
+			if (info[j].second == info[0].second)  // ê°€ì¥ ë§ì€ê²Œ ê°™ì„ ë•Œ
 				answer.push_back(info[j].first);
 			else
 				break;

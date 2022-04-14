@@ -1,8 +1,8 @@
 using namespace std;
-// ¸ğµç »ç°¢Çü - (°¡·Î + ¼¼·Î - ÃÖ´ë°ø¾à¼ö)
+// ëª¨ë“  ì‚¬ê°í˜• - (ê°€ë¡œ + ì„¸ë¡œ - ìµœëŒ€ê³µì•½ìˆ˜)
 long long solution(int w, int h) {
 	long long answer = (long long)w * h - (w + h);
-	while (h != 0) { // À¯Å¬¸®µå È£Á¦
+	while (h != 0) { // ìœ í´ë¦¬ë“œ í˜¸ì œ
 		int d = w % h;
 		w = h;
 		h = d;

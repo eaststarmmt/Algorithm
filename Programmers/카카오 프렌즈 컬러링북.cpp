@@ -7,31 +7,31 @@ int dr[] = { -1, 1, 0, 0 };
 int dc[] = { 0, 0, -1, 1 };
 int R, C;
 void dfs(vector<vector<int>> picture, int r, int c, int target) {
-	visited[r][c] = true;   // ÀÌµ¿ Ç¥½Ã
-	now_size++;             // ÇöÀç ±×¸² Å©±â Ä«¿îÆÃ
+	visited[r][c] = true;   // ì´ë™ í‘œì‹œ
+	now_size++;             // í˜„ì¬ ê·¸ë¦¼ í¬ê¸° ì¹´ìš´íŒ…
 	for (int i = 0; i < 4; i++) {
 		int nr = r + dr[i];
 		int nc = c + dc[i];
 		if (nr < 0 || nr >= R || nc < 0 || nc >= C || visited[nr][nc])
 			continue;
-		if (!visited[nr][nc] && picture[nr][nc] == target)   // ¹æ¹®ÇÑÀû ¾ø°í °°Àº »ö±òÀÎ °æ¿ì¸¸ ¹æ¹®
+		if (!visited[nr][nc] && picture[nr][nc] == target)   // ë°©ë¬¸í•œì  ì—†ê³  ê°™ì€ ìƒ‰ê¹”ì¸ ê²½ìš°ë§Œ ë°©ë¬¸
 			dfs(picture, nr, nc, target);
 	}
 }
-// Àü¿ª º¯¼ö¸¦ Á¤ÀÇÇÒ °æ¿ì ÇÔ¼ö ³»¿¡ ÃÊ±âÈ­ ÄÚµå¸¦ ²À ÀÛ¼ºÇØÁÖ¼¼¿ä.
+// ì „ì—­ ë³€ìˆ˜ë¥¼ ì •ì˜í•  ê²½ìš° í•¨ìˆ˜ ë‚´ì— ì´ˆê¸°í™” ì½”ë“œë¥¼ ê¼­ ì‘ì„±í•´ì£¼ì„¸ìš”.
 vector<int> solution(int m, int n, vector<vector<int>> picture) {
 	int number_of_area = 0;
 	max_size_of_one_area = 0;
 	R = picture.size();
 	C = picture[0].size();
-	memset(visited, false, sizeof(visited));    // visited ÃÊ±âÈ­ ¾ÈÇÏ¸é Æ²¸²
+	memset(visited, false, sizeof(visited));    // visited ì´ˆê¸°í™” ì•ˆí•˜ë©´ í‹€ë¦¼
 	for (int i = 0; i < picture.size(); i++) {
 		for (int j = 0; j < picture[i].size(); j++) {
-			if (!visited[i][j] && picture[i][j] != 0) {   // ¹æ¹®ÇÑ Àû ¾ø°í »öÄ¥ ÇÑ °æ¿ì¸¸
-				now_size = 0;   // ÇöÀç ±×¸² Å©±â ÃÊ±âÈ­
+			if (!visited[i][j] && picture[i][j] != 0) {   // ë°©ë¬¸í•œ ì  ì—†ê³  ìƒ‰ì¹  í•œ ê²½ìš°ë§Œ
+				now_size = 0;   // í˜„ì¬ ê·¸ë¦¼ í¬ê¸° ì´ˆê¸°í™”
 				dfs(picture, i, j, picture[i][j]);
-				number_of_area++;       // ±×¸² ¿µ¿ª Ä«¿îÆÃ
-				max_size_of_one_area = now_size > max_size_of_one_area ? now_size : max_size_of_one_area;   // ÇöÀç±îÁö Áß »çÀÌÁî ÃÖ´ëÀÎ °ª ÀúÀå
+				number_of_area++;       // ê·¸ë¦¼ ì˜ì—­ ì¹´ìš´íŒ…
+				max_size_of_one_area = now_size > max_size_of_one_area ? now_size : max_size_of_one_area;   // í˜„ì¬ê¹Œì§€ ì¤‘ ì‚¬ì´ì¦ˆ ìµœëŒ€ì¸ ê°’ ì €ì¥
 			}
 		}
 	}   // end of picture

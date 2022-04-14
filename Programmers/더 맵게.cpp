@@ -5,7 +5,7 @@ using namespace std;
 
 struct cmp {
 	bool operator() (int a, int b) {
-		return a > b;     // priority_queue´Â ¹İ´ë·Î Àâ¾Æ¾ß µÊ
+		return a > b;     // priority_queueëŠ” ë°˜ëŒ€ë¡œ ì¡ì•„ì•¼ ë¨
 	}
 };
 
@@ -15,8 +15,8 @@ int solution(vector<int> scoville, int K) {
 	if (scoville.size() == 0)
 		return answer;
 
-	while (food.top() < K) {     // ÃÖ¼Ò°ªÀÌ K ÀÌ»óÀÌ µÉ¶§±îÁö ¹İº¹
-		if (food.size() == 1) {  // À½½ÄÀÌ ÇÑ °³ ³²Àº °æ¿ì´Â ¼¯Áö ¸øÇÔ
+	while (food.top() < K) {     // ìµœì†Œê°’ì´ K ì´ìƒì´ ë ë•Œê¹Œì§€ ë°˜ë³µ
+		if (food.size() == 1) {  // ìŒì‹ì´ í•œ ê°œ ë‚¨ì€ ê²½ìš°ëŠ” ì„ì§€ ëª»í•¨
 			answer = -1;
 			break;
 		}
