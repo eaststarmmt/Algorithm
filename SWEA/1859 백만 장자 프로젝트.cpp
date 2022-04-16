@@ -18,7 +18,7 @@ int main() {
 		}
 		int max = day[N - 1];
 		long long result = 0;
-		for (int i = N - 1; i >= 0; i--) {	// µÚ¿¡¼­ºÎÅÍ ¸¶Áø È®ÀÎ
+		for (int i = N - 1; i >= 0; i--) {	// ë’¤ì—ì„œë¶€í„° ë§ˆì§„ í™•ì¸
 			if (max > day[i]) result += max - day[i];
 			else max = day[i];
 		}

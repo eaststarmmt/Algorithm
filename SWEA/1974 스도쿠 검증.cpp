@@ -16,7 +16,7 @@ int main() {
 	}
 	if (!flag) {
 		printf("%d", 0);
-		// TODO: Å»Ãâ
+		// TODO: íƒˆì¶œ
 	}
 
 	for (int i = 1; i <= 9; i++) {
@@ -33,7 +33,7 @@ int main() {
 
 	if (!flag) {
 		printf("%d", 0);
-		// TODO: Å»Ãâ
+		// TODO: íƒˆì¶œ
 	}
 
 	for (int iStart = 1; iStart <= 7; iStart += 3) {
@@ -54,7 +54,7 @@ int main() {
 
 	if (!flag) {
 		printf("%d", 0);
-		// TODO: Å»Ãâ
+		// TODO: íƒˆì¶œ
 	}
 	else {
 		printf("%d", 1);

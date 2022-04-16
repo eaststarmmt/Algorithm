@@ -16,9 +16,9 @@ int main() {
 		cin >> input;
 		int cnt = 0;
 		for (int i = 0; i < input.size() - 1; i++) {
-			if (input[i] != input[i + 1]) cnt++;		// ´ÙÀ½ÀÌ¶û ´Ù¸£¸é + 1
+			if (input[i] != input[i + 1]) cnt++;		// ë‹¤ìŒì´ë‘ ë‹¤ë¥´ë©´ + 1
 		}
-		if (input[0] == '1') cnt++;			// 1·Î ½ÃÀÛÇßÀ¸¸é + 1 ´õ ÇØÁà¾ß µÊ
+		if (input[0] == '1') cnt++;			// 1ë¡œ ì‹œì‘í–ˆìœ¼ë©´ + 1 ë” í•´ì¤˜ì•¼ ë¨
 		cout << "#" << test << " " << cnt << "\n";
 	}
 }

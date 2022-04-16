@@ -14,11 +14,11 @@ int main() {
 	cin >> T;
 	for (int test = 1; test <= T; test++) {
 
-		memset(S, 0, sizeof(S));	// 0À¸·Î ÃÊ±âÈ­
+		memset(S, 0, sizeof(S));	// 0ìœ¼ë¡œ ì´ˆê¸°í™”
 		memset(D, 0, sizeof(D));
 		memset(H, 0, sizeof(H));
 		memset(C, 0, sizeof(C));
-		int s = 13, d = 13, h = 13, c = 13;		// 13¿¡¼­ »©Áà¼­ ºÎÁ·ÇÑ Ä«µå °³¼ö ±¸ÇÔ
+		int s = 13, d = 13, h = 13, c = 13;		// 13ì—ì„œ ë¹¼ì¤˜ì„œ ë¶€ì¡±í•œ ì¹´ë“œ ê°œìˆ˜ êµ¬í•¨
 		string input;
 		cin >> input;
 		bool flag = true;
@@ -26,7 +26,7 @@ int main() {
 		for (int i = 0; i < input.size(); i += 3) {
 			switch (input[i]) {
 			case 'S':
-				if (input[i + 1] == '0') {		// Ã³À½ µé¾î¿Â ¼ıÀÚ¸é ++, ¾Æ´Ï¸é flag false·Î Ç¥½Ã
+				if (input[i + 1] == '0') {		// ì²˜ìŒ ë“¤ì–´ì˜¨ ìˆ«ìë©´ ++, ì•„ë‹ˆë©´ flag falseë¡œ í‘œì‹œ
 					if (S[input[i + 2] - '0'] == 0) S[input[i + 2] - '0']++;
 					else flag = false;		
 				}
@@ -34,7 +34,7 @@ int main() {
 					if (S[input[i + 2] - '0' + 10] == 0) S[input[i + 2] - '0' + 10]++;
 					else flag = false;
 				}
-				if (flag) s--;					// Áßº¹ ¾ø´Â °æ¿ì¿¡ ÇÊ¿äÇÑ Ä«µå °³¼ö °¨¼Ò
+				if (flag) s--;					// ì¤‘ë³µ ì—†ëŠ” ê²½ìš°ì— í•„ìš”í•œ ì¹´ë“œ ê°œìˆ˜ ê°ì†Œ
 				break;
 			case 'D':
 				if (input[i + 1] == '0') {

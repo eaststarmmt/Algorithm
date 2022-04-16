@@ -16,8 +16,8 @@ int main() {
 				scanf("%d", &map[i][j]);
 			}
 		}
-		int result = -999;			// ÃÖ´ë°ª ¹ÞÀ» º¯¼ö
-		for (int iStart = 0; iStart < N - M + 1; iStart++) {	// Ã³À½ºÎÅÍ M X M °³¾¿ ´õÇØ¼­ ÃÖ´ë°ª Ãâ·Â
+		int result = -999;			// ìµœëŒ€ê°’ ë°›ì„ ë³€ìˆ˜
+		for (int iStart = 0; iStart < N - M + 1; iStart++) {	// ì²˜ìŒë¶€í„° M X M ê°œì”© ë”í•´ì„œ ìµœëŒ€ê°’ ì¶œë ¥
 			for (int jStart = 0; jStart < N - M + 1; jStart++) {
 				int sum = 0;
 				for (int i = iStart; i < iStart + M; i++) {

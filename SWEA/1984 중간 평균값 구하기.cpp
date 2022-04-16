@@ -14,12 +14,12 @@ int main() {
 		for (int i = 0; i < 10; i++) {
 			int x;
 			scanf("%d", &x);
-			sum += x;					// ÀÔ·ÂÇÏ¸é¼­ ´Ù ´õÇÔ
-			max = x > max ? x : max;	// ÃÖ´ë°ª µû·Î ºÐ·ù
-			min = x < min ? x : min;	// ÃÖ¼Ò°ª µû·Î ºÐ·ù
+			sum += x;					// ìž…ë ¥í•˜ë©´ì„œ ë‹¤ ë”í•¨
+			max = x > max ? x : max;	// ìµœëŒ€ê°’ ë”°ë¡œ ë¶„ë¥˜
+			min = x < min ? x : min;	// ìµœì†Œê°’ ë”°ë¡œ ë¶„ë¥˜
 		}
-		sum = sum - max - min;			// ÇÕ¿¡¼­ ÃÖ´ë ÃÖ¼Ò »©ÁÜ
-		printf("#%d %d\n", test, (int)round(sum / 8));	// ¹Ý¿Ã¸² ÈÄ Ãâ·Â
+		sum = sum - max - min;			// í•©ì—ì„œ ìµœëŒ€ ìµœì†Œ ë¹¼ì¤Œ
+		printf("#%d %d\n", test, (int)round(sum / 8));	// ë°˜ì˜¬ë¦¼ í›„ ì¶œë ¥
 	}
 
 }

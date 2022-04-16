@@ -9,18 +9,18 @@ int main() {
 	int T;
 	cin >> T;
 	for (int test = 1; test <= T; test++) {
-		string input[5];		// ÀÔ·ÂÀÌ 5°³¶ó°í Á¤ÇØÁ³±â ¶§¹®¿¡ string 5°³ ¹ŞÀ½
-		int maxLenghth = -1;	// °¡Àå ±ä °¡·ÎÁÙ Ã¼Å©
+		string input[5];		// ì…ë ¥ì´ 5ê°œë¼ê³  ì •í•´ì¡Œê¸° ë•Œë¬¸ì— string 5ê°œ ë°›ìŒ
+		int maxLenghth = -1;	// ê°€ì¥ ê¸´ ê°€ë¡œì¤„ ì²´í¬
 		for (int i = 0; i < 5; i++) {
 			cin >> input[i];
-			int x = input[i].size();	// size() ÇÔ¼ö°¡ int Å¸ÀÔÀÌ ¾Æ´Ï¹Ç·Î µû·Î int·Î ÀúÀåÇØ³õ°í ºñ°íÇØ¾ßµÊ
+			int x = input[i].size();	// size() í•¨ìˆ˜ê°€ int íƒ€ì…ì´ ì•„ë‹ˆë¯€ë¡œ ë”°ë¡œ intë¡œ ì €ì¥í•´ë†“ê³  ë¹„ê³ í•´ì•¼ë¨
 			maxLenghth = max(x, maxLenghth);
 		}
 		cout << "#" << test << " ";
-		for (int i = 0; i < maxLenghth; i++) {		// °¡·ÎÁÙ ÃÖ´ë ±æÀÌ ±îÁö
+		for (int i = 0; i < maxLenghth; i++) {		// ê°€ë¡œì¤„ ìµœëŒ€ ê¸¸ì´ ê¹Œì§€
 			for (int j = 0; j < 5; j++) {		
 				int x = input[j].size();			
-				if (x > i) cout << input[j][i];		// string ±æÀÌ°¡ ÃÊ°úµÇÁö ¾Ê¾ÒÀ¸¸é Ãâ·Â
+				if (x > i) cout << input[j][i];		// string ê¸¸ì´ê°€ ì´ˆê³¼ë˜ì§€ ì•Šì•˜ìœ¼ë©´ ì¶œë ¥
 			}
 		}
 		cout << "\n";

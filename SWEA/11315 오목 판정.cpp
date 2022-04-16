@@ -24,7 +24,7 @@ int main() {
 		}
 		int cnt = 0;
 		bool flag = false;
-		for (int i = 0; i < N; i++) {		// °¡·ÎÁÙ È®ÀÎ
+		for (int i = 0; i < N; i++) {		// ê°€ë¡œì¤„ í™•ì¸
 			if (flag) break;
 			cnt = 0;
 			for (int j = 0; j < N; j++) {
@@ -38,7 +38,7 @@ int main() {
 			
 		}		
 
-		for (int i = 0; i < N; i++) {		// ¼¼·ÎÁÙ È®ÀÎ
+		for (int i = 0; i < N; i++) {		// ì„¸ë¡œì¤„ í™•ì¸
 			if (flag) break;
 			cnt = 0;
 			for (int j = 0; j < N; j++) {
@@ -51,7 +51,7 @@ int main() {
 			}
 		}
 
-		for (int i = 0; i < N; i++) {		// ´ë°¢ ¿À¸¥ÂÊ ¾Æ·¡¹æÇâ È®ÀÎ
+		for (int i = 0; i < N; i++) {		// ëŒ€ê° ì˜¤ë¥¸ìª½ ì•„ë˜ë°©í–¥ í™•ì¸
 			if (flag) break;
 			for (int j = 0; j < N; j++) {
 				cnt = 0;
@@ -67,7 +67,7 @@ int main() {
 			}
 		}
 
-		for (int i = N - 1; i >= 0; i--) {		// ´ë°¢ ¿ŞÂÊ À§ ¹æÇâ È®ÀÎ
+		for (int i = N - 1; i >= 0; i--) {		// ëŒ€ê° ì™¼ìª½ ìœ„ ë°©í–¥ í™•ì¸
 			if (flag) break;
 			for (int j = 0; j < N; j++) {
 				cnt = 0;

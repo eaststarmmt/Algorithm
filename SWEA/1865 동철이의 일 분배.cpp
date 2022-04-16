@@ -11,9 +11,9 @@ void comb(double total, int start, int cnt) {
 	if (cnt == N + 1) {
 		result = total > result ? total : result;
 	}
-	if (total <= result) return;		// °öÇÒ¼ö·Ï ÀÛ¾ÆÁö¹Ç·Î ÀÌ¹Ì ÀÛ°Å³ª °°À¸¸é ÇÒ ÇÊ¿ä°¡ ¾øÀ½
-	for (int i = 1; i <= N; i++) {		// ÀÏÀº ÇÏ³ª¾¿ ¸ÃÀ¸¹Ç·Î 1¹øºÎÅÍ °è¼Ó È®ÀÎ
-		if (selected[i]) continue;		// ÀÌ¹Ì ¼±ÅÃµÈ ÀÏÀº ÇÒ ÇÊ¿ä ¾øÀ½
+	if (total <= result) return;		// ê³±í• ìˆ˜ë¡ ìž‘ì•„ì§€ë¯€ë¡œ ì´ë¯¸ ìž‘ê±°ë‚˜ ê°™ìœ¼ë©´ í•  í•„ìš”ê°€ ì—†ìŒ
+	for (int i = 1; i <= N; i++) {		// ì¼ì€ í•˜ë‚˜ì”© ë§¡ìœ¼ë¯€ë¡œ 1ë²ˆë¶€í„° ê³„ì† í™•ì¸
+		if (selected[i]) continue;		// ì´ë¯¸ ì„ íƒëœ ì¼ì€ í•  í•„ìš” ì—†ìŒ
 		selected[i] = true;
 		comb(total * work[cnt][i],start + 1, cnt + 1);	
 		selected[i] = false;
@@ -36,6 +36,6 @@ int main() {
 		}
 
 		comb(1, 1, 1);
-		printf("#%d %.6lf\n", test, result * 100);	// printf ¼Ò¼öÁ¡ ÁöÁ¤ÇÏ¸é ÀÚµ¿À¸·Î ¹Ý¿Ã¸² ÇØ¼­ ³ª¿È
+		printf("#%d %.6lf\n", test, result * 100);	// printf ì†Œìˆ˜ì  ì§€ì •í•˜ë©´ ìžë™ìœ¼ë¡œ ë°˜ì˜¬ë¦¼ í•´ì„œ ë‚˜ì˜´
 	}
 }
