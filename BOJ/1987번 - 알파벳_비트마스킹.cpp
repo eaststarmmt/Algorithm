@@ -8,14 +8,14 @@ int dr[] = { -1, 1, 0, 0 };
 int dc[] = { 0, 0, -1, 1 };
 
 void dfs(int r, int c, int visited, int cnt) {
-	res = max(cnt, res);	// ¹æ¹® °³¼ö ÃÖ´ë°ª¸¸ °»½Å
+	res = max(cnt, res);	// ë°©ë¬¸ ê°œìˆ˜ ìµœëŒ€ê°’ë§Œ ê°±ì‹ 
 	for (int i = 0; i < 4; i++) {
 		int nr = r + dr[i];
 		int nc = c + dc[i];
 		if (nr <= 0 || nc <= 0 || nr > R || nc > C) continue;
-		int next_bit = 1 << (map[nr][nc] - 'A');	// ¸ÊÀÇ ´ÙÀ½ ¹®ÀÚ ¾ËÆÄºª ºñÆ® ÃßÃâ
-		if (next_bit & visited) continue;	// & ¿¬»ê ÈÄ 0ÀÌ ¾Æ´Ï¸é ½ÇÇà ¾ÈÇÔ
-		dfs(nr, nc, visited | next_bit, cnt + 1);	// |¿¬»êÀ¸·Î 1·Î ¹Ù²Û ÈÄ ´ÙÀ½ ¹®ÀÚ È®ÀÎ
+		int next_bit = 1 << (map[nr][nc] - 'A');	// ë§µì˜ ë‹¤ìŒ ë¬¸ìž ì•ŒíŒŒë²³ ë¹„íŠ¸ ì¶”ì¶œ
+		if (next_bit & visited) continue;	// & ì—°ì‚° í›„ 0ì´ ì•„ë‹ˆë©´ ì‹¤í–‰ ì•ˆí•¨
+		dfs(nr, nc, visited | next_bit, cnt + 1);	// |ì—°ì‚°ìœ¼ë¡œ 1ë¡œ ë°”ê¾¼ í›„ ë‹¤ìŒ ë¬¸ìž í™•ì¸
 	}	// end of for
 
 }
