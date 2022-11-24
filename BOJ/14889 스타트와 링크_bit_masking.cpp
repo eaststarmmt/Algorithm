@@ -38,14 +38,14 @@ int main() {
 	}	// end of for i
 
 	for (int i = 1; i < (1 << N); i++) {
-		if (__builtin_popcount(i) != N / 2) {	// ¹Ý¹Ý ³ª´²ÁöÁö ¾ÊÀº °æ¿ì ¹«½Ã
+		if (__builtin_popcount(i) != N / 2) {	// ë°˜ë°˜ ë‚˜ëˆ ì§€ì§€ ì•Šì€ ê²½ìš° ë¬´ì‹œ
 			continue;
 		}
 
 		vector<int> start;
 		vector<int> link;
 
-		for (int j = 1, bit = 1; j <= N; j++, (bit <<= 1)) { // ÆÀ ³ª´©±â
+		for (int j = 1, bit = 1; j <= N; j++, (bit <<= 1)) { // íŒ€ ë‚˜ëˆ„ê¸°
 			if (i & bit) {
 				start.push_back(j);
 			}
